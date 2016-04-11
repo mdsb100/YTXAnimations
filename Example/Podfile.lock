@@ -1,0 +1,21 @@
+PODS:
+  - JHChainableAnimations (1.3.0)
+  - Kiwi (2.4.0)
+  - YTXAnimations (0.1.0):
+    - JHChainableAnimations (~> 1.3.0)
+
+DEPENDENCIES:
+  - JHChainableAnimations (~> 1.3.0)
+  - Kiwi
+  - YTXAnimations (from `../`)
+
+EXTERNAL SOURCES:
+  YTXAnimations:
+    :path: ../
+
+SPEC CHECKSUMS:
+  JHChainableAnimations: 22085fcb04ca87349e584573558e637f659fd769
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  YTXAnimations: 1c747072b0b97652ac3574cf476fffc4dc5412e7
+
+COCOAPODS: 0.39.0

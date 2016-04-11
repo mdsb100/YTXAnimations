@@ -1,12 +1,18 @@
 source 'https://github.com/CocoaPods/Specs.git'
-use_frameworks!
+#use_frameworks!
+platform :ios, '8.0'
 
 target 'YTXAnimations_Example', :exclusive => true do
   pod 'YTXAnimations', :path => '../'
+  pod 'JHChainableAnimations', '~> 1.3.0'
+
 end
 
 target 'YTXAnimations_Tests', :exclusive => true do
   pod 'YTXAnimations', :path => '../'
-
+  pod 'JHChainableAnimations', '~> 1.3.0'
   pod 'Kiwi'
+
 end
+
+
