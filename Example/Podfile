@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'YTXAnimations_Example', :exclusive => true do
+  pod 'YTXAnimations', :path => '../'
+end
+
+target 'YTXAnimations_Tests', :exclusive => true do
+  pod 'YTXAnimations', :path => '../'
+
+  pod 'Kiwi'
+end
