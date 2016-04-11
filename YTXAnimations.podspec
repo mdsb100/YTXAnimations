@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "YTXAnimations"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "提供UIView的动画"
 
 # This description is used to generate tags and improve search results.
@@ -16,7 +16,8 @@ Pod::Spec.new do |s|
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = "UIView的分类，调用实例方法。"
+  s.description      = "UIView的分类，调用实例方法。 \
+                        请参考 http://daneden.github.io/animate.css/#23cta"
 
   s.homepage         = "http://gitlab.baidao.com/ios/YTXAnimations"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
