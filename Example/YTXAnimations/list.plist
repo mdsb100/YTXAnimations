@@ -7,16 +7,10 @@
 		<string>Attention Seekers</string>
 		<key>sub</key>
 		<dict>
-			<key>tada</key>
-			<string>tadaAnimtionWithDurationTime:</string>
 			<key>ytx_tada</key>
 			<string>ytx_tadaAnimtionWithDurationTime:</string>
-			<key>shake</key>
-			<string>shakeAnimtionWithDurationTime:</string>
 			<key>ytx_shake</key>
 			<string>ytx_shakeAnimtionWithDurationTime:</string>
-			<key>flash</key>
-			<string>flashAnimationWithDurationTime:</string>
 		</dict>
 	</dict>
 </array>

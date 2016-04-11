@@ -7,53 +7,10 @@
 //
 
 #import "UIView+YTXAnimation.h"
-#import <JHChainableAnimations/JHChainableAnimations.h>
 
 @implementation UIView (YTXAnimation)
 
-#pragma mark - Attention Seekers 
-
-- (void) tadaAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    float value = durationTime/10;
-    float rotate = 3;
-    float smallScale = 0.9;
-    float lagerScale = 1.1;
-    
-    self
-    .transformScale(smallScale)
-    .rotate(-rotate)
-    .thenAfter(durationTime/5)
-    
-    .transformScale(lagerScale)
-    .rotate(2 * rotate)
-    .thenAfter(value)
-    
-    .rotate(-2 * rotate)
-    .thenAfter(value)
-    
-    .rotate(2 * rotate)
-    .thenAfter(value)
-    
-    .rotate(-2 * rotate)
-    .thenAfter(value)
-    
-    .rotate(2 * rotate)
-    .thenAfter(value)
-    
-    .rotate(-2 * rotate)
-    .thenAfter(value)
-    
-    .rotate(2 * rotate)
-    .thenAfter(value)
-    
-    .rotate(-2 * rotate)
-    .thenAfter(value)
-    
-    .rotate(rotate)
-    .transformScale(1)
-    .animate(0);
-    
-}
+#pragma mark - Attention Seekers
 
 - (void) ytx_tadaAnimtionWithDurationTime:(NSTimeInterval)durationTime{
     float rotate = 0.1;
@@ -75,39 +32,6 @@
     
 }
 
-- (void)shakeAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    float value = durationTime/10;
-    float moveX = 5;
-    
-    self
-    .moveX(moveX)
-    .thenAfter(value)
-    
-    .moveX(- 2 * moveX)
-    .thenAfter(value)
-    
-    .moveX( 2 * moveX)
-    .thenAfter(value)
-    
-    .moveX(-2 * moveX)
-    .thenAfter(value)
-    
-    .moveX(2 *moveX)
-    .thenAfter(value)
-    
-    .moveX(-2 *moveX)
-    .thenAfter(value)
-    
-    .moveX(2 *moveX)
-    .thenAfter(value)
-    
-    .moveX(-2 * moveX)
-    .thenAfter(value)
-    
-    .moveX(moveX)
-    .animate(0);
-}
-
 - (void)ytx_shakeAnimtionWithDurationTime:(NSTimeInterval)durationTime {
  
     CGPoint center = self.center;
@@ -121,20 +45,4 @@
     [self.layer addAnimation:shackAnimation forKey:@"ytx_shake"];
 }
 
-- (void)flashAnimationWithDurationTime:(NSTimeInterval)durationTime {
-    float value = durationTime/10;
-    
-    self.
-    makeOpacity(0).thenAfter(value * 2)
-    
-    .makeOpacity(1).thenAfter(value * 5)
-    
-    .makeOpacity(0).thenAfter(value * 7)
-    
-    .makeOpacity(1).animate (0);
-}
-
-- (void)removeAnimation {
-    [self.layer removeAllAnimations];
-}
 @end

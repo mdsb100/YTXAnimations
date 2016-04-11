@@ -86,7 +86,7 @@ static NSString *identifity = @"cell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.animationView removeAnimation];
+    [self.animationView.layer removeAllAnimations];
     SEL sel = NSSelectorFromString([self getValue:indexPath]);
     double time = 1.5;
     if (sel) { 
