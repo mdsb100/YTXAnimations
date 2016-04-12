@@ -12,28 +12,29 @@
 
 #define NSRotateValue(d,x,y,z) [NSValue valueWithCATransform3D:CATransform3DRotate(self.layer.transform, d, x ,y ,z)]
 
-
-
 @implementation UIView (YTXAnimation)
 
 #pragma mark - Attention Seekers
 
 - (void)ytx_bounceAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+
+    CAMediaTimingFunction *time_1 = [CAMediaTimingFunction functionWithControlPoints:0.215: 0.610 :.355 :1];
+    CAMediaTimingFunction *time_2 = [CAMediaTimingFunction functionWithControlPoints:0.755: 0.050: 0.855: 0.060];
     
-    // 0 - 1 越小振动效果越明显
-    float damping = 0.33;
-    // 初始的速度，数值越大一开始移动越快
-    float velocity = 5;
+    CGFloat y = self.center.y;
+    NSNumber *value_0 = @(0 + y);
+    NSNumber *value_1 = @(-30 + y);
+    NSNumber *value_2 = @(-15 + y);
+    NSNumber *value_3 = @(-4 + y);
     
-    [UIView animateWithDuration:.2 animations:^{
-        self.transform = CGAffineTransformTranslate(self.transform, 0, -10);
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.8 delay:0
-             usingSpringWithDamping:damping initialSpringVelocity:velocity options:UIViewAnimationOptionCurveEaseInOut
-                         animations:^{
-                             self.transform = CGAffineTransformTranslate(self.transform, 0, 10);
-                         } completion:nil];
-    }];
+    CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    [bounce setValues:@[value_0,value_1,value_1,value_0,value_2,value_0,value_3]];
+    [bounce setKeyTimes:@[@(0.2),@(0.4),@(0.43),@(.53),@(.7),@(.8),@(.9)]];
+    [bounce setTimingFunctions:@[time_1,time_2,time_2,time_1,time_2,time_1,time_1,time_2]];
+    bounce.duration = durationTime;
+    [self.layer addAnimation:bounce forKey:@"bounce"];
+    
+    
 }
 
 - (void)ytx_flashAnimtionWithDurationTime:(NSTimeInterval)durationTime {
@@ -110,7 +111,7 @@
     NSValue *secValue = NSRotateValue(-rotateS, 0.0 ,0.0 ,1.0);
     NSValue *thirdValue = NSRotateValue(rotateT, 0.0 ,0.0 ,1.0);
     NSValue *fourValue = NSRotateValue(-rotateT, 0.0 ,0.0 ,1.0);
-     NSValue *fiveValue = NSRotateValue(0, 0.0 ,0.0 ,1.0);
+    NSValue *fiveValue = NSRotateValue(0, 0.0 ,0.0 ,1.0);
     
     CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     shackAnimation.duration = durationTime;
@@ -188,6 +189,7 @@
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
     animation.duration = durationTime;
+    animation.calculationMode = kCAAnimationCubic;
     [animation setValues:@[rotateZero,rotateFir,rotateSec,rotateTrt,rotateFour,rotateFive,rotateSix,rotateSeven]];
     [self.layer addAnimation:animation forKey:@"jello"];
 }
