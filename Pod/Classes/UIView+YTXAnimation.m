@@ -80,15 +80,17 @@
     float lagerScaleValue = 1.25;
     
     NSValue *norScale = NSScaleValue(defaultScaleValue, defaultScaleValue, defaultScaleValue);
-    NSValue *thirtScale = NSScaleValue(lagerScaleValue, smallScaleValue, defaultScaleValue);
-    NSValue *fourScale = NSScaleValue(smallScaleValue, lagerScaleValue, defaultScaleValue);
-    NSValue *fiveScale = NSScaleValue(lagerMidScaleValue, smallMidScaleValue, defaultScaleValue);
-    NSValue *sixScale = NSScaleValue(defaultsmallScaleValue, defaultlagerScaleValue, defaultScaleValue);
-    NSValue *sevenScale = NSScaleValue(defaultlagerScaleValue, defaultsmallScaleValue, defaultScaleValue);
     
     CAKeyframeAnimation *rubberBand = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
     rubberBand.duration = durationTime;
-    [rubberBand setValues:@[norScale,thirtScale,fourScale,fiveScale,sixScale,sevenScale,norScale]];
+    [rubberBand setValues:@[norScale,
+                            NSScaleValue(lagerScaleValue, smallScaleValue, defaultScaleValue),
+                            NSScaleValue(smallScaleValue, lagerScaleValue, defaultScaleValue),
+                            NSScaleValue(lagerMidScaleValue, smallMidScaleValue, defaultScaleValue),
+                            NSScaleValue(defaultsmallScaleValue, defaultlagerScaleValue, defaultScaleValue),
+                            NSScaleValue(defaultlagerScaleValue, defaultsmallScaleValue, defaultScaleValue),
+                            norScale
+                            ]];
     [rubberBand setKeyTimes:@[@(0),@(0.3),@(0.4),@(.5),@(.65),@(.75),@(1)]];
     [self.layer addAnimation:rubberBand forKey:@"rubberBand"];
     
@@ -112,22 +114,20 @@
     float rotateS = 0.10 * M_1_PI;
     float rotateT = 0.5 * M_1_PI;
     
-    NSValue *firtstValue = NSRotateValue(rotateF, 0.0 ,0.0 ,1.0);
-    NSValue *secValue = NSRotateValue(-rotateS, 0.0 ,0.0 ,1.0);
-    NSValue *thirdValue = NSRotateValue(rotateT, 0.0 ,0.0 ,1.0);
-    NSValue *fourValue = NSRotateValue(-rotateT, 0.0 ,0.0 ,1.0);
-    NSValue *fiveValue = NSRotateValue(0, 0.0 ,0.0 ,1.0);
-    
     CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     shackAnimation.duration = durationTime;
     
-    [shackAnimation setValues:@[firtstValue,secValue,thirdValue,fourValue,fiveValue]];
+    [shackAnimation setValues:@[NSRotateValue(rotateF, 0.0 ,0.0 ,1.0),
+                                NSRotateValue(-rotateS, 0.0 ,0.0 ,1.0),
+                                NSRotateValue(rotateT, 0.0 ,0.0 ,1.0),
+                                NSRotateValue(-rotateT, 0.0 ,0.0 ,1.0),
+                                NSRotateValue(0, 0.0 ,0.0 ,1.0)]];
     
     [self.layer addAnimation:shackAnimation forKey:@"ytx_swing"];
 }
 
 - (void)ytx_tadaAnimtionWithDurationTime:(NSTimeInterval)durationTime {
-    float rotate = 0.1;
+    float rotate = 0.1 * M_1_PI;
     float smallScaleValue = 0.9;
     float lagerScaleValue = 1.1;
     
@@ -148,21 +148,20 @@
 
 - (void)ytx_wobbleAnimtionWithDurationTime:(NSTimeInterval)durationTime {
    
-    float rotateF = 0.5 * M_1_PI;
-    float rotateS = 0.3 * M_1_PI;
-    float rotateT = 0.2 * M_1_PI;
-    float rotateFr = 0.1 * M_1_PI;
+    float rotate_1 = 0.5 * M_1_PI;
+    float rotate_2 = 0.3 * M_1_PI;
+    float rotate_3 = 0.2 * M_1_PI;
+    float rotate_4 = 0.1 * M_1_PI;
     
-    CGFloat x = self.center.x;
-    NSValue *rotateFir = NSRotateValue(-rotateF, 0.0 ,0.0 ,1.0);
-    NSValue *rotateSec = NSRotateValue(rotateS , 0.0 ,0.0 ,1.0);
-    NSValue *rotateTrt = NSRotateValue(-rotateS, 0.0 ,0.0 ,1.0);
-    NSValue *rotateFour = NSRotateValue(rotateT, 0.0 ,0.0 ,1.0);
-    NSValue *rotateFiv = NSRotateValue(rotateFr, 0.0 ,0.0 ,1.0);
-    NSValue *rotateLast = NSRotateValue(0, 0.0 ,0.0 ,1.0);
     CAKeyframeAnimation *rotateAnimation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
-    [rotateAnimation setValues:@[rotateFir,rotateSec,rotateTrt,rotateFour,rotateFiv,rotateLast]];
+    [rotateAnimation setValues:@[NSRotateValue(-rotate_1, 0.0 ,0.0 ,1.0),
+                                 NSRotateValue(rotate_2 , 0.0 ,0.0 ,1.0),
+                                 NSRotateValue(-rotate_2, 0.0 ,0.0 ,1.0),
+                                 NSRotateValue(rotate_3, 0.0 ,0.0 ,1.0),
+                                 NSRotateValue(rotate_4, 0.0 ,0.0 ,1.0),
+                                 NSRotateValue(0, 0.0 ,0.0 ,1.0)]];
   
+    CGFloat x = self.center.x;
     CAKeyframeAnimation *shakeAnimation = [CAKeyframeAnimation  animationWithKeyPath:@"position.x"];
     [shakeAnimation setValues:@[@(0.75 * x) ,@(1.2 * x),@(0.85 * x),@(1.1 * x),@(0.95 * x),@(x)]];
     
@@ -175,27 +174,25 @@
 - (void)ytx_jelloAnimtionWithDurationTime:(NSTimeInterval)durationTime {
     
     float base = M_1_PI * 0.1;
-    float rotateFValue = 12.5 * base;
-    float rotateSValue = 6.25 * base;
-    float rotateTValue = 3.125 * base;
-    float rotateFrValue = 1.5625 * base;
-    float rotateFivValue = 0.78125 * base;
-    float rotateSixValue = 0.390625 * base;
-    float rotateEValue = 0.1953125 * base;
-    
-    NSValue *rotateZero = NSRotateValue(0, 1,1 ,0.0);
-    NSValue *rotateFir = NSRotateValue(-rotateFValue, 1,1 ,0.0);
-    NSValue *rotateSec = NSRotateValue(rotateSValue, 1,1 ,0.0);
-    NSValue *rotateTrt = NSRotateValue(-rotateTValue, 1,1 ,0.0);
-    NSValue *rotateFour = NSRotateValue(rotateFrValue, 1,1 ,0.0);
-    NSValue *rotateFive = NSRotateValue(-rotateFivValue, 1,1 ,0.0);
-    NSValue *rotateSix = NSRotateValue(rotateSixValue, 1,1 ,0.0);
-    NSValue *rotateSeven = NSRotateValue(-rotateEValue, 1,1 ,0.0);
+    float rotate_1 = 12.5 * base;
+    float rotate_2 = 6.25 * base;
+    float rotate_3 = 3.125 * base;
+    float rotate_4 = 1.5625 * base;
+    float rotate_5 = 0.78125 * base;
+    float rotate_6 = 0.390625 * base;
+    float rotate_7 = 0.1953125 * base;
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
     animation.duration = durationTime;
     animation.calculationMode = kCAAnimationCubic;
-    [animation setValues:@[rotateZero,rotateFir,rotateSec,rotateTrt,rotateFour,rotateFive,rotateSix,rotateSeven]];
+    [animation setValues:@[NSRotateValue(0, 1,1 ,0.0),
+                           NSRotateValue(-rotate_1, 1,1 ,0.0),
+                           NSRotateValue(rotate_2, 1,1 ,0.0),
+                           NSRotateValue(-rotate_3, 1,1 ,0.0),
+                           NSRotateValue(rotate_4, 1,1 ,0.0),
+                           NSRotateValue(-rotate_5, 1,1 ,0.0),
+                           NSRotateValue(rotate_6, 1,1 ,0.0),
+                           NSRotateValue(-rotate_7, 1,1 ,0.0)]];
     [self.layer addAnimation:animation forKey:@"jello"];
 }
 @end
