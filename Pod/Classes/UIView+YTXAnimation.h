@@ -54,4 +54,33 @@
 
 /** bouncelnUp动画*/
 - (void)ytx_bouncelnUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+#pragma mark - Fading Entrances
+
+/** fadeIn动画*/
+- (void)ytx_fadeInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** fadeInDown动画*/
+- (void)ytx_fadeInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** fadeInDownBig动画*/
+- (void)ytx_fadeInDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** fadeInLeft动画*/
+- (void)ytx_fadeInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** fadeInLeftBig动画*/
+- (void)ytx_fadeInLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** fadeInRight动画*/
+- (void)ytx_fadeInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** fadeInRightBig动画*/
+- (void)ytx_fadeInRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** fadeInUp动画*/
+- (void)ytx_fadeInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** fadeInUpBig动画*/
+- (void)ytx_fadeInUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 @end

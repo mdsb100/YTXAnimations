@@ -200,7 +200,6 @@
 
 - (void)ytx_bouncelnAnimtionWithDurationTime:(NSTimeInterval)durationTime {
     CAKeyframeAnimation *bounceln = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
-    
     [bounceln setValues:@[NSScaleValue(.3, .3, .3),
                         NSScaleValue(1.1, 1.1, 1.1),
                         NSScaleValue(.9, .9, .9),
@@ -285,6 +284,127 @@
     bouncelnUp.duration = durationTime;
     [self.layer addAnimation:bouncelnUp forKey:@"bouncelnUp"];
     
+}
+
+#pragma mark - Fading Entrances
+
+- (void)ytx_fadeInAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    CAKeyframeAnimation *fadeInOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    
+    [fadeInOpacity setValues:@[@0, @1]];
+    
+    fadeInOpacity.duration = durationTime;
+    [self.layer addAnimation:fadeInOpacity forKey:@"ytx_fadeInAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    CAKeyframeAnimation *fadeInDownOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeInDownOpacity setValues:@[@0, @1]];
+    
+    CAKeyframeAnimation *fadeInDownPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    [fadeInDownPosition setValues:@[@(-[UIScreen mainScreen].bounds.size.height + self.center.y), @(self.center.y)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeInDownOpacity, fadeInDownPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeInDownAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeInDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    CAKeyframeAnimation *fadeInDownBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeInDownBigOpacity setValues:@[@0, @1]];
+    
+    CAKeyframeAnimation *fadeInDownBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    [fadeInDownBigPosition setValues:@[@(-2000 + self.center.y), @(self.center.y)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeInDownBigOpacity, fadeInDownBigPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeInDownBigAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeInLeftOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeInLeftOpacity setValues:@[@0, @1]];
+    
+    CAKeyframeAnimation *fadeInLeftPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    [fadeInLeftPosition setValues:@[@(-[UIScreen mainScreen].bounds.size.width + self.center.x), @(self.center.x)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeInLeftOpacity, fadeInLeftPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeInLeftAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeInLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeInLeftBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeInLeftBigOpacity setValues:@[@0, @1]];
+    
+    CAKeyframeAnimation *fadeInLeftBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    [fadeInLeftBigPosition setValues:@[@(-2000 + self.center.x), @(self.center.x)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeInLeftBigOpacity, fadeInLeftBigPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeInLeftBigAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeInRightOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeInRightOpacity setValues:@[@0, @1]];
+    
+    CAKeyframeAnimation *fadeInRightPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    [fadeInRightPosition setValues:@[@([UIScreen mainScreen].bounds.size.width + self.center.x), @(self.center.x)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeInRightOpacity, fadeInRightPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeInRightAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeInRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeInRightBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeInRightBigOpacity setValues:@[@0, @1]];
+    
+    CAKeyframeAnimation *fadeInRightBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    [fadeInRightBigPosition setValues:@[@(2000 + self.center.x), @(self.center.x)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeInRightBigOpacity, fadeInRightBigPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeInRightBigAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeInUpOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeInUpOpacity setValues:@[@0, @1]];
+    
+    CAKeyframeAnimation *fadeInUpPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    [fadeInUpPosition setValues:@[@([UIScreen mainScreen].bounds.size.height + self.center.y), @(self.center.y)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeInUpOpacity, fadeInUpPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeInUpAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeInUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeInUpBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeInUpBigOpacity setValues:@[@0, @1]];
+    
+    CAKeyframeAnimation *fadeInUpBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    [fadeInUpBigPosition setValues:@[@(2000 + self.center.y), @(self.center.y)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeInUpBigOpacity, fadeInUpBigPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeInUpBigAnimtionWithDurationTime:"];
 }
 
 

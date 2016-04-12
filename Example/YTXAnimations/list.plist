@@ -44,5 +44,30 @@
 			<string>ytx_bouncelnUpAnimtionWithDurationTime:</string>
 		</dict>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>Fading Entrances</string>
+		<key>sub</key>
+		<dict>
+			<key>fadeIn</key>
+			<string>ytx_fadeInAnimtionWithDurationTime:</string>
+			<key>fadeInDown</key>
+			<string>ytx_fadeInDownAnimtionWithDurationTime:</string>
+			<key>fadeInDownBig</key>
+			<string>ytx_fadeInDownBigAnimtionWithDurationTime:</string>
+			<key>fadeInLeft</key>
+			<string>ytx_fadeInLeftAnimtionWithDurationTime:</string>
+			<key>fadeInLeftBig</key>
+			<string>ytx_fadeInLeftBigAnimtionWithDurationTime:</string>
+			<key>fadeInRight</key>
+			<string>ytx_fadeInRightAnimtionWithDurationTime:</string>
+			<key>fadeInRightBig</key>
+			<string>ytx_fadeInRightBigAnimtionWithDurationTime:</string>
+			<key>fadeInUp</key>
+			<string>ytx_fadeInUpAnimtionWithDurationTime:</string>
+			<key>fadeInUpBig</key>
+			<string>ytx_fadeInUpBigAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
 </array>
 </plist>
