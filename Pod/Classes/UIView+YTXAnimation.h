@@ -20,17 +20,38 @@
 /** pluse动画*/
 - (void)ytx_pluseAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
+/** rubberBand动画*/
 - (void)ytx_rubberBandAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 /** shake摇晃动画*/
 - (void)ytx_shakeAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
+/** swing动画*/
 - (void)ytx_swingAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 /** tada动画  基于<JHChainableAnimations/JHChainableAnimations.h>*/
 - (void)ytx_tadaAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
+/** wobble动画*/
 - (void)ytx_wobbleAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
+/** jello动画*/
 - (void)ytx_jelloAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+#pragma mark - Bouncing Entrances
+
+/** bounceln动画*/
+- (void)ytx_bouncelnAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** bouncelnDown动画*/
+- (void)ytx_bouncelnDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** bouncelnLeft动画*/
+- (void)ytx_bouncelnLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** bouncelnRight动画*/
+- (void)ytx_bouncelnRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+/** bouncelnUp动画*/
+- (void)ytx_bouncelnUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 @end

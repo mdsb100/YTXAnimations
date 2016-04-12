@@ -7,24 +7,41 @@
 		<string>Attention Seekers</string>
 		<key>sub</key>
 		<dict>
-			<key>ytx_jello</key>
+			<key>jello</key>
 			<string>ytx_jelloAnimtionWithDurationTime:</string>
-			<key>ytx_wobble</key>
+			<key>wobble</key>
 			<string>ytx_wobbleAnimtionWithDurationTime:</string>
-			<key>ytx_swing</key>
+			<key>swing</key>
 			<string>ytx_swingAnimtionWithDurationTime:</string>
-			<key>ytx_rubberBand</key>
+			<key>rubberBand</key>
 			<string>ytx_rubberBandAnimtionWithDurationTime:</string>
-			<key>ytx_pluse</key>
+			<key>pluse</key>
 			<string>ytx_pluseAnimtionWithDurationTime:</string>
-			<key>ytx_flash</key>
+			<key>flash</key>
 			<string>ytx_flashAnimtionWithDurationTime:</string>
-			<key>ytx_bounce</key>
+			<key>bounce</key>
 			<string>ytx_bounceAnimtionWithDurationTime:</string>
-			<key>ytx_tada</key>
+			<key>tada</key>
 			<string>ytx_tadaAnimtionWithDurationTime:</string>
-			<key>ytx_shake</key>
+			<key>shake</key>
 			<string>ytx_shakeAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Bouncing Entrances</string>
+		<key>sub</key>
+		<dict>
+			<key>bounle</key>
+			<string>ytx_bouncelnAnimtionWithDurationTime:</string>
+			<key>bouncelnDown</key>
+			<string>ytx_bouncelnDownAnimtionWithDurationTime:</string>
+			<key>bouncelnLeft</key>
+			<string>ytx_bouncelnLeftAnimtionWithDurationTime:</string>
+			<key>bouncelnRight</key>
+			<string>ytx_bouncelnRightAnimtionWithDurationTime:</string>
+			<key>bouncelnUp</key>
+			<string>ytx_bouncelnUpAnimtionWithDurationTime:</string>
 		</dict>
 	</dict>
 </array>

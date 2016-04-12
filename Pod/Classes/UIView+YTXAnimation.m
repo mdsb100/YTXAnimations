@@ -195,4 +195,97 @@
                            NSRotateValue(-rotate_7, 1,1 ,0.0)]];
     [self.layer addAnimation:animation forKey:@"jello"];
 }
+
+#pragma mark - Bouncing Entrances
+
+- (void)ytx_bouncelnAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    CAKeyframeAnimation *bounceln = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    
+    [bounceln setValues:@[NSScaleValue(.3, .3, .3),
+                        NSScaleValue(1.1, 1.1, 1.1),
+                        NSScaleValue(.9, .9, .9),
+                        NSScaleValue(1.03, 1.03, 1.03),
+                        NSScaleValue(0.97, 0.97, 0.97),
+                        NSScaleValue(1, 1, 1)]];
+    CAMediaTimingFunction *time = CAMediaTimingFunction (0.215, 0.610, 0.355, 1.000);
+    [bounceln setKeyTimes:@[@0, @(0.2),@(0.4),@(.6),@(.8), @1]];
+    [bounceln setTimingFunctions:@[time, time, time, time, time]];
+    bounceln.duration = durationTime;
+    [self.layer addAnimation:bounceln forKey:@"bounceln"];
+}
+
+- (void)ytx_bouncelnDownAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    CAKeyframeAnimation *bouncelnDown = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    
+    CGFloat y = self.center.y;
+    NSNumber *value_0 = @(-3000 + y);
+    NSNumber *value_1 = @(25 + y);
+    NSNumber *value_2 = @(-10 + y);
+    NSNumber *value_3 = @(5 + y);
+    [bouncelnDown setValues:@[value_0, value_1, value_2, value_3, @(y)]];
+    
+    CAMediaTimingFunction *time = CAMediaTimingFunction (0.215, 0.610, 0.355, 1.000);
+    [bouncelnDown setKeyTimes:@[@0, @(0.6),@(0.75),@(.9), @1]];
+    [bouncelnDown setTimingFunctions:@[time, time, time, time, time]];
+    
+    bouncelnDown.duration = durationTime;
+    [self.layer addAnimation:bouncelnDown forKey:@"bouncelnDown"];
+}
+
+- (void)ytx_bouncelnLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    CAKeyframeAnimation *bouncelnLeft = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    
+    CGFloat x = self.center.x;
+    NSNumber *value_0 = @(-3000 + x);
+    NSNumber *value_1 = @(25 + x);
+    NSNumber *value_2 = @(-10 + x);
+    NSNumber *value_3 = @(5 + x);
+    [bouncelnLeft setValues:@[value_0, value_1, value_2, value_3,@(x)]];
+    
+    CAMediaTimingFunction *time = CAMediaTimingFunction (0.215, 0.610, 0.355, 1.000);
+    [bouncelnLeft setKeyTimes:@[@0, @(0.6),@(0.75),@(.9), @1]];
+    [bouncelnLeft setTimingFunctions:@[time, time, time, time, time]];
+    
+    bouncelnLeft.duration = durationTime;
+    [self.layer addAnimation:bouncelnLeft forKey:@"bouncelnLeft"];
+}
+
+- (void)ytx_bouncelnRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    CAKeyframeAnimation *bouncelnRight = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    
+    CGFloat x = self.center.x;
+    NSNumber *value_0 = @(3000 + x);
+    NSNumber *value_1 = @(-25 + x);
+    NSNumber *value_2 = @(10 + x);
+    NSNumber *value_3 = @(-5 + x);
+    [bouncelnRight setValues:@[value_0, value_1, value_2, value_3, @(x)]];
+    
+    CAMediaTimingFunction *time = CAMediaTimingFunction (0.215, 0.610, 0.355, 1.000);
+    [bouncelnRight setKeyTimes:@[@0, @(0.6),@(0.75),@(.9), @1]];
+    [bouncelnRight setTimingFunctions:@[time, time, time, time, time]];
+    
+    bouncelnRight.duration = durationTime;
+    [self.layer addAnimation:bouncelnRight forKey:@"bouncelnRight"];
+}
+
+- (void)ytx_bouncelnUpAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    CAKeyframeAnimation *bouncelnUp = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    
+    CGFloat y = self.center.y;
+    NSNumber *value_0 = @(3000 + y);
+    NSNumber *value_1 = @(-20 + y);
+    NSNumber *value_2 = @(10 + y);
+    NSNumber *value_3 = @(-5 + y);
+    [bouncelnUp setValues:@[value_0,value_1,value_2,value_3, @(y)]];
+    
+    CAMediaTimingFunction *time = CAMediaTimingFunction (0.215, 0.610, 0.355, 1.000);
+    [bouncelnUp setKeyTimes:@[@0, @(0.6),@(0.75),@(.9), @1]];
+    [bouncelnUp setTimingFunctions:@[time, time, time, time, time]];
+    
+    bouncelnUp.duration = durationTime;
+    [self.layer addAnimation:bouncelnUp forKey:@"bouncelnUp"];
+    
+}
+
+
 @end
