@@ -20,19 +20,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQq-oi-nN8">
                                 <rect key="frame" x="0.0" y="20" width="600" height="150"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSA-2v-7kp">
-                                        <rect key="frame" x="214" y="29" width="173" height="93"/>
-                                        <color key="backgroundColor" red="0.95686274510000002" green="0.123767823" blue="0.1023846667" alpha="1" colorSpace="calibratedRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animate.ios" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcU-mp-rRf">
+                                        <rect key="frame" x="150" y="51" width="300" height="48"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="93" id="1EY-GI-WWh"/>
-                                            <constraint firstAttribute="width" constant="173" id="uIV-Mc-i9r"/>
+                                            <constraint firstAttribute="width" constant="300" id="1cd-Z4-Go8"/>
                                         </constraints>
-                                    </view>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="OSA-2v-7kp" firstAttribute="centerY" secondItem="gQq-oi-nN8" secondAttribute="centerY" id="CG7-KD-OQY"/>
-                                    <constraint firstItem="OSA-2v-7kp" firstAttribute="centerX" secondItem="gQq-oi-nN8" secondAttribute="centerX" id="lmR-jI-KMV"/>
+                                    <constraint firstItem="bcU-mp-rRf" firstAttribute="centerY" secondItem="gQq-oi-nN8" secondAttribute="centerY" id="f4c-gz-aqC"/>
+                                    <constraint firstItem="bcU-mp-rRf" firstAttribute="centerX" secondItem="gQq-oi-nN8" secondAttribute="centerX" id="pYS-x1-fSg"/>
                                     <constraint firstAttribute="height" constant="150" id="tVz-Ye-4Km"/>
                                 </constraints>
                             </view>
@@ -59,7 +60,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="animationView" destination="OSA-2v-7kp" id="hYv-rx-MOp"/>
+                        <outlet property="AnimationLabel" destination="bcU-mp-rRf" id="wj0-dM-GDJ"/>
                         <outlet property="listTableView" destination="Ytc-QD-hBj" id="jwY-ew-kuj"/>
                     </connections>
                 </viewController>

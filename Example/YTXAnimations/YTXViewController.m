@@ -11,9 +11,15 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 
+// RGB颜色
+#define YTXColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+// 随机色
+#define YTXRandomColor YTXColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
 @interface YTXViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *listTableView;
-@property (weak, nonatomic) IBOutlet UIView *animationView;
+@property (weak, nonatomic) IBOutlet UILabel *AnimationLabel;
+
 @property (nonatomic, strong) NSArray *listDict;
 @end
 
@@ -22,7 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
  
 
@@ -86,11 +91,13 @@ static NSString *identifity = @"cell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.animationView.layer removeAllAnimations];
+    [self.AnimationLabel.layer removeAllAnimations];
+    [self.AnimationLabel setTextColor:YTXRandomColor];
+    
     SEL sel = NSSelectorFromString([self getValue:indexPath]);
     double time = 1.5;
     if (sel) { 
-        objc_msgSend(self.animationView,sel, &time);
+        objc_msgSend(self.AnimationLabel,sel, &time);
     }
 }
 @end
