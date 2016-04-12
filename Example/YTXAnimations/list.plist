@@ -33,15 +33,28 @@
 		<key>sub</key>
 		<dict>
 			<key>bounle</key>
-			<string>ytx_bouncelnAnimtionWithDurationTime:</string>
+			<string>ytx_bounceInAnimtionWithDurationTime:</string>
 			<key>bouncelnDown</key>
-			<string>ytx_bouncelnDownAnimtionWithDurationTime:</string>
+			<string>ytx_bounceInDownAnimtionWithDurationTime:</string>
 			<key>bouncelnLeft</key>
-			<string>ytx_bouncelnLeftAnimtionWithDurationTime:</string>
+			<string>ytx_bounceInLeftAnimtionWithDurationTime:</string>
 			<key>bouncelnRight</key>
-			<string>ytx_bouncelnRightAnimtionWithDurationTime:</string>
+			<string>ytx_bounceInRightAnimtionWithDurationTime:</string>
 			<key>bouncelnUp</key>
-			<string>ytx_bouncelnUpAnimtionWithDurationTime:</string>
+			<string>ytx_bounceInUpAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Special</string>
+		<key>sub</key>
+		<dict>
+			<key>hinge</key>
+			<string>ytx_hingeAnimtionWithDurationTime:</string>
+			<key>rollIn</key>
+			<string>ytx_rollInAnimationWithDurationTime:</string>
+			<key>rollOut</key>
+			<string>ytx_rollOutAnimationWithDurationTime:</string>
 		</dict>
 	</dict>
 	<dict>

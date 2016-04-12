@@ -38,22 +38,23 @@
 /** jello动画*/
 - (void)ytx_jelloAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
+
 #pragma mark - Bouncing Entrances
 
 /** bounceln动画*/
-- (void)ytx_bouncelnAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_bounceInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 /** bouncelnDown动画*/
-- (void)ytx_bouncelnDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_bounceInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 /** bouncelnLeft动画*/
-- (void)ytx_bouncelnLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_bounceInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 /** bouncelnRight动画*/
-- (void)ytx_bouncelnRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_bounceInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 /** bouncelnUp动画*/
-- (void)ytx_bouncelnUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_bounceInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Fading Entrances
 
@@ -83,4 +84,12 @@
 
 /** fadeInUpBig动画*/
 - (void)ytx_fadeInUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+#pragma mark - Special
+- (void)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (void)ytx_rollInAnimationWithDurationTime:(NSTimeInterval)durationTime;
+
+- (void)ytx_rollOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
+
 @end
