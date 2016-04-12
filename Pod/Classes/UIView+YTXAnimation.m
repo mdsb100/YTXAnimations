@@ -10,7 +10,12 @@
 
 #define NSScaleValue(x,y,z)     [NSValue valueWithCATransform3D:CATransform3DScale(self.layer.transform, x ,y ,z)]
 
-#define NSRotateValue(d,x,y,z) [NSValue valueWithCATransform3D:CATransform3DRotate(self.layer.transform, d, x ,y ,z)]
+#define NSRotateValue(d,x,y,z)  [NSValue valueWithCATransform3D:CATransform3DRotate(self.layer.transform, d, x ,y ,z)]
+
+#define NSTranslateValue(x,y,z) [NSValue valueWithCATransform3D:CATransform3DTranslate(self.layer.transform, x ,y ,z)]
+
+//获取CAMediaTimingFunction
+#define CAMediaTimingFunction(x1,y1,x2,y2) [CAMediaTimingFunction functionWithControlPoints:x1 :y1 :x2 :y2]
 
 @implementation UIView (YTXAnimation)
 
@@ -18,8 +23,8 @@
 
 - (void)ytx_bounceAnimtionWithDurationTime:(NSTimeInterval)durationTime {
 
-    CAMediaTimingFunction *time_1 = [CAMediaTimingFunction functionWithControlPoints:0.215: 0.610 :.355 :1];
-    CAMediaTimingFunction *time_2 = [CAMediaTimingFunction functionWithControlPoints:0.755: 0.050: 0.855: 0.060];
+    CAMediaTimingFunction *time_1 = CAMediaTimingFunction (0.215, 0.610, 0.355, 1);
+    CAMediaTimingFunction *time_2 = CAMediaTimingFunction (0.755, 0.050, 0.855, 0.060);
     
     CGFloat y = self.center.y;
     NSNumber *value_0 = @(0 + y);
