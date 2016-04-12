@@ -2,6 +2,7 @@ source 'http://gitlab.baidao.com/ios/ytx-pod-specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 
+use_frameworks!
 platform :ios, '7.0'
 
 target 'YTXAnimations_Example', :exclusive => true do

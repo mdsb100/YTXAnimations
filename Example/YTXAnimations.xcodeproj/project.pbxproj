@@ -24,9 +24,9 @@
 		82F6EEBF1CBB775E00DBFDE8 /* YTXAnimations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F6EEBE1CBB775E00DBFDE8 /* YTXAnimations.framework */; };
 		82F6EEC11CBB776A00DBFDE8 /* YTXAnimations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F6EEC01CBB776A00DBFDE8 /* YTXAnimations.framework */; };
 		82F6EEC51CBB7FE100DBFDE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F6EEC41CBB7FE100DBFDE8 /* LaunchScreen.storyboard */; };
-		84ECC3F6E026E5DD134F9A98 /* libPods-YTXAnimations_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3EEDF48EF5AE2173C3945E0 /* libPods-YTXAnimations_Tests.a */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		985EE6BB5C4F0B8641ED6CB1 /* libPods-YTXAnimations_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E924E38E42965CE5C7DC8BC /* libPods-YTXAnimations_Example.a */; };
+		B06ED6011D7C63908FC0A1F0 /* Pods_YTXAnimations_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350A478B999B5FB75B1C819 /* Pods_YTXAnimations_Example.framework */; };
+		CB8BB283BE17697DB6A20462 /* Pods_YTXAnimations_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB68CF537A03D0DCD255099 /* Pods_YTXAnimations_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E924E38E42965CE5C7DC8BC /* libPods-YTXAnimations_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YTXAnimations_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0350A478B999B5FB75B1C819 /* Pods_YTXAnimations_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTXAnimations_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48888BA646150E7AB846BFAF /* Pods-YTXAnimations_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTXAnimations_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTXAnimations_Tests/Pods-YTXAnimations_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YTXAnimations_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTXAnimations_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,6 +61,7 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		7FB68CF537A03D0DCD255099 /* Pods_YTXAnimations_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTXAnimations_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F6EEBC1CBB6ECE00DBFDE8 /* list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = list.plist; sourceTree = "<group>"; };
 		82F6EEBE1CBB775E00DBFDE8 /* YTXAnimations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YTXAnimations.framework; path = "Pods/../build/Debug-iphoneos/YTXAnimations.framework"; sourceTree = "<group>"; };
 		82F6EEC01CBB776A00DBFDE8 /* YTXAnimations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YTXAnimations.framework; path = "Pods/../build/Debug-iphoneos/YTXAnimations.framework"; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		B29C3A121E5A06E4309E6B74 /* YTXAnimations.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YTXAnimations.podspec; path = ../YTXAnimations.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D6C179237FE88351563B86C9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		ED57CB7F5A5ACF71AB3CCFDB /* Pods-YTXAnimations_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTXAnimations_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTXAnimations_Tests/Pods-YTXAnimations_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		F3EEDF48EF5AE2173C3945E0 /* libPods-YTXAnimations_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YTXAnimations_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				985EE6BB5C4F0B8641ED6CB1 /* libPods-YTXAnimations_Example.a in Frameworks */,
+				B06ED6011D7C63908FC0A1F0 /* Pods_YTXAnimations_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +96,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				84ECC3F6E026E5DD134F9A98 /* libPods-YTXAnimations_Tests.a in Frameworks */,
+				CB8BB283BE17697DB6A20462 /* Pods_YTXAnimations_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +144,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				0E924E38E42965CE5C7DC8BC /* libPods-YTXAnimations_Example.a */,
-				F3EEDF48EF5AE2173C3945E0 /* libPods-YTXAnimations_Tests.a */,
+				0350A478B999B5FB75B1C819 /* Pods_YTXAnimations_Example.framework */,
+				7FB68CF537A03D0DCD255099 /* Pods_YTXAnimations_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

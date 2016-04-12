@@ -7,6 +7,20 @@
 		<string>Attention Seekers</string>
 		<key>sub</key>
 		<dict>
+			<key>ytx_jello</key>
+			<string>ytx_jelloAnimtionWithDurationTime:</string>
+			<key>ytx_wobble</key>
+			<string>ytx_wobbleAnimtionWithDurationTime:</string>
+			<key>ytx_swing</key>
+			<string>ytx_swingAnimtionWithDurationTime:</string>
+			<key>ytx_rubberBand</key>
+			<string>ytx_rubberBandAnimtionWithDurationTime:</string>
+			<key>ytx_pluse</key>
+			<string>ytx_pluseAnimtionWithDurationTime:</string>
+			<key>ytx_flash</key>
+			<string>ytx_flashAnimtionWithDurationTime:</string>
+			<key>ytx_bounce</key>
+			<string>ytx_bounceAnimtionWithDurationTime:</string>
 			<key>ytx_tada</key>
 			<string>ytx_tadaAnimtionWithDurationTime:</string>
 			<key>ytx_shake</key>
