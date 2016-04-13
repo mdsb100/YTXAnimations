@@ -9,19 +9,19 @@
 #import "UIView+YTXAnimation.h"
 
 // 转化为NSValue
-#define YTXScaleValue(x,y,z)     [NSValue valueWithCATransform3D:CATransform3DScale(self.layer.transform, x ,y ,z)]
+#define YTXScaleValue(x,y,z)     [NSValue valueWithCATransform3D:CATransform3DScale(self.layer.transform, (x), (y), (z))]
 
-#define YTXRotateValue(d,x,y,z)  [NSValue valueWithCATransform3D:CATransform3DRotate(self.layer.transform, d, x ,y ,z)]
+#define YTXRotateValue(d,x,y,z)  [NSValue valueWithCATransform3D:CATransform3DRotate(self.layer.transform, (d), (x), (y), (z))]
 
-#define YTXTranslateValue(x,y,z) [NSValue valueWithCATransform3D:CATransform3DTranslate(self.layer.transform, x ,y ,z)]
+#define YTXTranslateValue(x,y,z) [NSValue valueWithCATransform3D:CATransform3DTranslate(self.layer.transform, (x), (y), (z))]
 
-#define YTXPointValue(x,y)       [NSValue valueWithCGPoint:CGPointMake(x, y)]
+#define YTXPointValue(x,y)       [NSValue valueWithCGPoint:CGPointMake((x), (y))]
 
 //屏幕宽度
-#define SELF_WIDTH             (self.frame.size.width)
-#define SELF_HEIGHT            (self.frame.size.height)
+#define SELF_WIDTH              (self.frame.size.width)
+#define SELF_HEIGHT             (self.frame.size.height)
 
-#define YTX_RADIAN(x)             (x * M_PI / 180)
+#define YTX_RADIAN(x)             ((x) * M_PI / 180)
 //获取YTXCAMediaTimingFunction
 #define YTXCAMediaTimingFunction(x1,y1,x2,y2) [CAMediaTimingFunction functionWithControlPoints:x1 :y1 :x2 :y2]
 
