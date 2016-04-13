@@ -851,15 +851,17 @@
 }
 
 #pragma mark - Slide Exits
-- (void)ytx_slideOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (void)ytx_slideOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutDownAnimtionWithDurationTime:"
                                      isIn:NO
                           translateValues:@[YTXTranslateValue(0, 0, 0),
                                             YTXTranslateValue(0, SELF_HEIGHT, 0)]
                              DurationTime:durationTime];
- }
+}
 
-- (void)ytx_slideOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (void)ytx_slideOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutLeftAnimtionWithDurationTime:"
                                      isIn:NO
                           translateValues:@[YTXTranslateValue(0, 0, 0),
@@ -867,7 +869,8 @@
                              DurationTime:durationTime];
 }
 
-- (void)ytx_slideOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (void)ytx_slideOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutRightAnimtionWithDurationTime:"
                                      isIn:NO
                           translateValues:@[YTXTranslateValue(0, 0, 0),
@@ -875,7 +878,8 @@
                              DurationTime:durationTime];
 }
 
-- (void)ytx_slideOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (void)ytx_slideOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutUpAnimtionWithDurationTime:"
                                      isIn:NO
                           translateValues:@[YTXTranslateValue(0, 0, 0),
@@ -883,7 +887,8 @@
                              DurationTime:durationTime];
 }
 
-- (void)ytx_slideAnimtionWithSelectName:(NSString *)selectName isIn:(BOOL)isIn translateValues:(NSArray *)translateValues DurationTime:(NSTimeInterval)durationTime{
+- (void)ytx_slideAnimtionWithSelectName:(NSString *)selectName isIn:(BOOL)isIn translateValues:(NSArray *)translateValues DurationTime:(NSTimeInterval)durationTime
+{
     CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [opacity setValues:@[@1, isIn ? @1 : @0]];
     [opacity setKeyTimes:@[@0.99, @1]];
@@ -897,4 +902,136 @@
     [self.layer addAnimation:group forKey:selectName];
 }
 
+#pragma mark - Rotating Entrances
+- (void)ytx_rotateInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInAnimtionWithDurationTime:"
+                                        isIn:YES
+                                 rotateValue:YTX_RADIAN(200)
+                                 anchorPoint:nil
+                                 anchorOrign:nil
+                                DurationTime:durationTime];
+}
+
+- (void)ytx_rotateInDownLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInDownLeftAnimtionWithDurationTime:"
+                                        isIn:YES
+                                 rotateValue:YTX_RADIAN(-45)
+                                 anchorPoint:YTXPointValue(0, 1)
+                                 anchorOrign:YTXPointValue(CGRectGetMinX(self.frame), CGRectGetMaxY(self.frame))
+                                DurationTime:durationTime];
+    
+}
+
+- (void)ytx_rotateInDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInDownRightAnimtionWithDurationTime:"
+                                        isIn:YES
+                                 rotateValue:YTX_RADIAN(45)
+                                 anchorPoint:YTXPointValue(1, 1)
+                                 anchorOrign:YTXPointValue(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))
+                                DurationTime:durationTime];
+    
+}
+
+- (void)ytx_rotateInUpLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInUpLeftAnimtionWithDurationTime:"
+                                        isIn:YES
+                                 rotateValue:YTX_RADIAN(45)
+                                 anchorPoint:YTXPointValue(0, 0)
+                                 anchorOrign:YTXPointValue(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame))
+                                DurationTime:durationTime];
+    
+}
+
+- (void)ytx_rotateInUpRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInUpRightAnimtionWithDurationTime:"
+                                        isIn:YES
+                                 rotateValue:YTX_RADIAN(-45)
+                                 anchorPoint:YTXPointValue(1, 0)
+                                 anchorOrign:YTXPointValue(CGRectGetMaxX(self.frame), CGRectGetMinY(self.frame))
+                                DurationTime:durationTime];
+    
+}
+
+#pragma mark - Rotating Exits
+- (void)ytx_rotateOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutAnimtionWithDurationTime:"
+                                        isIn:NO
+                                 rotateValue:YTX_RADIAN(200)
+                                 anchorPoint:nil
+                                 anchorOrign:nil
+                                DurationTime:durationTime];
+}
+
+- (void)ytx_rotateOutDownLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutDownLeftAnimtionWithDurationTime:"
+                                        isIn:NO
+                                 rotateValue:YTX_RADIAN(45)
+                                 anchorPoint:YTXPointValue(0, 1)
+                                 anchorOrign:YTXPointValue(CGRectGetMinX(self.frame), CGRectGetMaxY(self.frame))
+                                DurationTime:durationTime];
+    
+}
+
+- (void)ytx_rotateOutDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutDownRightAnimtionWithDurationTime:"
+                                        isIn:NO
+                                 rotateValue:YTX_RADIAN(-45)
+                                 anchorPoint:YTXPointValue(1, 1)
+                                 anchorOrign:YTXPointValue(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))
+                                DurationTime:durationTime];
+    
+}
+
+- (void)ytx_rotateOutUpLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutUpLeftAnimtionWithDurationTime:"
+                                        isIn:NO
+                                 rotateValue:YTX_RADIAN(-90)
+                                 anchorPoint:YTXPointValue(0, 1)
+                                 anchorOrign:YTXPointValue(CGRectGetMinX(self.frame), CGRectGetMaxY(self.frame))
+                                DurationTime:durationTime];
+    
+}
+
+- (void)ytx_rotateOutUpRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutUpRightAnimtionWithDurationTime:"
+                                        isIn:NO
+                                 rotateValue:YTX_RADIAN(90)
+                                 anchorPoint:YTXPointValue(1, 1)
+                                 anchorOrign:YTXPointValue(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))
+                                DurationTime:durationTime];
+    
+}
+
+- (void)ytx_rotateAnimtionWithSelectName:(NSString *)name isIn:(BOOL)isIn rotateValue:(float)rotate anchorPoint:(NSValue *)point anchorOrign:(NSValue *)orign DurationTime:(NSTimeInterval)durationTime {
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    [opacity setValues:isIn ? @[@0, @1] : @[@1, @0]];
+    
+    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    [transform setValues:isIn ?
+     @[YTXRotateValue(rotate, 0, 0, 1), YTXRotateValue(0, 0, 0, 0)] :
+     @[YTXRotateValue(0, 0, 0, 0), YTXRotateValue(rotate, 0, 0, 1)] ];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    if (point) {
+        CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:ANCHORPOINT];
+        [anchor setValues:@[point,
+                            point,
+                            YTXPointValue(0.5, 0.5)]];
+        [anchor setKeyTimes:@[@0, @0.99, @1]];
+        
+        
+        CAKeyframeAnimation *position = [CAKeyframeAnimation animationWithKeyPath:POSITION];
+        [position setValues:@[orign,orign]];
+        [anchor setKeyTimes:@[@0, @0.99]];
+        
+        [group setAnimations:@[opacity, transform,anchor,position]];
+    }
+    else
+        [group setAnimations:@[opacity, transform]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:name];
+    
+}
 @end

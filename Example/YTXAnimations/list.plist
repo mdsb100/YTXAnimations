@@ -171,5 +171,39 @@
 			<string>ytx_slideInUpAnimtionWithDurationTime:</string>
 		</dict>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>Rotating Entrances</string>
+		<key>sub</key>
+		<dict>
+			<key>rotateInDownLeft</key>
+			<string>ytx_rotateInDownLeftAnimtionWithDurationTime:</string>
+			<key>rotateIn</key>
+			<string>ytx_rotateInAnimtionWithDurationTime:</string>
+			<key>rotateInDownRight</key>
+			<string>ytx_rotateInDownRightAnimtionWithDurationTime:</string>
+			<key>rotateInUpRight</key>
+			<string>ytx_rotateInUpRightAnimtionWithDurationTime:</string>
+			<key>rotateInUpLeft</key>
+			<string>ytx_rotateInUpLeftAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Rotating Exits</string>
+		<key>sub</key>
+		<dict>
+			<key>rotateOutDownLeft</key>
+			<string>ytx_rotateOutDownLeftAnimtionWithDurationTime:</string>
+			<key>rotateOut</key>
+			<string>ytx_rotateOutAnimtionWithDurationTime:</string>
+			<key>rotateOutDownRight</key>
+			<string>ytx_rotateOutDownRightAnimtionWithDurationTime:</string>
+			<key>rotateOutUpRight</key>
+			<string>ytx_rotateOutUpRightAnimtionWithDurationTime:</string>
+			<key>rotateOutUpLeft</key>
+			<string>ytx_rotateOutUpLeftAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
 </array>
 </plist>
