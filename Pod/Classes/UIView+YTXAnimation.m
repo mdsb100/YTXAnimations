@@ -25,6 +25,8 @@
 //获取YTXCAMediaTimingFunction
 #define YTXCAMediaTimingFunction(x1,y1,x2,y2) [CAMediaTimingFunction functionWithControlPoints:x1 :y1 :x2 :y2]
 
+#define BIG_DISTANCE_VALUE 1000
+
 @implementation UIView (YTXAnimation)
 
 #pragma mark - Attention Seekers
@@ -330,7 +332,7 @@
     [fadeInDownOpacity setValues:@[@0, @1]];
     
     CAKeyframeAnimation *fadeInDownPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
-    [fadeInDownPosition setValues:@[@(-SELF_WIDTH + self.center.y), @(self.center.y)]];
+    [fadeInDownPosition setValues:@[@(-SELF_HEIGHT + self.center.y), @(self.center.y)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[fadeInDownOpacity, fadeInDownPosition]];
@@ -344,7 +346,7 @@
     [fadeInDownBigOpacity setValues:@[@0, @1]];
     
     CAKeyframeAnimation *fadeInDownBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
-    [fadeInDownBigPosition setValues:@[@(-1000 + self.center.y), @(self.center.y)]];
+    [fadeInDownBigPosition setValues:@[@(-BIG_DISTANCE_VALUE + self.center.y), @(self.center.y)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[fadeInDownBigOpacity, fadeInDownBigPosition]];
@@ -372,7 +374,7 @@
     [fadeInLeftBigOpacity setValues:@[@0, @1]];
     
     CAKeyframeAnimation *fadeInLeftBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
-    [fadeInLeftBigPosition setValues:@[@(-1000 + self.center.x), @(self.center.x)]];
+    [fadeInLeftBigPosition setValues:@[@(-BIG_DISTANCE_VALUE + self.center.x), @(self.center.x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[fadeInLeftBigOpacity, fadeInLeftBigPosition]];
@@ -400,7 +402,7 @@
     [fadeInRightBigOpacity setValues:@[@0, @1]];
     
     CAKeyframeAnimation *fadeInRightBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
-    [fadeInRightBigPosition setValues:@[@(1000 + self.center.x), @(self.center.x)]];
+    [fadeInRightBigPosition setValues:@[@(BIG_DISTANCE_VALUE + self.center.x), @(self.center.x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[fadeInRightBigOpacity, fadeInRightBigPosition]];
@@ -428,7 +430,7 @@
     [fadeInUpBigOpacity setValues:@[@0, @1]];
     
     CAKeyframeAnimation *fadeInUpBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
-    [fadeInUpBigPosition setValues:@[@(1000 + self.center.y), @(self.center.y)]];
+    [fadeInUpBigPosition setValues:@[@(BIG_DISTANCE_VALUE + self.center.y), @(self.center.y)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[fadeInUpBigOpacity, fadeInUpBigPosition]];
@@ -436,6 +438,126 @@
     [self.layer addAnimation:group forKey:@"ytx_fadeInUpBigAnimtionWithDurationTime:"];
 }
 
+#pragma mark - Fading Exits
+- (void)ytx_fadeOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeOut = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeOut setValues:@[@1, @0]];
+    fadeOut.duration = durationTime;
+    [self.layer addAnimation:fadeOut forKey:@"ytx_fadeOutAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeOutDownOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeOutDownOpacity setValues:@[@1, @0]];
+    
+    CAKeyframeAnimation *fadeOutDownPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    [fadeOutDownPosition setValues:@[@(self.center.y), @(SELF_HEIGHT + self.center.y)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeOutDownOpacity, fadeOutDownPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeOutDownAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeOutDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeOutDownBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeOutDownBigOpacity setValues:@[@1, @0]];
+    
+    CAKeyframeAnimation *fadeOutDownBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    [fadeOutDownBigPosition setValues:@[@(self.center.y), @(BIG_DISTANCE_VALUE + self.center.y)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeOutDownBigOpacity, fadeOutDownBigPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeOutDownBigAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeOutLeftOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeOutLeftOpacity setValues:@[@1, @0]];
+    
+    CAKeyframeAnimation *fadeOutLeftPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    [fadeOutLeftPosition setValues:@[@(self.center.x), @(-SELF_WIDTH + self.center.x)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeOutLeftOpacity, fadeOutLeftPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeOutLeftAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeOutLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeOutLeftBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeOutLeftBigOpacity setValues:@[@1, @0]];
+    
+    CAKeyframeAnimation *fadeOutLeftBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    [fadeOutLeftBigPosition setValues:@[@(self.center.x), @(-BIG_DISTANCE_VALUE + self.center.x)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeOutLeftBigOpacity, fadeOutLeftBigPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeOutLeftBigAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeOutRightOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeOutRightOpacity setValues:@[@1, @0]];
+    
+    CAKeyframeAnimation *fadeOutRightPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    [fadeOutRightPosition setValues:@[@(self.center.x), @(SELF_WIDTH + self.center.x)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeOutRightOpacity, fadeOutRightPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeOutRightAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeOutRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeOutRightBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeOutRightBigOpacity setValues:@[@1, @0]];
+    
+    CAKeyframeAnimation *fadeOutRightBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    [fadeOutRightBigPosition setValues:@[@(self.center.x), @(BIG_DISTANCE_VALUE + self.center.x)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeOutRightBigOpacity, fadeOutRightBigPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeOutRightBigAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeOutUpOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeOutUpOpacity setValues:@[@1, @0]];
+    
+    CAKeyframeAnimation *fadeOutUpPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    [fadeOutUpPosition setValues:@[@(self.center.y), @(-SELF_WIDTH + self.center.y)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeOutUpOpacity, fadeOutUpPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeOutUpAnimtionWithDurationTime:"];
+}
+
+- (void)ytx_fadeOutUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *fadeOutUpBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    [fadeOutUpBigOpacity setValues:@[@1, @0]];
+    
+    CAKeyframeAnimation *fadeOutUpBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    [fadeOutUpBigPosition setValues:@[@(self.center.y), @(-BIG_DISTANCE_VALUE + self.center.y)]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[fadeOutUpBigOpacity, fadeOutUpBigPosition]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_fadeOutUpBigAnimtionWithDurationTime:"];
+}
 
 
 

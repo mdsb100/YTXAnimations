@@ -85,6 +85,25 @@
 /** fadeInUpBig动画*/
 - (void)ytx_fadeInUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
+#pragma mark - Fading Exits
+- (void)ytx_fadeOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (void)ytx_fadeOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (void)ytx_fadeOutDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (void)ytx_fadeOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (void)ytx_fadeOutLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (void)ytx_fadeOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (void)ytx_fadeOutRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (void)ytx_fadeOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (void)ytx_fadeOutUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
 #pragma mark - Special
 - (void)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 

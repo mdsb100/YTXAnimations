@@ -46,19 +46,6 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Special</string>
-		<key>sub</key>
-		<dict>
-			<key>hinge</key>
-			<string>ytx_hingeAnimtionWithDurationTime:</string>
-			<key>rollIn</key>
-			<string>ytx_rollInAnimationWithDurationTime:</string>
-			<key>rollOut</key>
-			<string>ytx_rollOutAnimationWithDurationTime:</string>
-		</dict>
-	</dict>
-	<dict>
-		<key>name</key>
 		<string>Fading Entrances</string>
 		<key>sub</key>
 		<dict>
@@ -80,6 +67,44 @@
 			<string>ytx_fadeInUpAnimtionWithDurationTime:</string>
 			<key>fadeInUpBig</key>
 			<string>ytx_fadeInUpBigAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Fading Exits</string>
+		<key>sub</key>
+		<dict>
+			<key>fadeOut</key>
+			<string>ytx_fadeOutAnimtionWithDurationTime:</string>
+			<key>fadeOutDown</key>
+			<string>ytx_fadeOutDownAnimtionWithDurationTime:</string>
+			<key>fadeOutDownBig</key>
+			<string>ytx_fadeOutDownBigAnimtionWithDurationTime:</string>
+			<key>fadeOutLeft</key>
+			<string>ytx_fadeOutLeftAnimtionWithDurationTime:</string>
+			<key>fadeOutLeftBig</key>
+			<string>ytx_fadeOutLeftBigAnimtionWithDurationTime:</string>
+			<key>fadeOutRight</key>
+			<string>ytx_fadeOutRightAnimtionWithDurationTime:</string>
+			<key>fadeOutRightBig</key>
+			<string>ytx_fadeOutRightBigAnimtionWithDurationTime:</string>
+			<key>fadeOutUp</key>
+			<string>ytx_fadeOutUpAnimtionWithDurationTime:</string>
+			<key>fadeOutUpBig</key>
+			<string>ytx_fadeOutUpBigAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Special</string>
+		<key>sub</key>
+		<dict>
+			<key>hinge</key>
+			<string>ytx_hingeAnimtionWithDurationTime:</string>
+			<key>rollIn</key>
+			<string>ytx_rollInAnimationWithDurationTime:</string>
+			<key>rollOut</key>
+			<string>ytx_rollOutAnimationWithDurationTime:</string>
 		</dict>
 	</dict>
 </array>
