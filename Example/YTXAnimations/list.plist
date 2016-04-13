@@ -70,7 +70,7 @@
 		</dict>
 	</dict>
 	<dict>
-		<key>name</key>
+		<key>name</key> 
 		<string>Fading Exits</string>
 		<key>sub</key>
 		<dict>
@@ -95,7 +95,24 @@
 		</dict>
 	</dict>
 	<dict>
-		<key>name</key>
+		<key>name</key> 
+		<string>Zoom Exits</string>
+		<key>sub</key>
+		<dict>
+			<key>zoomOut</key>
+			<string>ytx_zoomOutAnimtionWithDurationTime:</string>
+			<key>zoomOutDown</key>
+			<string>ytx_zoomOutDownAnimtionWithDurationTime:</string>
+			<key>zoomOutLeft</key>
+			<string>ytx_zoomOutLeftAnimtionWithDurationTime:</string>
+			<key>zoomOutRight</key>
+			<string>ytx_zoomOutRightAnimtionWithDurationTime:</string>
+			<key>zoomOutUp</key>
+			<string>ytx_zoomOutUpAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>name</key> 
 		<string>Special</string>
 		<key>sub</key>
 		<dict>
@@ -104,7 +121,24 @@
 			<key>rollIn</key>
 			<string>ytx_rollInAnimationWithDurationTime:</string>
 			<key>rollOut</key>
-			<string>ytx_rollOutAnimationWithDurationTime:</string>
+			<string>ytx_rollOutAnimationWithDurationTime:</string> 
+		</dict>
+	</dict>
+	<dict>
+	    <key>name</key> 
+		<string>Zoom Entrances</string>
+		<key>sub</key>
+		<dict>
+			<key>zoomIn</key>
+			<string>ytx_zoomInAnimtionWithDurationTime:</string>
+			<key>zoomInLeft</key>
+			<string>ytx_zoomInLeftAnimtionWithDurationTime:</string>
+			<key>zoomInRight</key>
+			<string>ytx_zoomInRightAnimtionWithDurationTime:</string>
+			<key>zoomInDown</key>
+			<string>ytx_zoomInDownAnimtionWithDurationTime:</string>
+			<key>zoomInUp</key>
+			<string>ytx_zoomInUpAnimtionWithDurationTime:</string> 
 		</dict>
 	</dict>
 </array>

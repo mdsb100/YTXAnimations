@@ -85,6 +85,7 @@
 /** fadeInUpBig动画*/
 - (void)ytx_fadeInUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
+
 #pragma mark - Fading Exits
 - (void)ytx_fadeOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
@@ -106,11 +107,24 @@
 
 #pragma mark - Flippers
 
+#pragma mark - Zoom Entrances
+- (void)ytx_zoomInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_zoomInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_zoomInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_zoomInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_zoomInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+#pragma mark - Zoom Exits
+- (void)ytx_zoomOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_zoomOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_zoomOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_zoomOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (void)ytx_zoomOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+ 
+
 #pragma mark - Special
 - (void)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime;
-
 - (void)ytx_rollInAnimationWithDurationTime:(NSTimeInterval)durationTime;
-
 - (void)ytx_rollOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
 @end
