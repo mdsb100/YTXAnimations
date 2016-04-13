@@ -29,7 +29,8 @@
 
 #pragma mark - Attention Seekers
 
-- (void)ytx_bounceAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_bounceAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
 
     CAMediaTimingFunction *time_1 = YTXCAMediaTimingFunction (0.215, 0.610, 0.355, 1);
     CAMediaTimingFunction *time_2 = YTXCAMediaTimingFunction (0.755, 0.050, 0.855, 0.060);
@@ -50,7 +51,8 @@
     
 }
 
-- (void)ytx_flashAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_flashAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
  
     CAKeyframeAnimation *flashAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
     [flashAnimation setValues:@[@(0),@(1),@(0),@(1)]];
@@ -60,7 +62,8 @@
     
 }
 
-- (void)ytx_pluseAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_pluseAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     
     float smallScaleValue = 1;
     float lagerScaleValue = 1.05;
@@ -77,7 +80,8 @@
     
 }
 
-- (void)ytx_rubberBandAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_rubberBandAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     
     float smallScaleValue = 0.75;
     float smallMidScaleValue = 0.85;
@@ -104,7 +108,8 @@
     
 }
 
-- (void)ytx_shakeAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_shakeAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     
     CGPoint center = self.center;
     float moveXLeft = center.x - 5;
@@ -116,7 +121,8 @@
     [self.layer addAnimation:shackAnimation forKey:@"ytx_shakeAnimtionWithDurationTime:"];
 }
 
-- (void)ytx_swingAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_swingAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     float rotateF = 15 * YTX_M_1_PI;
     float rotateS = 10 * YTX_M_1_PI;
     float rotateT = 5 * YTX_M_1_PI;
@@ -134,7 +140,8 @@
     [self.layer addAnimation:shackAnimation forKey:@"ytx_swingAnimtionWithDurationTime:"];
 }
 
-- (void)ytx_tadaAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_tadaAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     float rotate = YTX_M_1_PI * 3;
     float smallScaleValue = 0.9;
     float lagerScaleValue = 1.1;
@@ -154,8 +161,8 @@
     
 }
 
-- (void)ytx_wobbleAnimtionWithDurationTime:(NSTimeInterval)durationTime {
-   
+- (void)ytx_wobbleAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     float rotate_1 = 5 * YTX_M_1_PI;
     float rotate_2 = 3 * YTX_M_1_PI;
     float rotate_3 = 2 * YTX_M_1_PI;
@@ -183,8 +190,8 @@
     [self.layer addAnimation:group forKey:@"ytx_wobbleAnimtionWithDurationTime:"];
 }
 
-- (void)ytx_jelloAnimtionWithDurationTime:(NSTimeInterval)durationTime {
-    
+- (void)ytx_jelloAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     float rotate_1 = 12.5 * YTX_M_1_PI;
     float rotate_2 = 6.25 * YTX_M_1_PI;
     float rotate_3 = 3.125 * YTX_M_1_PI;
@@ -212,7 +219,8 @@
 
 #pragma mark - Bouncing Entrances
 
-- (void)ytx_bounceInAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_bounceInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     CAKeyframeAnimation *bounceln = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     [bounceln setValues:@[YTXScaleValue(.3, .3, .3),
                           YTXScaleValue(1.1, 1.1, 1.1),
@@ -227,7 +235,8 @@
     [self.layer addAnimation:bounceln forKey:@"ytx_bounceInAnimtionWithDurationTime:"];
 }
 
-- (void)ytx_bounceInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_bounceInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     CAKeyframeAnimation *bouncelnDown = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
     
     CGFloat y = self.center.y;
@@ -245,7 +254,8 @@
     [self.layer addAnimation:bouncelnDown forKey:@"ytx_bounceInDownAnimtionWithDurationTime:"];
 }
 
-- (void)ytx_bounceInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_bounceInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     CAKeyframeAnimation *bouncelnLeft = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
     
     CGFloat x = self.center.x;
@@ -263,7 +273,8 @@
     [self.layer addAnimation:bouncelnLeft forKey:@"ytx_bounceInLeftAnimtionWithDurationTime:"];
 }
 
-- (void)ytx_bounceInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_bounceInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     CAKeyframeAnimation *bouncelnRight = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
     
     CGFloat x = self.center.x;
@@ -281,7 +292,8 @@
     [self.layer addAnimation:bouncelnRight forKey:@"ytx_bounceInRightAnimtionWithDurationTime:"];
 }
 
-- (void)ytx_bounceInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_bounceInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     CAKeyframeAnimation *bouncelnUp = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
     
     CGFloat y = self.center.y;
@@ -302,7 +314,8 @@
 
 #pragma mark - Fading Entrances
 
-- (void)ytx_fadeInAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_fadeInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     CAKeyframeAnimation *fadeInOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
     
     [fadeInOpacity setValues:@[@0, @1]];
@@ -311,7 +324,8 @@
     [self.layer addAnimation:fadeInOpacity forKey:@"ytx_fadeInAnimtionWithDurationTime:"];
 }
 
-- (void)ytx_fadeInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_fadeInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     CAKeyframeAnimation *fadeInDownOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
     [fadeInDownOpacity setValues:@[@0, @1]];
     
@@ -324,7 +338,8 @@
     [self.layer addAnimation:group forKey:@"ytx_fadeInDownAnimtionWithDurationTime:"];
 }
 
-- (void)ytx_fadeInDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_fadeInDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     CAKeyframeAnimation *fadeInDownBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
     [fadeInDownBigOpacity setValues:@[@0, @1]];
     
@@ -423,8 +438,10 @@
 
 
 
+
 #pragma mark - Special
-- (void)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
     
     float base = M_1_PI * -1;
     float rotate_1 = 80 * base + M_PI_2;
@@ -463,7 +480,8 @@
     [self.layer addAnimation:group forKey:@"ytx_hingeAnimtionWithDurationTime:"];
 }
 
-- (void)ytx_rollInAnimationWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_rollInAnimationWithDurationTime:(NSTimeInterval)durationTime
+{
     float base = M_1_PI * .1;
     float rotate_1 = 120 * base;
     
@@ -483,7 +501,8 @@
     [self.layer addAnimation:group forKey:@"ytx_rollInAnimationWithDurationTime:"];
 }
 
-- (void)ytx_rollOutAnimationWithDurationTime:(NSTimeInterval)durationTime {
+- (void)ytx_rollOutAnimationWithDurationTime:(NSTimeInterval)durationTime
+{
     float base = M_1_PI ;
     float rotate_1 = 120 * base  + M_PI;
     
