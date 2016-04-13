@@ -666,129 +666,79 @@
 }
 
 - (void)ytx_zoomOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    
-    CAMediaTimingFunction *function = YTXCAMediaTimingFunction(.550, .055, .675, .19);
-    CAMediaTimingFunction *function_2 = YTXCAMediaTimingFunction(.175, .885, .320, 1);
-    CAMediaTimingFunction *liner = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    
-    CAKeyframeAnimation *zoomOutDownOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
-    [zoomOutDownOpacity setValues:@[@1, @0]];
-    [zoomOutDownOpacity setKeyTimes:@[@.4, @1]];
-    
-    CAKeyframeAnimation *zoomOutDownScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomOutDownScale setValues:@[YTXScaleValue(1, 1, 1),
-                                  YTXScaleValue(.475, .475, .475),
-                                  YTXScaleValue(.1, .1, .1)]];
-    [zoomOutDownScale setKeyTimes:@[@0, @.4, @1]];
-    [zoomOutDownScale setTimingFunctions:@[liner, function, function_2]];
-    
-    CAKeyframeAnimation *zoomOutDownAnchorPoint = [CAKeyframeAnimation animationWithKeyPath:ANCHORPOINT];
-    [zoomOutDownAnchorPoint setValues:@[YTXPointValue(0.5, 0.5),
-                                        YTXPointValue(0.5, 1),
-                                        YTXPointValue(0.5, 0.5)]];
-    [zoomOutDownAnchorPoint setKeyTimes:@[@.4, @0.99, @1]];
-    
     CGFloat y = self.center.y;
-    CAKeyframeAnimation *zoomOutDownPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
-    [zoomOutDownPosition setValues:@[@(y), @(y - 30), @(y + BIG_DISTANCE_VALUE)]];
-    [zoomOutDownPosition setKeyTimes:@[@0, @.4, @1]];
-    [zoomOutDownPosition setTimingFunctions:@[liner, function, function_2]];
-    
-    CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[zoomOutDownOpacity, zoomOutDownScale, zoomOutDownPosition, zoomOutDownAnchorPoint]];
-    [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_zoomOutDownAnimtionWithDurationTime:"];
+    [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutDownAnimtionWithDurationTime:"
+                                hasFunction:YES
+                                anchorPoint:YTXPointValue(0.5, 1)
+                               positionPath:POSITION_Y
+                             positionValues:@[@(y), @(y - 30), @(y + BIG_DISTANCE_VALUE)]
+                               DurationTime:durationTime];
 }
 
 - (void)ytx_zoomOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    CAKeyframeAnimation *zoomOutLeftOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
-    [zoomOutLeftOpacity setValues:@[@1, @0]];
-    [zoomOutLeftOpacity setKeyTimes:@[@.4, @1]];
-    
-    CAKeyframeAnimation *zoomOutLeftScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomOutLeftScale setValues:@[YTXScaleValue(1, 1, 1),
-                                  YTXScaleValue(.475, .475, .475),
-                                  YTXScaleValue(.1, .1, .1)]];
-    [zoomOutLeftScale setKeyTimes:@[@0, @.4, @1]];
-    
-    CAKeyframeAnimation *zoomOutLeftAnchorPoint = [CAKeyframeAnimation animationWithKeyPath:ANCHORPOINT];
-    [zoomOutLeftAnchorPoint setValues:@[YTXPointValue(0.5, 0.5),
-                                        YTXPointValue(0, .5),
-                                        YTXPointValue(0.5, 0.5)]];
-    [zoomOutLeftAnchorPoint setKeyTimes:@[@.4, @0.99, @1]];
-    
     CGFloat x = self.center.x;
-    CAKeyframeAnimation *zoomOutLeftPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
-    [zoomOutLeftPosition setValues:@[@(x), @(x + 21),@(x - BIG_DISTANCE_VALUE)]];
-    [zoomOutLeftPosition setKeyTimes:@[@0, @.4, @1]];
-    
-    CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[zoomOutLeftOpacity, zoomOutLeftScale, zoomOutLeftPosition, zoomOutLeftAnchorPoint]];
-    [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_zoomOutLeftAnimtionWithDurationTime:"];
+    [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutLeftAnimtionWithDurationTime:"
+                                hasFunction:NO
+                                anchorPoint:YTXPointValue(0, .5)
+                               positionPath:POSITION_X
+                             positionValues:@[@(x), @(x + 21),@(x - BIG_DISTANCE_VALUE)]
+                               DurationTime:durationTime];
 }
 
 - (void)ytx_zoomOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    CAKeyframeAnimation *zoomOutRightOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
-    [zoomOutRightOpacity setValues:@[@1, @0]];
-    [zoomOutRightOpacity setKeyTimes:@[@.4, @1]];
-    
-    CAKeyframeAnimation *zoomOutRightScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomOutRightScale setValues:@[YTXScaleValue(1, 1, 1),
-                                  YTXScaleValue(.475, .475, .475),
-                                  YTXScaleValue(.1, .1, .1)]];
-    [zoomOutRightScale setKeyTimes:@[@0, @.4, @1]];
-    
-    CAKeyframeAnimation *zoomOutRightAnchorPoint = [CAKeyframeAnimation animationWithKeyPath:ANCHORPOINT];
-    [zoomOutRightAnchorPoint setValues:@[YTXPointValue(0.5, 0.5),
-                                        YTXPointValue(0, .5),
-                                        YTXPointValue(0.5, 0.5)]];
-    [zoomOutRightAnchorPoint setKeyTimes:@[@.4, @0.99, @1]];
-    
     CGFloat x = self.center.x;
-    CAKeyframeAnimation *zoomOutRightPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
-    [zoomOutRightPosition setValues:@[@(x), @(x - 21),@(x + BIG_DISTANCE_VALUE)]];
-    [zoomOutRightPosition setKeyTimes:@[@0, @.4, @1]];
-    
-    CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[zoomOutRightOpacity, zoomOutRightScale, zoomOutRightPosition, zoomOutRightAnchorPoint]];
-    [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_zoomOutRightAnimtionWithDurationTime:"];
+    [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutRightAnimtionWithDurationTime:"
+                                hasFunction:NO
+                                anchorPoint:YTXPointValue(1, .5)
+                               positionPath:POSITION_X
+                             positionValues:@[@(x), @(x - 21),@(x + BIG_DISTANCE_VALUE)]
+                               DurationTime:durationTime];
 }
 
 - (void)ytx_zoomOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    
-    CAMediaTimingFunction *function = YTXCAMediaTimingFunction(.550, .055, .675, .19);
-    CAMediaTimingFunction *function_2 = YTXCAMediaTimingFunction(.175, .885, .320, 1);
-    CAMediaTimingFunction *liner = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    
-    CAKeyframeAnimation *zoomOutUpOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
-    [zoomOutUpOpacity setValues:@[@1, @0]];
-    [zoomOutUpOpacity setKeyTimes:@[@.4, @1]];
-    
-    CAKeyframeAnimation *zoomOutUpScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomOutUpScale setValues:@[YTXScaleValue(1, 1, 1),
-                                  YTXScaleValue(.475, .475, .475),
-                                  YTXScaleValue(.1, .1, .1)]];
-    [zoomOutUpScale setKeyTimes:@[@0, @.4, @1]];
-    [zoomOutUpScale setTimingFunctions:@[liner, function, function_2]];
-    
-    CAKeyframeAnimation *zoomOutUpAnchorPoint = [CAKeyframeAnimation animationWithKeyPath:ANCHORPOINT];
-    [zoomOutUpAnchorPoint setValues:@[YTXPointValue(0.5, 0.5),
-                                        YTXPointValue(0.5, 1),
-                                        YTXPointValue(0.5, 0.5)]];
-    [zoomOutUpAnchorPoint setKeyTimes:@[@.4, @0.99, @1]];
-    
     CGFloat y = self.center.y;
-    CAKeyframeAnimation *zoomOutUpPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
-    [zoomOutUpPosition setValues:@[@(y), @(y + 30), @(y - BIG_DISTANCE_VALUE)]];
-    [zoomOutUpPosition setKeyTimes:@[@0, @.4, @1]];
-    [zoomOutUpPosition setTimingFunctions:@[liner, function, function_2]];
+    [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutUpAnimtionWithDurationTime:"
+                                hasFunction:YES
+                                anchorPoint:YTXPointValue(0.5, 0)
+                               positionPath:POSITION_Y
+                             positionValues:@[@(y), @(y + 30), @(y - BIG_DISTANCE_VALUE)]
+                               DurationTime:durationTime];
+}
+
+- (void)ytx_zoomOutAnimtionWithSelectName:(NSString *)selectName hasFunction:(BOOL)hasFunction anchorPoint:(NSValue *)anchorPoint positionPath:(NSString *)positionPath positionValues:(NSArray *)positionValues DurationTime:(NSTimeInterval)durationTime{
+    
+    CAKeyframeAnimation *zoomOutOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    [zoomOutOpacity setValues:@[@1, @0]];
+    [zoomOutOpacity setKeyTimes:@[@.4, @1]];
+    
+    CAKeyframeAnimation *zoomOutScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    [zoomOutScale setValues:@[YTXScaleValue(1, 1, 1),
+                                YTXScaleValue(.475, .475, .475),
+                                YTXScaleValue(.1, .1, .1)]];
+    [zoomOutScale setKeyTimes:@[@0, @.4, @1]];
+    
+    CAKeyframeAnimation *zoomOutAnchorPoint = [CAKeyframeAnimation animationWithKeyPath:ANCHORPOINT];
+    [zoomOutAnchorPoint setValues:@[YTXPointValue(0.5, 0.5),
+                                      anchorPoint,
+                                      YTXPointValue(0.5, 0.5)]];
+    [zoomOutAnchorPoint setKeyTimes:@[@.4, @0.99, @1]];
+    
+    CAKeyframeAnimation *zoomOutPosition = [CAKeyframeAnimation animationWithKeyPath:positionPath];
+    [zoomOutPosition setValues:positionValues];
+    [zoomOutPosition setKeyTimes:@[@0, @.4, @1]];
+    
+    if (hasFunction) {
+        CAMediaTimingFunction *function = YTXCAMediaTimingFunction(.550, .055, .675, .19);
+        CAMediaTimingFunction *function_2 = YTXCAMediaTimingFunction(.175, .885, .320, 1);
+        CAMediaTimingFunction *liner = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        [zoomOutScale setTimingFunctions:@[liner, function, function_2]];
+        [zoomOutPosition setTimingFunctions:@[liner, function, function_2]];
+    }
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[zoomOutUpOpacity, zoomOutUpScale, zoomOutUpPosition, zoomOutUpAnchorPoint]];
+    [group setAnimations:@[zoomOutOpacity, zoomOutScale, zoomOutPosition, zoomOutAnchorPoint]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_zoomOutUpAnimtionWithDurationTime:"];
+    [self.layer addAnimation:group forKey:selectName];
 }
 
 #pragma mark - Zoom Entrances
@@ -808,118 +758,64 @@
 }
 
 - (void)ytx_zoomInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    
-    CAMediaTimingFunction *function = YTXCAMediaTimingFunction(.550, .055, .675, .19);
-    CAMediaTimingFunction *function_2 = YTXCAMediaTimingFunction(.175, .885, .320, 1);
-    CAMediaTimingFunction *liner = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    
-    CAKeyframeAnimation *zoomInDownOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
-    [zoomInDownOpacity setValues:@[@0, @1]];
-    [zoomInDownOpacity setKeyTimes:@[@0, @.6]];
-    
-    CAKeyframeAnimation *zoomInDownScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomInDownScale setValues:@[YTXScaleValue(.1, .1, .1),
-                                  YTXScaleValue(.475, .475, .475),
-                                  YTXScaleValue(1, 1, 1)]];
-    [zoomInDownScale setKeyTimes:@[@0, @.6, @1]];
-    [zoomInDownScale setTimingFunctions:@[liner, function, function_2]];
-    
     CGFloat y = self.center.y;
-    CAKeyframeAnimation *zoomInDownPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
-    [zoomInDownPosition setValues:@[@(y - 500), @(y + 5), @(y)]];
-    [zoomInDownPosition setKeyTimes:@[@0, @.6, @1]];
-    [zoomInDownPosition setTimingFunctions:@[liner, function, function_2]];
-    
-    CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[zoomInDownOpacity, zoomInDownScale, zoomInDownPosition]];
-    [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_zoomInDownAnimtionWithDurationTime:"];
+    [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInDownAnimtionWithDurationTime:"
+                              positionPath:POSITION_Y
+                            positionValues:@[@(y - 500), @(y + 5), @(y)]
+                              DurationTime:durationTime];
 }
 
 - (void)ytx_zoomInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    CAMediaTimingFunction *function = YTXCAMediaTimingFunction(.550, .055, .675, .19);
-    CAMediaTimingFunction *function_2 = YTXCAMediaTimingFunction(.175, .885, .320, 1);
-    CAMediaTimingFunction *liner = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    
-    CAKeyframeAnimation *zoomInLeftOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
-    [zoomInLeftOpacity setValues:@[@0, @1]];
-    [zoomInLeftOpacity setKeyTimes:@[@0, @.6]];
-    
-    CAKeyframeAnimation *zoomInLeftScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomInLeftScale setValues:@[YTXScaleValue(.1, .1, .1),
-                                  YTXScaleValue(.475, .475, .475),
-                                  YTXScaleValue(1, 1, 1)]];
-    [zoomInLeftScale setKeyTimes:@[@0, @.6, @1]];
-    [zoomInLeftScale setTimingFunctions:@[liner, function, function_2]];
-    
     CGFloat x = self.center.x;
-    CAKeyframeAnimation *zoomInLeftPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
-    [zoomInLeftPosition setValues:@[@(x - 500), @(x + 5),@(x)]];
-    [zoomInLeftPosition setKeyTimes:@[@0, @.6, @1]];
-    [zoomInLeftPosition setTimingFunctions:@[liner, function, function_2]];
-    
-    CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[zoomInLeftOpacity, zoomInLeftScale, zoomInLeftPosition]];
-    [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_zoomInLeftAnimtionWithDurationTime:"];
+    [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInLeftAnimtionWithDurationTime:"
+                              positionPath:POSITION_X
+                            positionValues:@[@(x - 500), @(x + 5),@(x)]
+                              DurationTime:durationTime];
 }
 
 - (void)ytx_zoomInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    CAMediaTimingFunction *function = YTXCAMediaTimingFunction(.550, .055, .675, .19);
-    CAMediaTimingFunction *function_2 = YTXCAMediaTimingFunction(.175, .885, .320, 1);
-    CAMediaTimingFunction *liner = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    
-    CAKeyframeAnimation *zoomInRightOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
-    [zoomInRightOpacity setValues:@[@0, @1]];
-    [zoomInRightOpacity setKeyTimes:@[@0, @.6]];
-    
-    CAKeyframeAnimation *zoomInRightScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomInRightScale setValues:@[YTXScaleValue(.1, .1, .1),
-                                   YTXScaleValue(.475, .475, .475),
-                                   YTXScaleValue(1, 1, 1)]];
-    [zoomInRightScale setKeyTimes:@[@0, @.6, @1]];
-    [zoomInRightScale setTimingFunctions:@[liner, function, function_2]];
-    
     CGFloat x = self.center.x;
-    CAKeyframeAnimation *zoomInRightPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
-    [zoomInRightPosition setValues:@[@(x + 500), @(x - 5),@(x)]];
-    [zoomInRightPosition setKeyTimes:@[@0, @.6, @1]];
-    [zoomInRightPosition setTimingFunctions:@[liner, function, function_2]];
-    
-    CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[zoomInRightOpacity, zoomInRightScale, zoomInRightPosition]];
-    [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_zoomInRightAnimtionWithDurationTime:"];
+    [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInRightAnimtionWithDurationTime:"
+                              positionPath:POSITION_X
+                            positionValues:@[@(x + 500), @(x - 5),@(x)]
+                              DurationTime:durationTime];
 }
 
 - (void)ytx_zoomInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    
+    CGFloat y = self.center.y;
+    [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInUpAnimtionWithDurationTime:"
+                              positionPath:POSITION_Y
+                            positionValues:@[@(y + 500), @(y - 30), @(y)]
+                              DurationTime:durationTime];
+}
+
+- (void)ytx_zoomInAnimtionWithSelectName:(NSString *)selectName positionPath:(NSString *)positionPath positionValues:(NSArray *)positionValues DurationTime:(NSTimeInterval)durationTime{
     CAMediaTimingFunction *function = YTXCAMediaTimingFunction(.550, .055, .675, .19);
     CAMediaTimingFunction *function_2 = YTXCAMediaTimingFunction(.175, .885, .320, 1);
     CAMediaTimingFunction *liner = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     
-    CAKeyframeAnimation *zoomInUpOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
-    [zoomInUpOpacity setValues:@[@0, @1]];
-    [zoomInUpOpacity setKeyTimes:@[@0, @.6]];
+    CAKeyframeAnimation *zoomInOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    [zoomInOpacity setValues:@[@0, @1]];
+    [zoomInOpacity setKeyTimes:@[@0, @.6]];
     
-    CAKeyframeAnimation *zoomInUpScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomInUpScale setValues:@[YTXScaleValue(.1, .1, .1),
-                                YTXScaleValue(.475, .475, .475),
-                                YTXScaleValue(1, 1, 1)]];
-    [zoomInUpScale setKeyTimes:@[@0, @.6, @1]];
-    [zoomInUpScale setTimingFunctions:@[liner, function, function_2]];
+    CAKeyframeAnimation *zoomInScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    [zoomInScale setValues:@[YTXScaleValue(.1, .1, .1),
+                               YTXScaleValue(.475, .475, .475),
+                               YTXScaleValue(1, 1, 1)]];
+    [zoomInScale setKeyTimes:@[@0, @.6, @1]];
+    [zoomInScale setTimingFunctions:@[liner, function, function_2]];
     
-    CGFloat y = self.center.y;
-    CAKeyframeAnimation *zoomInUpPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
-    [zoomInUpPosition setValues:@[@(y + 500), @(y - 30), @(y)]];
-    [zoomInUpPosition setKeyTimes:@[@0, @.6, @1]];
-    [zoomInUpPosition setTimingFunctions:@[liner, function, function_2]];
+    CAKeyframeAnimation *zoomInPosition = [CAKeyframeAnimation animationWithKeyPath:positionPath];
+    [zoomInPosition setValues:positionValues];
+    [zoomInPosition setKeyTimes:@[@0, @.6, @1]];
+    [zoomInPosition setTimingFunctions:@[liner, function, function_2]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[zoomInUpOpacity, zoomInUpScale, zoomInUpPosition]];
+    [group setAnimations:@[zoomInOpacity, zoomInScale, zoomInPosition]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_zoomInUpAnimtionWithDurationTime:"];
+    [self.layer addAnimation:group forKey:selectName];
 }
+
 
 #pragma mark - Slide Entrances
 - (void)ytx_slideInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
