@@ -25,7 +25,6 @@
 //获取YTXCAMediaTimingFunction
 #define YTXCAMediaTimingFunction(x1,y1,x2,y2) [CAMediaTimingFunction functionWithControlPoints:x1 :y1 :x2 :y2]
 
-
 #define BIG_DISTANCE_VALUE 1000 
 
 #define OPACITY @"opacity"
@@ -51,7 +50,7 @@
     NSNumber *value_2 = @(-8 + y);
     NSNumber *value_3 = @(-2 + y);
     
-    CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     [bounce setValues:@[value_0,value_1,value_1,value_0,value_2,value_0,value_3]];
     [bounce setKeyTimes:@[@(0.2),@(0.4),@(0.43),@(.53),@(.7),@(.8),@(.9)]];
     [bounce setTimingFunctions:@[time_1,time_2,time_2,time_1,time_2,time_1,time_1,time_2]];
@@ -64,7 +63,7 @@
 - (void)ytx_flashAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
  
-    CAKeyframeAnimation *flashAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *flashAnimation = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [flashAnimation setValues:@[@(0),@(1),@(0),@(1)]];
     [flashAnimation setKeyTimes:@[@(0.25),@(0.5),@(.75),@(1)]];
     flashAnimation.duration = durationTime;
@@ -81,7 +80,7 @@
     NSValue *smallScale = YTXScaleValue(smallScaleValue, smallScaleValue, smallScaleValue);
     NSValue *lagerScale = YTXScaleValue(lagerScaleValue, lagerScaleValue, lagerScaleValue);
     
-    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
     shackAnimation.duration = durationTime;
     [shackAnimation setValues:@[smallScale,lagerScale,smallScale]];
     [shackAnimation setKeyTimes:@[@(0),@(.5),@(1)]];
@@ -103,7 +102,7 @@
     
     NSValue *norScale = YTXScaleValue(defaultScaleValue, defaultScaleValue, defaultScaleValue);
     
-    CAKeyframeAnimation *rubberBand = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *rubberBand = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
     rubberBand.duration = durationTime;
     [rubberBand setValues:@[norScale,
                             YTXScaleValue(lagerScaleValue, smallScaleValue, defaultScaleValue),
@@ -124,7 +123,7 @@
     CGPoint center = self.center;
     float moveXLeft = center.x - 5;
     float moveXRight = center.x + 5;
-    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     shackAnimation.duration = durationTime;
     
     [shackAnimation setValues:@[@(center.x),@(moveXLeft), @(moveXRight),@(moveXLeft), @(moveXRight),@(moveXLeft), @(moveXRight),@(moveXLeft), @(moveXRight),@(moveXLeft), @(moveXRight),@(center.x)]];
@@ -137,7 +136,7 @@
     float rotateS = YTX_RADIAN(10);
     float rotateT = YTX_RADIAN(5);
     
-    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     shackAnimation.duration = durationTime;
     
     [shackAnimation setValues:@[YTXRotateValue(0, 0.0 ,0.0 ,1.0),
@@ -162,7 +161,7 @@
     NSValue *leftValue = YTXRotateValue(-rotate, 0.0 ,0.0 ,1.0);
     NSValue *rightValue = YTXRotateValue(rotate, 0.0 ,0.0 ,1.0);
     
-    CAKeyframeAnimation *tadaAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *tadaAnimation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     tadaAnimation.duration = durationTime;
     
     [tadaAnimation setValues:@[defultScale,smallScale,lagerScale,leftValue,rightValue,leftValue,rightValue,leftValue,rightValue,leftValue,rightValue,]];
@@ -178,7 +177,7 @@
     float rotate_3 = YTX_RADIAN(2);
     float rotate_4 = YTX_RADIAN(1);
     
-    CAKeyframeAnimation *rotateAnimation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *rotateAnimation = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
     [rotateAnimation setKeyTimes:@[@(0), @(.15), @(.3), @(.45), @(.6), @(.75), @(1)]];
     [rotateAnimation setValues:@[YTXRotateValue(0, 0.0 ,0.0 ,1.0),
                                  YTXRotateValue(-rotate_1, 0.0 ,0.0 ,1.0),
@@ -190,7 +189,7 @@
   
     CGFloat x = self.center.x;
     CGFloat width = SELF_WIDTH;
-    CAKeyframeAnimation *shakeAnimation = [CAKeyframeAnimation  animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *shakeAnimation = [CAKeyframeAnimation  animationWithKeyPath:POSITION_X];
     [shakeAnimation setKeyTimes:@[@(0), @(.15), @(.3), @(.45), @(.6), @(.75), @(1)]];
     [shakeAnimation setValues:@[ @(x), @((-.25  * width) + x) ,@( (.2 * width) + x),@((-.15 * width) + x),@((.1 * width) + x),@( (-.05 * width) + x),@(x)]];
     
@@ -210,7 +209,7 @@
     float rotate_6 = YTX_RADIAN(0.390625);
     float rotate_7 = YTX_RADIAN(0.1953125);
     
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
     animation.duration = durationTime;
     animation.calculationMode = kCAAnimationCubic;
     [animation setKeyTimes:@[@(.111), @(.222), @(.333), @(.444), @(.555), @(.666), @(.777), @(.888), @(1)]];
@@ -231,7 +230,7 @@
 
 - (void)ytx_bounceInAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *bounceln = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *bounceln = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     [bounceln setValues:@[YTXScaleValue(.3, .3, .3),
                           YTXScaleValue(1.1, 1.1, 1.1),
                           YTXScaleValue(.9, .9, .9),
@@ -247,7 +246,7 @@
 
 - (void)ytx_bounceInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *bouncelnDown = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    CAKeyframeAnimation *bouncelnDown = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     
     CGFloat y = self.center.y;
     NSNumber *value_0 = @(-1500 + y);
@@ -266,7 +265,7 @@
 
 - (void)ytx_bounceInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *bouncelnLeft = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *bouncelnLeft = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     
     CGFloat x = self.center.x;
     NSNumber *value_0 = @(-1500 + x);
@@ -285,7 +284,7 @@
 
 - (void)ytx_bounceInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *bouncelnRight = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *bouncelnRight = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     
     CGFloat x = self.center.x;
     NSNumber *value_0 = @(1500 + x);
@@ -304,7 +303,7 @@
 
 - (void)ytx_bounceInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *bouncelnUp = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    CAKeyframeAnimation *bouncelnUp = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     
     CGFloat y = self.center.y;
     NSNumber *value_0 = @(1500 + y);
@@ -326,7 +325,7 @@
 
 - (void)ytx_fadeInAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeInOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeInOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     
     [fadeInOpacity setValues:@[@0, @1]];
     
@@ -336,10 +335,10 @@
 
 - (void)ytx_fadeInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeInDownOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeInDownOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInDownOpacity setValues:@[@0, @1]];
     
-    CAKeyframeAnimation *fadeInDownPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    CAKeyframeAnimation *fadeInDownPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     [fadeInDownPosition setValues:@[@(-SELF_HEIGHT + self.center.y), @(self.center.y)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -350,10 +349,10 @@
 
 - (void)ytx_fadeInDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeInDownBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeInDownBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInDownBigOpacity setValues:@[@0, @1]];
     
-    CAKeyframeAnimation *fadeInDownBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    CAKeyframeAnimation *fadeInDownBigPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     [fadeInDownBigPosition setValues:@[@(-BIG_DISTANCE_VALUE + self.center.y), @(self.center.y)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -364,10 +363,10 @@
 
 - (void)ytx_fadeInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeInLeftOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeInLeftOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInLeftOpacity setValues:@[@0, @1]];
     
-    CAKeyframeAnimation *fadeInLeftPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *fadeInLeftPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     [fadeInLeftPosition setValues:@[@(-SELF_WIDTH + self.center.x), @(self.center.x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -378,10 +377,10 @@
 
 - (void)ytx_fadeInLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeInLeftBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeInLeftBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInLeftBigOpacity setValues:@[@0, @1]];
     
-    CAKeyframeAnimation *fadeInLeftBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *fadeInLeftBigPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     [fadeInLeftBigPosition setValues:@[@(-BIG_DISTANCE_VALUE + self.center.x), @(self.center.x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -392,10 +391,10 @@
 
 - (void)ytx_fadeInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeInRightOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeInRightOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInRightOpacity setValues:@[@0, @1]];
     
-    CAKeyframeAnimation *fadeInRightPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *fadeInRightPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     [fadeInRightPosition setValues:@[@(SELF_WIDTH + self.center.x), @(self.center.x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -406,10 +405,10 @@
 
 - (void)ytx_fadeInRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeInRightBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeInRightBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInRightBigOpacity setValues:@[@0, @1]];
     
-    CAKeyframeAnimation *fadeInRightBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *fadeInRightBigPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     [fadeInRightBigPosition setValues:@[@(BIG_DISTANCE_VALUE + self.center.x), @(self.center.x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -420,10 +419,10 @@
 
 - (void)ytx_fadeInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeInUpOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeInUpOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInUpOpacity setValues:@[@0, @1]];
     
-    CAKeyframeAnimation *fadeInUpPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    CAKeyframeAnimation *fadeInUpPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     [fadeInUpPosition setValues:@[@(SELF_WIDTH + self.center.y), @(self.center.y)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -434,10 +433,10 @@
 
 - (void)ytx_fadeInUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeInUpBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeInUpBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInUpBigOpacity setValues:@[@0, @1]];
     
-    CAKeyframeAnimation *fadeInUpBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    CAKeyframeAnimation *fadeInUpBigPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     [fadeInUpBigPosition setValues:@[@(BIG_DISTANCE_VALUE + self.center.y), @(self.center.y)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -449,7 +448,7 @@
 #pragma mark - Fading Exits
 - (void)ytx_fadeOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeOut = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeOut = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOut setValues:@[@1, @0]];
     fadeOut.duration = durationTime;
     [self.layer addAnimation:fadeOut forKey:@"ytx_fadeOutAnimtionWithDurationTime:"];
@@ -457,10 +456,10 @@
 
 - (void)ytx_fadeOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeOutDownOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeOutDownOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutDownOpacity setValues:@[@1, @0]];
     
-    CAKeyframeAnimation *fadeOutDownPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    CAKeyframeAnimation *fadeOutDownPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     [fadeOutDownPosition setValues:@[@(self.center.y), @(SELF_HEIGHT + self.center.y)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -471,10 +470,10 @@
 
 - (void)ytx_fadeOutDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeOutDownBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeOutDownBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutDownBigOpacity setValues:@[@1, @0]];
     
-    CAKeyframeAnimation *fadeOutDownBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    CAKeyframeAnimation *fadeOutDownBigPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     [fadeOutDownBigPosition setValues:@[@(self.center.y), @(BIG_DISTANCE_VALUE + self.center.y)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -485,10 +484,10 @@
 
 - (void)ytx_fadeOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeOutLeftOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeOutLeftOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutLeftOpacity setValues:@[@1, @0]];
     
-    CAKeyframeAnimation *fadeOutLeftPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *fadeOutLeftPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     [fadeOutLeftPosition setValues:@[@(self.center.x), @(-SELF_WIDTH + self.center.x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -499,10 +498,10 @@
 
 - (void)ytx_fadeOutLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeOutLeftBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeOutLeftBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutLeftBigOpacity setValues:@[@1, @0]];
     
-    CAKeyframeAnimation *fadeOutLeftBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *fadeOutLeftBigPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     [fadeOutLeftBigPosition setValues:@[@(self.center.x), @(-BIG_DISTANCE_VALUE + self.center.x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -513,10 +512,10 @@
 
 - (void)ytx_fadeOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeOutRightOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeOutRightOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutRightOpacity setValues:@[@1, @0]];
     
-    CAKeyframeAnimation *fadeOutRightPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *fadeOutRightPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     [fadeOutRightPosition setValues:@[@(self.center.x), @(SELF_WIDTH + self.center.x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -527,10 +526,10 @@
 
 - (void)ytx_fadeOutRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeOutRightBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeOutRightBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutRightBigOpacity setValues:@[@1, @0]];
     
-    CAKeyframeAnimation *fadeOutRightBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *fadeOutRightBigPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     [fadeOutRightBigPosition setValues:@[@(self.center.x), @(BIG_DISTANCE_VALUE + self.center.x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -541,11 +540,11 @@
 
 - (void)ytx_fadeOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeOutUpOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeOutUpOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutUpOpacity setValues:@[@1, @0]];
     
-    CAKeyframeAnimation *fadeOutUpPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
-    [fadeOutUpPosition setValues:@[@(self.center.y), @(-SELF_WIDTH + self.center.y)]];
+    CAKeyframeAnimation *fadeOutUpPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
+    [fadeOutUpPosition setValues:@[@(self.center.y), @(-SELF_HEIGHT + self.center.y)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[fadeOutUpOpacity, fadeOutUpPosition]];
@@ -555,10 +554,10 @@
 
 - (void)ytx_fadeOutUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *fadeOutUpBigOpacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *fadeOutUpBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutUpBigOpacity setValues:@[@1, @0]];
     
-    CAKeyframeAnimation *fadeOutUpBigPosition = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    CAKeyframeAnimation *fadeOutUpBigPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     [fadeOutUpBigPosition setValues:@[@(self.center.y), @(-BIG_DISTANCE_VALUE + self.center.y)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -575,7 +574,7 @@
     float rotate_1 = YTX_RADIAN(80);
     float rotate_2 = YTX_RADIAN(60);
     
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [animation setValues:@[YTXRotateValue(0, 0, 0, 1),
                            YTXRotateValue(rotate_1, 0, 0, 1),
@@ -584,13 +583,13 @@
                            YTXRotateValue(rotate_2, 0, 0, 1), 
                            ]];
     
-    CAKeyframeAnimation *anchorAnimation = [CAKeyframeAnimation  animationWithKeyPath:@"anchorPoint"];
+    CAKeyframeAnimation *anchorAnimation = [CAKeyframeAnimation  animationWithKeyPath:ANCHORPOINT];
     [anchorAnimation setValues:@[YTXPointValue(0, 0),
                                  YTXPointValue(0, 0),
                                  YTXPointValue(0.5, 0.5)]];
     [anchorAnimation setKeyTimes:@[@(0),@(.99),@(1)]];
     
-    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [opacity setValues:@[@1,@0]];
     [opacity setKeyTimes:@[@(.8),@1]];
     
@@ -613,14 +612,14 @@
 {
     float rotate_1 = YTX_RADIAN(120);
     
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
     [animation setValues:@[
                            YTXRotateValue(-rotate_1, 0, 0, 1),
                            YTXRotateValue(0, 0, 0, 1)]];
     
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat x = self.center.x;
-    CAKeyframeAnimation *position = [CAKeyframeAnimation  animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *position = [CAKeyframeAnimation  animationWithKeyPath:POSITION_X];
     [position setValues:@[@(-width + x),@(x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -633,14 +632,14 @@
 {
     float rotate_1 = YTX_RADIAN(120);
     
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
     [animation setValues:@[
                            YTXRotateValue(0, 0, 0, 1),
                            YTXRotateValue(rotate_1, 0, 0, 1)]];
     
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat x = self.center.x;
-    CAKeyframeAnimation *position = [CAKeyframeAnimation  animationWithKeyPath:@"position.x"];
+    CAKeyframeAnimation *position = [CAKeyframeAnimation  animationWithKeyPath:POSITION_X];
     [position setValues:@[@(x),@(width+x)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -691,7 +690,7 @@
     
     CGFloat y = self.center.y;
     CAKeyframeAnimation *zoomOutDownPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
-    [zoomOutDownPosition setValues:@[@(y), @(y - 30), @(y + 1000)]];
+    [zoomOutDownPosition setValues:@[@(y), @(y - 30), @(y + BIG_DISTANCE_VALUE)]];
     [zoomOutDownPosition setKeyTimes:@[@0, @.4, @1]];
     [zoomOutDownPosition setTimingFunctions:@[liner, function, function_2]];
     
@@ -720,7 +719,7 @@
     
     CGFloat x = self.center.x;
     CAKeyframeAnimation *zoomOutLeftPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
-    [zoomOutLeftPosition setValues:@[@(x), @(x + 21),@(x - 1000)]];
+    [zoomOutLeftPosition setValues:@[@(x), @(x + 21),@(x - BIG_DISTANCE_VALUE)]];
     [zoomOutLeftPosition setKeyTimes:@[@0, @.4, @1]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -748,7 +747,7 @@
     
     CGFloat x = self.center.x;
     CAKeyframeAnimation *zoomOutRightPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
-    [zoomOutRightPosition setValues:@[@(x), @(x - 21),@(x + 1000)]];
+    [zoomOutRightPosition setValues:@[@(x), @(x - 21),@(x + BIG_DISTANCE_VALUE)]];
     [zoomOutRightPosition setKeyTimes:@[@0, @.4, @1]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -782,7 +781,7 @@
     
     CGFloat y = self.center.y;
     CAKeyframeAnimation *zoomOutUpPosition = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
-    [zoomOutUpPosition setValues:@[@(y), @(y + 30), @(y - 1000)]];
+    [zoomOutUpPosition setValues:@[@(y), @(y + 30), @(y - BIG_DISTANCE_VALUE)]];
     [zoomOutUpPosition setKeyTimes:@[@0, @.4, @1]];
     [zoomOutUpPosition setTimingFunctions:@[liner, function, function_2]];
     
