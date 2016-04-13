@@ -920,8 +920,85 @@
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_zoomInUpAnimtionWithDurationTime:"];
 }
- 
+
+#pragma mark - Slide Entrances
+- (void)ytx_slideInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    [self ytx_slideAnimtionWithSelectName:@"ytx_slideInDownAnimtionWithDurationTime:"
+                                     isIn:YES
+                          translateValues:@[YTXTranslateValue(0, SELF_HEIGHT, 0),
+                                            YTXTranslateValue(0, 0, 0)]
+                             DurationTime:durationTime];
+}
+
+- (void)ytx_slideInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    [self ytx_slideAnimtionWithSelectName:@"ytx_slideInLeftAnimtionWithDurationTime:"
+                                     isIn:YES
+                          translateValues:@[YTXTranslateValue(-SELF_WIDTH, 0, 0),
+                                            YTXTranslateValue(0, 0, 0)]
+                             DurationTime:durationTime];
+}
+
+- (void)ytx_slideInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    [self ytx_slideAnimtionWithSelectName:@"ytx_slideInRightAnimtionWithDurationTime:"
+                                     isIn:YES
+                          translateValues:@[YTXTranslateValue(SELF_WIDTH, 0, 0),
+                                            YTXTranslateValue(0, 0, 0)]
+                             DurationTime:durationTime];
+}
+
+- (void)ytx_slideInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    [self ytx_slideAnimtionWithSelectName:@"ytx_slideInUpAnimtionWithDurationTime:"
+                                     isIn:YES
+                          translateValues:@[YTXTranslateValue(0, -SELF_HEIGHT, 0),
+                                            YTXTranslateValue(0, 0, 0)]
+                             DurationTime:durationTime];
+}
+
+#pragma mark - Slide Exits
+- (void)ytx_slideOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutDownAnimtionWithDurationTime:"
+                                     isIn:NO
+                          translateValues:@[YTXTranslateValue(0, 0, 0),
+                                            YTXTranslateValue(0, SELF_HEIGHT, 0)]
+                             DurationTime:durationTime];
+ }
+
+- (void)ytx_slideOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutLeftAnimtionWithDurationTime:"
+                                     isIn:NO
+                          translateValues:@[YTXTranslateValue(0, 0, 0),
+                                            YTXTranslateValue(-SELF_WIDTH, 0, 0)]
+                             DurationTime:durationTime];
+}
+
+- (void)ytx_slideOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutRightAnimtionWithDurationTime:"
+                                     isIn:NO
+                          translateValues:@[YTXTranslateValue(0, 0, 0),
+                                            YTXTranslateValue(SELF_WIDTH, 0, 0)]
+                             DurationTime:durationTime];
+}
+
+- (void)ytx_slideOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutUpAnimtionWithDurationTime:"
+                                     isIn:NO
+                          translateValues:@[YTXTranslateValue(0, 0, 0),
+                                            YTXTranslateValue(0, -SELF_HEIGHT, 0)]
+                             DurationTime:durationTime];
+}
+
+- (void)ytx_slideAnimtionWithSelectName:(NSString *)selectName isIn:(BOOL)isIn translateValues:(NSArray *)translateValues DurationTime:(NSTimeInterval)durationTime{
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    [opacity setValues:@[@1, isIn ? @1 : @0]];
+    [opacity setKeyTimes:@[@0.99, @1]];
+    
+    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    [transform setValues:translateValues];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[opacity, transform]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:selectName];
+}
+
 @end
-
-
-
