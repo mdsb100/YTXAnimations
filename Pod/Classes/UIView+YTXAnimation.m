@@ -21,7 +21,7 @@
 #define SELF_WIDTH             (self.frame.size.width)
 #define SELF_HEIGHT            (self.frame.size.height)
 
-#define YTX_M_1_PI              (M_1_PI * .1)
+#define YTX_RADIAN(x)             (x * M_PI / 180)
 //获取YTXCAMediaTimingFunction
 #define YTXCAMediaTimingFunction(x1,y1,x2,y2) [CAMediaTimingFunction functionWithControlPoints:x1 :y1 :x2 :y2]
 
@@ -125,9 +125,9 @@
 
 - (void)ytx_swingAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    float rotateF = 15 * YTX_M_1_PI;
-    float rotateS = 10 * YTX_M_1_PI;
-    float rotateT = 5 * YTX_M_1_PI;
+    float rotateF = YTX_RADIAN(15);
+    float rotateS = YTX_RADIAN(10);
+    float rotateT = YTX_RADIAN(5);
     
     CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     shackAnimation.duration = durationTime;
@@ -144,7 +144,7 @@
 
 - (void)ytx_tadaAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    float rotate = YTX_M_1_PI * 3;
+    float rotate = YTX_RADIAN(3);
     float smallScaleValue = 0.9;
     float lagerScaleValue = 1.1;
     
@@ -165,10 +165,10 @@
 
 - (void)ytx_wobbleAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    float rotate_1 = 5 * YTX_M_1_PI;
-    float rotate_2 = 3 * YTX_M_1_PI;
-    float rotate_3 = 2 * YTX_M_1_PI;
-    float rotate_4 = 1 * YTX_M_1_PI;
+    float rotate_1 = YTX_RADIAN(5);
+    float rotate_2 = YTX_RADIAN(3);
+    float rotate_3 = YTX_RADIAN(2);
+    float rotate_4 = YTX_RADIAN(1);
     
     CAKeyframeAnimation *rotateAnimation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
     [rotateAnimation setKeyTimes:@[@(0), @(.15), @(.3), @(.45), @(.6), @(.75), @(1)]];
@@ -194,13 +194,13 @@
 
 - (void)ytx_jelloAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    float rotate_1 = 12.5 * YTX_M_1_PI;
-    float rotate_2 = 6.25 * YTX_M_1_PI;
-    float rotate_3 = 3.125 * YTX_M_1_PI;
-    float rotate_4 = 1.5625 * YTX_M_1_PI;
-    float rotate_5 = 0.78125 * YTX_M_1_PI;
-    float rotate_6 = 0.390625 * YTX_M_1_PI;
-    float rotate_7 = 0.1953125 * YTX_M_1_PI;
+    float rotate_1 = YTX_RADIAN(12.5);
+    float rotate_2 = YTX_RADIAN(6.25);
+    float rotate_3 = YTX_RADIAN(3.125);
+    float rotate_4 = YTX_RADIAN(1.5625);
+    float rotate_5 = YTX_RADIAN(0.78125);
+    float rotate_6 = YTX_RADIAN(0.390625);
+    float rotate_7 = YTX_RADIAN(0.1953125);
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
     animation.duration = durationTime;
@@ -560,14 +560,12 @@
 }
 
 
-
 #pragma mark - Special
+
 - (void)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    
-    float base = M_1_PI * -1;
-    float rotate_1 = 80 * base + M_PI_2;
-    float rotate_2 = 60 * base + M_PI_2;
+    float rotate_1 = YTX_RADIAN(80);
+    float rotate_2 = YTX_RADIAN(60);
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
@@ -604,12 +602,11 @@
 
 - (void)ytx_rollInAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    float base = M_1_PI * .1;
-    float rotate_1 = 120 * base;
+    float rotate_1 = YTX_RADIAN(120);
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
     [animation setValues:@[
-                           YTXRotateValue(rotate_1, 0, 0, 1),
+                           YTXRotateValue(-rotate_1, 0, 0, 1),
                            YTXRotateValue(0, 0, 0, 1)]];
     
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
@@ -625,13 +622,12 @@
 
 - (void)ytx_rollOutAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    float base = M_1_PI ;
-    float rotate_1 = 120 * base  + M_PI;
+    float rotate_1 = YTX_RADIAN(120);
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
     [animation setValues:@[
                            YTXRotateValue(0, 0, 0, 1),
-                           YTXRotateValue(-rotate_1, 0, 0, 1)]];
+                           YTXRotateValue(rotate_1, 0, 0, 1)]];
     
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat x = self.center.x;
@@ -643,6 +639,7 @@
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_rollInAnimationWithDurationTime:"];
 }
+
 @end
 
 

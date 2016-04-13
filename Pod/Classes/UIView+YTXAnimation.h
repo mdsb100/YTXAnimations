@@ -104,6 +104,8 @@
 
 - (void)ytx_fadeOutUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
+#pragma mark - Flippers
+
 #pragma mark - Special
 - (void)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
