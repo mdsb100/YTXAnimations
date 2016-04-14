@@ -39,7 +39,7 @@
 
 #pragma mark - Attention Seekers
 
-- (void)ytx_bounceAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
 
     CAMediaTimingFunction *time_1 = YTXCAMediaTimingFunction (0.215, 0.610, 0.355, 1);
@@ -56,10 +56,11 @@
     [bounce setKeyTimes:@[@(0.2),@(0.4),@(0.43),@(.53),@(.7),@(.8),@(.9)]];
     [bounce setTimingFunctions:@[time_1,time_2,time_2,time_1,time_2,time_1,time_1,time_2]];
     bounce.duration = durationTime;
-    [self.layer addAnimation:bounce forKey:@"ytx_bounceAnimtionWithDurationTime:"]; 
+    [self.layer addAnimation:bounce forKey:@"ytx_bounceAnimtionWithDurationTime:"];
+    return bounce;
 }
 
-- (void)ytx_flashAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_flashAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
  
     CAKeyframeAnimation *flashAnimation = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
@@ -67,10 +68,10 @@
     [flashAnimation setKeyTimes:@[@(0.25),@(0.5),@(.75),@(1)]];
     flashAnimation.duration = durationTime;
     [self.layer addAnimation:flashAnimation forKey:@"ytx_flashAnimtionWithDurationTime:"];
-    
+    return flashAnimation;
 }
 
-- (void)ytx_pluseAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_pluseAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     
     float smallScaleValue = 1;
@@ -84,11 +85,10 @@
     [shackAnimation setValues:@[smallScale,lagerScale,smallScale]];
     [shackAnimation setKeyTimes:@[@(0),@(.5),@(1)]];
     [self.layer addAnimation:shackAnimation forKey:@"ytx_pluseAnimtionWithDurationTime:"];
-    
-    
+    return shackAnimation;
 }
 
-- (void)ytx_rubberBandAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rubberBandAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     
     float smallScaleValue = 0.75;
@@ -113,10 +113,10 @@
                             ]];
     [rubberBand setKeyTimes:@[@(0),@(0.3),@(0.4),@(.5),@(.65),@(.75),@(1)]];
     [self.layer addAnimation:rubberBand forKey:@"ytx_rubberBandAnimtionWithDurationTime:"];
-    
+    return rubberBand;
 }
 
-- (void)ytx_shakeAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_shakeAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     
     CGPoint center = self.center;
@@ -127,9 +127,10 @@
     
     [shackAnimation setValues:@[@(center.x),@(moveXLeft), @(moveXRight),@(moveXLeft), @(moveXRight),@(moveXLeft), @(moveXRight),@(moveXLeft), @(moveXRight),@(moveXLeft), @(moveXRight),@(center.x)]];
     [self.layer addAnimation:shackAnimation forKey:@"ytx_shakeAnimtionWithDurationTime:"];
+    return shackAnimation;
 }
 
-- (void)ytx_swingAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_swingAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotateF = YTX_RADIAN(15);
     float rotateS = YTX_RADIAN(10);
@@ -146,9 +147,10 @@
                                 YTXRotateValue(0, 0.0 ,0.0 ,1.0)]];
     
     [self.layer addAnimation:shackAnimation forKey:@"ytx_swingAnimtionWithDurationTime:"];
+    return shackAnimation;
 }
 
-- (void)ytx_tadaAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_tadaAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotate = YTX_RADIAN(3);
     float smallScaleValue = 0.9;
@@ -166,10 +168,10 @@
     [tadaAnimation setValues:@[defultScale,smallScale,lagerScale,leftValue,rightValue,leftValue,rightValue,leftValue,rightValue,leftValue,rightValue,]];
     
     [self.layer addAnimation:tadaAnimation forKey:@"ytx_tadaAnimtionWithDurationTime:"];
-    
+    return tadaAnimation;
 }
 
-- (void)ytx_wobbleAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_wobbleAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotate_1 = YTX_RADIAN(5);
     float rotate_2 = YTX_RADIAN(3);
@@ -196,9 +198,10 @@
     [group setAnimations:@[rotateAnimation,shakeAnimation]];
     [group setDuration:durationTime*.5];
     [self.layer addAnimation:group forKey:@"ytx_wobbleAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_jelloAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_jelloAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotate_1 = YTX_RADIAN(12.5);
     float rotate_2 = YTX_RADIAN(6.25);
@@ -222,12 +225,13 @@
                            YTXRotateValue(-rotate_7, 1,1 ,0.0),
                            YTXRotateValue(0, 1,1 ,0.0)]];
     [self.layer addAnimation:animation forKey:@"ytx_jelloAnimtionWithDurationTime:"];
+    return animation;
 }
 
 
 #pragma mark - Bouncing Entrances
 
-- (void)ytx_bounceInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceInAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *bounceln = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     [bounceln setValues:@[YTXScaleValue(.3, .3, .3),
@@ -241,9 +245,10 @@
     [bounceln setTimingFunction:time];
     bounceln.duration = durationTime;
     [self.layer addAnimation:bounceln forKey:@"ytx_bounceInAnimtionWithDurationTime:"];
+    return bounceln;
 }
 
-- (void)ytx_bounceInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *bouncelnDown = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     
@@ -260,9 +265,10 @@
     
     bouncelnDown.duration = durationTime;
     [self.layer addAnimation:bouncelnDown forKey:@"ytx_bounceInDownAnimtionWithDurationTime:"];
+    return bouncelnDown;
 }
 
-- (void)ytx_bounceInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *bouncelnLeft = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     
@@ -279,9 +285,10 @@
     
     bouncelnLeft.duration = durationTime;
     [self.layer addAnimation:bouncelnLeft forKey:@"ytx_bounceInLeftAnimtionWithDurationTime:"];
+    return bouncelnLeft;
 }
 
-- (void)ytx_bounceInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *bouncelnRight = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
     
@@ -298,9 +305,10 @@
     
     bouncelnRight.duration = durationTime;
     [self.layer addAnimation:bouncelnRight forKey:@"ytx_bounceInRightAnimtionWithDurationTime:"];
+    return bouncelnRight;
 }
 
-- (void)ytx_bounceInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *bouncelnUp = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
     
@@ -317,12 +325,12 @@
     
     bouncelnUp.duration = durationTime;
     [self.layer addAnimation:bouncelnUp forKey:@"ytx_bounceInUpAnimtionWithDurationTime:"];
-    
+    return bouncelnUp;
 }
 
 #pragma mark - Fading Entrances
 
-- (void)ytx_fadeInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeInOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     
@@ -330,9 +338,10 @@
     
     fadeInOpacity.duration = durationTime;
     [self.layer addAnimation:fadeInOpacity forKey:@"ytx_fadeInAnimtionWithDurationTime:"];
+    return fadeInOpacity;
 }
 
-- (void)ytx_fadeInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeInDownOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInDownOpacity setValues:@[@0, @1]];
@@ -344,9 +353,10 @@
     [group setAnimations:@[fadeInDownOpacity, fadeInDownPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeInDownAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeInDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeInDownBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInDownBigOpacity setValues:@[@0, @1]];
@@ -358,9 +368,10 @@
     [group setAnimations:@[fadeInDownBigOpacity, fadeInDownBigPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeInDownBigAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeInLeftOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInLeftOpacity setValues:@[@0, @1]];
@@ -372,9 +383,10 @@
     [group setAnimations:@[fadeInLeftOpacity, fadeInLeftPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeInLeftAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeInLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeInLeftBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInLeftBigOpacity setValues:@[@0, @1]];
@@ -386,9 +398,10 @@
     [group setAnimations:@[fadeInLeftBigOpacity, fadeInLeftBigPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeInLeftBigAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeInRightOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInRightOpacity setValues:@[@0, @1]];
@@ -400,9 +413,10 @@
     [group setAnimations:@[fadeInRightOpacity, fadeInRightPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeInRightAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeInRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeInRightBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInRightBigOpacity setValues:@[@0, @1]];
@@ -414,9 +428,10 @@
     [group setAnimations:@[fadeInRightBigOpacity, fadeInRightBigPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeInRightBigAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeInUpOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInUpOpacity setValues:@[@0, @1]];
@@ -428,9 +443,10 @@
     [group setAnimations:@[fadeInUpOpacity, fadeInUpPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeInUpAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeInUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeInUpBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeInUpBigOpacity setValues:@[@0, @1]];
@@ -442,18 +458,20 @@
     [group setAnimations:@[fadeInUpBigOpacity, fadeInUpBigPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeInUpBigAnimtionWithDurationTime:"];
+    return group;
 }
 
 #pragma mark - Fading Exits
-- (void)ytx_fadeOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeOut = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOut setValues:@[@1, @0]];
     fadeOut.duration = durationTime;
     [self.layer addAnimation:fadeOut forKey:@"ytx_fadeOutAnimtionWithDurationTime:"];
+    return fadeOut;
 }
 
-- (void)ytx_fadeOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeOutDownOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutDownOpacity setValues:@[@1, @0]];
@@ -465,9 +483,10 @@
     [group setAnimations:@[fadeOutDownOpacity, fadeOutDownPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeOutDownAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeOutDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeOutDownBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutDownBigOpacity setValues:@[@1, @0]];
@@ -479,9 +498,10 @@
     [group setAnimations:@[fadeOutDownBigOpacity, fadeOutDownBigPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeOutDownBigAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeOutLeftOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutLeftOpacity setValues:@[@1, @0]];
@@ -493,9 +513,10 @@
     [group setAnimations:@[fadeOutLeftOpacity, fadeOutLeftPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeOutLeftAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeOutLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeOutLeftBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutLeftBigOpacity setValues:@[@1, @0]];
@@ -507,9 +528,10 @@
     [group setAnimations:@[fadeOutLeftBigOpacity, fadeOutLeftBigPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeOutLeftBigAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeOutRightOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutRightOpacity setValues:@[@1, @0]];
@@ -521,9 +543,10 @@
     [group setAnimations:@[fadeOutRightOpacity, fadeOutRightPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeOutRightAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeOutRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeOutRightBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutRightBigOpacity setValues:@[@1, @0]];
@@ -535,9 +558,10 @@
     [group setAnimations:@[fadeOutRightBigOpacity, fadeOutRightBigPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeOutRightBigAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeOutUpOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutUpOpacity setValues:@[@1, @0]];
@@ -549,9 +573,10 @@
     [group setAnimations:@[fadeOutUpOpacity, fadeOutUpPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeOutUpAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_fadeOutUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *fadeOutUpBigOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [fadeOutUpBigOpacity setValues:@[@1, @0]];
@@ -563,11 +588,12 @@
     [group setAnimations:@[fadeOutUpBigOpacity, fadeOutUpBigPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_fadeOutUpBigAnimtionWithDurationTime:"];
+    return group;
 }
 
 
 #pragma mark - Flippers
-- (void)ytx_flipAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_flipAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     NSString * key = @"ytx_flipAnimtionWithDurationTime:";
     
@@ -605,12 +631,13 @@
     animation.duration = durationTime;
     animation.delegate = self;
     [self.layer addAnimation:animation forKey:key];
+    return animation;
 }
 
 
 #pragma mark - Special
 
-- (void)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotate_1 = YTX_RADIAN(80);
     float rotate_2 = YTX_RADIAN(60);
@@ -647,9 +674,10 @@
     [group setAnimations:@[anchorAnimation,animation,opacity,position]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_hingeAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_rollInAnimationWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rollInAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotate_1 = YTX_RADIAN(120);
     
@@ -667,9 +695,10 @@
     [group setAnimations:@[position,animation]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_rollInAnimationWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_rollOutAnimationWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rollOutAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotate_1 = YTX_RADIAN(120);
     
@@ -687,12 +716,13 @@
     [group setAnimations:@[position,animation]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_rollInAnimationWithDurationTime:"];
+    return group;
 }
 
 
 #pragma mark - Zoom Exits
 
-- (void)ytx_zoomOutAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomOutAnimtionWithDurationTime:(NSTimeInterval)durationTime{
     CAKeyframeAnimation *zoomOutOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [zoomOutOpacity setValues:@[@1, @0]];
     
@@ -704,11 +734,12 @@
     [group setAnimations:@[zoomOutOpacity,zoomOutTransform]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_zoomOutAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_zoomOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
     CGFloat y = self.center.y;
-    [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutDownAnimtionWithDurationTime:"
+    return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutDownAnimtionWithDurationTime:"
                                 hasFunction:YES
                                 anchorPoint:YTXPointValue(0.5, 1)
                                positionPath:POSITION_Y
@@ -716,7 +747,7 @@
                                DurationTime:durationTime];
 }
 
-- (void)ytx_zoomOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime{
     CGFloat x = self.center.x;
     [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutLeftAnimtionWithDurationTime:"
                                 hasFunction:NO
@@ -726,9 +757,9 @@
                                DurationTime:durationTime];
 }
 
-- (void)ytx_zoomOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime{
     CGFloat x = self.center.x;
-    [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutRightAnimtionWithDurationTime:"
+    return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutRightAnimtionWithDurationTime:"
                                 hasFunction:NO
                                 anchorPoint:YTXPointValue(1, .5)
                                positionPath:POSITION_X
@@ -736,9 +767,9 @@
                                DurationTime:durationTime];
 }
 
-- (void)ytx_zoomOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime{
     CGFloat y = self.center.y;
-    [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutUpAnimtionWithDurationTime:"
+    return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutUpAnimtionWithDurationTime:"
                                 hasFunction:YES
                                 anchorPoint:YTXPointValue(0.5, 0)
                                positionPath:POSITION_Y
@@ -746,7 +777,7 @@
                                DurationTime:durationTime];
 }
 
-- (void)ytx_zoomOutAnimtionWithSelectName:(NSString *)selectName hasFunction:(BOOL)hasFunction anchorPoint:(NSValue *)anchorPoint positionPath:(NSString *)positionPath positionValues:(NSArray *)positionValues DurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomOutAnimtionWithSelectName:(NSString *)selectName hasFunction:(BOOL)hasFunction anchorPoint:(NSValue *)anchorPoint positionPath:(NSString *)positionPath positionValues:(NSArray *)positionValues DurationTime:(NSTimeInterval)durationTime{
     
     CAKeyframeAnimation *zoomOutOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [zoomOutOpacity setValues:@[@1, @0]];
@@ -780,11 +811,12 @@
     [group setAnimations:@[zoomOutOpacity, zoomOutScale, zoomOutPosition, zoomOutAnchorPoint]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:selectName];
+    return group;
 }
 
 #pragma mark - Zoom Entrances
 
-- (void)ytx_zoomInAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomInAnimtionWithDurationTime:(NSTimeInterval)durationTime{
     CAKeyframeAnimation *zoomInOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [zoomInOpacity setValues:@[@0, @1]];
     
@@ -796,41 +828,42 @@
     [group setAnimations:@[zoomInOpacity,zoomInTransform]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:@"ytx_zoomInAnimtionWithDurationTime:"];
+    return group;
 }
 
-- (void)ytx_zoomInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
     CGFloat y = self.center.y;
-    [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInDownAnimtionWithDurationTime:"
+    return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInDownAnimtionWithDurationTime:"
                               positionPath:POSITION_Y
                             positionValues:@[@(y - 500), @(y + 5), @(y)]
                               DurationTime:durationTime];
 }
 
-- (void)ytx_zoomInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime{
     CGFloat x = self.center.x;
-    [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInLeftAnimtionWithDurationTime:"
+    return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInLeftAnimtionWithDurationTime:"
                               positionPath:POSITION_X
                             positionValues:@[@(x - 500), @(x + 5),@(x)]
                               DurationTime:durationTime];
 }
 
-- (void)ytx_zoomInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime{
     CGFloat x = self.center.x;
-    [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInRightAnimtionWithDurationTime:"
+    return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInRightAnimtionWithDurationTime:"
                               positionPath:POSITION_X
                             positionValues:@[@(x + 500), @(x - 5),@(x)]
                               DurationTime:durationTime];
 }
 
-- (void)ytx_zoomInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime{
     CGFloat y = self.center.y;
-    [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInUpAnimtionWithDurationTime:"
+    return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInUpAnimtionWithDurationTime:"
                               positionPath:POSITION_Y
                             positionValues:@[@(y + 500), @(y - 30), @(y)]
                               DurationTime:durationTime];
 }
 
-- (void)ytx_zoomInAnimtionWithSelectName:(NSString *)selectName positionPath:(NSString *)positionPath positionValues:(NSArray *)positionValues DurationTime:(NSTimeInterval)durationTime{
+- (nonnull CAAnimation *)ytx_zoomInAnimtionWithSelectName:(NSString *)selectName positionPath:(NSString *)positionPath positionValues:(NSArray *)positionValues DurationTime:(NSTimeInterval)durationTime{
     CAMediaTimingFunction *function = YTXCAMediaTimingFunction(.550, .055, .675, .19);
     CAMediaTimingFunction *function_2 = YTXCAMediaTimingFunction(.175, .885, .320, 1);
     CAMediaTimingFunction *liner = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
@@ -855,36 +888,37 @@
     [group setAnimations:@[zoomInOpacity, zoomInScale, zoomInPosition]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:selectName];
+    return group;
 }
 
 
 #pragma mark - Slide Entrances
-- (void)ytx_slideInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    [self ytx_slideAnimtionWithSelectName:@"ytx_slideInDownAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_slideInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInDownAnimtionWithDurationTime:"
                                      isIn:YES
                           translateValues:@[YTXTranslateValue(0, SELF_HEIGHT, 0),
                                             YTXTranslateValue(0, 0, 0)]
                              DurationTime:durationTime];
 }
 
-- (void)ytx_slideInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    [self ytx_slideAnimtionWithSelectName:@"ytx_slideInLeftAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_slideInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInLeftAnimtionWithDurationTime:"
                                      isIn:YES
                           translateValues:@[YTXTranslateValue(-SELF_WIDTH, 0, 0),
                                             YTXTranslateValue(0, 0, 0)]
                              DurationTime:durationTime];
 }
 
-- (void)ytx_slideInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    [self ytx_slideAnimtionWithSelectName:@"ytx_slideInRightAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_slideInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInRightAnimtionWithDurationTime:"
                                      isIn:YES
                           translateValues:@[YTXTranslateValue(SELF_WIDTH, 0, 0),
                                             YTXTranslateValue(0, 0, 0)]
                              DurationTime:durationTime];
 }
 
-- (void)ytx_slideInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime{
-    [self ytx_slideAnimtionWithSelectName:@"ytx_slideInUpAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_slideInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime{
+    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInUpAnimtionWithDurationTime:"
                                      isIn:YES
                           translateValues:@[YTXTranslateValue(0, -SELF_HEIGHT, 0),
                                             YTXTranslateValue(0, 0, 0)]
@@ -892,43 +926,43 @@
 }
 
 #pragma mark - Slide Exits
-- (void)ytx_slideOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutDownAnimtionWithDurationTime:"
+    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutDownAnimtionWithDurationTime:"
                                      isIn:NO
                           translateValues:@[YTXTranslateValue(0, 0, 0),
                                             YTXTranslateValue(0, SELF_HEIGHT, 0)]
                              DurationTime:durationTime];
 }
 
-- (void)ytx_slideOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutLeftAnimtionWithDurationTime:"
+    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutLeftAnimtionWithDurationTime:"
                                      isIn:NO
                           translateValues:@[YTXTranslateValue(0, 0, 0),
                                             YTXTranslateValue(-SELF_WIDTH, 0, 0)]
                              DurationTime:durationTime];
 }
 
-- (void)ytx_slideOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutRightAnimtionWithDurationTime:"
+    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutRightAnimtionWithDurationTime:"
                                      isIn:NO
                           translateValues:@[YTXTranslateValue(0, 0, 0),
                                             YTXTranslateValue(SELF_WIDTH, 0, 0)]
                              DurationTime:durationTime];
 }
 
-- (void)ytx_slideOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutUpAnimtionWithDurationTime:"
+    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutUpAnimtionWithDurationTime:"
                                      isIn:NO
                           translateValues:@[YTXTranslateValue(0, 0, 0),
                                             YTXTranslateValue(0, -SELF_HEIGHT, 0)]
                              DurationTime:durationTime];
 }
 
-- (void)ytx_slideAnimtionWithSelectName:(NSString *)selectName isIn:(BOOL)isIn translateValues:(NSArray *)translateValues DurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideAnimtionWithSelectName:(NSString *)selectName isIn:(BOOL)isIn translateValues:(NSArray *)translateValues DurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [opacity setValues:@[@1, isIn ? @1 : @0]];
@@ -941,12 +975,13 @@
     [group setAnimations:@[opacity, transform]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:selectName];
+    return group;
 }
 
 #pragma mark - Rotating Entrances
-- (void)ytx_rotateInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateInAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInAnimtionWithDurationTime:"
+   return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInAnimtionWithDurationTime:"
                                         isIn:YES
                                  rotateValue:YTX_RADIAN(200)
                                  anchorPoint:nil
@@ -954,8 +989,8 @@
                                 DurationTime:durationTime];
 }
 
-- (void)ytx_rotateInDownLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
-    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInDownLeftAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_rotateInDownLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+   return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInDownLeftAnimtionWithDurationTime:"
                                         isIn:YES
                                  rotateValue:YTX_RADIAN(-45)
                                  anchorPoint:YTXPointValue(0, 1)
@@ -964,8 +999,8 @@
     
 }
 
-- (void)ytx_rotateInDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
-    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInDownRightAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_rotateInDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+   return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInDownRightAnimtionWithDurationTime:"
                                         isIn:YES
                                  rotateValue:YTX_RADIAN(45)
                                  anchorPoint:YTXPointValue(1, 1)
@@ -974,8 +1009,8 @@
     
 }
 
-- (void)ytx_rotateInUpLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
-    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInUpLeftAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_rotateInUpLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+   return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInUpLeftAnimtionWithDurationTime:"
                                         isIn:YES
                                  rotateValue:YTX_RADIAN(45)
                                  anchorPoint:YTXPointValue(0, 0)
@@ -984,8 +1019,8 @@
     
 }
 
-- (void)ytx_rotateInUpRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
-    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInUpRightAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_rotateInUpRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+   return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInUpRightAnimtionWithDurationTime:"
                                         isIn:YES
                                  rotateValue:YTX_RADIAN(-45)
                                  anchorPoint:YTXPointValue(1, 0)
@@ -995,9 +1030,9 @@
 }
 
 #pragma mark - Rotating Exits
-- (void)ytx_rotateOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutAnimtionWithDurationTime:"
+    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutAnimtionWithDurationTime:"
                                         isIn:NO
                                  rotateValue:YTX_RADIAN(200)
                                  anchorPoint:nil
@@ -1005,8 +1040,8 @@
                                 DurationTime:durationTime];
 }
 
-- (void)ytx_rotateOutDownLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
-    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutDownLeftAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_rotateOutDownLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutDownLeftAnimtionWithDurationTime:"
                                         isIn:NO
                                  rotateValue:YTX_RADIAN(45)
                                  anchorPoint:YTXPointValue(0, 1)
@@ -1015,8 +1050,8 @@
     
 }
 
-- (void)ytx_rotateOutDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
-    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutDownRightAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_rotateOutDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutDownRightAnimtionWithDurationTime:"
                                         isIn:NO
                                  rotateValue:YTX_RADIAN(-45)
                                  anchorPoint:YTXPointValue(1, 1)
@@ -1025,8 +1060,8 @@
     
 }
 
-- (void)ytx_rotateOutUpLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
-    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutUpLeftAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_rotateOutUpLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+   return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutUpLeftAnimtionWithDurationTime:"
                                         isIn:NO
                                  rotateValue:YTX_RADIAN(-90)
                                  anchorPoint:YTXPointValue(0, 1)
@@ -1035,8 +1070,8 @@
     
 }
 
-- (void)ytx_rotateOutUpRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
-    [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutUpRightAnimtionWithDurationTime:"
+- (nonnull CAAnimation *)ytx_rotateOutUpRightAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+   return  [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutUpRightAnimtionWithDurationTime:"
                                         isIn:NO
                                  rotateValue:YTX_RADIAN(90)
                                  anchorPoint:YTXPointValue(1, 1)
@@ -1045,7 +1080,7 @@
     
 }
 
-- (void)ytx_rotateAnimtionWithSelectName:(NSString *)name isIn:(BOOL)isIn rotateValue:(float)rotate anchorPoint:(NSValue *)point anchorOrign:(NSValue *)orign DurationTime:(NSTimeInterval)durationTime {
+- (nonnull CAAnimation *)ytx_rotateAnimtionWithSelectName:(NSString *)name isIn:(BOOL)isIn rotateValue:(float)rotate anchorPoint:(NSValue *)point anchorOrign:(NSValue *)orign DurationTime:(NSTimeInterval)durationTime {
     CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [opacity setValues:isIn ? @[@0, @1] : @[@1, @0]];
     
@@ -1073,7 +1108,7 @@
         [group setAnimations:@[opacity, transform]];
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:name];
-    
+    return group;
 }
 
 
