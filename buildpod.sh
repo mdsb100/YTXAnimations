@@ -3,7 +3,7 @@ SCRIPT_DIR=$(pwd -L)
 popd > /dev/null
 
 echo "publish repo YTXAnimations"
-pod repo push baidao-ios-ytx-pod-specs YTXAnimations.podspec --verbose
+pod trunk push YTXAnimations.podspec --verbose
 
 ret=$?
 
