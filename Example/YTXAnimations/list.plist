@@ -113,6 +113,15 @@
 	</dict>
 	<dict>
 		<key>name</key>
+		<string>Flippers</string>
+		<key>sub</key>
+		<dict>
+			<key>flip</key>
+			<string>ytx_flipAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>Special</string>
 		<key>sub</key>
 		<dict>

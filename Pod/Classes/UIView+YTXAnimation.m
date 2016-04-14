@@ -567,6 +567,41 @@
 }
 
 
+#pragma mark - Flippers
+- (void)ytx_flipAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = 1 / 150.0;
+    self.layer.sublayerTransform = transform;
+    
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    
+    CAMediaTimingFunction * easeOut = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    CAMediaTimingFunction * easeIn = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CATransform3D frame0  = CATransform3DRotate(transform, YTX_RADIAN(360), 0, 1, 0);
+    CATransform3D frame4  = CATransform3DRotate(transform, YTX_RADIAN(190), 0, 1, 0);
+    frame4.m43 = 75.0;
+    CATransform3D frame5  = CATransform3DRotate(transform, YTX_RADIAN(170), 0, 1, 0);
+    frame5.m43 = 75.0;
+    CATransform3D frame8  = CATransform3DScale (transform,.95, .95, .95);
+    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(0), 0, 1, 0);
+    
+    animation.keyTimes = @[@(0), @(0.4), @(0.5), @(0.8), @(1)];
+    animation.timingFunctions = @[easeOut, easeOut, easeIn, easeIn, easeIn];
+    
+    animation.values = [NSArray arrayWithObjects:
+                        [NSValue valueWithCATransform3D:frame0],
+                        [NSValue valueWithCATransform3D:frame4],
+                        [NSValue valueWithCATransform3D:frame5],
+                        [NSValue valueWithCATransform3D:frame8],
+                        [NSValue valueWithCATransform3D:frame10],
+                        nil];
+    animation.duration = durationTime;
+    [self.layer addAnimation:animation forKey:@"ytx_flipAnimtionWithDurationTime:"];
+}
+
+
 #pragma mark - Special
 
 - (void)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime

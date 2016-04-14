@@ -106,6 +106,7 @@
 - (void)ytx_fadeOutUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Flippers
+- (void)ytx_flipAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Zoom Entrances
 - (void)ytx_zoomInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
