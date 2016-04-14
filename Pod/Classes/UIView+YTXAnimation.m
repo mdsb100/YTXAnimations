@@ -904,7 +904,7 @@
 - (nonnull CAAnimation *)ytx_zoomOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CGFloat x = self.center.x;
-    [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutLeftAnimtionWithDurationTime:"
+    return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutLeftAnimtionWithDurationTime:"
                                 hasFunction:NO
                                 anchorPoint:YTXPointValue(0, .5)
                                positionPath:POSITION_X
