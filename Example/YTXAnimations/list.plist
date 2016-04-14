@@ -118,6 +118,14 @@
 		<dict>
 			<key>flip</key>
 			<string>ytx_flipAnimtionWithDurationTime:</string>
+			<key>flipInX</key>
+			<string>ytx_flipInXAnimtionWithDurationTime:</string>
+			<key>flipInY</key>
+			<string>ytx_flipInYAnimtionWithDurationTime:</string>
+			<key>flipOutX</key>
+			<string>ytx_flipOutXAnimtionWithDurationTime:</string>
+			<key>flipOutY</key>
+			<string>ytx_flipOutYAnimtionWithDurationTime:</string>
 		</dict>
 	</dict>
 	<dict>

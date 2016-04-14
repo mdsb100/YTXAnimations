@@ -598,12 +598,12 @@
     NSString * key = @"ytx_flipAnimtionWithDurationTime:";
     
     CATransform3D transform = CATransform3DIdentity;
-    transform.m34 = 1 / 150.0;
+    transform.m34 = 1 / 200.0;
     CATransform3D sublayerTransform = self.layer.sublayerTransform;
     sublayerTransform.m34 = transform.m34;
     self.layer.sublayerTransform = sublayerTransform;
     
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     
     CAMediaTimingFunction * easeOut = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     CAMediaTimingFunction * easeIn = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
@@ -614,7 +614,7 @@
     CATransform3D frame5  = CATransform3DRotate(transform, YTX_RADIAN(170), 0, 1, 0);
     frame5.m43 = 75.0;
     CATransform3D frame8  = CATransform3DScale (transform,.95, .95, .95);
-    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(0), 0, 1, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(0),   0, 1, 0);
  
     animation.keyTimes = @[@(0), @(0.4), @(0.5), @(0.8), @(1)];
     animation.timingFunctions = @[easeOut, easeOut, easeIn, easeIn, easeIn];
@@ -634,6 +634,173 @@
     return animation;
 }
 
+- (nonnull CAAnimation *)ytx_flipInXAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    NSString * key = @"ytx_flipInXAnimtionWithDurationTime:";
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = 1 / 200.0;
+    CATransform3D sublayerTransform = self.layer.sublayerTransform;
+    sublayerTransform.m34 = transform.m34;
+    self.layer.sublayerTransform = sublayerTransform;
+    
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    
+    CAMediaTimingFunction * easeIn = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CATransform3D frame0  = CATransform3DRotate(transform, YTX_RADIAN(-90),  1, 0, 0);
+    CATransform3D frame4  = CATransform3DRotate(transform, YTX_RADIAN(20),   1, 0, 0);
+    CATransform3D frame6  = CATransform3DRotate(transform, YTX_RADIAN(-10),  1, 0, 0);
+    CATransform3D frame8  = CATransform3DRotate(transform, YTX_RADIAN(5),    1, 0, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(0),    1, 0, 0);
+    
+    animation.keyTimes = @[@(0), @(0.4), @(0.6), @(0.8), @(1)];
+    animation.timingFunctions = @[easeIn, easeIn];
+    animation.delegate = self;
+    animation.values = [NSArray arrayWithObjects:
+                        [NSValue valueWithCATransform3D:frame0],
+                        [NSValue valueWithCATransform3D:frame4],
+                        [NSValue valueWithCATransform3D:frame6],
+                        [NSValue valueWithCATransform3D:frame8],
+                        [NSValue valueWithCATransform3D:frame10],
+                        nil];
+    
+    [animation setValue:@1 forKey:key];
+    
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    [animationOpacity setKeyTimes:@[@(0), @(0.6)]];
+    animationOpacity.values = @[@(0), @(1)];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[animation,animationOpacity]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:key];
+    return group;
+}
+
+- (nonnull CAAnimation *)ytx_flipInYAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    NSString * key = @"ytx_flipInYAnimtionWithDurationTime:";
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = 1 / 200.0;
+    CATransform3D sublayerTransform = self.layer.sublayerTransform;
+    sublayerTransform.m34 = transform.m34;
+    self.layer.sublayerTransform = sublayerTransform;
+    
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    
+    CAMediaTimingFunction * easeIn = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CATransform3D frame0  = CATransform3DRotate(transform, YTX_RADIAN(-90),  0, 1, 0);
+    CATransform3D frame4  = CATransform3DRotate(transform, YTX_RADIAN(20),   0, 1, 0);
+    CATransform3D frame6  = CATransform3DRotate(transform, YTX_RADIAN(-10),  0, 1, 0);
+    CATransform3D frame8  = CATransform3DRotate(transform, YTX_RADIAN(5),    0, 1, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(0),    0, 1, 0);
+    
+    animation.keyTimes = @[@(0), @(0.4), @(0.6), @(0.8), @(1)];
+    animation.timingFunctions = @[easeIn, easeIn];
+    animation.delegate = self;
+    animation.values = [NSArray arrayWithObjects:
+                        [NSValue valueWithCATransform3D:frame0],
+                        [NSValue valueWithCATransform3D:frame4],
+                        [NSValue valueWithCATransform3D:frame6],
+                        [NSValue valueWithCATransform3D:frame8],
+                        [NSValue valueWithCATransform3D:frame10],
+                        nil];
+    
+    [animation setValue:@1 forKey:key];
+    
+    
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    [animationOpacity setKeyTimes:@[@(0), @(0.6)]];
+    animationOpacity.values = @[@(0), @(1)];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[animation,animationOpacity]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:key];
+    return group;
+    
+}
+
+- (nonnull CAAnimation *)ytx_flipOutXAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    NSString * key = @"ytx_flipOutXAnimtionWithDurationTime:";
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = 1 / 200.0;
+    CATransform3D sublayerTransform = self.layer.sublayerTransform;
+    sublayerTransform.m34 = transform.m34;
+    self.layer.sublayerTransform = sublayerTransform;
+    
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+   
+    CATransform3D frame0  = CATransform3DRotate(transform, YTX_RADIAN(0),  1, 0, 0);
+    CATransform3D frame3  = CATransform3DRotate(transform, YTX_RADIAN(20), 1, 0, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(-90),1, 0, 0);
+    
+    animation.keyTimes = @[@(0),@(.3), @(1)];
+    animation.delegate = self;
+    animation.values = [NSArray arrayWithObjects:
+                        [NSValue valueWithCATransform3D:frame0],
+                        [NSValue valueWithCATransform3D:frame3],
+                        [NSValue valueWithCATransform3D:frame10],
+                        nil];
+    
+    [animation setValue:@1 forKey:key];
+    
+    
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    [animationOpacity setKeyTimes:@[@(.3), @(1)]];
+    animationOpacity.values = @[@(1), @(0)];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[animation,animationOpacity]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:key];
+    return group;
+    
+}
+
+- (nonnull CAAnimation *)ytx_flipOutYAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    NSString * key = @"ytx_flipOutYAnimtionWithDurationTime:";
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = 1 / 200.0;
+    CATransform3D sublayerTransform = self.layer.sublayerTransform;
+    sublayerTransform.m34 = transform.m34;
+    self.layer.sublayerTransform = sublayerTransform;
+    
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    
+    CATransform3D frame0  = CATransform3DRotate(transform, YTX_RADIAN(0),  0, 1, 0);
+    CATransform3D frame3  = CATransform3DRotate(transform, YTX_RADIAN(15), 0, 1, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(-90),0, 1, 0);
+    
+    animation.keyTimes = @[@(0),@(.3), @(1)];
+    animation.delegate = self;
+    animation.values = [NSArray arrayWithObjects:
+                        [NSValue valueWithCATransform3D:frame0],
+                        [NSValue valueWithCATransform3D:frame3],
+                        [NSValue valueWithCATransform3D:frame10],
+                        nil];
+    
+    [animation setValue:@1 forKey:key];
+    
+    
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    [animationOpacity setKeyTimes:@[@(.3), @(1)]];
+    animationOpacity.values = @[@(1), @(0)];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[animation,animationOpacity]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:key];
+    return group;
+    
+}
 
 #pragma mark - Special
 
@@ -1119,7 +1286,12 @@
         return;
     }
     
-    if ([anim valueForKey:@"ytx_flipAnimtionWithDurationTime:"]) {
+    if ([anim valueForKey:@"ytx_flipAnimtionWithDurationTime:"]    ||
+        [anim valueForKey:@"ytx_flipInXAnimtionWithDurationTime:"] ||
+        [anim valueForKey:@"ytx_flipInYAnimtionWithDurationTime:"] ||
+        [anim valueForKey:@"ytx_flipOutXAnimtionWithDurationTime:"]||
+        [anim valueForKey:@"ytx_flipOutYAnimtionWithDurationTime:"] )
+    {
         CATransform3D sublayerTransform = self.layer.sublayerTransform;
         sublayerTransform.m34 = 0;
         self.layer.sublayerTransform = sublayerTransform;

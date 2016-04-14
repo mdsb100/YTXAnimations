@@ -107,6 +107,10 @@
 
 #pragma mark - Flippers
 - (nonnull CAAnimation *)ytx_flipAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_flipInXAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_flipInYAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_flipOutXAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_flipOutYAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Zoom Entrances
 - (nonnull CAAnimation *)ytx_zoomInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
