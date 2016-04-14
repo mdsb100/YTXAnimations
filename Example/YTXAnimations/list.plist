@@ -147,6 +147,17 @@
 	</dict>
 	<dict>
 		<key>name</key>
+		<string>LightSpeed</string>
+		<key>sub</key>
+		<dict>
+			<key>lightSpeedIn</key>
+			<string>ytx_lightSpeedInAnimtionWithDurationTime:</string>
+			<key>lightSpeedOut</key>
+			<string>ytx_lightSpeedOutAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>Special</string>
 		<key>sub</key>
 		<dict>

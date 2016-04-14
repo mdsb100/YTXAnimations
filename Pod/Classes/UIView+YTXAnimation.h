@@ -64,6 +64,10 @@
 - (nonnull CAAnimation *)ytx_flipOutXAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 - (nonnull CAAnimation *)ytx_flipOutYAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
+#pragma mark - LightSpeed
+- (nonnull CAAnimation *)ytx_lightSpeedInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_lightSpeedOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
 #pragma mark - Zoom Entrances
 - (nonnull CAAnimation *)ytx_zoomInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 - (nonnull CAAnimation *)ytx_zoomInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;

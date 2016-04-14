@@ -866,6 +866,82 @@
     return group;
 }
 
+#pragma mark - LightSpeed
+
+- (nonnull CAAnimation *)ytx_lightSpeedInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    
+    // c=1 ==> 45°
+    CGAffineTransform transform0 = CGAffineTransformIdentity;
+    transform0.c = -0.666;
+    CATransform3D frame0  =  CATransform3DMakeAffineTransform(transform0);
+    frame0.m41 = SELF_WIDTH;
+    
+    CGAffineTransform transform6 = CGAffineTransformIdentity;
+    transform6.c = 0.444;
+    CATransform3D frame6  =  CATransform3DMakeAffineTransform(transform6);
+    
+    CGAffineTransform transform8 = CGAffineTransformIdentity;
+    transform8.c = -0.111;
+    CATransform3D frame8  =  CATransform3DMakeAffineTransform(transform8);
+    
+    CGAffineTransform transform10 = CGAffineTransformIdentity;
+    transform10.c = 0.0;
+    CATransform3D frame10  = CATransform3DMakeAffineTransform(transform10);
+    
+    animation.keyTimes = @[@(0),@(.6), @(.8), @(1)];
+    animation.values =  [NSArray arrayWithObjects:
+                        [NSValue valueWithCATransform3D:frame0],
+                        [NSValue valueWithCATransform3D:frame6],
+                        [NSValue valueWithCATransform3D:frame8],
+                        [NSValue valueWithCATransform3D:frame10],
+                        nil];
+    
+    
+    
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    [animationOpacity setKeyTimes:@[@(0),@(.6), @(.8), @(1)]];
+    animationOpacity.values = @[@(0), @(1), @(1), @(1)];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[animation,animationOpacity]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_lightSpeedInAnimtionWithDurationTime:"];
+    return group;
+}
+
+- (nonnull CAAnimation *)ytx_lightSpeedOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    
+    CGAffineTransform transform0 = CGAffineTransformIdentity;
+    transform0.c = 0.0;
+    CATransform3D frame0  =  CATransform3DMakeAffineTransform(transform0);
+    
+    CGAffineTransform transform10 = CGAffineTransformIdentity;
+    transform10.c = 0.6666;
+    CATransform3D frame10  = CATransform3DMakeAffineTransform(transform10);
+    frame10.m41 = SELF_WIDTH;
+    
+    
+    animation.keyTimes = @[@(0), @(1)];
+    animation.values =  [NSArray arrayWithObjects:
+                         [NSValue valueWithCATransform3D:frame0],
+                         [NSValue valueWithCATransform3D:frame10],
+                         nil];
+    
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    [animationOpacity setKeyTimes:@[@(0), @(1)]];
+    animationOpacity.values = @[@(1), @(0)];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[animation,animationOpacity]];
+    [group setDuration:durationTime];
+    [self.layer addAnimation:group forKey:@"ytx_lightSpeedOutAnimtionWithDurationTime:"];
+    return group;
+}
+
 #pragma mark - Zoom Exits
 
 - (nonnull CAAnimation *)ytx_zoomOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
