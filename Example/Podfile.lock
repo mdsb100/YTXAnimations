@@ -1,6 +1,6 @@
 PODS:
   - Kiwi (2.4.0)
-  - YTXAnimations (0.1.2)
+  - YTXAnimations (1.0.0)
 
 DEPENDENCIES:
   - Kiwi
@@ -12,6 +12,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
-  YTXAnimations: 40f98c1c78f9758b0693cbe7509cc62bd82a150e
+  YTXAnimations: c0de2c42caef13f0bd80aa0c93a9fe58a95697b9
 
 COCOAPODS: 0.39.0
