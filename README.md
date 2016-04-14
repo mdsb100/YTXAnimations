@@ -30,6 +30,7 @@ pod "YTXAnimations"
 
 YTXAnimations is available under the MIT license. See the LICENSE file for more info.
 
+## If you use YTXAnimations in one of your apps, I'd love to hear about it.
 
 ## List of animation
 ### Attention Seekers
