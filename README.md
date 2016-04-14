@@ -8,6 +8,8 @@
 ## Usage
 Reference [animate.css](https://daneden.github.io/animate.css/)
 
+![YTXAnimations]https://github.com/baidao/YTXAnimations/blob/master/YTXAnimations.gif)
+
 
 ## Installation
 
