@@ -18,11 +18,11 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = "请参考 http://daneden.github.io/animate.css/#23cta"
 
-  s.homepage         = "http://gitlab.baidao.com/ios/YTXAnimations"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/baidao/YTXAnimations"
+#  s.screenshots      = "https://github.com/baidao/YTXAnimations/blob/master/YTXAnimations.gif"
   s.license          = 'MIT'
   s.author           = { "caojun" => "78612846@qq.com" }
-  s.source           = { :git => "http://gitlab.baidao.com/ios/YTXAnimations.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/baidao/YTXAnimations.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'

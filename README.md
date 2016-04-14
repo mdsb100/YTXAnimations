@@ -1,6 +1,6 @@
 # YTXAnimations
 
-[![CI Status](http://img.shields.io/travis/lilonglong/YTXAnimations.svg?style=flat)](https://travis-ci.org/lilonglong/YTXAnimations)
+[![CI Status](http://img.shields.io/travis/baidao/YTXAnimations.svg?style=flat)](https://travis-ci.org/baidao/YTXAnimations)
 [![Version](https://img.shields.io/cocoapods/v/YTXAnimations.svg?style=flat)](http://cocoapods.org/pods/YTXAnimations)
 [![License](https://img.shields.io/cocoapods/l/YTXAnimations.svg?style=flat)](http://cocoapods.org/pods/YTXAnimations)
 [![Platform](https://img.shields.io/cocoapods/p/YTXAnimations.svg?style=flat)](http://cocoapods.org/pods/YTXAnimations)
