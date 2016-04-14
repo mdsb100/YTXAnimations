@@ -10,4 +10,4 @@ before_script:
 - gem install cocoapods --no-document -v 0.39.0 # Since Travis is not always on latest version
 - pod install --project-directory=Example
 script:
-- pod lib lint
+- pod lib lint --verbose
