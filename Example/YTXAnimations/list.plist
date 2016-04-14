@@ -46,6 +46,23 @@
 	</dict>
 	<dict>
 		<key>name</key>
+		<string>Bouncing Exits</string>
+		<key>sub</key>
+		<dict>
+			<key>bounOut</key>
+			<string>ytx_bounceOutAnimtionWithDurationTime:</string>
+			<key>bounceOutDown</key>
+			<string>ytx_bounceOutDownAnimtionWithDurationTime:</string>
+			<key>bounceOutLeft</key>
+			<string>ytx_bounceOutLeftAnimtionWithDurationTime:</string>
+			<key>bounceOutRight</key>
+			<string>ytx_bounceOutRightAnimtionWithDurationTime:</string>
+			<key>bounceOutUp</key>
+			<string>ytx_bounceOutUpAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>Fading Entrances</string>
 		<key>sub</key>
 		<dict>
