@@ -56,9 +56,7 @@
     [bounce setKeyTimes:@[@(0.2),@(0.4),@(0.43),@(.53),@(.7),@(.8),@(.9)]];
     [bounce setTimingFunctions:@[time_1,time_2,time_2,time_1,time_2,time_1,time_1,time_2]];
     bounce.duration = durationTime;
-    [self.layer addAnimation:bounce forKey:@"ytx_bounceAnimtionWithDurationTime:"];
-    
-    
+    [self.layer addAnimation:bounce forKey:@"ytx_bounceAnimtionWithDurationTime:"]; 
 }
 
 - (void)ytx_flashAnimtionWithDurationTime:(NSTimeInterval)durationTime
@@ -571,9 +569,13 @@
 #pragma mark - Flippers
 - (void)ytx_flipAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
+    NSString * key = @"ytx_flipAnimtionWithDurationTime:";
+    
     CATransform3D transform = CATransform3DIdentity;
     transform.m34 = 1 / 150.0;
-    self.layer.sublayerTransform = transform;
+    CATransform3D sublayerTransform = self.layer.sublayerTransform;
+    sublayerTransform.m34 = transform.m34;
+    self.layer.sublayerTransform = sublayerTransform;
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     
@@ -587,7 +589,7 @@
     frame5.m43 = 75.0;
     CATransform3D frame8  = CATransform3DScale (transform,.95, .95, .95);
     CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(0), 0, 1, 0);
-    
+ 
     animation.keyTimes = @[@(0), @(0.4), @(0.5), @(0.8), @(1)];
     animation.timingFunctions = @[easeOut, easeOut, easeIn, easeIn, easeIn];
     
@@ -598,8 +600,11 @@
                         [NSValue valueWithCATransform3D:frame8],
                         [NSValue valueWithCATransform3D:frame10],
                         nil];
+    
+   [animation setValue:@1 forKey:key];
     animation.duration = durationTime;
-    [self.layer addAnimation:animation forKey:@"ytx_flipAnimtionWithDurationTime:"];
+    animation.delegate = self;
+    [self.layer addAnimation:animation forKey:key];
 }
 
 
@@ -1070,4 +1075,21 @@
     [self.layer addAnimation:group forKey:name];
     
 }
+
+
+#pragma mark - delegate
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    if(!flag){
+        return;
+    }
+    
+    if ([anim valueForKey:@"ytx_flipAnimtionWithDurationTime:"]) {
+        CATransform3D sublayerTransform = self.layer.sublayerTransform;
+        sublayerTransform.m34 = 0;
+        self.layer.sublayerTransform = sublayerTransform;
+    }
+    
+}
+ 
 @end
