@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EAD6F140B75249A77FEEA20 /* libPods-YTXAnimations_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBE0103AE82593F8E3E247F /* libPods-YTXAnimations_Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -22,11 +23,9 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		82F6EEBD1CBB6ECE00DBFDE8 /* list.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82F6EEBC1CBB6ECE00DBFDE8 /* list.plist */; };
 		82F6EEBF1CBB775E00DBFDE8 /* YTXAnimations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F6EEBE1CBB775E00DBFDE8 /* YTXAnimations.framework */; };
-		82F6EEC11CBB776A00DBFDE8 /* YTXAnimations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F6EEC01CBB776A00DBFDE8 /* YTXAnimations.framework */; };
 		82F6EEC51CBB7FE100DBFDE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F6EEC41CBB7FE100DBFDE8 /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		B06ED6011D7C63908FC0A1F0 /* Pods_YTXAnimations_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350A478B999B5FB75B1C819 /* Pods_YTXAnimations_Example.framework */; };
-		CB8BB283BE17697DB6A20462 /* Pods_YTXAnimations_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB68CF537A03D0DCD255099 /* Pods_YTXAnimations_Tests.framework */; };
+		8AE4E22CE5874552EE22EB52 /* libPods-YTXAnimations_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDABC64BA2617A1920EDD140 /* libPods-YTXAnimations_Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0350A478B999B5FB75B1C819 /* Pods_YTXAnimations_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTXAnimations_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48888BA646150E7AB846BFAF /* Pods-YTXAnimations_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTXAnimations_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTXAnimations_Tests/Pods-YTXAnimations_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YTXAnimations_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTXAnimations_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,7 +59,6 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		7FB68CF537A03D0DCD255099 /* Pods_YTXAnimations_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTXAnimations_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F6EEBC1CBB6ECE00DBFDE8 /* list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = list.plist; sourceTree = "<group>"; };
 		82F6EEBE1CBB775E00DBFDE8 /* YTXAnimations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YTXAnimations.framework; path = "Pods/../build/Debug-iphoneos/YTXAnimations.framework"; sourceTree = "<group>"; };
 		82F6EEC01CBB776A00DBFDE8 /* YTXAnimations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YTXAnimations.framework; path = "Pods/../build/Debug-iphoneos/YTXAnimations.framework"; sourceTree = "<group>"; };
@@ -69,8 +66,10 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8A504CC956D6E5337C084FAA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		98088540CEC04FF7D8AE3F3C /* Pods-YTXAnimations_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTXAnimations_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTXAnimations_Example/Pods-YTXAnimations_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		9BBE0103AE82593F8E3E247F /* libPods-YTXAnimations_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YTXAnimations_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F6BEE855BBB9807892475C2 /* Pods-YTXAnimations_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTXAnimations_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTXAnimations_Example/Pods-YTXAnimations_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B29C3A121E5A06E4309E6B74 /* YTXAnimations.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YTXAnimations.podspec; path = ../YTXAnimations.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CDABC64BA2617A1920EDD140 /* libPods-YTXAnimations_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YTXAnimations_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C179237FE88351563B86C9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		ED57CB7F5A5ACF71AB3CCFDB /* Pods-YTXAnimations_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTXAnimations_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTXAnimations_Tests/Pods-YTXAnimations_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,11 +79,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82F6EEC11CBB776A00DBFDE8 /* YTXAnimations.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				B06ED6011D7C63908FC0A1F0 /* Pods_YTXAnimations_Example.framework in Frameworks */,
+				8AE4E22CE5874552EE22EB52 /* libPods-YTXAnimations_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +94,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				CB8BB283BE17697DB6A20462 /* Pods_YTXAnimations_Tests.framework in Frameworks */,
+				4EAD6F140B75249A77FEEA20 /* libPods-YTXAnimations_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +142,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				0350A478B999B5FB75B1C819 /* Pods_YTXAnimations_Example.framework */,
-				7FB68CF537A03D0DCD255099 /* Pods_YTXAnimations_Tests.framework */,
+				CDABC64BA2617A1920EDD140 /* libPods-YTXAnimations_Example.a */,
+				9BBE0103AE82593F8E3E247F /* libPods-YTXAnimations_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
