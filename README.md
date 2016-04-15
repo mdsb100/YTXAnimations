@@ -18,7 +18,7 @@ tada.repeatCount = CGFLOAT_MAX;
 ```
 
 ```objective-c
-//removeAnimationForKey the key is function name. Please attention to colon!!! "ytx_tadaAnimtionWithDurationTime:"
+//removeAnimationForKey the key is function name. Please pay attention to colon!!! "ytx_tadaAnimtionWithDurationTime:"
 [view.layer removeAnimationForKey:@"ytx_tadaAnimtionWithDurationTime:"];
 ```
 
