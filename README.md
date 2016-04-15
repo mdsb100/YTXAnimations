@@ -17,6 +17,11 @@ CAAnimation * tada = [view ytx_tadaAnimtionWithDurationTime:1];
 tada.repeatCount = CGFLOAT_MAX;
 ```
 
+```objective-c
+//removeAnimationForKey the key is function name;
+[view.layer removeAnimationForKey:@"ytx_tadaAnimtionWithDurationTime"];
+```
+
 ## Installation
 
 YTXAnimations is available through [CocoaPods](http://cocoapods.org). To install
