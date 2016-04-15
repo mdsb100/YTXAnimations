@@ -5,11 +5,17 @@
 [![License](https://img.shields.io/cocoapods/l/YTXAnimations.svg?style=flat)](http://cocoapods.org/pods/YTXAnimations)
 [![Platform](https://img.shields.io/cocoapods/p/YTXAnimations.svg?style=flat)](http://cocoapods.org/pods/YTXAnimations)
 
-## Usage
 Reference [animate.css](https://daneden.github.io/animate.css/)
 
 ![YTXAnimations](https://github.com/baidao/YTXAnimations/blob/master/YTXAnimations.gif)
 
+## Usage
+```objective-c
+#import <YTXAnimations/UIView+YTXAnimation.h>
+
+CAAnimation * tada = [view ytx_tadaAnimtionWithDurationTime:1];
+tada.repeatCount = CGFLOAT_MAX;
+```
 
 ## Installation
 
