@@ -225,13 +225,13 @@
 
 - (nonnull CAAnimation *)ytx_jelloAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    float rotate_1 = -12.5       / 45.0;
-    float rotate_2 =  6.25       / 45.0;
-    float rotate_3 = -3.125      / 45.0;
-    float rotate_4 =  1.5625     / 45.0;
-    float rotate_5 = -0.78125    / 45.0;
-    float rotate_6 =  0.390625   / 45.0;
-    float rotate_7 = -0.1953125  / 45.0;
+    float rotate_1 = tan(YTX_RADIAN(-12.5));
+    float rotate_2 = tan(YTX_RADIAN( 6.25));
+    float rotate_3 = tan(YTX_RADIAN(-3.125));
+    float rotate_4 = tan(YTX_RADIAN( 1.5625));
+    float rotate_5 = tan(YTX_RADIAN(-0.78125));
+    float rotate_6 = tan(YTX_RADIAN( 0.390625));
+    float rotate_7 = tan(YTX_RADIAN(-0.1953125));
     
     CGAffineTransform transform_111 = CGAffineTransformIdentity;
     transform_111.c = rotate_1;
@@ -878,18 +878,18 @@
 {
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     
-    // c=1 ==> 45°
+    // c = tan(45.f / 180.f * M_PI)
     CGAffineTransform transform0 = CGAffineTransformIdentity;
-    transform0.c = -0.666;
+    transform0.c = tan(YTX_RADIAN(-30));
     CATransform3D frame0  =  CATransform3DMakeAffineTransform(transform0);
     frame0.m41 = SELF_WIDTH;
     
     CGAffineTransform transform6 = CGAffineTransformIdentity;
-    transform6.c = 0.444;
+    transform6.c = tan(YTX_RADIAN(20));
     CATransform3D frame6  =  CATransform3DMakeAffineTransform(transform6);
     
     CGAffineTransform transform8 = CGAffineTransformIdentity;
-    transform8.c = -0.111;
+    transform8.c = tan(YTX_RADIAN(-5));
     CATransform3D frame8  =  CATransform3DMakeAffineTransform(transform8);
     
     CGAffineTransform transform10 = CGAffineTransformIdentity;
@@ -923,13 +923,13 @@
 {
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     
-    // c=1 ==> 45°
+    // c = tan(45.f / 180.f * M_PI)
     CGAffineTransform transform0 = CGAffineTransformIdentity;
     transform0.c = 0.0;
     CATransform3D frame0  =  CATransform3DMakeAffineTransform(transform0);
     
     CGAffineTransform transform10 = CGAffineTransformIdentity;
-    transform10.c = 0.6666;
+    transform10.c = tan(YTX_RADIAN(30));
     CATransform3D frame10  = CATransform3DMakeAffineTransform(transform10);
     frame10.m41 = SELF_WIDTH;
     
