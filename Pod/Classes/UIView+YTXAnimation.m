@@ -53,7 +53,9 @@
     [bounce setTimingFunctions:@[time_1, time_2, time_2, time_1, time_2, time_1, time_1, time_2]];
     
     bounce.duration = durationTime;
-    [self.layer addAnimation:bounce forKey:@"ytx_bounceAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:bounce forKey:@"ytx_bounceAnimtionWithDurationTime:"];
+    });
     return bounce;
 }
 
@@ -63,7 +65,9 @@
     [flashAnimation setValues  :@[@(0)   , @(1)  , @(0)  , @(1)]];
     [flashAnimation setKeyTimes:@[@(0.25), @(0.5), @(.75), @(1)]];
     [flashAnimation setDuration:durationTime];
-    [self.layer addAnimation:flashAnimation forKey:@"ytx_flashAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:flashAnimation forKey:@"ytx_flashAnimtionWithDurationTime:"];
+    });
     return flashAnimation;
 }
 
@@ -79,7 +83,9 @@
     shackAnimation.duration = durationTime;
     [shackAnimation setValues:@[smallScale, lagerScale, smallScale]];
     [shackAnimation setKeyTimes:@[@(0), @(.5), @(1)]];
-    [self.layer addAnimation:shackAnimation forKey:@"ytx_pluseAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_pluseAnimtionWithDurationTime:"];
+    });
     return shackAnimation;
 }
 
@@ -106,7 +112,9 @@
                             norScale
                             ]];
     [rubberBand setKeyTimes:@[@(0), @(.3), @(.4), @(.5), @(.65), @(.75), @(1)]];
-    [self.layer addAnimation:rubberBand forKey:@"ytx_rubberBandAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:rubberBand forKey:@"ytx_rubberBandAnimtionWithDurationTime:"];
+    });
     return rubberBand;
 }
 
@@ -122,7 +130,9 @@
                                 @(moveXLeft) , @(moveXRight), @(moveXLeft) ,
                                 @(moveXRight), @(moveXLeft) , @(moveXRight),
                                 @(moveXLeft) , @(moveXRight), @(center.x)]];
-    [self.layer addAnimation:shackAnimation forKey:@"ytx_shakeAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_shakeAnimtionWithDurationTime:"];
+    });
     return shackAnimation;
 }
 
@@ -142,7 +152,9 @@
                                 YTXRotateValue(-rotateT, .0, .0, 1.0),
                                 YTXRotateValue(0,        .0, .0, 1.0)]];
     
-    [self.layer addAnimation:shackAnimation forKey:@"ytx_swingAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_swingAnimtionWithDurationTime:"];
+    });
     return shackAnimation;
 }
 
@@ -166,7 +178,9 @@
                                rightValue , leftValue , rightValue,
                                leftValue  , rightValue]];
 
-    [self.layer addAnimation:tadaAnimation forKey:@"ytx_tadaAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:tadaAnimation forKey:@"ytx_tadaAnimtionWithDurationTime:"];
+    });
 
     return tadaAnimation;
 }
@@ -203,7 +217,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[rotateAnimation,shakeAnimation]];
     [group setDuration:durationTime*.5];
-    [self.layer addAnimation:group forKey:@"ytx_wobbleAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_wobbleAnimtionWithDurationTime:"];
+    });
     return group;
 }
 
@@ -267,7 +283,9 @@
                            [NSValue valueWithCATransform3D:CATransform3DMakeAffineTransform(transform_777)],
                            [NSValue valueWithCATransform3D:CATransform3DMakeAffineTransform(transform_10)]]];
                            
-    [self.layer addAnimation:animation forKey:@"ytx_jelloAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:animation forKey:@"ytx_jelloAnimtionWithDurationTime:"];
+    });
     return animation;
 }
 
@@ -285,7 +303,9 @@
     [bounceln setKeyTimes:@[@0, @(0.2), @(0.4), @(.6), @(.8), @1]];
     [bounceln setTimingFunction:time];
     bounceln.duration = durationTime;
-    [self.layer addAnimation:bounceln forKey:@"ytx_bounceInAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:bounceln forKey:@"ytx_bounceInAnimtionWithDurationTime:"];
+    });
     return bounceln;
 }
 
@@ -348,7 +368,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[opacity, bounce]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:selectName];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:selectName];
+    });
     return group;
 }
 
@@ -370,7 +392,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[opacity, bounce]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_bounceOutAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_bounceOutAnimtionWithDurationTime:"];
+    });
     return group;
 }
 
@@ -429,7 +453,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[opacity, bounce]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:selectName];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:selectName];
+    });
     return group;
 }
 
@@ -643,7 +669,9 @@
     if (!isTransform)
     {
         [fadeOpacity setDuration:durationTime];
-        [self.layer addAnimation:fadeOpacity forKey:name];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.layer addAnimation:fadeOpacity forKey:name];
+        });
         return fadeOpacity;
     }
     
@@ -660,7 +688,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[fadeOpacity, fadePosition]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:name];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:name];
+    });
     return group;
 }
 
@@ -696,7 +726,9 @@
                        nil];
     
     animation.duration = durationTime;
-    [self.layer addAnimation:animation forKey:@"ytx_flipAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:animation forKey:@"ytx_flipAnimtionWithDurationTime:"];
+    });
     return animation;
 }
 
@@ -733,7 +765,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_flipInXAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_flipInXAnimtionWithDurationTime:"];
+    });
     return group;
 }
 
@@ -769,7 +803,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_flipInYAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_flipInYAnimtionWithDurationTime:"];
+    });
     return group;
 }
 
@@ -799,7 +835,9 @@
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
     
-    [self.layer addAnimation:group forKey:@"ytx_flipOutXAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_flipOutXAnimtionWithDurationTime:"];
+    });
     return group;
 }
 
@@ -828,7 +866,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_flipOutYAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_flipOutYAnimtionWithDurationTime:"];
+    });
     return group;
 }
 
@@ -873,7 +913,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_lightSpeedInAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_lightSpeedInAnimtionWithDurationTime:"];
+    });
     return group;
 }
 
@@ -905,7 +947,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_lightSpeedOutAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_lightSpeedOutAnimtionWithDurationTime:"];
+    });
     return group;
 }
 
@@ -923,7 +967,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[zoomOutOpacity, zoomOutTransform]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_zoomOutAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_zoomOutAnimtionWithDurationTime:"];
+    });
     return group;
 }
 
@@ -1005,7 +1051,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[zoomOutOpacity, zoomOutScale, zoomOutPosition, zoomOutAnchorPoint]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:selectName];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:selectName];
+    });
     return group;
 }
 
@@ -1023,7 +1071,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[zoomInOpacity,zoomInTransform]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_zoomInAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_zoomInAnimtionWithDurationTime:"];
+    });
     return group;
 }
 
@@ -1088,7 +1138,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[zoomInOpacity, zoomInScale, zoomInPosition]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:selectName];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:selectName];
+    });
     return group;
 }
 
@@ -1179,7 +1231,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[opacity, transform]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:selectName];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:selectName];
+    });
     return group;
 }
 
@@ -1322,7 +1376,9 @@
         [group setAnimations:@[opacity, transform]];
     }
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:name];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:name];
+    });
     return group;
 }
 
@@ -1363,7 +1419,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[anchorAnimation, animation, opacity, position]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:@"ytx_hingeAnimtionWithDurationTime:"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_hingeAnimtionWithDurationTime:"];
+    });
     return group;
 }
 
@@ -1395,7 +1453,9 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[position, animation]];
     [group setDuration:durationTime];
-    [self.layer addAnimation:group forKey:name];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:name];
+    });
     return group;
 }
  
