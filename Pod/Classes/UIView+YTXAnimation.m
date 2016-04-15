@@ -165,8 +165,9 @@
                                leftValue  , rightValue, leftValue,
                                rightValue , leftValue , rightValue,
                                leftValue  , rightValue]];
-    
+
     [self.layer addAnimation:tadaAnimation forKey:@"ytx_tadaAnimtionWithDurationTime:"];
+
     return tadaAnimation;
 }
 
@@ -667,13 +668,8 @@
 
 - (nonnull CAAnimation *)ytx_flipAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    NSString * key = @"ytx_flipAnimtionWithDurationTime:";
-    
-    CATransform3D transform         = CATransform3DIdentity;
+    CATransform3D transform         = self.layer.transform;
     transform.m34                   = 1 / 200.0;
-    CATransform3D sublayerTransform = self.layer.sublayerTransform;
-    sublayerTransform.m34           = transform.m34;
-    self.layer.sublayerTransform    = sublayerTransform;
 
     CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
 
@@ -699,22 +695,16 @@
                        [NSValue valueWithCATransform3D:frame10],
                        nil];
     
-    [animation setValue:@1 forKey:key];
     animation.duration = durationTime;
-    animation.delegate = self;
-    [self.layer addAnimation:animation forKey:key];
+    [self.layer addAnimation:animation forKey:@"ytx_flipAnimtionWithDurationTime:"];
     return animation;
 }
 
 - (nonnull CAAnimation *)ytx_flipInXAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    NSString * key = @"ytx_flipInXAnimtionWithDurationTime:";
     
-    CATransform3D transform         = CATransform3DIdentity;
+    CATransform3D transform         = self.layer.transform;
     transform.m34                   = 1 / 200.0;
-    CATransform3D sublayerTransform = self.layer.sublayerTransform;
-    sublayerTransform.m34           = transform.m34;
-    self.layer.sublayerTransform    = sublayerTransform;
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     
@@ -743,21 +733,14 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
-    group.delegate = self;
-    [group setValue:@1 forKey:key];
-    [self.layer addAnimation:group forKey:key];
+    [self.layer addAnimation:group forKey:@"ytx_flipInXAnimtionWithDurationTime:"];
     return group;
 }
 
 - (nonnull CAAnimation *)ytx_flipInYAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    NSString * key = @"ytx_flipInYAnimtionWithDurationTime:";
-    
-    CATransform3D transform         = CATransform3DIdentity;
+    CATransform3D transform         = self.layer.transform;
     transform.m34                   = 1 / 200.0;
-    CATransform3D sublayerTransform = self.layer.sublayerTransform;
-    sublayerTransform.m34           = transform.m34;
-    self.layer.sublayerTransform    = sublayerTransform;
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     
@@ -786,22 +769,14 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
-    group.delegate = self;
-    [group setValue:@1 forKey:key];
-    
-    [self.layer addAnimation:group forKey:key];
+    [self.layer addAnimation:group forKey:@"ytx_flipInYAnimtionWithDurationTime:"];
     return group;
 }
 
 - (nonnull CAAnimation *)ytx_flipOutXAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    NSString * key = @"ytx_flipOutXAnimtionWithDurationTime:";
-    
-    CATransform3D transform         = CATransform3DIdentity;
+    CATransform3D transform         = self.layer.transform;
     transform.m34                   = 1 / 200.0;
-    CATransform3D sublayerTransform = self.layer.sublayerTransform;
-    sublayerTransform.m34           = transform.m34;
-    self.layer.sublayerTransform    = sublayerTransform;
 
     CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
    
@@ -823,22 +798,15 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
-    group.delegate = self;
-    [group setValue:@1 forKey:key];
     
-    [self.layer addAnimation:group forKey:key];
+    [self.layer addAnimation:group forKey:@"ytx_flipOutXAnimtionWithDurationTime:"];
     return group;
 }
 
 - (nonnull CAAnimation *)ytx_flipOutYAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    NSString * key = @"ytx_flipOutYAnimtionWithDurationTime:";
-
-    CATransform3D transform         = CATransform3DIdentity;
+    CATransform3D transform         = self.layer.transform;
     transform.m34                   = 1 / 200.0;
-    CATransform3D sublayerTransform = self.layer.sublayerTransform;
-    sublayerTransform.m34           = transform.m34;
-    self.layer.sublayerTransform    = sublayerTransform;
 
     CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     
@@ -860,9 +828,7 @@
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
-    group.delegate = self;
-    [group setValue:@1 forKey:key];
-    [self.layer addAnimation:group forKey:key];
+    [self.layer addAnimation:group forKey:@"ytx_flipOutYAnimtionWithDurationTime:"];
     return group;
 }
 
@@ -915,6 +881,7 @@
 {
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     
+    // c=1 ==> 45°
     CGAffineTransform transform0 = CGAffineTransformIdentity;
     transform0.c = 0.0;
     CATransform3D frame0  =  CATransform3DMakeAffineTransform(transform0);
@@ -1430,26 +1397,6 @@
     [group setDuration:durationTime];
     [self.layer addAnimation:group forKey:name];
     return group;
-}
-
-#pragma mark - delegate
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
-{
-    if(!flag){
-        return;
-    }
-    
-    if ([anim valueForKey:@"ytx_flipAnimtionWithDurationTime:"]    ||
-        [anim valueForKey:@"ytx_flipInXAnimtionWithDurationTime:"] ||
-        [anim valueForKey:@"ytx_flipInYAnimtionWithDurationTime:"] ||
-        [anim valueForKey:@"ytx_flipOutXAnimtionWithDurationTime:"]||
-        [anim valueForKey:@"ytx_flipOutYAnimtionWithDurationTime:"] )
-    {
-        CATransform3D sublayerTransform = self.layer.sublayerTransform;
-        sublayerTransform.m34 = 0;
-        self.layer.sublayerTransform = sublayerTransform;
-    }
-    
 }
  
 @end
