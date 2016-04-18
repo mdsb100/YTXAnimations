@@ -31,12 +31,6 @@ it, simply add the following line to your Podfile:
 pod "YTXAnimations"
 ```
 
-## Author
-
-- Caojun, 78612846@qq.com
-- lilonglong, 596927598@qq.com
-- SunLiTing, 415754296@qq.com
-
 ## License
 
 YTXAnimations is available under the MIT license. See the LICENSE file for more info.
