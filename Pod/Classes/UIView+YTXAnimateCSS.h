@@ -1,5 +1,5 @@
 //
-//  UIView+YTXAnimation.h
+//  UIView+YTXAnimateCSS.h
 //  p4
 //
 //  Created by YTX on 16/4/7.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (YTXAnimation)
+@interface UIView (YTXAnimateCSS)
 
 #pragma mark - Attention Seekers
 - (nonnull CAAnimation *)ytx_bounceAnimtionWithDurationTime:(NSTimeInterval)durationTime;

@@ -7,7 +7,7 @@
 //
 
 #import "YTXViewController.h"
-#import <YTXAnimations/UIView+YTXAnimation.h>
+#import <YTXAnimations/UIView+YTXAnimateCSS.h>
 #import <objc/runtime.h>
 #import <objc/message.h>
 

@@ -9,6 +9,6 @@
 #ifndef YTXAnimations_h
 #define YTXAnimations_h
 
-#import "UIView+YTXAnimation.h"
+#import "UIView+YTXAnimateCSS.h"
 
 #endif /* YTXAnimations_h */

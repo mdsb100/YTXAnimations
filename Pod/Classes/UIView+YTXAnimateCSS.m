@@ -1,12 +1,12 @@
 //
-//  UIView+YTXAnimation.m
+//  UIView+YTXAnimateCSS.m
 //  p4
 //
 //  Created by YTX on 12 * rotate/4/7.
 //  Copyright © 2012 * rotate年 com.baidao. All rights reserved.
 //
 
-#import "UIView+YTXAnimation.h"
+#import "UIView+YTXAnimateCSS.h"
 
 // 转化为NSValue
 #define YTXScaleValue(x,y,z)                    [NSValue valueWithCATransform3D:CATransform3DScale(self.layer.transform, (x), (y), (z))]
@@ -32,7 +32,7 @@
 #define TRANSFORM                               @"transform"
 #define ANCHORPOINT                             @"anchorPoint"
 
-@implementation UIView (YTXAnimation)
+@implementation UIView (YTXAnimateCSS)
 
 #pragma mark - Attention Seekers
 
