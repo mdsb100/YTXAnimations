@@ -5,7 +5,7 @@
 //  Created by YTX on 16/4/7.
 //  Copyright © 2016年 com.baidao. All rights reserved.
 //
-
+//  Reference https://daneden.github.io/animate.css/
 #import <UIKit/UIKit.h>
 
 @interface UIView (YTXAnimateCSS)
