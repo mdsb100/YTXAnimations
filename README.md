@@ -11,7 +11,7 @@ Reference [animate.css](https://daneden.github.io/animate.css/)
 
 ## Usage
 ```objective-c
-#import <YTXAnimations/UIView+YTXAnimation.h>
+#import <YTXAnimations/UIView+YTXAnimateCSS.h>
 
 CAAnimation * tada = [view ytx_tadaAnimtionWithDurationTime:1];
 tada.repeatCount = CGFLOAT_MAX;
