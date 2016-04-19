@@ -95,9 +95,8 @@ static NSString *identifity = @"cell";
     [self.AnimationLabel setTextColor:YTXRandomColor];
     
     SEL sel = NSSelectorFromString([self getValue:indexPath]);
-    double time = CGFLOAT_MAX;
     if (sel) { 
-        objc_msgSend(self.AnimationLabel,sel, &time);
+        objc_msgSend(self.AnimationLabel,sel);
     }
 }
 @end
