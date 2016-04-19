@@ -5,9 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/YTXAnimations.svg?style=flat)](http://cocoapods.org/pods/YTXAnimations)
 [![Platform](https://img.shields.io/cocoapods/p/YTXAnimations.svg?style=flat)](http://cocoapods.org/pods/YTXAnimations)
 
-Reference [animate.css](https://daneden.github.io/animate.css/)
+Reference [animate.css](https://daneden.github.io/animate.css/) [csshake](http://elrumordelaluz.github.io/csshake/)
 
-![YTXAnimations](https://github.com/baidao/YTXAnimations/blob/master/YTXAnimations.gif)
+![YTXAnimateCSS](https://github.com/baidao/YTXAnimations/blob/master/YTXAnimateCSS.gif)
 
 ## Usage
 ```objective-c
