@@ -5,30 +5,36 @@
 [![License](https://img.shields.io/cocoapods/l/YTXAnimations.svg?style=flat)](http://cocoapods.org/pods/YTXAnimations)
 [![Platform](https://img.shields.io/cocoapods/p/YTXAnimations.svg?style=flat)](http://cocoapods.org/pods/YTXAnimations)
 
-Reference [animate.css](https://daneden.github.io/animate.css/) [csshake](http://elrumordelaluz.github.io/csshake/)
+Reference [Animate.CSS](https://daneden.github.io/animate.css/) [CSShake](http://elrumordelaluz.github.io/csshake/)
 
-![YTXAnimateCSS](https://github.com/baidao/YTXAnimations/blob/master/YTXAnimateCSS.gif)
+![YTXAnimateCSS](https://github.com/baidao/YTXAnimations/blob/master/YTXAnimateCSS.gif) ![YTXCSShake](https://github.com/baidao/YTXAnimations/blob/master/YTXCSShake.gif)
 
 ## Usage
 ```objective-c
 #import <YTXAnimations/UIView+YTXAnimateCSS.h>
+#import <YTXAnimations/UIView+YTXCSShake.h>
 
 CAAnimation * tada = [view ytx_tadaAnimtionWithDurationTime:1];
 tada.repeatCount = CGFLOAT_MAX;
+
+[view ytx_basicShakeAnimtion];
+
 ```
 
 ```objective-c
 //removeAnimationForKey the key is function name. Please pay attention to colon!!! "ytx_tadaAnimtionWithDurationTime:"
 [view.layer removeAnimationForKey:@"ytx_tadaAnimtionWithDurationTime:"];
+
+// No colon
+[view.layer removeAnimationForKey:@"ytx_basicShakeAnimtion"];
 ```
 
-## Installation
+## Integration
 
-YTXAnimations is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+You shouldn't just use: pod "YTXAnimations". Since CocoaPods 0.36+ you should do something like:
 
 ```ruby
-pod "YTXAnimations"
+pod 'YTXAnimations', :subspecs => ["AnimateCSS", "CSShake"]
 ```
 
 ## License
@@ -37,7 +43,7 @@ YTXAnimations is available under the MIT license. See the LICENSE file for more 
 
 ## If you use YTXAnimations in one of your apps, I'd love to hear about it.
 
-## List of animation
+## List of Animate.CSS
 ### Attention Seekers
 - ytx_jelloAnimtionWithDurationTime:
 - ytx_wobbleAnimtionWithDurationTime:
@@ -141,3 +147,14 @@ YTXAnimations is available under the MIT license. See the LICENSE file for more 
 - ytx_rotateOutDownRightAnimtionWithDurationTime:
 - ytx_rotateOutUpRightAnimtionWithDurationTime:
 - ytx_rotateOutUpLeftAnimtionWithDurationTime:
+
+## List of CSShake
+- ytx_basicShakeAnimtion
+- ytx_littleShakeAnimtion
+- ytx_slowShakeAnimtion
+- ytx_hardShakeAnimtion
+- ytx_horizontalShakeAnimtion
+- ytx_verticalShakeAnimtion
+- ytx_rotateShakeAnimtion
+- ytx_opacityShakeAnimtion
+- ytx_crazyShakeAnimtion
