@@ -1,5 +1,5 @@
 //
-//  YTXViewController.h
+//  YTXAnimateCSSViewController.h
 //  YTXAnimations
 //
 //  Created by lilonglong on 04/11/2016.
@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface YTXViewController : UIViewController
+@interface YTXAnimateCSSViewController : UIViewController
 
 @end

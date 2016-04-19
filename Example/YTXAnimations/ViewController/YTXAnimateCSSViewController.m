@@ -1,12 +1,12 @@
 //
-//  YTXViewController.m
+//  YTXAnimateCSSViewController.m
 //  YTXAnimations
 //
 //  Created by lilonglong on 04/11/2016.
 //  Copyright (c) 2016 lilonglong. All rights reserved.
 //
 
-#import "YTXViewController.h"
+#import "YTXAnimateCSSViewController.h"
 #import <YTXAnimations/UIView+YTXAnimateCSS.h>
 #import <objc/runtime.h>
 #import <objc/message.h>
@@ -16,14 +16,14 @@
 // 随机色
 #define YTXRandomColor YTXColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 
-@interface YTXViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface YTXAnimateCSSViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *listTableView;
 @property (weak, nonatomic) IBOutlet UILabel *AnimationLabel;
 
 @property (nonatomic, strong) NSArray *listDict;
 @end
 
-@implementation YTXViewController
+@implementation YTXAnimateCSSViewController
 
 - (void)viewDidLoad
 {
@@ -39,7 +39,7 @@
 
 - (NSArray *)listDict {
     if (!_listDict) {
-        _listDict = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"list.plist" ofType:nil]];
+        _listDict = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"AnimateCSS.plist" ofType:nil]];
     }
     return _listDict;
 }

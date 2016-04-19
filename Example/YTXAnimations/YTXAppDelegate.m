@@ -8,11 +8,20 @@
 
 #import "YTXAppDelegate.h"
 
+#import "YTXTabBarViewController.h"
+@interface YTXAppDelegate()
+
+@property (nonnull, nonatomic, strong) YTXTabBarViewController *tabController;
+
+@end
+
 @implementation YTXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self initRootViewController];
+    
     return YES;
 }
 
@@ -41,6 +50,33 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void) initRootViewController
+{
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor blackColor];
+    
+    UIViewController *animateCSSViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YTXAnimateCSSViewController"];
+    animateCSSViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Animate.CSS"
+                                                              image:[UIImage imageNamed:@"air_pilot_hat"]
+                                                      selectedImage:[UIImage imageNamed:@"air_pilot_hat_filled"]];
+    
+    UIViewController *animateCSSViewController1 = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YTXAnimateCSSViewController1"];
+    animateCSSViewController1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"CSSHake"
+                                                                        image:[UIImage imageNamed:@"cocktail"]
+                                                                selectedImage:[UIImage imageNamed:@"cocktail_filled"]];
+    self.tabController.viewControllers = @[animateCSSViewController, animateCSSViewController1];
+    self.window.rootViewController = self.tabController;
+}
+
+- (YTXTabBarViewController *) tabController
+{
+    if (_tabController == nil) {
+        _tabController = [YTXTabBarViewController new];
+        [_tabController.tabBar setTranslucent:NO];
+    }
+    return _tabController;
 }
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18D6BB381CC5D57E00746975 /* YTXTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6BB371CC5D57E00746975 /* YTXTabBarViewController.m */; };
+		18D6BB3B1CC5D59A00746975 /* YTXAnimateCSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6BB3A1CC5D59A00746975 /* YTXAnimateCSSViewController.m */; };
 		4EAD6F140B75249A77FEEA20 /* libPods-YTXAnimations_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBE0103AE82593F8E3E247F /* libPods-YTXAnimations_Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -14,14 +16,13 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* YTXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* YTXAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* YTXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* YTXViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		82F6EEBD1CBB6ECE00DBFDE8 /* list.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82F6EEBC1CBB6ECE00DBFDE8 /* list.plist */; };
+		82F6EEBD1CBB6ECE00DBFDE8 /* AnimateCSS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82F6EEBC1CBB6ECE00DBFDE8 /* AnimateCSS.plist */; };
 		82F6EEBF1CBB775E00DBFDE8 /* YTXAnimations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F6EEBE1CBB775E00DBFDE8 /* YTXAnimations.framework */; };
 		82F6EEC51CBB7FE100DBFDE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F6EEC41CBB7FE100DBFDE8 /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
@@ -39,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18D6BB361CC5D57E00746975 /* YTXTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTXTabBarViewController.h; sourceTree = "<group>"; };
+		18D6BB371CC5D57E00746975 /* YTXTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTXTabBarViewController.m; sourceTree = "<group>"; };
+		18D6BB391CC5D59A00746975 /* YTXAnimateCSSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTXAnimateCSSViewController.h; sourceTree = "<group>"; };
+		18D6BB3A1CC5D59A00746975 /* YTXAnimateCSSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTXAnimateCSSViewController.m; sourceTree = "<group>"; };
 		48888BA646150E7AB846BFAF /* Pods-YTXAnimations_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTXAnimations_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTXAnimations_Tests/Pods-YTXAnimations_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YTXAnimations_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTXAnimations_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,8 +55,6 @@
 		6003F59B195388D20070C39A /* YTXAnimations-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YTXAnimations-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* YTXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTXAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* YTXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTXAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* YTXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTXViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* YTXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTXViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* YTXAnimations_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YTXAnimations_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -59,7 +62,7 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		82F6EEBC1CBB6ECE00DBFDE8 /* list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = list.plist; sourceTree = "<group>"; };
+		82F6EEBC1CBB6ECE00DBFDE8 /* AnimateCSS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnimateCSS.plist; sourceTree = "<group>"; };
 		82F6EEBE1CBB775E00DBFDE8 /* YTXAnimations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YTXAnimations.framework; path = "Pods/../build/Debug-iphoneos/YTXAnimations.framework"; sourceTree = "<group>"; };
 		82F6EEC01CBB776A00DBFDE8 /* YTXAnimations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YTXAnimations.framework; path = "Pods/../build/Debug-iphoneos/YTXAnimations.framework"; sourceTree = "<group>"; };
 		82F6EEC41CBB7FE100DBFDE8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,6 +104,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18D6BB351CC5D57E00746975 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				18D6BB391CC5D59A00746975 /* YTXAnimateCSSViewController.h */,
+				18D6BB3A1CC5D59A00746975 /* YTXAnimateCSSViewController.m */,
+				18D6BB361CC5D57E00746975 /* YTXTabBarViewController.h */,
+				18D6BB371CC5D57E00746975 /* YTXTabBarViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		1BD27B9090D9E0ACBB0B3178 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,14 +165,13 @@
 		6003F593195388D20070C39A /* Example for YTXAnimations */ = {
 			isa = PBXGroup;
 			children = (
+				18D6BB351CC5D57E00746975 /* ViewController */,
 				6003F59C195388D20070C39A /* YTXAppDelegate.h */,
 				6003F59D195388D20070C39A /* YTXAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* YTXViewController.h */,
-				6003F5A6195388D20070C39A /* YTXViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
-				82F6EEBC1CBB6ECE00DBFDE8 /* list.plist */,
+				82F6EEBC1CBB6ECE00DBFDE8 /* AnimateCSS.plist */,
 				82F6EEC41CBB7FE100DBFDE8 /* LaunchScreen.storyboard */,
 			);
 			name = "Example for YTXAnimations";
@@ -288,7 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82F6EEBD1CBB6ECE00DBFDE8 /* list.plist in Resources */,
+				82F6EEBD1CBB6ECE00DBFDE8 /* AnimateCSS.plist in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				82F6EEC51CBB7FE100DBFDE8 /* LaunchScreen.storyboard in Resources */,
@@ -404,8 +417,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D6BB3B1CC5D59A00746975 /* YTXAnimateCSSViewController.m in Sources */,
+				18D6BB381CC5D57E00746975 /* YTXTabBarViewController.m in Sources */,
 				6003F59E195388D20070C39A /* YTXAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* YTXViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
