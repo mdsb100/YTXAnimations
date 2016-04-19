@@ -648,8 +648,8 @@
         //[translateX,translateY,rorateX]
         CGFloat translateX = [transformValues[0] floatValue];
         CGFloat translateY = [transformValues[1] floatValue];
-        CGFloat rotateX = [transformValues[2] floatValue];
-        CATransform3D currentTransform = CATransform3DRotate(transform, (rotateX) * M_PI / 180.0, rotateX, 0, 0);
+        CGFloat rotateZ = [transformValues[2] floatValue];
+        CATransform3D currentTransform = CATransform3DRotate(transform, (rotateZ) * M_PI / 180.0, 0, 0, 1);
         currentTransform.m41 = translateX;
         currentTransform.m42 = translateY;
 
