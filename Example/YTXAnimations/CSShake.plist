@@ -8,9 +8,23 @@
 		<key>sub</key>
 		<dict>
 			<key>Basic Shake</key>
-			<string>ytx_basicShakeAnimtionWithDurationTime:</string>
+			<string>ytx_basicShakeAnimtion</string>
 			<key>Little Shake</key>
-			<string>ytx_littleShakeAnimtionWithDurationTime:</string>
+			<string>ytx_littleShakeAnimtion</string>
+			<key>Slow Shake</key>
+			<string>ytx_slowShakeAnimtion</string>
+			<key>Hard Shake</key>
+			<string>ytx_hardShakeAnimtion</string>
+			<key>Horizontal Shake</key>
+			<string>ytx_horizontalShakeAnimtion</string>
+			<key>Vertical Shake</key>
+			<string>ytx_verticalShakeAnimtion</string>
+			<key>Rotate Shake</key>
+			<string>ytx_rotateShakeAnimtion</string>
+			<key>Opacity Shake</key>
+			<string>ytx_opacityShakeAnimtion</string>
+			<key>Crazy Shake</key>
+			<string>ytx_crazyShakeAnimtion</string>
 		</dict>
 	</dict>
 </array>

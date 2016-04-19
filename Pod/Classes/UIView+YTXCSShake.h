@@ -10,8 +10,24 @@
 
 @interface UIView (YTXCSShake)
 
-- (nonnull CAAnimation *)ytx_basicShakeAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_basicShakeAnimtion;
 
-- (nonnull CAAnimation *)ytx_littleShakeAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_littleShakeAnimtion;
+
+- (nonnull CAAnimation *)ytx_slowShakeAnimtion;
+
+- (nonnull CAAnimation *)ytx_hardShakeAnimtion;
+
+- (nonnull CAAnimation *)ytx_horizontalShakeAnimtion;
+
+- (nonnull CAAnimation *)ytx_verticalShakeAnimtion;
+
+- (nonnull CAAnimation *)ytx_rotateShakeAnimtion;
+
+- (nonnull CAAnimation *)ytx_opacityShakeAnimtion;
+
+- (nonnull CAAnimation *)ytx_crazyShakeAnimtion;
+
+//- (nonnull CAAnimation *)ytx_chunkShakeAnimation;
 
 @end

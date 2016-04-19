@@ -8,13 +8,17 @@
 
 #import "UIView+YTXCSShake.h"
 
-#define YTXShakeKeyTimes @[@0,@0.2,@0.4,@0.6,@0.8,@0.10,@0.12,@0.14,@0.16,@0.18,@0.20,@0.22,@0.24,@0.26,@0.28,@0.30,@0.32,@0.34,@0.36,@0.38,@0.40,@0.42,@0.44,@0.46,@0.48,@0.50,@0.52,@0.54,@0.56,@0.58,@0.60,@0.62,@0.64,@0.66,@0.68,@0.70,@0.72,@0.74,@0.76,@0.78,@0.80,@0.82,@0.84,@0.86,@0.88,@0.90,@0.92,@0.94,@0.96,@0.98,@1]
+#define YTXShakeKeyTimes1 @[@0,@0.2,@0.4,@0.6,@0.8,@0.10,@0.12,@0.14,@0.16,@0.18,@0.20,@0.22,@0.24,@0.26,@0.28,@0.30,@0.32,@0.34,@0.36,@0.38,@0.40,@0.42,@0.44,@0.46,@0.48,@0.50,@0.52,@0.54,@0.56,@0.58,@0.60,@0.62,@0.64,@0.66,@0.68,@0.70,@0.72,@0.74,@0.76,@0.78,@0.80,@0.82,@0.84,@0.86,@0.88,@0.90,@0.92,@0.94,@0.96,@0.98,@1]
+
+#define YTXShakeKeyTimes2 @[@0,@0.1,@0.2,@0.3,@0.4,@0.5,@0.6,@0.7,@0.8,@0.9,@1]
+
+#define YTXShakeKeyTimes3 @[@0.1,@0.2,@0.3,@0.4,@0.5,@0.6,@0.7,@0.8,@0.9]
 
 @implementation UIView (YTXCSShake)
 
-- (nonnull CAAnimation *)ytx_basicShakeAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_basicShakeAnimtion
 {
-    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes;
+    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
     //translate(x, y) rotate(deg)
     NSArray<NSArray<NSNumber *> *> * transformArray = @[
                                                         @[@(0)    , @(0)  , @(0)],
@@ -73,17 +77,17 @@
     CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_basicShakeAnimtionWithDurationTime:"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_basicShakeAnimtion"];
     });
     
     shackAnimation.duration = 0.1;
-    shackAnimation.repeatCount = durationTime / 0.1;
+    shackAnimation.repeatCount = CGFLOAT_MAX;
     return shackAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_littleShakeAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_littleShakeAnimtion
 {
-    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes;
+    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
     //translate(x, y) rotate(deg)
     NSArray<NSArray<NSNumber *> *> * transformArray = @[
                                                         @[@(0), @(0) , @(0)],
@@ -142,11 +146,488 @@
     CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_littleShakeAnimtionWithDurationTime:"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_littleShakeAnimtion"];
     });
     
     shackAnimation.duration = 0.1;
-    shackAnimation.repeatCount = durationTime / 0.1;
+    shackAnimation.repeatCount = CGFLOAT_MAX;
+    return shackAnimation;
+}
+
+- (nonnull CAAnimation *)ytx_slowShakeAnimtion
+{
+    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    //translate(x, y) rotate(deg)
+    NSArray<NSArray<NSNumber *> *> * transformArray = @[
+                                                        @[@(0), @(0) , @(0)],
+                                                        @[@(6) , @(-5) , @(2.5)],
+                                                        @[@(10), @(-6) , @(2.5)],
+                                                        @[@(-2), @(-2) , @(-2.5)],
+                                                        @[@(6) , @(-3) , @(-1.5)],
+                                                        @[@(8) , @(1)  , @(-2.5)],
+                                                        @[@(2) , @(-2) , @(-1.5)],
+                                                        @[@(-4), @(7)  , @(-1.5)],
+                                                        @[@(-9), @(9)  , @(-0.5)],
+                                                        @[@(8) , @(9)  , @(-0.5)],
+                                                        @[@(9) , @(-8) , @(-0.5)],
+                                                        @[@(3) , @(-8) , @(3.5)],
+                                                        @[@(0) , @(0)  , @(1.5)],
+                                                        @[@(10), @(-7) , @(1.5)],
+                                                        @[@(3) , @(6)  , @(2.5)],
+                                                        @[@(-3), @(3)  , @(0.5)],
+                                                        @[@(-4), @(9)  , @(0.5)],
+                                                        @[@(10), @(0)  , @(1.5)],
+                                                        @[@(-4), @(9)  , @(0.5)],
+                                                        @[@(-1), @(10) , @(-0.5)],
+                                                        @[@(3) , @(-3) , @(2.5)],
+                                                        @[@(-2), @(5)  , @(3.5)],
+                                                        @[@(7) , @(-2) , @(-0.5)],
+                                                        @[@(5) , @(4)  , @(-2.5)],
+                                                        @[@(-9), @(8)  , @(2.5)],
+                                                        @[@(-3), @(-7) , @(-1.5)],
+                                                        @[@(-1), @(1)  , @(-2.5)],
+                                                        @[@(-3), @(-7) , @(-2.5)],
+                                                        @[@(9) , @(-5) , @(3.5)],
+                                                        @[@(-6), @(4)  , @(-2.5)],
+                                                        @[@(4) , @(5)  , @(-0.5)],
+                                                        @[@(5) , @(-9) , @(0.5)],
+                                                        @[@(-4), @(-4) , @(1.5)],
+                                                        @[@(1) , @(-8) , @(0.5)],
+                                                        @[@(-6), @(-7) , @(1.5)],
+                                                        @[@(-5), @(4)  , @(-2.5)],
+                                                        @[@(5) , @(-3) , @(0.5)],
+                                                        @[@(7) , @(6)  , @(1.5)],
+                                                        @[@(-5), @(6)  , @(-1.5)],
+                                                        @[@(10), @(6)  , @(3.5)],
+                                                        @[@(3) , @(10) , @(-1.5)],
+                                                        @[@(-2), @(5)  , @(3.5)],
+                                                        @[@(8) , @(-1) , @(-0.5)],
+                                                        @[@(-6), @(5)  , @(3.5)],
+                                                        @[@(5) , @(5)  , @(0.5)],
+                                                        @[@(2) , @(-3) , @(-0.5)],
+                                                        @[@(-6), @(1)  , @(-1.5)],
+                                                        @[@(10), @(4)  , @(1.5)],
+                                                        @[@(3) , @(5)  , @(1.5)],
+                                                        @[@(7) , @(1)  , @(-2.5)],
+                                                        @[@(0), @(0) , @(0)]
+                                                        ];
+    
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_slowShakeAnimtion"];
+    });
+    
+    shackAnimation.duration = 5.0;
+    shackAnimation.repeatCount = CGFLOAT_MAX;
+    
+    return shackAnimation;
+}
+
+- (nonnull CAAnimation *)ytx_hardShakeAnimtion
+{
+    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    //translate(x, y) rotate(deg)
+    NSArray<NSArray<NSNumber *> *> * transformArray = @[
+                                                        @[@(0), @(0) , @(0)],
+                                                        @[@(9) , @(8), @(-1.5)],
+                                                        @[@(-4), @(7), @(1.5)],
+                                                        @[@(-3), @(-5), @(2.5)],
+                                                        @[@(7) , @(-7), @(1.5)],
+                                                        @[@(8) , @(6), @(1.5)],
+                                                        @[@(9) , @(-2), @(1.5)],
+                                                        @[@(8) , @(4), @(-2.5)],
+                                                        @[@(1) , @(7), @(1.5)],
+                                                        @[@(-9), @(6), @(-1.5)],
+                                                        @[@(-6), @(-8), @(1.5)],
+                                                        @[@(-3), @(7), @(0.5)],
+                                                        @[@(8) , @(-4), @(2.5)],
+                                                        @[@(-5), @(-9), @(1.5)],
+                                                        @[@(10), @(3), @(2.5)],
+                                                        @[@(0) , @(8), @(0.5)],
+                                                        @[@(-9), @(-2), @(0.5)],
+                                                        @[@(-4), @(-1), @(-1.5)],
+                                                        @[@(-2), @(-2), @(-0.5)],
+                                                        @[@(6) , @(8), @(3.5)],
+                                                        @[@(6) , @(0), @(0.5)],
+                                                        @[@(-8), @(8), @(0.5)],
+                                                        @[@(9) , @(-9), @(-1.5)],
+                                                        @[@(-8), @(-9), @(-2.5)],
+                                                        @[@(5) , @(4), @(1.5)],
+                                                        @[@(-7), @(-8), @(1.5)],
+                                                        @[@(1) , @(8), @(0.5)],
+                                                        @[@(9) , @(3), @(-1.5)],
+                                                        @[@(6) , @(-5), @(3.5)],
+                                                        @[@(1) , @(7), @(-1.5)],
+                                                        @[@(-1), @(7), @(1.5)],
+                                                        @[@(8) , @(-6), @(-1.5)],
+                                                        @[@(5) , @(4), @(-0.5)],
+                                                        @[@(6) , @(2), @(-0.5)],
+                                                        @[@(2) , @(-3), @(1.5)],
+                                                        @[@(-2), @(8), @(-2.5)],
+                                                        @[@(10), @(-1), @(-1.5)],
+                                                        @[@(4), @(-2), @(1.5)],
+                                                        @[@(10), @(-5), @(1.5)],
+                                                        @[@(0), @(9), @(0.5)],
+                                                        @[@(-9), @(1), @(-0.5)],
+                                                        @[@(-6), @(-7), @(1.5)],
+                                                        @[@(-2), @(-7), @(3.5)],
+                                                        @[@(4), @(-4), @(-1.5)],
+                                                        @[@(5), @(4), @(0.5)],
+                                                        @[@(-1), @(-1), @(-0.5)],
+                                                        @[@(-4), @(-7), @(0.5)],
+                                                        @[@(1), @(7), @(2.5)],
+                                                        @[@(8), @(9), @(-2.5)],
+                                                        @[@(6), @(-5), @(3.5)],
+                                                        @[@(0), @(0) , @(0)]
+                                                        ];
+    
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_hardShakeAnimtion"];
+    });
+    
+    shackAnimation.duration = 0.1;
+    shackAnimation.repeatCount = CGFLOAT_MAX;
+    return shackAnimation;
+}
+
+- (nonnull CAAnimation *)ytx_horizontalShakeAnimtion
+{
+    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    //translate(x, y) rotate(deg)
+    NSArray<NSArray<NSNumber *> *> * transformArray = @[
+                                                        @[@(0), @(0) , @(0)],
+                                                        @[@(-1), @(0), @(0)],
+                                                        @[@(6), @(0), @(0)],
+                                                        @[@(-8), @(0), @(0)],
+                                                        @[@(8), @(0), @(0)],
+                                                        @[@(5), @(0), @(0)],
+                                                        @[@(0), @(0), @(0)],
+                                                        @[@(7), @(0), @(0)],
+                                                        @[@(-6), @(0), @(0)],
+                                                        @[@(2), @(0), @(0)],
+                                                        @[@(-1), @(0), @(0)],
+                                                        @[@(3), @(0), @(0)],
+                                                        @[@(-9), @(0), @(0)],
+                                                        @[@(-8), @(0), @(0)],
+                                                        @[@(8), @(0), @(0)],
+                                                        @[@(-2), @(0), @(0)],
+                                                        @[@(0), @(0), @(0)],
+                                                        @[@(0), @(0), @(0)],
+                                                        @[@(9), @(0), @(0)],
+                                                        @[@(4), @(0), @(0)],
+                                                        @[@(0), @(0), @(0)],
+                                                        @[@(-3), @(0), @(0)],
+                                                        @[@(3), @(0), @(0)],
+                                                        @[@(-7), @(0), @(0)],
+                                                        @[@(3), @(0), @(0)],
+                                                        @[@(10), @(0), @(0)],
+                                                        @[@(7), @(0), @(0)],
+                                                        @[@(4), @(0), @(0)],
+                                                        @[@(-4), @(0), @(0)],
+                                                        @[@(-4), @(0), @(0)],
+                                                        @[@(10), @(0), @(0)],
+                                                        @[@(-6), @(0), @(0)],
+                                                        @[@(-9), @(0), @(0)],
+                                                        @[@(1), @(0), @(0)],
+                                                        @[@(-7), @(0), @(0)],
+                                                        @[@(-4), @(0), @(0)],
+                                                        @[@(6), @(0), @(0)],
+                                                        @[@(0), @(0), @(0)],
+                                                        @[@(6), @(0), @(0)],
+                                                        @[@(10), @(0), @(0)],
+                                                        @[@(6), @(0), @(0)],
+                                                        @[@(0), @(0), @(0)],
+                                                        @[@(-3), @(0), @(0)],
+                                                        @[@(-4), @(0), @(0)],
+                                                        @[@(-3), @(0), @(0)],
+                                                        @[@(-6), @(0), @(0)],
+                                                        @[@(-5), @(0), @(0)],
+                                                        @[@(0), @(0), @(0)],
+                                                        @[@(9), @(0), @(0)],
+                                                        @[@(4), @(0), @(0)],
+                                                        @[@(0), @(0) , @(0)]
+                                                        ];
+    
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_horizontalShakeAnimtion"];
+    });
+    
+    shackAnimation.duration = 0.1;
+    shackAnimation.repeatCount = CGFLOAT_MAX;
+    return shackAnimation;
+}
+
+- (nonnull CAAnimation *)ytx_verticalShakeAnimtion
+{
+    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    //translate(x, y) rotate(deg)
+    NSArray<NSArray<NSNumber *> *> * transformArray = @[
+                                                        @[@(0), @(0) , @(0)],
+                                                        @[@(0), @(5), @(0)],
+                                                        @[@(0), @(1), @(0)],
+                                                        @[@(0), @(5), @(0)],
+                                                        @[@(0), @(2), @(0)],
+                                                        @[@(0), @(8), @(0)],
+                                                        @[@(0), @(6), @(0)],
+                                                        @[@(0), @(3), @(0)],
+                                                        @[@(0), @(-4), @(0)],
+                                                        @[@(0), @(9), @(0)],
+                                                        @[@(0), @(-6), @(0)],
+                                                        @[@(0), @(-5), @(0)],
+                                                        @[@(0), @(-8), @(0)],
+                                                        @[@(0), @(-7), @(0)],
+                                                        @[@(0), @(1), @(0)],
+                                                        @[@(0), @(7), @(0)],
+                                                        @[@(0), @(1), @(0)],
+                                                        @[@(0), @(-7), @(0)],
+                                                        @[@(0), @(6), @(0)],
+                                                        @[@(0), @(8), @(0)],
+                                                        @[@(0), @(4), @(0)],
+                                                        @[@(0), @(-5), @(0)],
+                                                        @[@(0), @(2), @(0)],
+                                                        @[@(0), @(-6), @(0)],
+                                                        @[@(0), @(-5), @(0)],
+                                                        @[@(0), @(-1), @(0)],
+                                                        @[@(0), @(-4), @(0)],
+                                                        @[@(0), @(6), @(0)],
+                                                        @[@(0), @(-6), @(0)],
+                                                        @[@(0), @(6), @(0)],
+                                                        @[@(0), @(-4), @(0)],
+                                                        @[@(0), @(-9), @(0)],
+                                                        @[@(0), @(-2), @(0)],
+                                                        @[@(0), @(3), @(0)],
+                                                        @[@(0), @(3), @(0)],
+                                                        @[@(0), @(8), @(0)],
+                                                        @[@(0), @(-7), @(0)],
+                                                        @[@(0), @(0), @(0)],
+                                                        @[@(0), @(-7), @(0)],
+                                                        @[@(0), @(2), @(0)],
+                                                        @[@(0), @(9), @(0)],
+                                                        @[@(0), @(-6), @(0)],
+                                                        @[@(0), @(1), @(0)],
+                                                        @[@(0), @(-3), @(0)],
+                                                        @[@(0), @(1), @(0)],
+                                                        @[@(0), @(4), @(0)],
+                                                        @[@(0), @(-2), @(0)],
+                                                        @[@(0), @(5), @(0)],
+                                                        @[@(0), @(2), @(0)],
+                                                        @[@(0), @(7), @(0)],
+                                                        @[@(0), @(0) , @(0)]
+                                                        ];
+    
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_verticalShakeAnimtion"];
+    });
+    
+    shackAnimation.duration = 0.1;
+    shackAnimation.repeatCount = CGFLOAT_MAX;
+    return shackAnimation;
+}
+
+- (nonnull CAAnimation *)ytx_rotateShakeAnimtion
+{
+    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    //translate(x, y) rotate(deg)
+    NSArray<NSArray<NSNumber *> *> * transformArray = @[
+                                                        @[@(0), @(0) , @(0)],
+                                                        @[@(0), @(0), @(-1.5)],
+                                                        @[@(0), @(0), @(-2.5)],
+                                                        @[@(0), @(0), @(-6.5)],
+                                                        @[@(0), @(0), @(-6.5)],
+                                                        @[@(0), @(0), @(5.5)],
+                                                        @[@(0), @(0), @(-2.5)],
+                                                        @[@(0), @(0), @(-1.5)],
+                                                        @[@(0), @(0), @(-2.5)],
+                                                        @[@(0), @(0), @(5.5)],
+                                                        @[@(0), @(0), @(1.5)],
+                                                        @[@(0), @(0), @(-6.5)],
+                                                        @[@(0), @(0), @(-6.5)],
+                                                        @[@(0), @(0), @(4.5)],
+                                                        @[@(0), @(0), @(0.5)],
+                                                        @[@(0), @(0), @(7.5)],
+                                                        @[@(0), @(0), @(7.5)],
+                                                        @[@(0), @(0), @(3.5)],
+                                                        @[@(0), @(0), @(6.5)],
+                                                        @[@(0), @(0), @(7.5)],
+                                                        @[@(0), @(0), @(-5.5)],
+                                                        @[@(0), @(0), @(-6.5)],
+                                                        @[@(0), @(0), @(1.5)],
+                                                        @[@(0), @(0), @(-4.5)],
+                                                        @[@(0), @(0), @(1.5)],
+                                                        @[@(0), @(0), @(3.5)],
+                                                        @[@(0), @(0), @(-0.5)],
+                                                        @[@(0), @(0), @(-1.5)],
+                                                        @[@(0), @(0), @(-5.5)],
+                                                        @[@(0), @(0), @(-5.5)],
+                                                        @[@(0), @(0), @(5.5)],
+                                                        @[@(0), @(0), @(-5.5)],
+                                                        @[@(0), @(0), @(1.5)],
+                                                        @[@(0), @(0), @(6.5)],
+                                                        @[@(0), @(0), @(-2.5)],
+                                                        @[@(0), @(0), @(6.5)],
+                                                        @[@(0), @(0), @(4.5)],
+                                                        @[@(0), @(0), @(-4.5)],
+                                                        @[@(0), @(0), @(-0.5)],
+                                                        @[@(0), @(0), @(0.5)],
+                                                        @[@(0), @(0), @(-2.5)],
+                                                        @[@(0), @(0), @(6.5)],
+                                                        @[@(0), @(0), @(-3.5)],
+                                                        @[@(0), @(0), @(6.5)],
+                                                        @[@(0), @(0), @(5.5)],
+                                                        @[@(0), @(0), @(-6.5)],
+                                                        @[@(0), @(0), @(-6.5)],
+                                                        @[@(0), @(0), @(-4.5)],
+                                                        @[@(0), @(0), @(4.5)],
+                                                        @[@(0), @(0), @(-2.5)],
+                                                        @[@(0), @(0) , @(0)]
+                                                        ];
+    
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_rotateShakeAnimtion"];
+    });
+    
+    shackAnimation.duration = 0.1;
+    shackAnimation.repeatCount = CGFLOAT_MAX;
+    return shackAnimation;
+}
+
+- (nonnull CAAnimation *)ytx_opacityShakeAnimtion
+{
+    CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    opacityAnimation.values = @[
+                                @0.99,
+                                @0.38,
+                                @0.34,
+                                @0.24,
+                                @0.55,
+                                @0.72,
+                                @0.26,
+                                @0.7,
+                                @0.32];
+    
+    opacityAnimation.keyTimes = YTXShakeKeyTimes3;
+
+    //translate(x, y) rotate(deg)
+    NSArray<NSArray<NSNumber *> *> * transformArray = @[
+                                                        @[@(0), @(0) , @(0)],
+                                                        @[@(-1), @(5), @(-1.5)],
+                                                        @[@(-2), @(-1), @(0.5)],
+                                                        @[@(1), @(-4), @(0.5)],
+                                                        @[@(1), @(-4), @(2.5)],
+                                                        @[@(1), @(-2), @(0.5)],
+                                                        @[@(2), @(1), @(-0.5)],
+                                                        @[@(-3), @(5), @(0.5)],
+                                                        @[@(4), @(3), @(2.5)],
+                                                        @[@(0), @(3), @(-1.5)],
+                                                        @[@(0), @(0) , @(0)]
+                                                        ];
+    
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:YTXShakeKeyTimes2 transformArray:transformArray];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[opacityAnimation, shackAnimation]];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_opacityShakeAnimtion"];
+    });
+    
+    group.duration = 0.5;
+    group.repeatCount = CGFLOAT_MAX;
+    return group;
+}
+
+- (nonnull CAAnimation *)ytx_crazyShakeAnimtion
+{
+    CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    opacityAnimation.values = @[
+                                @0.03,
+                                @0.74,
+                                @0.84,
+                                @0.99,
+                                @0.79,
+                                @0.05,
+                                @0.81,
+                                @0.83,
+                                @0.99
+                                ];
+    
+    opacityAnimation.keyTimes = YTXShakeKeyTimes3;
+    
+    //translate(x, y) rotate(deg)
+    NSArray<NSArray<NSNumber *> *> * transformArray = @[
+                                                        @[@(0), @(0) , @(0)],
+                                                        @[@(-19), @(-10), @(-2)],
+                                                        @[@(-13), @(5), @(-5)],
+                                                        @[@(-17), @(9), @(-1)],
+                                                        @[@(-17), @(17), @(7)],
+                                                        @[@(-10), @(-9), @(-5)],
+                                                        @[@(-9), @(-8), @(-3)],
+                                                        @[@(-10), @(7), @(-5)],
+                                                        @[@(14), @(3), @(2)],
+                                                        @[@(9), @(-6), @(-7)],
+                                                        @[@(0), @(0) , @(0)]
+                                                        ];
+    
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:YTXShakeKeyTimes2 transformArray:transformArray];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[opacityAnimation, shackAnimation]];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_crazyShakeAnimtion"];
+    });
+    
+    group.duration = 0.1;
+    group.repeatCount = CGFLOAT_MAX;
+    return group;
+}
+
+- (nonnull CAAnimation *)ytx_chunkShakeAnimation
+{
+    NSArray<NSNumber *> * keyTimes = @[@0,@0.2,@0.4,@0.6,@0.8,@0.10,@0.12,@0.14,@0.16,@0.18,@0.20,@0.22,@0.24,@0.26,@0.28,@0.30,@0.32,@0.34,@0.36,@0.38,@0.40,@1];
+    //translate(x, y) rotate(deg)
+    NSArray<NSArray<NSNumber *> *> * transformArray = @[
+                                                        @[@(0), @(0) , @(0)],
+                                                        @[@(5), @(-8), @(-2)],
+                                                        @[@(14), @(-2), @(13)],
+                                                        @[@(-14), @(-4), @(-4)],
+                                                        @[@(12), @(8), @(0)],
+                                                        @[@(-8), @(12), @(-8)],
+                                                        @[@(13), @(-12), @(2)],
+                                                        @[@(-4), @(0), @(9)],
+                                                        @[@(-11), @(-4), @(-14)],
+                                                        @[@(2), @(-7), @(-11)],
+                                                        @[@(-8), @(-14), @(13)],
+                                                        @[@(15), @(-11), @(-2)],
+                                                        @[@(13), @(-9), @(-4)],
+                                                        @[@(-2), @(-6), @(-3)],
+                                                        @[@(-5), @(6), @(13)],
+                                                        @[@(-7), @(-8), @(11)],
+                                                        @[@(10), @(3), @(0)],
+                                                        @[@(-9), @(-13), @(-3)],
+                                                        @[@(-10), @(1), @(1)],
+                                                        @[@(0), @(-10), @(13)],
+                                                        @[@(0), @(0), @(0)],
+                                                        @[@(0), @(0) , @(0)]
+                                                        ];
+    
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_chunkShakeAnimation"];
+    });
+    
+    shackAnimation.duration = 4.0;
+    shackAnimation.repeatCount = CGFLOAT_MAX;
     return shackAnimation;
 }
 
