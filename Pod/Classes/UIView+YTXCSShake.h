@@ -12,4 +12,6 @@
 
 - (nonnull CAAnimation *)ytx_basicShakeAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
+- (nonnull CAAnimation *)ytx_littleShakeAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
 @end

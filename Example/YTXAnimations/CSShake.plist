@@ -9,6 +9,8 @@
 		<dict>
 			<key>Basic Shake</key>
 			<string>ytx_basicShakeAnimtionWithDurationTime:</string>
+			<key>Little Shake</key>
+			<string>ytx_littleShakeAnimtionWithDurationTime:</string>
 		</dict>
 	</dict>
 </array>
