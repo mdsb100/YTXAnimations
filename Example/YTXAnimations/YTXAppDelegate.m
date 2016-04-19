@@ -62,11 +62,11 @@
                                                               image:[UIImage imageNamed:@"air_pilot_hat"]
                                                       selectedImage:[UIImage imageNamed:@"air_pilot_hat_filled"]];
     
-    UIViewController *animateCSSViewController1 = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YTXAnimateCSSViewController1"];
-    animateCSSViewController1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"CSSHake"
+    UIViewController *CSShakeViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YTXCSShakeViewController"];
+    CSShakeViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"CSSHake"
                                                                         image:[UIImage imageNamed:@"cocktail"]
                                                                 selectedImage:[UIImage imageNamed:@"cocktail_filled"]];
-    self.tabController.viewControllers = @[animateCSSViewController, animateCSSViewController1];
+    self.tabController.viewControllers = @[animateCSSViewController, CSShakeViewController];
     self.window.rootViewController = self.tabController;
 }
 

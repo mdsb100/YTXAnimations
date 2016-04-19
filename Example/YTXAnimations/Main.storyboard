@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="317" y="437"/>
         </scene>
-        <!--AnimateCSS View Controller-->
+        <!--Shake View Controller-->
         <scene sceneID="RPr-bh-vg0">
             <objects>
-                <viewController storyboardIdentifier="YTXAnimateCSSViewController1" hidesBottomBarWhenPushed="YES" id="Kx9-dg-abW" customClass="YTXAnimateCSSViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="YTXCSShakeViewController" hidesBottomBarWhenPushed="YES" id="Kx9-dg-abW" customClass="YTXCSShakeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lMZ-ho-8ul"/>
                         <viewControllerLayoutGuide type="bottom" id="ZVy-kh-OKt"/>
@@ -92,8 +92,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUj-UV-Xte">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="sdfs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjQ-Yz-crB">
-                                        <rect key="frame" x="263" y="101" width="76" height="48"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CSShake" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjQ-Yz-crB">
+                                        <rect key="frame" x="197" y="101" width="207" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="207" id="WLb-so-vO5"/>
                                             <constraint firstAttribute="height" constant="48" id="a2F-Vu-KmU"/>
