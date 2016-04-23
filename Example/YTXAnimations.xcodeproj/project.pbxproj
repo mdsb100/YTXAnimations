@@ -11,6 +11,8 @@
 		18D6BB3B1CC5D59A00746975 /* YTXAnimateCSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6BB3A1CC5D59A00746975 /* YTXAnimateCSSViewController.m */; };
 		18D6BB3E1CC5D7F200746975 /* YTXCSShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6BB3D1CC5D7F200746975 /* YTXCSShakeViewController.m */; };
 		18D6BB401CC5D82F00746975 /* CSShake.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18D6BB3F1CC5D82F00746975 /* CSShake.plist */; };
+		18D6BB531CCB43BF00746975 /* YTXMagicCSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6BB521CCB43BF00746975 /* YTXMagicCSSViewController.m */; };
+		18D6BB551CCB451300746975 /* MagicCSS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18D6BB541CCB451300746975 /* MagicCSS.plist */; };
 		4EAD6F140B75249A77FEEA20 /* libPods-YTXAnimations_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBE0103AE82593F8E3E247F /* libPods-YTXAnimations_Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -49,6 +51,9 @@
 		18D6BB3C1CC5D7F200746975 /* YTXCSShakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTXCSShakeViewController.h; sourceTree = "<group>"; };
 		18D6BB3D1CC5D7F200746975 /* YTXCSShakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTXCSShakeViewController.m; sourceTree = "<group>"; };
 		18D6BB3F1CC5D82F00746975 /* CSShake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CSShake.plist; sourceTree = "<group>"; };
+		18D6BB511CCB43BF00746975 /* YTXMagicCSSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTXMagicCSSViewController.h; sourceTree = "<group>"; };
+		18D6BB521CCB43BF00746975 /* YTXMagicCSSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTXMagicCSSViewController.m; sourceTree = "<group>"; };
+		18D6BB541CCB451300746975 /* MagicCSS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MagicCSS.plist; sourceTree = "<group>"; };
 		48888BA646150E7AB846BFAF /* Pods-YTXAnimations_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTXAnimations_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTXAnimations_Tests/Pods-YTXAnimations_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YTXAnimations_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTXAnimations_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -116,6 +121,8 @@
 				18D6BB3A1CC5D59A00746975 /* YTXAnimateCSSViewController.m */,
 				18D6BB3C1CC5D7F200746975 /* YTXCSShakeViewController.h */,
 				18D6BB3D1CC5D7F200746975 /* YTXCSShakeViewController.m */,
+				18D6BB511CCB43BF00746975 /* YTXMagicCSSViewController.h */,
+				18D6BB521CCB43BF00746975 /* YTXMagicCSSViewController.m */,
 				18D6BB361CC5D57E00746975 /* YTXTabBarViewController.h */,
 				18D6BB371CC5D57E00746975 /* YTXTabBarViewController.m */,
 			);
@@ -180,6 +187,7 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				82F6EEBC1CBB6ECE00DBFDE8 /* AnimateCSS.plist */,
 				18D6BB3F1CC5D82F00746975 /* CSShake.plist */,
+				18D6BB541CCB451300746975 /* MagicCSS.plist */,
 				82F6EEC41CBB7FE100DBFDE8 /* LaunchScreen.storyboard */,
 			);
 			name = "Example for YTXAnimations";
@@ -314,6 +322,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				82F6EEC51CBB7FE100DBFDE8 /* LaunchScreen.storyboard in Resources */,
+				18D6BB551CCB451300746975 /* MagicCSS.plist in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +439,7 @@
 				18D6BB3B1CC5D59A00746975 /* YTXAnimateCSSViewController.m in Sources */,
 				18D6BB381CC5D57E00746975 /* YTXTabBarViewController.m in Sources */,
 				6003F59E195388D20070C39A /* YTXAppDelegate.m in Sources */,
+				18D6BB531CCB43BF00746975 /* YTXMagicCSSViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

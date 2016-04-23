@@ -66,7 +66,12 @@
     CSShakeViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"CSSHake"
                                                                         image:[UIImage imageNamed:@"cocktail"]
                                                                 selectedImage:[UIImage imageNamed:@"cocktail_filled"]];
-    self.tabController.viewControllers = @[animateCSSViewController, CSShakeViewController];
+    
+    UIViewController *magicCSSViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YTXMagicCSSViewController"];
+    magicCSSViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Magic.CSS"
+                                                                     image:[UIImage imageNamed:@"diamond"]
+                                                             selectedImage:[UIImage imageNamed:@"diamond_filled"]];
+    self.tabController.viewControllers = @[animateCSSViewController, CSShakeViewController, magicCSSViewController];
     self.window.rootViewController = self.tabController;
 }
 

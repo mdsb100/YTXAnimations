@@ -28,11 +28,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQq-oi-nN8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animate.ios" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcU-mp-rRf">
-                                        <rect key="frame" x="197" y="101" width="207" height="48"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animate.iOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcU-mp-rRf">
+                                        <rect key="frame" x="188" y="101" width="225" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="FqP-BS-5yR"/>
-                                            <constraint firstAttribute="width" constant="207" id="Sy7-xg-905"/>
+                                            <constraint firstAttribute="width" constant="225" id="Sy7-xg-905"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -130,6 +130,70 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MW0-6g-Inp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317" y="437"/>
+        </scene>
+        <!--MagicCSS View Controller-->
+        <scene sceneID="f9K-5j-OMI">
+            <objects>
+                <viewController storyboardIdentifier="YTXMagicCSSViewController" hidesBottomBarWhenPushed="YES" id="2wy-9y-SiK" customClass="YTXMagicCSSViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bKx-Se-acF"/>
+                        <viewControllerLayoutGuide type="bottom" id="DQC-iB-Wxu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qmi-JA-4fo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KFz-yh-bjN">
+                                <rect key="frame" x="0.0" y="264" width="600" height="336"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2wy-9y-SiK" id="m8B-wJ-Opg"/>
+                                    <outlet property="delegate" destination="2wy-9y-SiK" id="FsJ-pk-FtB"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xto-38-zxL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magic.iOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnf-76-Y4b">
+                                        <rect key="frame" x="197" y="101" width="207" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="4DO-pD-hrm"/>
+                                            <constraint firstAttribute="width" constant="207" id="QYF-Eo-dyO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Nd7-Zz-Bf4"/>
+                                    <constraint firstItem="Cnf-76-Y4b" firstAttribute="centerX" secondItem="xto-38-zxL" secondAttribute="centerX" id="O6I-Ug-091"/>
+                                    <constraint firstItem="Cnf-76-Y4b" firstAttribute="centerY" secondItem="xto-38-zxL" secondAttribute="centerY" id="uiC-dn-3dD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xto-38-zxL" firstAttribute="top" secondItem="Qmi-JA-4fo" secondAttribute="top" id="6ej-V8-zYV"/>
+                            <constraint firstAttribute="trailing" secondItem="KFz-yh-bjN" secondAttribute="trailing" id="Ga4-Dg-xnr"/>
+                            <constraint firstItem="KFz-yh-bjN" firstAttribute="leading" secondItem="Qmi-JA-4fo" secondAttribute="leading" id="Z91-1m-7t7"/>
+                            <constraint firstItem="xto-38-zxL" firstAttribute="leading" secondItem="Qmi-JA-4fo" secondAttribute="leading" id="d0u-HZ-lxf"/>
+                            <constraint firstItem="DQC-iB-Wxu" firstAttribute="top" secondItem="KFz-yh-bjN" secondAttribute="bottom" id="edy-wZ-nSp"/>
+                            <constraint firstAttribute="trailing" secondItem="xto-38-zxL" secondAttribute="trailing" id="uOD-Cd-Gqu"/>
+                            <constraint firstItem="KFz-yh-bjN" firstAttribute="top" secondItem="xto-38-zxL" secondAttribute="bottom" constant="14" id="zdG-pA-Oll"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="AnimationLabel" destination="Cnf-76-Y4b" id="RpU-A9-d62"/>
+                        <outlet property="listTableView" destination="KFz-yh-bjN" id="0eV-IJ-yTT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XVj-zH-uvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="317" y="437"/>
         </scene>

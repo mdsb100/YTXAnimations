@@ -35,8 +35,9 @@ Pod::Spec.new do |s|
     
     YTXAnimateCSS   = { :spec_name => "AnimateCSS" }
     YTXCSShake   = { :spec_name => "CSShake" }
+    YTXMagicCSS   = { :spec_name => "MagicCSS" }
     
-    $all_sync = [YTXAnimateCSS, YTXCSShake]
+    $all_sync = [YTXAnimateCSS, YTXCSShake, YTXMagicCSS]
     
     $all_sync.each do |sync_spec|
         s.subspec sync_spec[:spec_name] do |ss|

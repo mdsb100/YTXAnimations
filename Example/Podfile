@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '7.0'
 
 target 'YTXAnimations_Example', :exclusive => true do
-pod 'YTXAnimations', :path => '../', :subspecs => ["AnimateCSS", "CSShake"]
+pod 'YTXAnimations', :path => '../', :subspecs => ["AnimateCSS", "CSShake", "MagicCSS"]
 
 end
 
