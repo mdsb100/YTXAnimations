@@ -36,21 +36,18 @@
 
 - (nonnull CAAnimation *)ytx_magicAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CATransform3D currentTransform = self.layer.transform;
-    
     CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [opacity setValues:@[@1, @0]];
     [opacity setKeyTimes:@[@0, @1]];
     
-    CATransform3D frame0 =  CATransform3DRotate(currentTransform, YTX_RADIAN(0), 0, 0, 1);
-    frame0.m11 = 1;
-    frame0.m22 = 1;
-    CATransform3D frame1 =  CATransform3DRotate(currentTransform, YTX_RADIAN(270), 0, 0, 1);
-    frame1.m11 = 0;
-    frame1.m22 = 0;
-    
+    CGAffineTransform affineTransform0 = CGAffineTransformConcat(CGAffineTransformMakeRotation(YTX_RADIAN(0)), CGAffineTransformMakeScale(1.0, 1.0));
+    CATransform3D frame0  =  CATransform3DMakeAffineTransform(affineTransform0);
+    CGAffineTransform affineTransform1 = CGAffineTransformConcat(CGAffineTransformMakeRotation(YTX_RADIAN(270)), CGAffineTransformMakeScale(0.0, 0.0));
+    CATransform3D frame1  =  CATransform3DMakeAffineTransform(affineTransform1);
+
     CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     [transform setValues: @[[NSValue valueWithCATransform3D:frame0],[NSValue valueWithCATransform3D:frame1]]];
+    [transform setKeyTimes:@[@0, @1]];
     
     CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:ANCHORPOINT];
     [anchor setValues:@[YTXPointValue(1, 2),
@@ -59,7 +56,8 @@
     [anchor setKeyTimes:@[@0, @0.99, @1]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[opacity, transform, anchor]];
+    
+    [group setAnimations:@[transform, anchor, opacity]];
     [group setDuration:durationTime];
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
