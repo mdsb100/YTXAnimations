@@ -9,6 +9,12 @@
 		<dict>
 			<key>magic</key>
 			<string>ytx_magicAnimtionWithDurationTime:</string>
+			<key>twisterInDown</key>
+			<string>ytx_twisterInDownAnimtionWithDurationTime:</string>
+			<key>twisterInUp</key>
+			<string>ytx_twisterInUpAnimtionWithDurationTime:</string>
+			<key>swap</key>
+			<string>ytx_swapAnimtionWithDurationTime:</string>
 		</dict>
 	</dict>
 </array>

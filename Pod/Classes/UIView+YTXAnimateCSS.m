@@ -32,6 +32,8 @@
 #define TRANSFORM                               @"transform"
 #define ANCHORPOINT                             @"anchorPoint"
 
+#define anchorLastKeyTime                       @0.9999
+
 @implementation UIView (YTXAnimateCSS)
 
 #pragma mark - Attention Seekers
@@ -1034,7 +1036,7 @@
     [zoomOutAnchorPoint setValues:@[YTXPointValue(0.5, 0.5),
                                     anchorPoint,
                                     YTXPointValue(0.5, 0.5)]];
-    [zoomOutAnchorPoint setKeyTimes:@[@.4, @0.99, @1]];
+    [zoomOutAnchorPoint setKeyTimes:@[@.4, anchorLastKeyTime, @1]];
     
     CAKeyframeAnimation *zoomOutPosition = [CAKeyframeAnimation animationWithKeyPath:positionPath];
     [zoomOutPosition setValues:positionValues];
@@ -1223,7 +1225,7 @@
 {
     CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
     [opacity setValues:@[@1, isIn ? @1 : @0]];
-    [opacity setKeyTimes:@[@0.99, @1]];
+    [opacity setKeyTimes:@[anchorLastKeyTime, @1]];
     
     CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     [transform setValues:translateValues];
@@ -1362,12 +1364,12 @@
         [anchor setValues:@[point,
                             point,
                             YTXPointValue(0.5, 0.5)]];
-        [anchor setKeyTimes:@[@0, @0.99, @1]];
+        [anchor setKeyTimes:@[@0, anchorLastKeyTime, @1]];
         
         
         CAKeyframeAnimation *position = [CAKeyframeAnimation animationWithKeyPath:POSITION];
         [position setValues:@[orign, orign]];
-        [anchor setKeyTimes:@[@0, @0.99]];
+        [anchor setKeyTimes:@[@0, anchorLastKeyTime]];
         
         [group setAnimations:@[opacity, transform, anchor, position]];
     }
