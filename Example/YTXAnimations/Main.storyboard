@@ -156,10 +156,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xto-38-zxL">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Magic.iOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnf-76-Y4b">
-                                        <rect key="frame" x="251" y="101" width="100" height="48"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCr-jF-Z36">
+                                        <rect key="frame" x="250" y="75" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="4DO-pD-hrm"/>
+                                            <constraint firstAttribute="width" constant="100" id="5xl-S5-Btx"/>
+                                            <constraint firstAttribute="height" constant="100" id="jeD-hB-h5i"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magic.iOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnf-76-Y4b">
+                                        <rect key="frame" x="250" y="75" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="4DO-pD-hrm"/>
                                             <constraint firstAttribute="width" constant="100" id="QYF-Eo-dyO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -171,6 +179,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="Nd7-Zz-Bf4"/>
                                     <constraint firstItem="Cnf-76-Y4b" firstAttribute="centerX" secondItem="xto-38-zxL" secondAttribute="centerX" id="O6I-Ug-091"/>
+                                    <constraint firstItem="pCr-jF-Z36" firstAttribute="centerY" secondItem="xto-38-zxL" secondAttribute="centerY" id="aQr-KH-Mmp"/>
+                                    <constraint firstItem="pCr-jF-Z36" firstAttribute="centerX" secondItem="xto-38-zxL" secondAttribute="centerX" id="qpU-Hn-PTT"/>
                                     <constraint firstItem="Cnf-76-Y4b" firstAttribute="centerY" secondItem="xto-38-zxL" secondAttribute="centerY" id="uiC-dn-3dD"/>
                                 </constraints>
                             </view>
@@ -190,6 +200,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="AnimationLabel" destination="Cnf-76-Y4b" id="RpU-A9-d62"/>
+                        <outlet property="backBorderView" destination="pCr-jF-Z36" id="n65-LP-aro"/>
                         <outlet property="listTableView" destination="KFz-yh-bjN" id="0eV-IJ-yTT"/>
                     </connections>
                 </viewController>

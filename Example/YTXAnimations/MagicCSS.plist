@@ -26,6 +26,10 @@
 			<string>ytx_openDownLeftAnimtionWithDurationTime:</string>
 			<key>openDownRight</key>
 			<string>ytx_openDownRightAnimtionWithDurationTime:</string>
+			<key>openUpLeft</key>
+			<string>ytx_openUpLeftAnimtionWithDurationTime:</string>
+			<key>openUpRight</key>
+			<string>ytx_openUpRightAnimtionWithDurationTime:</string>
 		</dict>
 	</dict>
 </array>

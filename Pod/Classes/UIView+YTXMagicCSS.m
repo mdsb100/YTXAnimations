@@ -277,4 +277,14 @@
 {
     return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 1.0) ahchore10:CGPointMake(1.0, 1.0) degree:110 selectorName:@"ytx_openDownRightAnimtionWithDurationTime:"];
 }
+
+- (nonnull CAAnimation *)ytx_openUpLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 0.0) ahchore10:CGPointMake(0.0, 0.0) degree:110 selectorName:@"ytx_openUpLeftAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_openUpRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 0.0) ahchore10:CGPointMake(1.0, 0.0) degree:-110 selectorName:@"ytx_openUpRightAnimtionWithDurationTime:"];
+}
 @end
