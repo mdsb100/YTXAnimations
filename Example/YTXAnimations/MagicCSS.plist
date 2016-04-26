@@ -56,5 +56,29 @@
 			<string>ytx_openUpRightOutAnimtionWithDurationTime:</string>
 		</dict>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>Perspective Effects</string>
+		<key>sub</key>
+		<dict>
+			<key>perspectiveDown</key>
+			<string>ytx_perspectiveDownAnimtionWithDurationTime:</string>
+			<key>perspectiveUp</key>
+			<string>ytx_perspectiveUpAnimtionWithDurationTime:</string>
+			<key>perspectiveLeft</key>
+			<string>ytx_perspectiveLeftAnimtionWithDurationTime:</string>
+			<key>perspectiveRight</key>
+			<string>ytx_perspectiveRightAnimtionWithDurationTime:</string>
+
+			<key>perspectiveUpRetourn</key>
+			<string>ytx_perspectiveUpRetournAnimtionWithDurationTime:</string>
+			<key>perspectiveDownRetourn</key>
+			<string>ytx_perspectiveDownRetournAnimtionWithDurationTime:</string>
+			<key>perspectiveLeftRetourn</key>
+			<string>ytx_perspectiveLeftRetournAnimtionWithDurationTime:</string>
+			<key>perspectiveRightRetourn</key>
+			<string>ytx_perspectiveRightRetournAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
 </array>
 </plist>
