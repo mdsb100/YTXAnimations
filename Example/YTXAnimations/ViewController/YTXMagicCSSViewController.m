@@ -19,6 +19,7 @@
 @interface YTXMagicCSSViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *listTableView;
 @property (weak, nonatomic) IBOutlet UILabel *AnimationLabel;
+@property (weak, nonatomic) IBOutlet UIView *backBorderView;
 
 @property (nonatomic, strong) NSArray *listDict;
 @end
@@ -28,6 +29,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.AnimationLabel.layer.borderWidth = 1;
+    self.AnimationLabel.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.AnimationLabel.layer.cornerRadius = 5;
+    
+    self.backBorderView.layer.borderWidth = 1;
+    self.backBorderView.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.backBorderView.layer.cornerRadius = 5;
 }
 
 
@@ -95,7 +103,7 @@ static NSString *identifity = @"cell";
     [self.AnimationLabel setTextColor:YTXRandomColor];
     
     SEL sel = NSSelectorFromString([self getValue:indexPath]);
-    double time = 0.8;
+    double time = 1;
     if (sel) {
         objc_msgSend(self.AnimationLabel,sel, &time);
     }

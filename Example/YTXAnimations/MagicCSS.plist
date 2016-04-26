@@ -30,6 +30,15 @@
 			<string>ytx_openUpLeftAnimtionWithDurationTime:</string>
 			<key>openUpRight</key>
 			<string>ytx_openUpRightAnimtionWithDurationTime:</string>
+
+			<key>openDownLeftRetourn</key>
+			<string>ytx_openDownLeftRetournAnimtionWithDurationTime:</string>
+			<key>openDownRightRetourn</key>
+			<string>ytx_openDownRightRetournAnimtionWithDurationTime:</string>
+			<key>openUpLeftRetourn</key>
+			<string>ytx_openUpLeftRetournAnimtionWithDurationTime:</string>
+			<key>openUpRightRetourn</key>
+			<string>ytx_openUpRightRetournAnimtionWithDurationTime:</string>
 		</dict>
 	</dict>
 </array>
