@@ -56,20 +56,18 @@
     return self.listDict[index];
 }
 
-- (NSDictionary *)subDic:(NSInteger)index name:(NSString *)name {
+- (NSArray *)subDic:(NSInteger)index name:(NSString *)name {
     return [self.listDict[index] objectForKey:name];
 }
 
 - (NSString *)getKey:(NSIndexPath *)indexpath {
-    NSDictionary *subDic = [self subDic:indexpath.section name:@"sub"];
-    NSArray *allkeys = [subDic allKeys];
-    return [allkeys objectAtIndex:indexpath.row];
+    NSArray *subArray = [self subDic:indexpath.section name:@"sub"];
+    return subArray[indexpath.row][@"name"];
 }
 
 - (NSString *)getValue:(NSIndexPath *)indexpath {
-    NSDictionary *subDic = [self subDic:indexpath.section name:@"sub"];
-    NSArray *allValues = [subDic allValues];
-    return [allValues objectAtIndex:indexpath.row];
+    NSArray *subArray = [self subDic:indexpath.section name:@"sub"];
+    return subArray[indexpath.row][@"function"];
 }
 #pragma mark - delegate
 
@@ -84,7 +82,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSDictionary *subDic = [self subDic:section name:@"sub"];
+    NSArray *subDic = [self subDic:section name:@"sub"];
     return subDic.count;
 }
 

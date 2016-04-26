@@ -6,26 +6,62 @@
 		<key>name</key>
 		<string>CSShake</string>
 		<key>sub</key>
-		<dict>
-			<key>Basic Shake</key>
-			<string>ytx_basicShakeAnimtion</string>
-			<key>Little Shake</key>
-			<string>ytx_littleShakeAnimtion</string>
-			<key>Slow Shake</key>
-			<string>ytx_slowShakeAnimtion</string>
-			<key>Hard Shake</key>
-			<string>ytx_hardShakeAnimtion</string>
-			<key>Horizontal Shake</key>
-			<string>ytx_horizontalShakeAnimtion</string>
-			<key>Vertical Shake</key>
-			<string>ytx_verticalShakeAnimtion</string>
-			<key>Rotate Shake</key>
-			<string>ytx_rotateShakeAnimtion</string>
-			<key>Opacity Shake</key>
-			<string>ytx_opacityShakeAnimtion</string>
-			<key>Crazy Shake</key>
-			<string>ytx_crazyShakeAnimtion</string>
-		</dict>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Basic Shake</string>
+				<key>function</key>
+				<string>ytx_basicShakeAnimtion</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Little Shake</string>
+				<key>function</key>
+				<string>ytx_littleShakeAnimtion</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Slow Shake</string>
+				<key>function</key>
+				<string>ytx_slowShakeAnimtion</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Hard Shake</string>
+				<key>function</key>
+				<string>ytx_hardShakeAnimtion</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Horizontal Shake</string>
+				<key>function</key>
+				<string>ytx_horizontalShakeAnimtion</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Vertical Shake</string>
+				<key>function</key>
+				<string>ytx_verticalShakeAnimtion</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Rotate Shake</string>
+				<key>function</key>
+				<string>ytx_rotateShakeAnimtion</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Opacity Shake</string>
+				<key>function</key>
+				<string>ytx_opacityShakeAnimtion</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Crazy Shake</string>
+				<key>function</key>
+				<string>ytx_crazyShakeAnimtion</string>
+			</dict>
+		</array>
 	</dict>
 </array>
 </plist>
