@@ -237,4 +237,75 @@
     return group;
 }
 
+#pragma mark - Static Effects
+- (nonnull CAAnimation *)ytx_openAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree:(CGFloat) degree selectorName:(NSString *) selector
+{
+    CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:ANCHORPOINT];
+    [anchor setValues:@[YTXPointValue(anchor00.x, anchor00.y),
+                        YTXPointValue(anchor10.x, anchor10.y),
+                        YTXPointValue(0.5, 0.5)]];
+    [anchor setKeyTimes:@[@0, anchorLastKeyTime, @1]];
+    
+    
+    CATransform3D frame00 = CATransform3DRotate(self.layer.transform, YTX_RADIAN(0), 0, 0, 1);
+    CGPoint anchorePoint = [self ytx_positionWithAnchorPoint:anchor00];
+    
+    frame00.m41 = anchorePoint.x;
+    frame00.m42 = anchorePoint.y;
+    
+    CATransform3D frame9999 = CATransform3DRotate(self.layer.transform, YTX_RADIAN(degree), 0, 0, 1);
+    frame9999.m41 = anchorePoint.x;
+    frame9999.m42 = anchorePoint.y;
+    
+    CATransform3D frame10 = CATransform3DRotate(self.layer.transform, YTX_RADIAN(degree), 0, 0, 1);
+    frame10.m41 = 0;
+    frame10.m42 = 0;
+    
+    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    [transform setValues: @[
+                            [NSValue valueWithCATransform3D:frame00],
+                            [NSValue valueWithCATransform3D:frame9999],
+                            [NSValue valueWithCATransform3D:frame10]
+                            ]];
+    [transform setKeyTimes:@[@0, anchorLastKeyTime, @1]];
+    
+    CAMediaTimingFunction *easeOut = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    CAMediaTimingFunction *easeInOut = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    [anchor setTimingFunctions:@[easeOut, easeOut, easeInOut]];
+    [transform setTimingFunctions:@[easeOut, easeOut, easeInOut]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[ anchor, transform ]];
+    [group setDuration:durationTime];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:selector];
+    });
+    
+    return group;
+}
+
+- (nonnull CAAnimation *)ytx_openDownLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 1.0) ahchore10:CGPointMake(0.0, 1.0) degree:-110 selectorName:@"ytx_openDownLeftAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_openDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 1.0) ahchore10:CGPointMake(1.0, 1.0) degree:110 selectorName:@"ytx_openDownRightAnimtionWithDurationTime:"];
+}
+
+-(CGPoint)ytx_positionWithAnchorPoint:(CGPoint)anchorPoint
+{
+    CGPoint newPoint = CGPointMake(self.bounds.size.width * anchorPoint.x,
+                                   self.bounds.size.height * anchorPoint.y);
+    CGPoint oldPoint = CGPointMake(self.bounds.size.width * self.layer.anchorPoint.x,
+                                   self.bounds.size.height * self.layer.anchorPoint.y);
+    
+    newPoint = CGPointApplyAffineTransform(newPoint, self.transform);
+    oldPoint = CGPointApplyAffineTransform(oldPoint, self.transform);
+    
+    return CGPointMake(newPoint.x-oldPoint.x, newPoint.y-oldPoint.y);
+}
 @end

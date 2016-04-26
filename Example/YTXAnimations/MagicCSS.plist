@@ -17,5 +17,16 @@
 			<string>ytx_swapAnimtionWithDurationTime:</string>
 		</dict>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>Static Effects</string>
+		<key>sub</key>
+		<dict>
+			<key>openDownLeft</key>
+			<string>ytx_openDownLeftAnimtionWithDurationTime:</string>
+			<key>openDownRight</key>
+			<string>ytx_openDownRightAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
 </array>
 </plist>
