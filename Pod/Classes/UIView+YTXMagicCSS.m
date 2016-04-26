@@ -225,7 +225,7 @@
     
     
     CATransform3D frame00 = CATransform3DRotate(self.layer.transform, [YTXAnimationsUtil radianWithDegree:0], 0, 0, 1);
-    CGPoint anchorePoint = [self ytx_positionWithAnchorPoint:anchor00];
+    CGPoint anchorePoint = [YTXAnimationsUtil positionWithAnchorPoint:anchor00 andView:self];
     
     frame00.m41 = anchorePoint.x;
     frame00.m42 = anchorePoint.y;
@@ -271,18 +271,5 @@
 - (nonnull CAAnimation *)ytx_openDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 1.0) ahchore10:CGPointMake(1.0, 1.0) degree:110 selectorName:@"ytx_openDownRightAnimtionWithDurationTime:"];
-}
-
--(CGPoint)ytx_positionWithAnchorPoint:(CGPoint)anchorPoint
-{
-    CGPoint newPoint = CGPointMake(self.bounds.size.width * anchorPoint.x,
-                                   self.bounds.size.height * anchorPoint.y);
-    CGPoint oldPoint = CGPointMake(self.bounds.size.width * self.layer.anchorPoint.x,
-                                   self.bounds.size.height * self.layer.anchorPoint.y);
-    
-    newPoint = CGPointApplyAffineTransform(newPoint, self.transform);
-    oldPoint = CGPointApplyAffineTransform(oldPoint, self.transform);
-    
-    return CGPointMake(newPoint.x-oldPoint.x, newPoint.y-oldPoint.y);
 }
 @end
