@@ -221,11 +221,11 @@
 
 #pragma mark - Static Effects
 
-- (nonnull CAAnimation *)ytx_openAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 selectorName:(NSString *) selector
+- (nonnull CAAnimation *)ytx_openAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 animationName:(NSString *) name
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:anchor00 ahchore10:anchor10 degree00:degree00 degree10:degree10 opacity00:1 opacity10:1 selectorName:selector];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:anchor00 ahchore10:anchor10 degree00:degree00 degree10:degree10 opacity00:1 opacity10:1 animationName:name];
 }
-- (nonnull CAAnimation *)ytx_openAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 opacity00:(CGFloat)opacity00 opacity10:(CGFloat)opacity10 selectorName:(NSString *) selector
+- (nonnull CAAnimation *)ytx_openAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 opacity00:(CGFloat)opacity00 opacity10:(CGFloat)opacity10 animationName:(NSString *) name
 {
     CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [opacity setValues:@[@(opacity00), @(opacity10)]];
@@ -271,7 +271,7 @@
     [group setDuration:durationTime];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:selector];
+        [self.layer addAnimation:group forKey:name];
     });
     
     return group;
@@ -279,68 +279,68 @@
 
 - (nonnull CAAnimation *)ytx_openDownLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 1.0) ahchore10:CGPointMake(0.0, 1.0) degree00:0 degree10:-110 selectorName:@"ytx_openDownLeftAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 1.0) ahchore10:CGPointMake(0.0, 1.0) degree00:0 degree10:-110 animationName:@"ytx_openDownLeftAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_openDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 1.0) ahchore10:CGPointMake(1.0, 1.0) degree00:0 degree10:110 selectorName:@"ytx_openDownRightAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 1.0) ahchore10:CGPointMake(1.0, 1.0) degree00:0 degree10:110 animationName:@"ytx_openDownRightAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_openUpLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 0.0) ahchore10:CGPointMake(0.0, 0.0) degree00:0 degree10:110 selectorName:@"ytx_openUpLeftAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 0.0) ahchore10:CGPointMake(0.0, 0.0) degree00:0 degree10:110 animationName:@"ytx_openUpLeftAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_openUpRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 0.0) ahchore10:CGPointMake(1.0, 0.0) degree00:0 degree10:-110 selectorName:@"ytx_openUpRightAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 0.0) ahchore10:CGPointMake(1.0, 0.0) degree00:0 degree10:-110 animationName:@"ytx_openUpRightAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_openDownLeftRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 1.0) ahchore10:CGPointMake(0.0, 1.0) degree00:-110 degree10:0 selectorName:@"ytx_openDownLeftRetournAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 1.0) ahchore10:CGPointMake(0.0, 1.0) degree00:-110 degree10:0 animationName:@"ytx_openDownLeftRetournAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_openDownRightRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 1.0) ahchore10:CGPointMake(1.0, 1.0) degree00:110 degree10:0 selectorName:@"ytx_openDownRightRetournAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 1.0) ahchore10:CGPointMake(1.0, 1.0) degree00:110 degree10:0 animationName:@"ytx_openDownRightRetournAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_openUpLeftRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 0.0) ahchore10:CGPointMake(0.0, 0.0) degree00:110 degree10:0 selectorName:@"ytx_openUpLeftRetournAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 0.0) ahchore10:CGPointMake(0.0, 0.0) degree00:110 degree10:0 animationName:@"ytx_openUpLeftRetournAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_openUpRightRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 0.0) ahchore10:CGPointMake(1.0, 0.0) degree00:-110 degree10:0 selectorName:@"ytx_openUpRightRetournAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 0.0) ahchore10:CGPointMake(1.0, 0.0) degree00:-110 degree10:0 animationName:@"ytx_openUpRightRetournAnimtionWithDurationTime:"];
 }
 
 #pragma mark - Static Effects Out
 - (nonnull CAAnimation *)ytx_openDownLeftOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 1.0) ahchore10:CGPointMake(0.0, 1.0) degree00:0 degree10:-110 opacity00:1 opacity10:0 selectorName:@"ytx_openDownLeftOutAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 1.0) ahchore10:CGPointMake(0.0, 1.0) degree00:0 degree10:-110 opacity00:1 opacity10:0 animationName:@"ytx_openDownLeftOutAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_openDownRightOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 1.0) ahchore10:CGPointMake(1.0, 1.0) degree00:0 degree10:110 opacity00:1 opacity10:0 selectorName:@"ytx_openDownRightOutAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 1.0) ahchore10:CGPointMake(1.0, 1.0) degree00:0 degree10:110 opacity00:1 opacity10:0 animationName:@"ytx_openDownRightOutAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_openUpLeftOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 0.0) ahchore10:CGPointMake(0.0, 0.0) degree00:0 degree10:110 opacity00:1 opacity10:0 selectorName:@"ytx_openUpLeftOutAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 0.0) ahchore10:CGPointMake(0.0, 0.0) degree00:0 degree10:110 opacity00:1 opacity10:0 animationName:@"ytx_openUpLeftOutAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_openUpRightOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 0.0) ahchore10:CGPointMake(1.0, 0.0) degree00:0 degree10:-110 opacity00:1 opacity10:0 selectorName:@"ytx_openUpRightOutAnimtionWithDurationTime:"];
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 0.0) ahchore10:CGPointMake(1.0, 0.0) degree00:0 degree10:-110 opacity00:1 opacity10:0 animationName:@"ytx_openUpRightOutAnimtionWithDurationTime:"];
 }
 
 #pragma mark - Perspective
 
-- (nonnull CAAnimation *)ytx_perspectiveAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 rotateX:(CGFloat)rotateX rotateY:(CGFloat)rotateY selectorName:(NSString *) selector
+- (nonnull CAAnimation *)ytx_perspectiveAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 rotateX:(CGFloat)rotateX rotateY:(CGFloat)rotateY animationName:(NSString *) name
 {
     CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:YTXANCHORPOINT];
     [anchor setValues:@[YTXPOINTVALUE(anchor00.x, anchor00.y),
@@ -378,7 +378,7 @@
     [group setDuration:durationTime];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:selector];
+        [self.layer addAnimation:group forKey:name];
     });
     
     return group;
@@ -386,41 +386,41 @@
 
 - (nonnull CAAnimation *)ytx_perspectiveDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 1) ahchore10:CGPointMake(0, 1) degree00:-359.9999 degree10:-180 rotateX:1 rotateY:0 selectorName:@"ytx_perspectiveDownAnimtionWithDurationTime:"];
+    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 1) ahchore10:CGPointMake(0, 1) degree00:-359.9999 degree10:-180 rotateX:1 rotateY:0 animationName:@"ytx_perspectiveDownAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_perspectiveUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0, 0) degree00:0 degree10:180 rotateX:1 rotateY:0 selectorName:@"ytx_perspectiveUpAnimtionWithDurationTime:"];
+    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0, 0) degree00:0 degree10:180 rotateX:1 rotateY:0 animationName:@"ytx_perspectiveUpAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_perspectiveLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0, 0) degree00:-359.9999 degree10:-180 rotateX:0 rotateY:1 selectorName:@"ytx_perspectiveLeftAnimtionWithDurationTime:"];
+    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0, 0) degree00:-359.9999 degree10:-180 rotateX:0 rotateY:1 animationName:@"ytx_perspectiveLeftAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_perspectiveRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1, 0) ahchore10:CGPointMake(1, 0) degree00:0 degree10:180 rotateX:0 rotateY:1 selectorName:@"ytx_perspectiveRightAnimtionWithDurationTime:"];
+    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1, 0) ahchore10:CGPointMake(1, 0) degree00:0 degree10:180 rotateX:0 rotateY:1 animationName:@"ytx_perspectiveRightAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_perspectiveDownRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 1) ahchore10:CGPointMake(0, 1) degree00:180 degree10:0.0001 rotateX:1 rotateY:0 selectorName:@"ytx_perspectiveDownRetournAnimtionWithDurationTime:"];
+    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 1) ahchore10:CGPointMake(0, 1) degree00:180 degree10:0.0001 rotateX:1 rotateY:0 animationName:@"ytx_perspectiveDownRetournAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_perspectiveUpRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0, 0) degree00:180 degree10:0 rotateX:1 rotateY:0 selectorName:@"ytx_perspectiveUpRetournAnimtionWithDurationTime:"];
+    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0, 0) degree00:180 degree10:0 rotateX:1 rotateY:0 animationName:@"ytx_perspectiveUpRetournAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_perspectiveLeftRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0, 0) degree00:180 degree10:0.0001 rotateX:0 rotateY:1 selectorName:@"ytx_perspectiveLeftRetournAnimtionWithDurationTime:"];
+    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0, 0) degree00:180 degree10:0.0001 rotateX:0 rotateY:1 animationName:@"ytx_perspectiveLeftRetournAnimtionWithDurationTime:"];
 }
 
 - (nonnull CAAnimation *)ytx_perspectiveRightRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1, 0) ahchore10:CGPointMake(1, 0) degree00:180 degree10:0 rotateX:0 rotateY:1 selectorName:@"ytx_perspectiveRightRetournAnimtionWithDurationTime:"];
+    return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1, 0) ahchore10:CGPointMake(1, 0) degree00:180 degree10:0 rotateX:0 rotateY:1 animationName:@"ytx_perspectiveRightRetournAnimtionWithDurationTime:"];
 }
 @end
