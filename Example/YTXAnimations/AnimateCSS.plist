@@ -483,15 +483,15 @@
 		<array>
 			<dict>
 				<key>name</key>
-				<string>rotateInDownLeft</string>
-				<key>function</key>
-				<string>ytx_rotateInDownLeftAnimtionWithDurationTime:</string>
-			</dict>
-			<dict>
-				<key>name</key>
 				<string>rotateIn</string>
 				<key>function</key>
 				<string>ytx_rotateInAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>rotateInDownLeft</string>
+				<key>function</key>
+				<string>ytx_rotateInDownLeftAnimtionWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -520,15 +520,15 @@
 		<array>
 			<dict>
 				<key>name</key>
-				<string>rotateOutDownLeft</string>
-				<key>function</key>
-				<string>ytx_rotateOutDownLeftAnimtionWithDurationTime:</string>
-			</dict>
-			<dict>
-				<key>name</key>
 				<string>rotateOut</string>
 				<key>function</key>
 				<string>ytx_rotateOutAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>rotateOutDownLeft</string>
+				<key>function</key>
+				<string>ytx_rotateOutDownLeftAnimtionWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
