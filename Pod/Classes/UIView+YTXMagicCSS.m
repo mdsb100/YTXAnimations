@@ -103,12 +103,19 @@
     
     CGFloat y = self.center.y;
     CAKeyframeAnimation *positionY = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
-    [positionY setValues  :@[@(y + SELF_HEIGHT*0.5), @(y + SELF_HEIGHT*0.5), @(y + SELF_HEIGHT*0.65 - SELF_HEIGHT * 0.25 ), @(y + SELF_HEIGHT - SELF_HEIGHT * 0.5 ), @(y)]];
+    [positionY setValues  :@[@(y + SELF_HEIGHT*0.5),
+                             @(y + SELF_HEIGHT*0.5),
+                             @(y + SELF_HEIGHT*0.65 - SELF_HEIGHT * 0.25 ),
+                             @(y + SELF_HEIGHT - SELF_HEIGHT * 0.5 ), @(y)]];
     [positionY setKeyTimes:@[@0, @0.3, @0.65, anchorLastKeyTime, @1]];
     
     CGFloat x = self.center.x;
     CAKeyframeAnimation *positionX = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
-    [positionX setValues  :@[@(x - SELF_WIDTH*0.5), @(x - SELF_WIDTH*0.5), @(x + SELF_WIDTH*0.5), @(x + SELF_WIDTH * 0.5), @(x)]];
+    [positionX setValues  :@[@(x - SELF_WIDTH*0.5),
+                             @(x - SELF_WIDTH*0.5),
+                             @(x + SELF_WIDTH*0.5),
+                             @(x + SELF_WIDTH * 0.5),
+                             @(x)]];
     [positionX setKeyTimes:@[@0, @0.3, @0.65, anchorLastKeyTime, @1]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -158,12 +165,20 @@
     
     CGFloat y = self.center.y;
     CAKeyframeAnimation *positionY = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
-    [positionY setValues  :@[@(y - SELF_HEIGHT*0.5), @(y - SELF_HEIGHT*0.5), @(y - SELF_HEIGHT*0.65 + SELF_HEIGHT * 0.25 ), @(y - SELF_HEIGHT + SELF_HEIGHT * 0.5 ), @(y)]];
+    [positionY setValues  :@[@(y - SELF_HEIGHT*0.5),
+                             @(y - SELF_HEIGHT*0.5),
+                             @(y - SELF_HEIGHT*0.65 + SELF_HEIGHT * 0.25 ),
+                             @(y - SELF_HEIGHT + SELF_HEIGHT * 0.5 ),
+                             @(y)]];
     [positionY setKeyTimes:@[@0, @0.3, @0.65, anchorLastKeyTime, @1]];
     
     CGFloat x = self.center.x;
     CAKeyframeAnimation *positionX = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
-    [positionX setValues  :@[@(x + SELF_WIDTH*0.5), @(x + SELF_WIDTH*0.5), @(x), @(x - SELF_WIDTH*0.5), @(x - SELF_WIDTH*0.5), @(0)]];
+    [positionX setValues  :@[@(x + SELF_WIDTH*0.5),
+                             @(x + SELF_WIDTH*0.5),
+                             @(x),
+                             @(x - SELF_WIDTH*0.5),
+                             @(x - SELF_WIDTH*0.5), @(0)]];
     [positionX setKeyTimes:@[@0, @0.3, @0.65, anchorLastKeyTime, @1]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
