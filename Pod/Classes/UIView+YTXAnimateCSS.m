@@ -676,20 +676,20 @@
 - (nonnull CAAnimation *)ytx_flipAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CATransform3D transform         = self.layer.transform;
-    transform.m34                   = 1 / 200.0;
+    transform.m34                   = - 1 / 200.0;
     
     CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     
     CAMediaTimingFunction * easeOut = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     CAMediaTimingFunction * easeIn  = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
-    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:360], 0, 1, 0);
-    CATransform3D frame4  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:190], 0, 1, 0);
+    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-360], 0, 1, 0);
+    CATransform3D frame4  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-190], 0, 1, 0);
     frame4.m43            = 75.0;
-    CATransform3D frame5  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:170], 0, 1, 0);
+    CATransform3D frame5  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-170], 0, 1, 0);
     frame5.m43            = 75.0;
     CATransform3D frame8  = CATransform3DScale (transform,.95, .95, .95);
-    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],   0, 1, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-0],   0, 1, 0);
     
     animation.keyTimes        = @[@(0), @(0.4), @(0.5), @(0.8), @(1)];
     animation.timingFunctions = @[easeOut, easeOut, easeIn, easeIn, easeIn];
@@ -713,17 +713,17 @@
 {
     
     CATransform3D transform         = self.layer.transform;
-    transform.m34                   = 1 / 200.0;
+    transform.m34                   = - 1 / 200.0;
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     
     CAMediaTimingFunction * easeIn = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
-    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-90],  1, 0, 0);
-    CATransform3D frame4  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:20],   1, 0, 0);
-    CATransform3D frame6  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-10],  1, 0, 0);
-    CATransform3D frame8  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:5],    1, 0, 0);
-    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],    1, 0, 0);
+    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:90],  1, 0, 0);
+    CATransform3D frame4  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-20], 1, 0, 0);
+    CATransform3D frame6  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:10],  1, 0, 0);
+    CATransform3D frame8  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-5],  1, 0, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],   1, 0, 0);
     
     animation.keyTimes = @[@(0), @(0.4), @(0.6), @(0.8), @(1)];
     animation.timingFunctions = @[easeIn, easeIn];
@@ -751,17 +751,17 @@
 - (nonnull CAAnimation *)ytx_flipInYAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CATransform3D transform         = self.layer.transform;
-    transform.m34                   = 1 / 200.0;
+    transform.m34                   = - 1 / 200.0;
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     
     CAMediaTimingFunction * easeIn = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
-    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-90],  0, 1, 0);
-    CATransform3D frame4  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:20],   0, 1, 0);
-    CATransform3D frame6  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-10],  0, 1, 0);
-    CATransform3D frame8  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:5],    0, 1, 0);
-    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],    0, 1, 0);
+    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:90],  0, 1, 0);
+    CATransform3D frame4  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-20], 0, 1, 0);
+    CATransform3D frame6  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:10],  0, 1, 0);
+    CATransform3D frame8  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-5],  0, 1, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],   0, 1, 0);
     
     animation.keyTimes = @[@(0), @(0.4), @(0.6), @(0.8), @(1)];
     animation.timingFunctions = @[easeIn, easeIn];
@@ -789,13 +789,13 @@
 - (nonnull CAAnimation *)ytx_flipOutXAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CATransform3D transform         = self.layer.transform;
-    transform.m34                   = 1 / 200.0;
+    transform.m34                   = - 1 / 200.0;
     
     CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     
-    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],  1, 0, 0);
-    CATransform3D frame3  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:20], 1, 0, 0);
-    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-90],1, 0, 0);
+    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],   1, 0, 0);
+    CATransform3D frame3  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-20], 1, 0, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:90],  1, 0, 0);
     
     animation.keyTimes = @[@(0),@(.3), @(1)];
     animation.values   = [NSArray arrayWithObjects:
@@ -821,13 +821,13 @@
 - (nonnull CAAnimation *)ytx_flipOutYAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CATransform3D transform         = self.layer.transform;
-    transform.m34                   = 1 / 200.0;
+    transform.m34                   = - 1 / 200.0;
     
     CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     
-    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],  0, 1, 0);
-    CATransform3D frame3  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:15], 0, 1, 0);
-    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-90],0, 1, 0);
+    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],   0, 1, 0);
+    CATransform3D frame3  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-15], 0, 1, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:90],  0, 1, 0);
     
     animation.keyTimes = @[@(0), @(.3), @(1)];
     animation.values   = [NSArray arrayWithObjects:
