@@ -220,8 +220,17 @@
 }
 
 #pragma mark - Static Effects
+
 - (nonnull CAAnimation *)ytx_openAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 selectorName:(NSString *) selector
 {
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:anchor00 ahchore10:anchor10 degree00:degree00 degree10:degree10 opacity00:1 opacity10:1 selectorName:selector];
+}
+- (nonnull CAAnimation *)ytx_openAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 opacity00:(CGFloat)opacity00 opacity10:(CGFloat)opacity10 selectorName:(NSString *) selector
+{
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
+    [opacity setValues:@[@(opacity00), @(opacity10)]];
+    [opacity setKeyTimes:@[@0, @1]];
+    
     CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:YTXANCHORPOINT];
     [anchor setValues:@[YTXPOINTVALUE(anchor00.x, anchor00.y),
                         YTXPOINTVALUE(anchor10.x, anchor10.y),
@@ -258,7 +267,7 @@
     [transform setTimingFunctions:@[easeOut, easeOut, easeInOut]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[ anchor, transform ]];
+    [group setAnimations:@[ anchor, transform, opacity ]];
     [group setDuration:durationTime];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -308,4 +317,24 @@
     return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 0.0) ahchore10:CGPointMake(1.0, 0.0) degree00:-110 degree10:0 selectorName:@"ytx_openUpRightRetournAnimtionWithDurationTime:"];
 }
 
+#pragma mark - Static Effects Out
+- (nonnull CAAnimation *)ytx_openDownLeftOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 1.0) ahchore10:CGPointMake(0.0, 1.0) degree00:0 degree10:-110 opacity00:1 opacity10:0 selectorName:@"ytx_openDownLeftOutAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_openDownRightOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 1.0) ahchore10:CGPointMake(1.0, 1.0) degree00:0 degree10:110 opacity00:1 opacity10:0 selectorName:@"ytx_openDownRightOutAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_openUpLeftOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0.0, 0.0) ahchore10:CGPointMake(0.0, 0.0) degree00:0 degree10:110 opacity00:1 opacity10:0 selectorName:@"ytx_openUpLeftOutAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_openUpRightOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_openAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1.0, 0.0) ahchore10:CGPointMake(1.0, 0.0) degree00:0 degree10:-110 opacity00:1 opacity10:0 selectorName:@"ytx_openUpRightOutAnimtionWithDurationTime:"];
+}
 @end

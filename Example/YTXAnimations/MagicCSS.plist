@@ -41,5 +41,20 @@
 			<string>ytx_openUpRightRetournAnimtionWithDurationTime:</string>
 		</dict>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>Static Effects Out</string>
+		<key>sub</key>
+		<dict>
+			<key>openDownLeftOut</key>
+			<string>ytx_openDownLeftOutAnimtionWithDurationTime:</string>
+			<key>openDownRightOut</key>
+			<string>ytx_openDownRightOutAnimtionWithDurationTime:</string>
+			<key>openUpLeftOut</key>
+			<string>ytx_openUpLeftOutAnimtionWithDurationTime:</string>
+			<key>openUpRightOut</key>
+			<string>ytx_openUpRightOutAnimtionWithDurationTime:</string>
+		</dict>
+	</dict>
 </array>
 </plist>
