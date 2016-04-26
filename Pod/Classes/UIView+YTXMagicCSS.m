@@ -74,26 +74,27 @@
     [anchor setValues:@[YTXPOINTVALUE(0.0, 1.0),
                         YTXPOINTVALUE(0.0, 1.0),
                         YTXPOINTVALUE(1.0, 1.0),
-                        YTXPOINTVALUE(1.0, 1.0),
                         YTXPOINTVALUE(0.5, 0.5)]];
-    [anchor setKeyTimes:@[@0, @0.3, @0.9998, YTXANCHORLASTKEYTIME, @1]];
+    [anchor setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
+    
+    CGPoint anchorePoint01 = [YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(0.0, 1.0) andView:self];
+    CGPoint anchorePoint11 = [YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(1.0, 1.0) andView:self];
     
     CGFloat y = self.center.y;
     CAKeyframeAnimation *positionY = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONY];
-    [positionY setValues  :@[@(y + YTXSELFHEIGHT*0.5),
-                             @(y + YTXSELFHEIGHT*0.5),
-                             @(y + YTXSELFHEIGHT*0.65 - YTXSELFHEIGHT * 0.25 ),
-                             @(y + YTXSELFHEIGHT - YTXSELFHEIGHT * 0.5 ), @(y)]];
-    [positionY setKeyTimes:@[@0, @0.3, @0.65, YTXANCHORLASTKEYTIME, @1]];
+    [positionY setValues  :@[@(y + anchorePoint01.y),
+                             @(y + anchorePoint01.y),
+                             @(y + anchorePoint11.y),
+                             @(y)]];
+    [positionY setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
     
     CGFloat x = self.center.x;
     CAKeyframeAnimation *positionX = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONX];
-    [positionX setValues  :@[@(x - YTXSELFWIDTH*0.5),
-                             @(x - YTXSELFWIDTH*0.5),
-                             @(x + YTXSELFWIDTH*0.5),
-                             @(x + YTXSELFWIDTH * 0.5),
+    [positionX setValues  :@[@(x + anchorePoint01.x),
+                             @(x + anchorePoint01.x),
+                             @(x + anchorePoint11.x),
                              @(x)]];
-    [positionX setKeyTimes:@[@0, @0.3, @0.65, YTXANCHORLASTKEYTIME, @1]];
+    [positionX setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[ anchor, transform, positionY, positionX, opacity ]];
@@ -136,34 +137,34 @@
     [anchor setValues:@[YTXPOINTVALUE(1.0, 0.0),
                         YTXPOINTVALUE(1.0, 0.0),
                         YTXPOINTVALUE(0.0, 0.0),
-                        YTXPOINTVALUE(0.0, 0.0),
                         YTXPOINTVALUE(0.5, 0.5)]];
-    [anchor setKeyTimes:@[@0, @0.3, @0.9998, YTXANCHORLASTKEYTIME, @1]];
+    [anchor setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
+    
+    CGPoint anchorePoint10 = [YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(1.0, 0.0) andView:self];
+    CGPoint anchorePoint00 = [YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(0.0, 0.0) andView:self];
     
     CGFloat y = self.center.y;
     CAKeyframeAnimation *positionY = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONY];
-    [positionY setValues  :@[@(y - YTXSELFHEIGHT*0.5),
-                             @(y - YTXSELFHEIGHT*0.5),
-                             @(y - YTXSELFHEIGHT*0.65 + YTXSELFHEIGHT * 0.25 ),
-                             @(y - YTXSELFHEIGHT + YTXSELFHEIGHT * 0.5 ),
+    [positionY setValues  :@[@(y + anchorePoint10.y),
+                             @(y + anchorePoint10.y),
+                             @(y + anchorePoint00.y),
                              @(y)]];
-    [positionY setKeyTimes:@[@0, @0.3, @0.65, YTXANCHORLASTKEYTIME, @1]];
+    [positionY setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
     
     CGFloat x = self.center.x;
     CAKeyframeAnimation *positionX = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONX];
-    [positionX setValues  :@[@(x + YTXSELFWIDTH*0.5),
-                             @(x + YTXSELFWIDTH*0.5),
-                             @(x),
-                             @(x - YTXSELFWIDTH*0.5),
-                             @(x - YTXSELFWIDTH*0.5), @(0)]];
-    [positionX setKeyTimes:@[@0, @0.3, @0.65, YTXANCHORLASTKEYTIME, @1]];
+    [positionX setValues  :@[@(x + anchorePoint10.x),
+                             @(x + anchorePoint10.x),
+                             @(x + anchorePoint00.x),
+                             @(0)]];
+    [positionX setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[ anchor, transform, positionY, positionX, opacity ]];
     [group setDuration:durationTime];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_twisterInDownAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_twisterInUpAnimtionWithDurationTime:"];
     });
     
     return group;
@@ -181,16 +182,20 @@
                         YTXPOINTVALUE(0.5, 0.5)]];
     [anchor setKeyTimes:@[@0, YTXANCHORLASTKEYTIME, @1]];
     
+    
+    CGPoint anchorePoint = [YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(0.0, 1.0) andView:self];
     CGFloat y = self.center.y;
     CAKeyframeAnimation *positionY = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONY];
-    [positionY setValues  :@[@(y + YTXSELFHEIGHT*0.5), @(y + YTXSELFHEIGHT*0.5), @(y)]];
+    [positionY setValues  :@[@(y + anchorePoint.y),
+                             @(y + anchorePoint.y),
+                             @(y)]];
     [positionY setKeyTimes:@[@0, YTXANCHORLASTKEYTIME, @1]];
     
     CGFloat x = self.center.x;
     CAKeyframeAnimation *positionX = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONX];
-    [positionX setValues  :@[@(x - YTXSELFWIDTH*0.5),
-                             @(x - YTXSELFWIDTH*0.5 - YTXSELFWIDTH*0.618),
-                             @(x - YTXSELFWIDTH*0.5),
+    [positionX setValues  :@[@(x + anchorePoint.x),
+                             @(x + anchorePoint.x - YTXSELFWIDTH*0.618),
+                             @(x + anchorePoint.x),
                              @(x)]];
     [positionX setKeyTimes:@[@0, @(0.382), YTXANCHORLASTKEYTIME, @1]];
     
