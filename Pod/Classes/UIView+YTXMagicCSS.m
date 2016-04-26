@@ -194,7 +194,7 @@
     CGFloat x = self.center.x;
     CAKeyframeAnimation *positionX = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONX];
     [positionX setValues  :@[@(x + anchorePoint.x),
-                             @(x + anchorePoint.x - YTXSELFWIDTH*0.618),
+                             @(x + anchorePoint.x - YTXSELFWIDTH*1),
                              @(x + anchorePoint.x),
                              @(x)]];
     [positionX setKeyTimes:@[@0, @(0.382), YTXANCHORLASTKEYTIME, @1]];
