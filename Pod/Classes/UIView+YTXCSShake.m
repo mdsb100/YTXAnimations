@@ -7,18 +7,19 @@
 //
 
 #import "UIView+YTXCSShake.h"
+#import "YTXAnimationsUtil.h"
 
-#define YTXShakeKeyTimes1 @[@0,@0.2,@0.4,@0.6,@0.8,@0.10,@0.12,@0.14,@0.16,@0.18,@0.20,@0.22,@0.24,@0.26,@0.28,@0.30,@0.32,@0.34,@0.36,@0.38,@0.40,@0.42,@0.44,@0.46,@0.48,@0.50,@0.52,@0.54,@0.56,@0.58,@0.60,@0.62,@0.64,@0.66,@0.68,@0.70,@0.72,@0.74,@0.76,@0.78,@0.80,@0.82,@0.84,@0.86,@0.88,@0.90,@0.92,@0.94,@0.96,@0.98,@1]
+#define YTXSHAREKEYTIMES1 @[@0,@0.2,@0.4,@0.6,@0.8,@0.10,@0.12,@0.14,@0.16,@0.18,@0.20,@0.22,@0.24,@0.26,@0.28,@0.30,@0.32,@0.34,@0.36,@0.38,@0.40,@0.42,@0.44,@0.46,@0.48,@0.50,@0.52,@0.54,@0.56,@0.58,@0.60,@0.62,@0.64,@0.66,@0.68,@0.70,@0.72,@0.74,@0.76,@0.78,@0.80,@0.82,@0.84,@0.86,@0.88,@0.90,@0.92,@0.94,@0.96,@0.98,@1]
 
-#define YTXShakeKeyTimes2 @[@0,@0.1,@0.2,@0.3,@0.4,@0.5,@0.6,@0.7,@0.8,@0.9,@1]
+#define YTXSHAREKEYTIMES2 @[@0,@0.1,@0.2,@0.3,@0.4,@0.5,@0.6,@0.7,@0.8,@0.9,@1]
 
-#define YTXShakeKeyTimes3 @[@0.1,@0.2,@0.3,@0.4,@0.5,@0.6,@0.7,@0.8,@0.9]
+#define YTXSHAREKEYTIMES3 @[@0.1,@0.2,@0.3,@0.4,@0.5,@0.6,@0.7,@0.8,@0.9]
 
 @implementation UIView (YTXCSShake)
 
 - (nonnull CAAnimation *)ytx_basicShakeAnimtion
 {
-    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
     NSArray<NSArray<NSNumber *> *> * transformArray = @[
                                                         @[@(0)    , @(0)  , @(0)],
@@ -87,7 +88,7 @@
 
 - (nonnull CAAnimation *)ytx_littleShakeAnimtion
 {
-    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
     NSArray<NSArray<NSNumber *> *> * transformArray = @[
                                                         @[@(0), @(0) , @(0)],
@@ -156,7 +157,7 @@
 
 - (nonnull CAAnimation *)ytx_slowShakeAnimtion
 {
-    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
     NSArray<NSArray<NSNumber *> *> * transformArray = @[
                                                         @[@(0), @(0) , @(0)],
@@ -226,7 +227,7 @@
 
 - (nonnull CAAnimation *)ytx_hardShakeAnimtion
 {
-    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
     NSArray<NSArray<NSNumber *> *> * transformArray = @[
                                                         @[@(0), @(0) , @(0)],
@@ -295,7 +296,7 @@
 
 - (nonnull CAAnimation *)ytx_horizontalShakeAnimtion
 {
-    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
     NSArray<NSArray<NSNumber *> *> * transformArray = @[
                                                         @[@(0), @(0) , @(0)],
@@ -364,7 +365,7 @@
 
 - (nonnull CAAnimation *)ytx_verticalShakeAnimtion
 {
-    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
     NSArray<NSArray<NSNumber *> *> * transformArray = @[
                                                         @[@(0), @(0) , @(0)],
@@ -433,7 +434,7 @@
 
 - (nonnull CAAnimation *)ytx_rotateShakeAnimtion
 {
-    NSArray<NSNumber *> * keyTimes = YTXShakeKeyTimes1;
+    NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
     NSArray<NSArray<NSNumber *> *> * transformArray = @[
                                                         @[@(0), @(0) , @(0)],
@@ -514,7 +515,7 @@
                                 @0.7,
                                 @0.32];
     
-    opacityAnimation.keyTimes = YTXShakeKeyTimes3;
+    opacityAnimation.keyTimes = YTXSHAREKEYTIMES3;
 
     //translate(x, y) rotate(deg)
     NSArray<NSArray<NSNumber *> *> * transformArray = @[
@@ -531,7 +532,7 @@
                                                         @[@(0), @(0) , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:YTXShakeKeyTimes2 transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:YTXSHAREKEYTIMES2 transformArray:transformArray];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[opacityAnimation, shackAnimation]];
@@ -560,7 +561,7 @@
                                 @0.99
                                 ];
     
-    opacityAnimation.keyTimes = YTXShakeKeyTimes3;
+    opacityAnimation.keyTimes = YTXSHAREKEYTIMES3;
     
     //translate(x, y) rotate(deg)
     NSArray<NSArray<NSNumber *> *> * transformArray = @[
@@ -577,7 +578,7 @@
                                                         @[@(0), @(0) , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:YTXShakeKeyTimes2 transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:YTXSHAREKEYTIMES2 transformArray:transformArray];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[opacityAnimation, shackAnimation]];
@@ -635,7 +636,7 @@
 - (nonnull CAKeyframeAnimation *)ytx_CSShakeAnimtionWithKeyTimes:(nonnull NSArray<NSNumber *> *) keyTimes transformArray:(nonnull NSArray<NSArray<NSNumber *> *> *) transformArray
 {
 
-    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation  animationWithKeyPath:@"transform"];
+    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation  animationWithKeyPath:YTXTRANSFORM];
     
     shackAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
@@ -649,7 +650,7 @@
         CGFloat translateX = [transformValues[0] floatValue];
         CGFloat translateY = [transformValues[1] floatValue];
         CGFloat rotateZ = [transformValues[2] floatValue];
-        CATransform3D currentTransform = CATransform3DRotate(transform, (rotateZ) * M_PI / 180.0, 0, 0, 1);
+        CATransform3D currentTransform = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:rotateZ], 0, 0, 1);
         currentTransform.m41 = translateX;
         currentTransform.m42 = translateY;
 

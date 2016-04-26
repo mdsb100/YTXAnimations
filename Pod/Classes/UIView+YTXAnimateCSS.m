@@ -7,32 +7,7 @@
 //
 
 #import "UIView+YTXAnimateCSS.h"
-
-// 转化为NSValue
-#define YTXScaleValue(x,y,z)                    [NSValue valueWithCATransform3D:CATransform3DScale(self.layer.transform, (x), (y), (z))]
-#define YTXRotateValue(d,x,y,z)                 [NSValue valueWithCATransform3D:CATransform3DRotate(self.layer.transform, (d), (x), (y), (z))]
-#define YTXTranslateValue(x,y,z)                [NSValue valueWithCATransform3D:CATransform3DTranslate(self.layer.transform, (x), (y), (z))]
-#define YTXPointValue(x,y)                      [NSValue valueWithCGPoint:CGPointMake((x), (y))]
-
-//屏幕宽度
-#define SELF_WIDTH                              (self.frame.size.width)
-#define SELF_HEIGHT                             (self.frame.size.height)
-
-#define YTX_RADIAN(x)                           ((x) * M_PI / 180.0)
-
-//获取YTXCAMediaTimingFunction
-#define YTXCAMediaTimingFunction(x1,y1,x2,y2)   [CAMediaTimingFunction functionWithControlPoints:x1 :y1 :x2 :y2]
-
-#define BIG_DISTANCE_VALUE                      1000
-
-#define OPACITY                                 @"opacity"
-#define POSITION                                @"position"
-#define POSITION_X                              @"position.x"
-#define POSITION_Y                              @"position.y"
-#define TRANSFORM                               @"transform"
-#define ANCHORPOINT                             @"anchorPoint"
-
-#define anchorLastKeyTime                       @0.9999
+#import "YTXAnimationsUtil.h"
 
 @implementation UIView (YTXAnimateCSS)
 
@@ -40,8 +15,8 @@
 
 - (nonnull CAAnimation *)ytx_bounceAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAMediaTimingFunction *time_1 = YTXCAMediaTimingFunction (0.215, 0.610, 0.355, 1);
-    CAMediaTimingFunction *time_2 = YTXCAMediaTimingFunction (0.755, 0.050, 0.855, 0.060);
+    CAMediaTimingFunction *time_1 = YTXCAMEDIATIMINGFUNCTION (0.215, 0.610, 0.355, 1);
+    CAMediaTimingFunction *time_2 = YTXCAMEDIATIMINGFUNCTION (0.755, 0.050, 0.855, 0.060);
     
     CGFloat y = self.center.y;
     NSNumber *value_0 = @(0 + y);
@@ -49,7 +24,7 @@
     NSNumber *value_2 = @(-8 + y);
     NSNumber *value_3 = @(-2 + y);
     
-    CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:POSITION_Y];
+    CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONY];
     [bounce setValues  :@[value_0, value_1, value_1, value_0, value_2, value_0, value_3]];
     [bounce setKeyTimes:@[@(0.2) , @(0.4) , @(0.43), @(.53) , @(.7)  , @(.8)  , @(.9)]];
     [bounce setTimingFunctions:@[time_1, time_2, time_2, time_1, time_2, time_1, time_1, time_2]];
@@ -63,7 +38,7 @@
 
 - (nonnull CAAnimation *)ytx_flashAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *flashAnimation = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *flashAnimation = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [flashAnimation setValues  :@[@(0)   , @(1)  , @(0)  , @(1)]];
     [flashAnimation setKeyTimes:@[@(0.25), @(0.5), @(.75), @(1)]];
     [flashAnimation setDuration:durationTime];
@@ -78,10 +53,10 @@
     float smallScaleValue = 1.f;
     float lagerScaleValue = 1.05;
     
-    NSValue *smallScale = YTXScaleValue(smallScaleValue, smallScaleValue, smallScaleValue);
-    NSValue *lagerScale = YTXScaleValue(lagerScaleValue, lagerScaleValue, lagerScaleValue);
+    NSValue *smallScale = YTXSCALEVALUE(smallScaleValue, smallScaleValue, smallScaleValue);
+    NSValue *lagerScale = YTXSCALEVALUE(lagerScaleValue, lagerScaleValue, lagerScaleValue);
     
-    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation  animationWithKeyPath:YTXTRANSFORM];
     shackAnimation.duration = durationTime;
     [shackAnimation setValues:@[smallScale, lagerScale, smallScale]];
     [shackAnimation setKeyTimes:@[@(0), @(.5), @(1)]];
@@ -101,16 +76,16 @@
     float lagerMidScaleValue     = 1.15;
     float lagerScaleValue        = 1.25;
     
-    NSValue *norScale = YTXScaleValue(defaultScaleValue, defaultScaleValue, defaultScaleValue);
+    NSValue *norScale = YTXSCALEVALUE(defaultScaleValue, defaultScaleValue, defaultScaleValue);
     
-    CAKeyframeAnimation *rubberBand = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *rubberBand = [CAKeyframeAnimation  animationWithKeyPath:YTXTRANSFORM];
     rubberBand.duration = durationTime;
     [rubberBand setValues:@[norScale,
-                            YTXScaleValue(lagerScaleValue, smallScaleValue, defaultScaleValue),
-                            YTXScaleValue(smallScaleValue, lagerScaleValue, defaultScaleValue),
-                            YTXScaleValue(lagerMidScaleValue, smallMidScaleValue, defaultScaleValue),
-                            YTXScaleValue(defaultsmallScaleValue, defaultlagerScaleValue, defaultScaleValue),
-                            YTXScaleValue(defaultlagerScaleValue, defaultsmallScaleValue, defaultScaleValue),
+                            YTXSCALEVALUE(lagerScaleValue, smallScaleValue, defaultScaleValue),
+                            YTXSCALEVALUE(smallScaleValue, lagerScaleValue, defaultScaleValue),
+                            YTXSCALEVALUE(lagerMidScaleValue, smallMidScaleValue, defaultScaleValue),
+                            YTXSCALEVALUE(defaultsmallScaleValue, defaultlagerScaleValue, defaultScaleValue),
+                            YTXSCALEVALUE(defaultlagerScaleValue, defaultsmallScaleValue, defaultScaleValue),
                             norScale
                             ]];
     [rubberBand setKeyTimes:@[@(0), @(.3), @(.4), @(.5), @(.65), @(.75), @(1)]];
@@ -125,7 +100,7 @@
     CGPoint center   = self.center;
     float moveXLeft  = center.x - 5;
     float moveXRight = center.x + 5;
-    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
+    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONX];
     shackAnimation.duration = durationTime;
     
     [shackAnimation setValues:@[@(center.x)  , @(moveXLeft) , @(moveXRight),
@@ -140,19 +115,19 @@
 
 - (nonnull CAAnimation *)ytx_swingAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    float rotateF = YTX_RADIAN(15);
-    float rotateS = YTX_RADIAN(10);
-    float rotateT = YTX_RADIAN(5);
+    float rotateF = [YTXAnimationsUtil radianWithDegree:15];
+    float rotateS = [YTXAnimationsUtil radianWithDegree:10];
+    float rotateT = [YTXAnimationsUtil radianWithDegree:5];
     
-    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     shackAnimation.duration = durationTime;
     
-    [shackAnimation setValues:@[YTXRotateValue(.0,       .0, .0, .0),
-                                YTXRotateValue(rotateF,  .0, .0, 1.0),
-                                YTXRotateValue(-rotateS, .0, .0, 1.0),
-                                YTXRotateValue(rotateT,  .0, .0, 1.0),
-                                YTXRotateValue(-rotateT, .0, .0, 1.0),
-                                YTXRotateValue(0,        .0, .0, 1.0)]];
+    [shackAnimation setValues:@[YTXROTATEVALUE(.0,       .0, .0, .0),
+                                YTXROTATEVALUE(rotateF,  .0, .0, 1.0),
+                                YTXROTATEVALUE(-rotateS, .0, .0, 1.0),
+                                YTXROTATEVALUE(rotateT,  .0, .0, 1.0),
+                                YTXROTATEVALUE(-rotateT, .0, .0, 1.0),
+                                YTXROTATEVALUE(0,        .0, .0, 1.0)]];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.layer addAnimation:shackAnimation forKey:@"ytx_swingAnimtionWithDurationTime:"];
@@ -162,51 +137,51 @@
 
 - (nonnull CAAnimation *)ytx_tadaAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    float rotate = YTX_RADIAN(3);
+    float rotate = [YTXAnimationsUtil radianWithDegree:3];
     float smallScaleValue = 0.9;
     float lagerScaleValue = 1.1;
     
-    NSValue *defultScale = YTXScaleValue(1, 1, 1);
-    NSValue *smallScale  = YTXScaleValue(smallScaleValue, smallScaleValue, smallScaleValue);
-    NSValue *lagerScale  = YTXScaleValue(lagerScaleValue, lagerScaleValue, lagerScaleValue);
-    NSValue *leftValue   = YTXRotateValue(-rotate, .0, .0, 1.0);
-    NSValue *rightValue  = YTXRotateValue(rotate , .0, .0, 1.0);
+    NSValue *defultScale = YTXSCALEVALUE(1, 1, 1);
+    NSValue *smallScale  = YTXSCALEVALUE(smallScaleValue, smallScaleValue, smallScaleValue);
+    NSValue *lagerScale  = YTXSCALEVALUE(lagerScaleValue, lagerScaleValue, lagerScaleValue);
+    NSValue *leftValue   = YTXROTATEVALUE(-rotate, .0, .0, 1.0);
+    NSValue *rightValue  = YTXROTATEVALUE(rotate , .0, .0, 1.0);
     
-    CAKeyframeAnimation *tadaAnimation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *tadaAnimation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     tadaAnimation.duration = durationTime;
     
     [tadaAnimation setValues:@[defultScale, smallScale, lagerScale,
                                leftValue  , rightValue, leftValue,
                                rightValue , leftValue , rightValue,
                                leftValue  , rightValue]];
-
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.layer addAnimation:tadaAnimation forKey:@"ytx_tadaAnimtionWithDurationTime:"];
     });
-
+    
     return tadaAnimation;
 }
 
 - (nonnull CAAnimation *)ytx_wobbleAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    float rotate_1 = YTX_RADIAN(5);
-    float rotate_2 = YTX_RADIAN(3);
-    float rotate_3 = YTX_RADIAN(2);
-    float rotate_4 = YTX_RADIAN(1);
+    float rotate_1 = [YTXAnimationsUtil radianWithDegree:5];
+    float rotate_2 = [YTXAnimationsUtil radianWithDegree:3];
+    float rotate_3 = [YTXAnimationsUtil radianWithDegree:2];
+    float rotate_4 = [YTXAnimationsUtil radianWithDegree:1];
     
-    CAKeyframeAnimation *rotateAnimation = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *rotateAnimation = [CAKeyframeAnimation  animationWithKeyPath:YTXTRANSFORM];
     [rotateAnimation setKeyTimes:@[@(0), @(.15), @(.3), @(.45), @(.6), @(.75), @(1)]];
-    [rotateAnimation setValues:@[YTXRotateValue(0        , .0, .0, 1.0),
-                                 YTXRotateValue(-rotate_1, .0, .0, 1.0),
-                                 YTXRotateValue(rotate_2 , .0, .0, 1.0),
-                                 YTXRotateValue(-rotate_2, .0, .0, 1.0),
-                                 YTXRotateValue(rotate_3 , .0, .0, 1.0),
-                                 YTXRotateValue(-rotate_4, .0, .0, 1.0),
-                                 YTXRotateValue(0        , .0, .0, 1.0)]];
-  
+    [rotateAnimation setValues:@[YTXROTATEVALUE(0        , .0, .0, 1.0),
+                                 YTXROTATEVALUE(-rotate_1, .0, .0, 1.0),
+                                 YTXROTATEVALUE(rotate_2 , .0, .0, 1.0),
+                                 YTXROTATEVALUE(-rotate_2, .0, .0, 1.0),
+                                 YTXROTATEVALUE(rotate_3 , .0, .0, 1.0),
+                                 YTXROTATEVALUE(-rotate_4, .0, .0, 1.0),
+                                 YTXROTATEVALUE(0        , .0, .0, 1.0)]];
+    
     CGFloat x = self.center.x;
-    CGFloat width = SELF_WIDTH;
-    CAKeyframeAnimation *shakeAnimation = [CAKeyframeAnimation  animationWithKeyPath:POSITION_X];
+    CGFloat width = YTXSELFWIDTH;
+    CAKeyframeAnimation *shakeAnimation = [CAKeyframeAnimation  animationWithKeyPath:YTXPOSITIONX];
     [shakeAnimation setKeyTimes:@[@(0), @(.15), @(.3), @(.45), @(.6), @(.75), @(1)]];
     [shakeAnimation setValues:@[@(x),
                                 @((-.25  * width) + x),
@@ -227,13 +202,13 @@
 
 - (nonnull CAAnimation *)ytx_jelloAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    float rotate_1 = tan(YTX_RADIAN(-12.5));
-    float rotate_2 = tan(YTX_RADIAN( 6.25));
-    float rotate_3 = tan(YTX_RADIAN(-3.125));
-    float rotate_4 = tan(YTX_RADIAN( 1.5625));
-    float rotate_5 = tan(YTX_RADIAN(-0.78125));
-    float rotate_6 = tan(YTX_RADIAN( 0.390625));
-    float rotate_7 = tan(YTX_RADIAN(-0.1953125));
+    float rotate_1 = tan([YTXAnimationsUtil radianWithDegree:-12.5]);
+    float rotate_2 = tan([YTXAnimationsUtil radianWithDegree: 6.25]);
+    float rotate_3 = tan([YTXAnimationsUtil radianWithDegree:-3.125]);
+    float rotate_4 = tan([YTXAnimationsUtil radianWithDegree: 1.5625]);
+    float rotate_5 = tan([YTXAnimationsUtil radianWithDegree:-0.78125]);
+    float rotate_6 = tan([YTXAnimationsUtil radianWithDegree: 0.390625]);
+    float rotate_7 = tan([YTXAnimationsUtil radianWithDegree:-0.1953125]);
     
     CGAffineTransform transform_111 = CGAffineTransformIdentity;
     transform_111.c = rotate_1;
@@ -262,13 +237,13 @@
     CGAffineTransform transform_777 = CGAffineTransformIdentity;
     transform_777.c = rotate_7;
     transform_777.b = rotate_7;
-
+    
     CGAffineTransform transform_10 = CGAffineTransformIdentity;
     transform_10.c = 0;
     transform_10.b = 0;
     
     
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:YTXTRANSFORM];
     animation.duration = durationTime;
     animation.calculationMode = kCAAnimationCubic;
     
@@ -284,7 +259,7 @@
                            [NSValue valueWithCATransform3D:CATransform3DMakeAffineTransform(transform_666)],
                            [NSValue valueWithCATransform3D:CATransform3DMakeAffineTransform(transform_777)],
                            [NSValue valueWithCATransform3D:CATransform3DMakeAffineTransform(transform_10)]]];
-                           
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.layer addAnimation:animation forKey:@"ytx_jelloAnimtionWithDurationTime:"];
     });
@@ -294,14 +269,14 @@
 #pragma mark - Bouncing Entrances
 - (nonnull CAAnimation *)ytx_bounceInAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *bounceln = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [bounceln setValues:@[YTXScaleValue(0.3 , 0.3 , 0.3),
-                          YTXScaleValue(1.1 , 1.1 , 1.1),
-                          YTXScaleValue(0.9 , 0.9 , 0.9),
-                          YTXScaleValue(1.03, 1.03, 1.03),
-                          YTXScaleValue(0.97, 0.97, 0.97),
-                          YTXScaleValue(1.0 , 1.0 , 1.0)]];
-    CAMediaTimingFunction *time = YTXCAMediaTimingFunction (0.215, 0.610, 0.355, 1.000);
+    CAKeyframeAnimation *bounceln = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    [bounceln setValues:@[YTXSCALEVALUE(0.3 , 0.3 , 0.3),
+                          YTXSCALEVALUE(1.1 , 1.1 , 1.1),
+                          YTXSCALEVALUE(0.9 , 0.9 , 0.9),
+                          YTXSCALEVALUE(1.03, 1.03, 1.03),
+                          YTXSCALEVALUE(0.97, 0.97, 0.97),
+                          YTXSCALEVALUE(1.0 , 1.0 , 1.0)]];
+    CAMediaTimingFunction *time = YTXCAMEDIATIMINGFUNCTION (0.215, 0.610, 0.355, 1.000);
     [bounceln setKeyTimes:@[@0, @(0.2), @(0.4), @(.6), @(.8), @1]];
     [bounceln setTimingFunction:time];
     bounceln.duration = durationTime;
@@ -348,7 +323,7 @@
 {
     // isForward 是否up或right
     CGFloat centerValue = isVertical ? self.center.y : self.center.x;
-    NSString *keyPath   = isVertical ? POSITION_Y : POSITION_X;
+    NSString *keyPath   = isVertical ? YTXPOSITIONY : YTXPOSITIONX;
     float forwardNum    = isForward  ? 1 : -1;
     CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:keyPath];
     
@@ -360,10 +335,10 @@
     [bounce setValues:@[value_0, value_1, value_2, value_3, @(centerValue)]];
     [bounce setKeyTimes:@[@0, @(0.6), @(0.75), @(.9), @1]];
     
-    CAMediaTimingFunction *time = YTXCAMediaTimingFunction (0.215, 0.610, 0.355, 1.000);
+    CAMediaTimingFunction *time = YTXCAMEDIATIMINGFUNCTION (0.215, 0.610, 0.355, 1.000);
     [bounce setTimingFunction:time];
     
-    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [opacity setValues:@[@0, @1]];
     [opacity setKeyTimes:@[@(0), @.6]];
     
@@ -376,18 +351,18 @@
     return group;
 }
 
-#pragma mark - Bouncing Exits 
+#pragma mark - Bouncing Exits
 - (nonnull CAAnimation *)ytx_bounceOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [bounce setValues:@[YTXScaleValue(1.0, 1.0, 1.0),
-                        YTXScaleValue(0.9, 0.9, 0.9),
-                        YTXScaleValue(1.1, 1.1, 1.1),
-                        YTXScaleValue(1.1, 1.1, 1.1),
-                        YTXScaleValue(0.3, 0.3, 0.3)]];
+    CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    [bounce setValues:@[YTXSCALEVALUE(1.0, 1.0, 1.0),
+                        YTXSCALEVALUE(0.9, 0.9, 0.9),
+                        YTXSCALEVALUE(1.1, 1.1, 1.1),
+                        YTXSCALEVALUE(1.1, 1.1, 1.1),
+                        YTXSCALEVALUE(0.3, 0.3, 0.3)]];
     [bounce setKeyTimes:@[@0, @(0.2), @(0.5), @(.55), @1]];
     
-    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [opacity setValues:@[@1, @0]];
     [opacity setKeyTimes:@[@(.55), @1]];
     
@@ -403,9 +378,9 @@
 - (nonnull CAAnimation *)ytx_bounceOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     return [self ytx_bounceOutAnimtionWithSelectName:@"ytx_bounceOutDownAnimtionWithDurationTime:"
-                                        isForward:NO
-                                       isVertical:YES
-                                     durationTime:durationTime];
+                                           isForward:NO
+                                          isVertical:YES
+                                        durationTime:durationTime];
 }
 
 - (nonnull CAAnimation *)ytx_bounceOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
@@ -427,9 +402,9 @@
 - (nonnull CAAnimation *)ytx_bounceOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     return [self ytx_bounceOutAnimtionWithSelectName:@"ytx_bounceOutUpAnimtionWithDurationTime:"
-                                        isForward:YES
-                                       isVertical:YES
-                                     durationTime:durationTime];
+                                           isForward:YES
+                                          isVertical:YES
+                                        durationTime:durationTime];
 }
 
 - (nonnull CAAnimation *)ytx_bounceOutAnimtionWithSelectName:(NSString *)selectName isForward:(BOOL)isForward isVertical:(BOOL)isVertical durationTime:(NSTimeInterval)durationTime
@@ -437,7 +412,7 @@
     // isForward 是否up或right
     float    forwardNum  = isForward  ? 1 : -1;
     CGFloat  centerValue = isVertical ? self.center.y : self.center.x;
-    NSString *keyPath    = isVertical ? POSITION_Y : POSITION_X;
+    NSString *keyPath    = isVertical ? YTXPOSITIONY : YTXPOSITIONX;
     
     CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:keyPath];
     
@@ -448,7 +423,7 @@
     [bounce setKeyTimes:@[@.2, @(0.4), @(0.45), @(1)]];
     [bounce setValues:@[value_0, value_1, value_2, @(centerValue)]];
     
-    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [opacity setValues:@[@1, @0]];
     [opacity setKeyTimes:@[@(.45), @1]];
     
@@ -665,7 +640,7 @@
 - (nonnull CAAnimation *)ytx_fadeAnimtionWithSelectName:(NSString *)name isIn:(BOOL)isIn isTransform:(BOOL)isTransform isBig:(BOOL)isBig isForward:(BOOL)isForward isVertical:(BOOL)isVertical durationTime:(NSTimeInterval)durationTime
 {
     NSArray *opacityValues = isIn ? @[@0, @1] : @[@1, @0];
-    CAKeyframeAnimation *fadeOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *fadeOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [fadeOpacity setValues:opacityValues];
     
     if (!isTransform)
@@ -679,8 +654,8 @@
     
     // isForward 是否up或right
     float      forwardNum        = isForward ? 1 : -1;
-    float      forwardValue      = isBig ? BIG_DISTANCE_VALUE : SELF_HEIGHT;
-    NSString * keyPath           = isVertical ? POSITION_Y : POSITION_X;
+    float      forwardValue      = isBig ? YTXBIGDISTANCEVALUE : YTXSELFHEIGHT;
+    NSString * keyPath           = isVertical ? YTXPOSITIONY : YTXPOSITIONX;
     CGFloat    centerValue       = isVertical ? self.center.y : self.center.x;
     NSArray  * positionValues    = isIn ? @[@(forwardNum * forwardValue + centerValue), @(centerValue)] : @[@(centerValue),@(forwardNum * forwardValue + centerValue)];
     
@@ -702,30 +677,30 @@
 {
     CATransform3D transform         = self.layer.transform;
     transform.m34                   = 1 / 200.0;
-
-    CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-
+    
+    CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    
     CAMediaTimingFunction * easeOut = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     CAMediaTimingFunction * easeIn  = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
-    CATransform3D frame0  = CATransform3DRotate(transform, YTX_RADIAN(360), 0, 1, 0);
-    CATransform3D frame4  = CATransform3DRotate(transform, YTX_RADIAN(190), 0, 1, 0);
+    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:360], 0, 1, 0);
+    CATransform3D frame4  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:190], 0, 1, 0);
     frame4.m43            = 75.0;
-    CATransform3D frame5  = CATransform3DRotate(transform, YTX_RADIAN(170), 0, 1, 0);
+    CATransform3D frame5  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:170], 0, 1, 0);
     frame5.m43            = 75.0;
     CATransform3D frame8  = CATransform3DScale (transform,.95, .95, .95);
-    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(0),   0, 1, 0);
- 
+    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],   0, 1, 0);
+    
     animation.keyTimes        = @[@(0), @(0.4), @(0.5), @(0.8), @(1)];
     animation.timingFunctions = @[easeOut, easeOut, easeIn, easeIn, easeIn];
     
     animation.values = [NSArray arrayWithObjects:
-                       [NSValue valueWithCATransform3D:frame0],
-                       [NSValue valueWithCATransform3D:frame4],
-                       [NSValue valueWithCATransform3D:frame5],
-                       [NSValue valueWithCATransform3D:frame8],
-                       [NSValue valueWithCATransform3D:frame10],
-                       nil];
+                        [NSValue valueWithCATransform3D:frame0],
+                        [NSValue valueWithCATransform3D:frame4],
+                        [NSValue valueWithCATransform3D:frame5],
+                        [NSValue valueWithCATransform3D:frame8],
+                        [NSValue valueWithCATransform3D:frame10],
+                        nil];
     
     animation.duration = durationTime;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -740,27 +715,27 @@
     CATransform3D transform         = self.layer.transform;
     transform.m34                   = 1 / 200.0;
     
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     
     CAMediaTimingFunction * easeIn = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
-    CATransform3D frame0  = CATransform3DRotate(transform, YTX_RADIAN(-90),  1, 0, 0);
-    CATransform3D frame4  = CATransform3DRotate(transform, YTX_RADIAN(20),   1, 0, 0);
-    CATransform3D frame6  = CATransform3DRotate(transform, YTX_RADIAN(-10),  1, 0, 0);
-    CATransform3D frame8  = CATransform3DRotate(transform, YTX_RADIAN(5),    1, 0, 0);
-    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(0),    1, 0, 0);
+    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-90],  1, 0, 0);
+    CATransform3D frame4  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:20],   1, 0, 0);
+    CATransform3D frame6  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-10],  1, 0, 0);
+    CATransform3D frame8  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:5],    1, 0, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],    1, 0, 0);
     
     animation.keyTimes = @[@(0), @(0.4), @(0.6), @(0.8), @(1)];
     animation.timingFunctions = @[easeIn, easeIn];
     animation.values   = [NSArray arrayWithObjects:
-                         [NSValue valueWithCATransform3D:frame0],
-                         [NSValue valueWithCATransform3D:frame4],
-                         [NSValue valueWithCATransform3D:frame6],
-                         [NSValue valueWithCATransform3D:frame8],
-                         [NSValue valueWithCATransform3D:frame10],
-                         nil];
+                          [NSValue valueWithCATransform3D:frame0],
+                          [NSValue valueWithCATransform3D:frame4],
+                          [NSValue valueWithCATransform3D:frame6],
+                          [NSValue valueWithCATransform3D:frame8],
+                          [NSValue valueWithCATransform3D:frame10],
+                          nil];
     
-    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [animationOpacity setKeyTimes:@[@(0), @(0.6)]];
     [animationOpacity setValues:@[@(0), @(1)]];
     
@@ -778,27 +753,27 @@
     CATransform3D transform         = self.layer.transform;
     transform.m34                   = 1 / 200.0;
     
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     
     CAMediaTimingFunction * easeIn = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
-    CATransform3D frame0  = CATransform3DRotate(transform, YTX_RADIAN(-90),  0, 1, 0);
-    CATransform3D frame4  = CATransform3DRotate(transform, YTX_RADIAN(20),   0, 1, 0);
-    CATransform3D frame6  = CATransform3DRotate(transform, YTX_RADIAN(-10),  0, 1, 0);
-    CATransform3D frame8  = CATransform3DRotate(transform, YTX_RADIAN(5),    0, 1, 0);
-    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(0),    0, 1, 0);
+    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-90],  0, 1, 0);
+    CATransform3D frame4  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:20],   0, 1, 0);
+    CATransform3D frame6  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-10],  0, 1, 0);
+    CATransform3D frame8  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:5],    0, 1, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],    0, 1, 0);
     
     animation.keyTimes = @[@(0), @(0.4), @(0.6), @(0.8), @(1)];
     animation.timingFunctions = @[easeIn, easeIn];
     animation.values = [NSArray arrayWithObjects:
-                       [NSValue valueWithCATransform3D:frame0],
-                       [NSValue valueWithCATransform3D:frame4],
-                       [NSValue valueWithCATransform3D:frame6],
-                       [NSValue valueWithCATransform3D:frame8],
-                       [NSValue valueWithCATransform3D:frame10],
-                       nil];
+                        [NSValue valueWithCATransform3D:frame0],
+                        [NSValue valueWithCATransform3D:frame4],
+                        [NSValue valueWithCATransform3D:frame6],
+                        [NSValue valueWithCATransform3D:frame8],
+                        [NSValue valueWithCATransform3D:frame10],
+                        nil];
     
-    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [animationOpacity setKeyTimes:@[@(0), @(0.6)]];
     [animationOpacity setValues:@[@(0), @(1)]];
     
@@ -815,21 +790,21 @@
 {
     CATransform3D transform         = self.layer.transform;
     transform.m34                   = 1 / 200.0;
-
-    CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-   
-    CATransform3D frame0  = CATransform3DRotate(transform, YTX_RADIAN(0),  1, 0, 0);
-    CATransform3D frame3  = CATransform3DRotate(transform, YTX_RADIAN(20), 1, 0, 0);
-    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(-90),1, 0, 0);
+    
+    CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    
+    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],  1, 0, 0);
+    CATransform3D frame3  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:20], 1, 0, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-90],1, 0, 0);
     
     animation.keyTimes = @[@(0),@(.3), @(1)];
     animation.values   = [NSArray arrayWithObjects:
-                         [NSValue valueWithCATransform3D:frame0],
-                         [NSValue valueWithCATransform3D:frame3],
-                         [NSValue valueWithCATransform3D:frame10],
-                         nil];
+                          [NSValue valueWithCATransform3D:frame0],
+                          [NSValue valueWithCATransform3D:frame3],
+                          [NSValue valueWithCATransform3D:frame10],
+                          nil];
     
-    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [animationOpacity setKeyTimes:@[@(.3), @(1)]];
     [animationOpacity setValues:@[@(1), @(0)]];
     
@@ -847,21 +822,21 @@
 {
     CATransform3D transform         = self.layer.transform;
     transform.m34                   = 1 / 200.0;
-
-    CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
     
-    CATransform3D frame0  = CATransform3DRotate(transform, YTX_RADIAN(0),  0, 1, 0);
-    CATransform3D frame3  = CATransform3DRotate(transform, YTX_RADIAN(15), 0, 1, 0);
-    CATransform3D frame10 = CATransform3DRotate(transform, YTX_RADIAN(-90),0, 1, 0);
+    CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    
+    CATransform3D frame0  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:0],  0, 1, 0);
+    CATransform3D frame3  = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:15], 0, 1, 0);
+    CATransform3D frame10 = CATransform3DRotate(transform, [YTXAnimationsUtil radianWithDegree:-90],0, 1, 0);
     
     animation.keyTimes = @[@(0), @(.3), @(1)];
     animation.values   = [NSArray arrayWithObjects:
-                         [NSValue valueWithCATransform3D:frame0],
-                         [NSValue valueWithCATransform3D:frame3],
-                         [NSValue valueWithCATransform3D:frame10],
-                         nil];
+                          [NSValue valueWithCATransform3D:frame0],
+                          [NSValue valueWithCATransform3D:frame3],
+                          [NSValue valueWithCATransform3D:frame10],
+                          nil];
     
-    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [animationOpacity setKeyTimes:@[@(.3), @(1)]];
     animationOpacity.values = @[@(1), @(0)];
     
@@ -878,20 +853,20 @@
 
 - (nonnull CAAnimation *)ytx_lightSpeedInAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     
     // c = tan(45.f / 180.f * M_PI)
     CGAffineTransform transform0 = CGAffineTransformIdentity;
-    transform0.c = tan(YTX_RADIAN(-30));
+    transform0.c = tan([YTXAnimationsUtil radianWithDegree:-30]);
     CATransform3D frame0  =  CATransform3DMakeAffineTransform(transform0);
-    frame0.m41 = SELF_WIDTH;
+    frame0.m41 = YTXSELFWIDTH;
     
     CGAffineTransform transform6 = CGAffineTransformIdentity;
-    transform6.c = tan(YTX_RADIAN(20));
+    transform6.c = tan([YTXAnimationsUtil radianWithDegree:20]);
     CATransform3D frame6  =  CATransform3DMakeAffineTransform(transform6);
     
     CGAffineTransform transform8 = CGAffineTransformIdentity;
-    transform8.c = tan(YTX_RADIAN(-5));
+    transform8.c = tan([YTXAnimationsUtil radianWithDegree:-5]);
     CATransform3D frame8  =  CATransform3DMakeAffineTransform(transform8);
     
     CGAffineTransform transform10 = CGAffineTransformIdentity;
@@ -900,15 +875,15 @@
     
     animation.keyTimes = @[@(0),@(.6), @(.8), @(1)];
     animation.values =  [NSArray arrayWithObjects:
-                        [NSValue valueWithCATransform3D:frame0],
-                        [NSValue valueWithCATransform3D:frame6],
-                        [NSValue valueWithCATransform3D:frame8],
-                        [NSValue valueWithCATransform3D:frame10],
-                        nil];
+                         [NSValue valueWithCATransform3D:frame0],
+                         [NSValue valueWithCATransform3D:frame6],
+                         [NSValue valueWithCATransform3D:frame8],
+                         [NSValue valueWithCATransform3D:frame10],
+                         nil];
     
     
     
-    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [animationOpacity setKeyTimes:@[@(0),@(.6), @(.8), @(1)]];
     animationOpacity.values = @[@(0), @(1), @(1), @(1)];
     
@@ -923,7 +898,7 @@
 
 - (nonnull CAAnimation *)ytx_lightSpeedOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     
     // c = tan(45.f / 180.f * M_PI)
     CGAffineTransform transform0 = CGAffineTransformIdentity;
@@ -931,9 +906,9 @@
     CATransform3D frame0  =  CATransform3DMakeAffineTransform(transform0);
     
     CGAffineTransform transform10 = CGAffineTransformIdentity;
-    transform10.c = tan(YTX_RADIAN(30));
+    transform10.c = tan([YTXAnimationsUtil radianWithDegree:30]);
     CATransform3D frame10  = CATransform3DMakeAffineTransform(transform10);
-    frame10.m41 = SELF_WIDTH;
+    frame10.m41 = YTXSELFWIDTH;
     
     
     animation.keyTimes = @[@(0), @(1)];
@@ -942,7 +917,7 @@
                          [NSValue valueWithCATransform3D:frame10],
                          nil];
     
-    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *animationOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [animationOpacity setKeyTimes:@[@(0), @(1)]];
     animationOpacity.values = @[@(1), @(0)];
     
@@ -959,12 +934,12 @@
 
 - (nonnull CAAnimation *)ytx_zoomOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *zoomOutOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *zoomOutOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [zoomOutOpacity setValues:@[@1, @0]];
     
-    CAKeyframeAnimation *zoomOutTransform = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomOutTransform setValues:@[YTXScaleValue(1.0, 1.0, 1.0),
-                                  YTXScaleValue(0.3, 0.3, 0.3)]];
+    CAKeyframeAnimation *zoomOutTransform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    [zoomOutTransform setValues:@[YTXSCALEVALUE(1.0, 1.0, 1.0),
+                                  YTXSCALEVALUE(0.3, 0.3, 0.3)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[zoomOutOpacity, zoomOutTransform]];
@@ -979,72 +954,72 @@
 {
     CGFloat y = self.center.y;
     return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutDownAnimtionWithDurationTime:"
-                                hasFunction:YES
-                                anchorPoint:YTXPointValue(0.5, 1)
-                               positionPath:POSITION_Y
-                             positionValues:@[@(y), @(y - 30), @(y + BIG_DISTANCE_VALUE)]
-                               durationTime:durationTime];
+                                       hasFunction:YES
+                                       anchorPoint:YTXPOINTVALUE(0.5, 1)
+                                      positionPath:YTXPOSITIONY
+                                    positionValues:@[@(y), @(y - 30), @(y + YTXBIGDISTANCEVALUE)]
+                                      durationTime:durationTime];
 }
 
 - (nonnull CAAnimation *)ytx_zoomOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CGFloat x = self.center.x;
     return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutLeftAnimtionWithDurationTime:"
-                                hasFunction:NO
-                                anchorPoint:YTXPointValue(0, .5)
-                               positionPath:POSITION_X
-                             positionValues:@[@(x), @(x + 21), @(x - BIG_DISTANCE_VALUE)]
-                               durationTime:durationTime];
+                                       hasFunction:NO
+                                       anchorPoint:YTXPOINTVALUE(0, .5)
+                                      positionPath:YTXPOSITIONX
+                                    positionValues:@[@(x), @(x + 21), @(x - YTXBIGDISTANCEVALUE)]
+                                      durationTime:durationTime];
 }
 
 - (nonnull CAAnimation *)ytx_zoomOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CGFloat x = self.center.x;
     return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutRightAnimtionWithDurationTime:"
-                                hasFunction:NO
-                                anchorPoint:YTXPointValue(1, .5)
-                               positionPath:POSITION_X
-                             positionValues:@[@(x), @(x - 21), @(x + BIG_DISTANCE_VALUE)]
-                               durationTime:durationTime];
+                                       hasFunction:NO
+                                       anchorPoint:YTXPOINTVALUE(1, .5)
+                                      positionPath:YTXPOSITIONX
+                                    positionValues:@[@(x), @(x - 21), @(x + YTXBIGDISTANCEVALUE)]
+                                      durationTime:durationTime];
 }
 
 - (nonnull CAAnimation *)ytx_zoomOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CGFloat y = self.center.y;
     return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutUpAnimtionWithDurationTime:"
-                                hasFunction:YES
-                                anchorPoint:YTXPointValue(0.5, 0)
-                               positionPath:POSITION_Y
-                             positionValues:@[@(y), @(y + 30), @(y - BIG_DISTANCE_VALUE)]
-                               durationTime:durationTime];
+                                       hasFunction:YES
+                                       anchorPoint:YTXPOINTVALUE(0.5, 0)
+                                      positionPath:YTXPOSITIONY
+                                    positionValues:@[@(y), @(y + 30), @(y - YTXBIGDISTANCEVALUE)]
+                                      durationTime:durationTime];
 }
 
 - (nonnull CAAnimation *)ytx_zoomOutAnimtionWithSelectName:(NSString *)selectName hasFunction:(BOOL)hasFunction anchorPoint:(NSValue *)anchorPoint positionPath:(NSString *)positionPath positionValues:(NSArray *)positionValues durationTime:(NSTimeInterval)durationTime
 {
     
-    CAKeyframeAnimation *zoomOutOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *zoomOutOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [zoomOutOpacity setValues:@[@1.0, @0]];
     [zoomOutOpacity setKeyTimes:@[@.4, @1]];
-
-    CAKeyframeAnimation *zoomOutScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomOutScale setValues:@[YTXScaleValue(1, 1, 1),
-                              YTXScaleValue(.475, .475, .475),
-                              YTXScaleValue(.1, .1, .1)]];
+    
+    CAKeyframeAnimation *zoomOutScale = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    [zoomOutScale setValues:@[YTXSCALEVALUE(1, 1, 1),
+                              YTXSCALEVALUE(.475, .475, .475),
+                              YTXSCALEVALUE(.1, .1, .1)]];
     [zoomOutScale setKeyTimes:@[@0, @.4, @1]];
     
-    CAKeyframeAnimation *zoomOutAnchorPoint = [CAKeyframeAnimation animationWithKeyPath:ANCHORPOINT];
-    [zoomOutAnchorPoint setValues:@[YTXPointValue(0.5, 0.5),
+    CAKeyframeAnimation *zoomOutAnchorPoint = [CAKeyframeAnimation animationWithKeyPath:YTXANCHORPOINT];
+    [zoomOutAnchorPoint setValues:@[YTXPOINTVALUE(0.5, 0.5),
                                     anchorPoint,
-                                    YTXPointValue(0.5, 0.5)]];
-    [zoomOutAnchorPoint setKeyTimes:@[@.4, anchorLastKeyTime, @1]];
+                                    YTXPOINTVALUE(0.5, 0.5)]];
+    [zoomOutAnchorPoint setKeyTimes:@[@.4, YTXANCHORLASTKEYTIME, @1]];
     
     CAKeyframeAnimation *zoomOutPosition = [CAKeyframeAnimation animationWithKeyPath:positionPath];
     [zoomOutPosition setValues:positionValues];
     [zoomOutPosition setKeyTimes:@[@0, @.4, @1]];
     
     if (hasFunction) {
-        CAMediaTimingFunction *function   = YTXCAMediaTimingFunction(.550, .055, .675, .19);
-        CAMediaTimingFunction *function_2 = YTXCAMediaTimingFunction(.175, .885, .320, 1);
+        CAMediaTimingFunction *function   = YTXCAMEDIATIMINGFUNCTION(.550, .055, .675, .19);
+        CAMediaTimingFunction *function_2 = YTXCAMEDIATIMINGFUNCTION(.175, .885, .320, 1);
         CAMediaTimingFunction *liner      = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
         [zoomOutScale setTimingFunctions:@[liner, function, function_2]];
         [zoomOutPosition setTimingFunctions:@[liner, function, function_2]];
@@ -1063,12 +1038,12 @@
 
 - (nonnull CAAnimation *)ytx_zoomInAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *zoomInOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *zoomInOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [zoomInOpacity setValues:@[@0, @1]];
     
-    CAKeyframeAnimation *zoomInTransform = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomInTransform setValues:@[YTXScaleValue(.3, .3, .3),
-                           YTXScaleValue(1, 1, 1),]];
+    CAKeyframeAnimation *zoomInTransform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    [zoomInTransform setValues:@[YTXSCALEVALUE(.3, .3, .3),
+                                 YTXSCALEVALUE(1, 1, 1),]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[zoomInOpacity,zoomInTransform]];
@@ -1083,7 +1058,7 @@
 {
     CGFloat y = self.center.y;
     return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInDownAnimtionWithDurationTime:"
-                                     positionPath:POSITION_Y
+                                     positionPath:YTXPOSITIONY
                                    positionValues:@[@(y - 500), @(y + 5), @(y)]
                                      durationTime:durationTime];
 }
@@ -1092,7 +1067,7 @@
 {
     CGFloat x = self.center.x;
     return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInLeftAnimtionWithDurationTime:"
-                                     positionPath:POSITION_X
+                                     positionPath:YTXPOSITIONX
                                    positionValues:@[@(x - 500), @(x + 5),@(x)]
                                      durationTime:durationTime];
 }
@@ -1101,7 +1076,7 @@
 {
     CGFloat x = self.center.x;
     return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInRightAnimtionWithDurationTime:"
-                                     positionPath:POSITION_X
+                                     positionPath:YTXPOSITIONX
                                    positionValues:@[@(x + 500), @(x - 5),@(x)]
                                      durationTime:durationTime];
 }
@@ -1110,25 +1085,25 @@
 {
     CGFloat y = self.center.y;
     return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInUpAnimtionWithDurationTime:"
-                                     positionPath:POSITION_Y
+                                     positionPath:YTXPOSITIONY
                                    positionValues:@[@(y + 500), @(y - 30), @(y)]
                                      durationTime:durationTime];
 }
 
 - (nonnull CAAnimation *)ytx_zoomInAnimtionWithSelectName:(NSString *)selectName positionPath:(NSString *)positionPath positionValues:(NSArray *)positionValues durationTime:(NSTimeInterval)durationTime
 {
-    CAMediaTimingFunction *function   = YTXCAMediaTimingFunction(.550, .055, .675, .19);
-    CAMediaTimingFunction *function_2 = YTXCAMediaTimingFunction(.175, .885, .320, 1);
+    CAMediaTimingFunction *function   = YTXCAMEDIATIMINGFUNCTION(.550, .055, .675, .19);
+    CAMediaTimingFunction *function_2 = YTXCAMEDIATIMINGFUNCTION(.175, .885, .320, 1);
     CAMediaTimingFunction *liner      = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     
-    CAKeyframeAnimation *zoomInOpacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *zoomInOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [zoomInOpacity setValues:@[@0, @1]];
     [zoomInOpacity setKeyTimes:@[@0, @.6]];
     
-    CAKeyframeAnimation *zoomInScale = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
-    [zoomInScale setValues:@[YTXScaleValue(.0, .0, .0),
-                             YTXScaleValue(.475, .475, .475),
-                             YTXScaleValue(1, 1, 1)]];
+    CAKeyframeAnimation *zoomInScale = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    [zoomInScale setValues:@[YTXSCALEVALUE(.0, .0, .0),
+                             YTXSCALEVALUE(.475, .475, .475),
+                             YTXSCALEVALUE(1, 1, 1)]];
     [zoomInScale setKeyTimes:@[@0, @.6, @1]];
     [zoomInScale setTimingFunctions:@[function, function_2]];
     
@@ -1151,8 +1126,8 @@
 {
     return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInDownAnimtionWithDurationTime:"
                                             isIn:YES
-                                 translateValues:@[YTXTranslateValue(0, SELF_HEIGHT, 0),
-                                                   YTXTranslateValue(0, 0, 0)]
+                                 translateValues:@[YTXTRANSLATEVALUE(0, YTXSELFHEIGHT, 0),
+                                                   YTXTRANSLATEVALUE(0, 0, 0)]
                                     durationTime:durationTime];
 }
 
@@ -1160,8 +1135,8 @@
 {
     return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInLeftAnimtionWithDurationTime:"
                                             isIn:YES
-                                 translateValues:@[YTXTranslateValue(-SELF_WIDTH, 0, 0),
-                                                   YTXTranslateValue(0, 0, 0)]
+                                 translateValues:@[YTXTRANSLATEVALUE(-YTXSELFWIDTH, 0, 0),
+                                                   YTXTRANSLATEVALUE(0, 0, 0)]
                                     durationTime:durationTime];
 }
 
@@ -1169,8 +1144,8 @@
 {
     return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInRightAnimtionWithDurationTime:"
                                             isIn:YES
-                                 translateValues:@[YTXTranslateValue(SELF_WIDTH, 0, 0),
-                                                   YTXTranslateValue(0, 0, 0)]
+                                 translateValues:@[YTXTRANSLATEVALUE(YTXSELFWIDTH, 0, 0),
+                                                   YTXTRANSLATEVALUE(0, 0, 0)]
                                     durationTime:durationTime];
 }
 
@@ -1178,8 +1153,8 @@
 {
     return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInUpAnimtionWithDurationTime:"
                                             isIn:YES
-                                 translateValues:@[YTXTranslateValue(0, -SELF_HEIGHT, 0),
-                                                   YTXTranslateValue(0, 0, 0)]
+                                 translateValues:@[YTXTRANSLATEVALUE(0, -YTXSELFHEIGHT, 0),
+                                                   YTXTRANSLATEVALUE(0, 0, 0)]
                                     durationTime:durationTime];
 }
 
@@ -1189,8 +1164,8 @@
 {
     return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutDownAnimtionWithDurationTime:"
                                             isIn:NO
-                                 translateValues:@[YTXTranslateValue(0, 0, 0),
-                                                   YTXTranslateValue(0, SELF_HEIGHT, 0)]
+                                 translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
+                                                   YTXTRANSLATEVALUE(0, YTXSELFHEIGHT, 0)]
                                     durationTime:durationTime];
 }
 
@@ -1198,8 +1173,8 @@
 {
     return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutLeftAnimtionWithDurationTime:"
                                             isIn:NO
-                                 translateValues:@[YTXTranslateValue(0, 0, 0),
-                                                   YTXTranslateValue(-SELF_WIDTH, 0, 0)]
+                                 translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
+                                                   YTXTRANSLATEVALUE(-YTXSELFWIDTH, 0, 0)]
                                     durationTime:durationTime];
 }
 
@@ -1207,8 +1182,8 @@
 {
     return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutRightAnimtionWithDurationTime:"
                                             isIn:NO
-                                 translateValues:@[YTXTranslateValue(0, 0, 0),
-                                                   YTXTranslateValue(SELF_WIDTH, 0, 0)]
+                                 translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
+                                                   YTXTRANSLATEVALUE(YTXSELFWIDTH, 0, 0)]
                                     durationTime:durationTime];
 }
 
@@ -1216,18 +1191,18 @@
 {
     return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutUpAnimtionWithDurationTime:"
                                             isIn:NO
-                                 translateValues:@[YTXTranslateValue(0, 0, 0),
-                                                   YTXTranslateValue(0, -SELF_HEIGHT, 0)]
+                                 translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
+                                                   YTXTRANSLATEVALUE(0, -YTXSELFHEIGHT, 0)]
                                     durationTime:durationTime];
 }
 
 - (nonnull CAAnimation *)ytx_slideAnimtionWithSelectName:(NSString *)selectName isIn:(BOOL)isIn translateValues:(NSArray *)translateValues durationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [opacity setValues:@[@1, isIn ? @1 : @0]];
-    [opacity setKeyTimes:@[anchorLastKeyTime, @1]];
+    [opacity setKeyTimes:@[YTXANCHORLASTKEYTIME, @1]];
     
-    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     [transform setValues:translateValues];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -1245,7 +1220,7 @@
 {
     return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInAnimtionWithDurationTime:"
                                              isIn:YES
-                                      rotateValue:YTX_RADIAN(200)
+                                      rotateValue:[YTXAnimationsUtil radianWithDegree:200]
                                       anchorPoint:nil
                                       anchorOrign:nil
                                      durationTime:durationTime];
@@ -1255,9 +1230,9 @@
 {
     return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInDownLeftAnimtionWithDurationTime:"
                                              isIn:YES
-                                      rotateValue:YTX_RADIAN(-45)
-                                      anchorPoint:YTXPointValue(0, 1)
-                                      anchorOrign:YTXPointValue(CGRectGetMinX(self.frame), CGRectGetMaxY(self.frame))
+                                      rotateValue:[YTXAnimationsUtil radianWithDegree:-45]
+                                      anchorPoint:YTXPOINTVALUE(0, 1)
+                                      anchorOrign:YTXPOINTVALUE(CGRectGetMinX(self.frame), CGRectGetMaxY(self.frame))
                                      durationTime:durationTime];
     
 }
@@ -1266,9 +1241,9 @@
 {
     return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInDownRightAnimtionWithDurationTime:"
                                              isIn:YES
-                                      rotateValue:YTX_RADIAN(45)
-                                      anchorPoint:YTXPointValue(1, 1)
-                                      anchorOrign:YTXPointValue(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))
+                                      rotateValue:[YTXAnimationsUtil radianWithDegree:45]
+                                      anchorPoint:YTXPOINTVALUE(1, 1)
+                                      anchorOrign:YTXPOINTVALUE(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))
                                      durationTime:durationTime];
     
 }
@@ -1277,9 +1252,9 @@
 {
     return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInUpLeftAnimtionWithDurationTime:"
                                              isIn:YES
-                                      rotateValue:YTX_RADIAN(45)
-                                      anchorPoint:YTXPointValue(0, 0)
-                                      anchorOrign:YTXPointValue(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame))
+                                      rotateValue:[YTXAnimationsUtil radianWithDegree:45]
+                                      anchorPoint:YTXPOINTVALUE(0, 0)
+                                      anchorOrign:YTXPOINTVALUE(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame))
                                      durationTime:durationTime];
     
 }
@@ -1288,9 +1263,9 @@
 {
     return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInUpRightAnimtionWithDurationTime:"
                                              isIn:YES
-                                      rotateValue:YTX_RADIAN(-45)
-                                      anchorPoint:YTXPointValue(1, 0)
-                                      anchorOrign:YTXPointValue(CGRectGetMaxX(self.frame), CGRectGetMinY(self.frame))
+                                      rotateValue:[YTXAnimationsUtil radianWithDegree:-45]
+                                      anchorPoint:YTXPOINTVALUE(1, 0)
+                                      anchorOrign:YTXPOINTVALUE(CGRectGetMaxX(self.frame), CGRectGetMinY(self.frame))
                                      durationTime:durationTime];
     
 }
@@ -1301,7 +1276,7 @@
 {
     return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutAnimtionWithDurationTime:"
                                              isIn:NO
-                                      rotateValue:YTX_RADIAN(200)
+                                      rotateValue:[YTXAnimationsUtil radianWithDegree:200]
                                       anchorPoint:nil
                                       anchorOrign:nil
                                      durationTime:durationTime];
@@ -1311,9 +1286,9 @@
 {
     return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutDownLeftAnimtionWithDurationTime:"
                                              isIn:NO
-                                      rotateValue:YTX_RADIAN(45)
-                                      anchorPoint:YTXPointValue(0, 1)
-                                      anchorOrign:YTXPointValue(CGRectGetMinX(self.frame), CGRectGetMaxY(self.frame))
+                                      rotateValue:[YTXAnimationsUtil radianWithDegree:45]
+                                      anchorPoint:YTXPOINTVALUE(0, 1)
+                                      anchorOrign:YTXPOINTVALUE(CGRectGetMinX(self.frame), CGRectGetMaxY(self.frame))
                                      durationTime:durationTime];
 }
 
@@ -1321,9 +1296,9 @@
 {
     return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutDownRightAnimtionWithDurationTime:"
                                              isIn:NO
-                                      rotateValue:YTX_RADIAN(-45)
-                                      anchorPoint:YTXPointValue(1, 1)
-                                      anchorOrign:YTXPointValue(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))
+                                      rotateValue:[YTXAnimationsUtil radianWithDegree:-45]
+                                      anchorPoint:YTXPOINTVALUE(1, 1)
+                                      anchorOrign:YTXPOINTVALUE(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))
                                      durationTime:durationTime];
 }
 
@@ -1331,9 +1306,9 @@
 {
     return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutUpLeftAnimtionWithDurationTime:"
                                              isIn:NO
-                                      rotateValue:YTX_RADIAN(-90)
-                                      anchorPoint:YTXPointValue(0, 1)
-                                      anchorOrign:YTXPointValue(CGRectGetMinX(self.frame), CGRectGetMaxY(self.frame))
+                                      rotateValue:[YTXAnimationsUtil radianWithDegree:-90]
+                                      anchorPoint:YTXPOINTVALUE(0, 1)
+                                      anchorOrign:YTXPOINTVALUE(CGRectGetMinX(self.frame), CGRectGetMaxY(self.frame))
                                      durationTime:durationTime];
 }
 
@@ -1341,35 +1316,35 @@
 {
     return  [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutUpRightAnimtionWithDurationTime:"
                                               isIn:NO
-                                       rotateValue:YTX_RADIAN(90)
-                                       anchorPoint:YTXPointValue(1, 1)
-                                       anchorOrign:YTXPointValue(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))
+                                       rotateValue:[YTXAnimationsUtil radianWithDegree:90]
+                                       anchorPoint:YTXPOINTVALUE(1, 1)
+                                       anchorOrign:YTXPOINTVALUE(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))
                                       durationTime:durationTime];
 }
 
 - (nonnull CAAnimation *)ytx_rotateAnimtionWithSelectName:(NSString *)name isIn:(BOOL)isIn rotateValue:(float)rotate anchorPoint:(NSValue *)point anchorOrign:(NSValue *)orign durationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [opacity setValues:isIn ? @[@0, @1] : @[@1, @0]];
     
-    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     [transform setValues:isIn ?
-     @[YTXRotateValue(rotate, 0, 0, 1),YTXRotateValue(0, 0, 0, 0)] :
-     @[YTXRotateValue(0, 0, 0, 0)     ,YTXRotateValue(rotate, 0, 0, 1)]];
+     @[YTXROTATEVALUE(rotate, 0, 0, 1),YTXROTATEVALUE(0, 0, 0, 0)] :
+     @[YTXROTATEVALUE(0, 0, 0, 0)     ,YTXROTATEVALUE(rotate, 0, 0, 1)]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     if (point)
     {
-        CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:ANCHORPOINT];
+        CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:YTXANCHORPOINT];
         [anchor setValues:@[point,
                             point,
-                            YTXPointValue(0.5, 0.5)]];
-        [anchor setKeyTimes:@[@0, anchorLastKeyTime, @1]];
+                            YTXPOINTVALUE(0.5, 0.5)]];
+        [anchor setKeyTimes:@[@0, YTXANCHORLASTKEYTIME, @1]];
         
         
-        CAKeyframeAnimation *position = [CAKeyframeAnimation animationWithKeyPath:POSITION];
+        CAKeyframeAnimation *position = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITION];
         [position setValues:@[orign, orign]];
-        [anchor setKeyTimes:@[@0, anchorLastKeyTime]];
+        [anchor setKeyTimes:@[@0, YTXANCHORLASTKEYTIME]];
         
         [group setAnimations:@[opacity, transform, anchor, position]];
     }
@@ -1388,34 +1363,34 @@
 
 - (nonnull CAAnimation *)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    float rotate_1 = YTX_RADIAN(80);
-    float rotate_2 = YTX_RADIAN(60);
+    float rotate_1 = [YTXAnimationsUtil radianWithDegree:80];
+    float rotate_2 = [YTXAnimationsUtil radianWithDegree:60];
     
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation  animationWithKeyPath:YTXTRANSFORM];
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    [animation setValues:@[YTXRotateValue(0, 0, 0, 1),
-                           YTXRotateValue(rotate_1, 0, 0, 1),
-                           YTXRotateValue(rotate_2, 0, 0, 1),
-                           YTXRotateValue(rotate_1, 0, 0, 1),
-                           YTXRotateValue(rotate_2, 0, 0, 1),
+    [animation setValues:@[YTXROTATEVALUE(0, 0, 0, 1),
+                           YTXROTATEVALUE(rotate_1, 0, 0, 1),
+                           YTXROTATEVALUE(rotate_2, 0, 0, 1),
+                           YTXROTATEVALUE(rotate_1, 0, 0, 1),
+                           YTXROTATEVALUE(rotate_2, 0, 0, 1),
                            ]];
     
-    CAKeyframeAnimation *anchorAnimation = [CAKeyframeAnimation  animationWithKeyPath:ANCHORPOINT];
-    [anchorAnimation setValues:@[YTXPointValue(0, 0),
-                                 YTXPointValue(0, 0),
-                                 YTXPointValue(0.5, 0.5)]];
+    CAKeyframeAnimation *anchorAnimation = [CAKeyframeAnimation  animationWithKeyPath:YTXANCHORPOINT];
+    [anchorAnimation setValues:@[YTXPOINTVALUE(0, 0),
+                                 YTXPOINTVALUE(0, 0),
+                                 YTXPOINTVALUE(0.5, 0.5)]];
     [anchorAnimation setKeyTimes:@[@(0), @(.99), @(1)]];
     
-    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:OPACITY];
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [opacity setValues:@[@1, @0]];
     [opacity setKeyTimes:@[@(.8), @1]];
     
     CGFloat y = self.frame.origin.y;
     CGFloat x = self.frame.origin.x;
     CAKeyframeAnimation *position = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    [position setValues:@[YTXPointValue(x, y),
-                          YTXPointValue(x, y + 350),
-                          YTXPointValue(x, y)]];
+    [position setValues:@[YTXPOINTVALUE(x, y),
+                          YTXPOINTVALUE(x, y + 350),
+                          YTXPOINTVALUE(x, y)]];
     [position setKeyTimes:@[@(.8), @.99, @1]];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -1439,17 +1414,17 @@
 
 - (nonnull CAAnimation *)ytx_rollAnimationWithSelectName:(NSString *)name isIn:(BOOL)isIn durationTime:(NSTimeInterval)durationTime
 {
-    float rotate_1 = YTX_RADIAN(120);
+    float rotate_1 = [YTXAnimationsUtil radianWithDegree:120];
     CGFloat width  = [UIScreen mainScreen].bounds.size.width;
     CGFloat x      = self.center.x;
-    NSArray *animationValues = isIn? @[YTXRotateValue(-rotate_1, 0, 0, 1), YTXRotateValue(0, 0, 0, 1)] : @[YTXRotateValue(0, 0, 0, 1), YTXRotateValue(rotate_1, 0, 0, 1)];
+    NSArray *animationValues = isIn? @[YTXROTATEVALUE(-rotate_1, 0, 0, 1), YTXROTATEVALUE(0, 0, 0, 1)] : @[YTXROTATEVALUE(0, 0, 0, 1), YTXROTATEVALUE(rotate_1, 0, 0, 1)];
     NSArray *positionValues  = isIn? @[@(-width + x), @(x)] : @[@(x), @(width+x)];
     
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:TRANSFORM];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     [animation setValues:animationValues];
     
     
-    CAKeyframeAnimation *position  = [CAKeyframeAnimation animationWithKeyPath:POSITION_X];
+    CAKeyframeAnimation *position  = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONX];
     [position setValues:positionValues];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
@@ -1460,5 +1435,5 @@
     });
     return group;
 }
- 
+
 @end

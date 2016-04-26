@@ -44,7 +44,7 @@ Pod::Spec.new do |s|
             
             specname = sync_spec[:spec_name]
             
-            sources = ["Pod/Classes/UIView+YTX#{specname}.*"]
+            sources = ["Pod/Classes/UIView+YTX#{specname}.*", "Pod/Classes/YTXAnimationsUtil.{h,m}"]
             
             ss.source_files = sources
             
