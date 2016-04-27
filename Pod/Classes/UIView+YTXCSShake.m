@@ -643,7 +643,7 @@
     shackAnimation.keyTimes = keyTimes;
     NSMutableArray<NSValue *> * values = [NSMutableArray array];
     
-    CATransform3D transform = self.layer.transform;
+    CATransform3D transform = CATransform3DIdentity;
     
     for (NSArray * transformValues in transformArray) {
         //[translateX,translateY,rorateX]

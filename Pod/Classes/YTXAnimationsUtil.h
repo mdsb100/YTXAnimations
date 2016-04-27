@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 // 转化为NSValue
-#define YTXSCALEVALUE(x,y,z)                    [NSValue valueWithCATransform3D:CATransform3DScale(self.layer.transform, (x), (y), (z))]
-#define YTXROTATEVALUE(d,x,y,z)                 [NSValue valueWithCATransform3D:CATransform3DRotate(self.layer.transform, (d), (x), (y), (z))]
-#define YTXTRANSLATEVALUE(x,y,z)                [NSValue valueWithCATransform3D:CATransform3DTranslate(self.layer.transform, (x), (y), (z))]
+#define YTXSCALEVALUE(x,y,z)                    [NSValue valueWithCATransform3D:CATransform3DScale(CATransform3DIdentity, (x), (y), (z))]
+#define YTXROTATEVALUE(d,x,y,z)                 [NSValue valueWithCATransform3D:CATransform3DRotate(CATransform3DIdentity, (d), (x), (y), (z))]
+#define YTXTRANSLATEVALUE(x,y,z)                [NSValue valueWithCATransform3D:CATransform3DTranslate(CATransform3DIdentity, (x), (y), (z))]
 #define YTXPOINTVALUE(x,y)                      [NSValue valueWithCGPoint:CGPointMake((x), (y))]
 #define YTXCGPOINTVALUE(x)                      [NSValue valueWithCGPoint:x]
 #define YTXANCHORPOINTVALUE(x)                  [NSValue valueWithCGPoint:[YTXAnimationsUtil positionWithAnchorPoint:(x) andView:self]]

@@ -187,8 +187,8 @@
                             ]];
     [position setKeyTimes:@[@0, @0.382, YTXANCHORLASTKEYTIME, @1]];
     
-    CATransform3D frame00 = CATransform3DScale(self.layer.transform, 0, 0, 0);
-    CATransform3D frame10 = CATransform3DScale(self.layer.transform, 1, 1, 0);
+    CATransform3D frame00 = CATransform3DScale(CATransform3DIdentity, 0, 0, 0);
+    CATransform3D frame10 = CATransform3DScale(CATransform3DIdentity, 1, 1, 0);
     CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     [transform setValues: @[
                             [NSValue valueWithCATransform3D:frame00],
@@ -225,19 +225,19 @@
                         YTXPOINTVALUE(0.5, 0.5)]];
     [anchor setKeyTimes:@[@0, YTXANCHORLASTKEYTIME, @1]];
     
-    CATransform3D frame00 = CATransform3DRotate(self.layer.transform, [YTXAnimationsUtil radianWithDegree:degree00], 0, 0, 1);
+    CATransform3D frame00 = CATransform3DRotate(CATransform3DIdentity, [YTXAnimationsUtil radianWithDegree:degree00], 0, 0, 1);
     CGPoint anchorePoint00 = [YTXAnimationsUtil offsetWithAnchorPoint:anchor00 andView:self];
     
     frame00.m41 = anchorePoint00.x;
     frame00.m42 = anchorePoint00.y;
     
-    CATransform3D frame9999 = CATransform3DRotate(self.layer.transform, [YTXAnimationsUtil radianWithDegree:degree10], 0, 0, 1);
+    CATransform3D frame9999 = CATransform3DRotate(CATransform3DIdentity, [YTXAnimationsUtil radianWithDegree:degree10], 0, 0, 1);
     CGPoint anchorePoint10 = [YTXAnimationsUtil offsetWithAnchorPoint:anchor10 andView:self];
     
     frame9999.m41 = anchorePoint10.x;
     frame9999.m42 = anchorePoint10.y;
     
-    CATransform3D frame10 = CATransform3DRotate(self.layer.transform, [YTXAnimationsUtil radianWithDegree:degree10], 0, 0, 1);
+    CATransform3D frame10 = CATransform3DRotate(CATransform3DIdentity, [YTXAnimationsUtil radianWithDegree:degree10], 0, 0, 1);
     frame10.m41 = 0;
     frame10.m42 = 0;
     

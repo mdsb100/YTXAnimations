@@ -52,7 +52,6 @@
 {
     float smallScaleValue = 1.f;
     float lagerScaleValue = 1.05;
-    
     NSValue *smallScale = YTXSCALEVALUE(smallScaleValue, smallScaleValue, smallScaleValue);
     NSValue *lagerScale = YTXSCALEVALUE(lagerScaleValue, lagerScaleValue, lagerScaleValue);
     
@@ -675,7 +674,7 @@
 
 - (nonnull CAAnimation *)ytx_flipAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CATransform3D transform         = self.layer.transform;
+    CATransform3D transform         = CATransform3DIdentity;
     transform.m34                   = - 1 / 200.0;
     
     CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
@@ -712,7 +711,7 @@
 - (nonnull CAAnimation *)ytx_flipInXAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     
-    CATransform3D transform         = self.layer.transform;
+    CATransform3D transform         = CATransform3DIdentity;
     transform.m34                   = - 1 / 200.0;
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
@@ -750,7 +749,7 @@
 
 - (nonnull CAAnimation *)ytx_flipInYAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CATransform3D transform         = self.layer.transform;
+    CATransform3D transform         = CATransform3DIdentity;
     transform.m34                   = - 1 / 200.0;
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
@@ -788,7 +787,7 @@
 
 - (nonnull CAAnimation *)ytx_flipOutXAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CATransform3D transform         = self.layer.transform;
+    CATransform3D transform         = CATransform3DIdentity;
     transform.m34                   = - 1 / 200.0;
     
     CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
@@ -820,7 +819,7 @@
 
 - (nonnull CAAnimation *)ytx_flipOutYAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
-    CATransform3D transform         = self.layer.transform;
+    CATransform3D transform         = CATransform3DIdentity;
     transform.m34                   = - 1 / 200.0;
     
     CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
