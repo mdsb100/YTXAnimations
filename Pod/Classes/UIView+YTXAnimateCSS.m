@@ -1216,15 +1216,11 @@
 
 - (nonnull CAAnimation *)ytx_slideAnimtionWithSelectName:(NSString *)selectName isIn:(BOOL)isIn translateValues:(NSArray *)translateValues durationTime:(NSTimeInterval)durationTime
 {
-    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
-    [opacity setValues:@[@1, isIn ? @1 : @0]];
-    [opacity setKeyTimes:@[YTXANCHORLASTKEYTIME, @1]];
-    
     CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     [transform setValues:translateValues];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[opacity, transform]];
+    [group setAnimations:@[transform]];
     [group setDuration:durationTime];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.layer addAnimation:group forKey:selectName];
