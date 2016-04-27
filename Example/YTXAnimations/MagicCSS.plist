@@ -62,7 +62,6 @@
 				<key>function</key>
 				<string>ytx_openUpRightAnimtionWithDurationTime:</string>
 			</dict>
-
 			<dict>
 				<key>name</key>
 				<string>openDownLeftRetourn</string>
@@ -149,7 +148,6 @@
 				<key>function</key>
 				<string>ytx_perspectiveRightAnimtionWithDurationTime:</string>
 			</dict>
-
 			<dict>
 				<key>name</key>
 				<string>perspectiveUpRetourn</string>
@@ -173,6 +171,37 @@
 				<string>perspectiveRightRetourn</string>
 				<key>function</key>
 				<string>ytx_perspectiveRightRetournAnimtionWithDurationTime:</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Rotate</string>
+		<key>sub</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>RotateDown</string>
+				<key>function</key>
+				<string>ytx_rotateDownAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>RotateUp</string>
+				<key>function</key>
+				<string>ytx_rotateUpAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>RotateLeft</string>
+				<key>function</key>
+				<string>ytx_rotateLeftAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>RotateRight</string>
+				<key>function</key>
+				<string>ytx_rotateRightAnimtionWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
