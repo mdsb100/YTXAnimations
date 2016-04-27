@@ -37,6 +37,8 @@
 
 +(CGPoint)positionWithAnchorPoint:(CGPoint)anchorPoint andView:(nonnull UIView *)view;
 
++(CGPoint)offsetWithAnchorPoint:(CGPoint)anchorPoint andView:(nonnull UIView *)view;
+
 +(CGFloat)radianWithDegree:(CGFloat) degree;
 
 @end
