@@ -66,4 +66,14 @@
 - (nonnull CAAnimation *)ytx_perspectiveLeftRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 - (nonnull CAAnimation *)ytx_perspectiveRightRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+#pragma mark - Rotate
+- (nonnull CAAnimation *)ytx_rotateDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_rotateUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_rotateLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_rotateRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
 @end

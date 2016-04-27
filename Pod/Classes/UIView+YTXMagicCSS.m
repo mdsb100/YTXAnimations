@@ -423,4 +423,82 @@
 {
     return [self ytx_perspectiveAnimtionWithDurationTime:durationTime anchor00:CGPointMake(1, 0) ahchore10:CGPointMake(1, 0) degree00:180 degree10:0.0001 rotateX:0 rotateY:1 animationName:@"ytx_perspectiveRightRetournAnimtionWithDurationTime:"];
 }
+
+#pragma mark - Rotate
+- (nonnull CAAnimation *)ytx_rotateAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10  rotateX:(CGFloat)rotateX rotateY:(CGFloat)rotateY opacity00:(CGFloat)opacity00 opacity10:(CGFloat)opacity10 translateX:(CGFloat)translateX translateY:(CGFloat)translateY translateZ:(CGFloat)translateZ animationName:(nonnull NSString *) name
+{
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
+    [opacity setValues:@[@(opacity00), @(opacity10)]];
+    [opacity setKeyTimes:@[@0, @1]];
+    
+    CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:YTXANCHORPOINT];
+    [anchor setValues:@[YTXPOINTVALUE(anchor00.x, anchor00.y),
+                        YTXPOINTVALUE(anchor10.x, anchor10.y),
+                        YTXPOINTVALUE(0.5, 0.5)]];
+    [anchor setKeyTimes:@[@0, YTXANCHORLASTKEYTIME, @1]];
+    
+    CATransform3D currentTransform         = CATransform3DIdentity;
+    currentTransform.m34                   = - 1 / 400.0;
+    
+    CGPoint anchorePoint00 = [YTXAnimationsUtil positionWithAnchorPoint:anchor00 andView:self];
+    CATransform3D frame00 = CATransform3DRotate(currentTransform, [YTXAnimationsUtil radianWithDegree:degree00], rotateX, rotateY, 0);
+    frame00 = CATransform3DTranslate(frame00, 0, 0, 0);
+    
+    frame00.m41 = anchorePoint00.x;
+    frame00.m42 = anchorePoint00.y;
+    frame00.m43 = 0;
+    
+    CGPoint anchorePoint10 = [YTXAnimationsUtil positionWithAnchorPoint:anchor10 andView:self];
+    CATransform3D frame9999 = CATransform3DRotate(currentTransform, [YTXAnimationsUtil radianWithDegree:degree10], rotateX, rotateY, 0);
+    frame9999 = CATransform3DTranslate(frame9999, 0, 0, translateZ);
+
+    frame9999.m41 = anchorePoint10.x + translateX;
+    frame9999.m42 = anchorePoint10.y + translateY;
+    frame9999.m43 = translateZ;
+    
+    CATransform3D frame10 = CATransform3DRotate(currentTransform, [YTXAnimationsUtil radianWithDegree:degree10], rotateX, rotateY, 0);
+    frame10 = CATransform3DTranslate(frame10, 0, 0, translateZ);
+    frame10.m41 =   translateX;
+    frame10.m42 =   translateY;
+    frame9999.m43 = translateZ;
+
+    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    [transform setValues: @[
+                            [NSValue valueWithCATransform3D:frame00],
+                            [NSValue valueWithCATransform3D:frame9999],
+                            [NSValue valueWithCATransform3D:frame10]
+                            ]];
+    [transform setKeyTimes:@[@0, YTXANCHORLASTKEYTIME, @1]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[ anchor, transform, opacity ]];
+    [group setDuration:durationTime];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:name];
+    });
+    
+    return group;
+}
+
+- (nonnull CAAnimation *)ytx_rotateDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_rotateAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 1) ahchore10:CGPointMake(0, 1) degree00:0 degree10:-180 rotateX:-1 rotateY:0 opacity00:1 opacity10:0 translateX:0 translateY:YTXSELFHEIGHT translateZ:150 animationName:@"ytx_rotateDownAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_rotateUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_rotateAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0.5, 0) degree00:0.0001 degree10:180.0 rotateX:1 rotateY:0 opacity00:1 opacity10:0 translateX:0 translateY:-YTXSELFHEIGHT translateZ:150 animationName:@"ytx_rotateUpAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_rotateLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_rotateAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0.5, 0) degree00:0 degree10:-180 rotateX:0 rotateY:-1 opacity00:1 opacity10:0 translateX:-YTXSELFWIDTH*1.5 translateY:0 translateZ:150 animationName:@"ytx_rotateLeftAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_rotateRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_rotateAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0.5, 0) degree00:0.0001 degree10:180 rotateX:0 rotateY:1 opacity00:1 opacity10:0 translateX:YTXSELFWIDTH*2 translateY:0 translateZ:150 animationName:@"ytx_rotateRightAnimtionWithDurationTime:"];
+}
+
 @end
