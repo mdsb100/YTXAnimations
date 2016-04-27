@@ -491,5 +491,91 @@
 {
     return [self ytx_rotateAnimtionWithDurationTime:durationTime anchor00:CGPointMake(0, 0) ahchore10:CGPointMake(0.5, 0) degree00:0.0001 degree10:180 rotateX:0 rotateY:1 opacity00:1 opacity10:0 translateX:YTXSELFWIDTH*2 translateY:0 translateZ:150 animationName:@"ytx_rotateRightAnimtionWithDurationTime:"];
 }
+#pragma mark - Slide
+- (nonnull CAAnimation *)ytx_slideAnimtionWithDurationTime:(NSTimeInterval)durationTime isIn:(BOOL)isIn translateValues:(NSArray *)translateValues animationName:(nonnull NSString *) name
+{
+    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    [transform setValues:translateValues];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[transform]];
+    [group setDuration:durationTime];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:name];
+    });
+    return group;
+}
+
+- (nonnull CAAnimation *)ytx_slideDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_slideAnimtionWithDurationTime:durationTime
+                                            isIn:NO
+                                 translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
+                                                   YTXTRANSLATEVALUE(0, YTXSELFHEIGHT, 0)]
+                                    animationName:@"ytx_slideDownAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_slideLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_slideAnimtionWithDurationTime:durationTime
+                                            isIn:NO
+                                 translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
+                                                   YTXTRANSLATEVALUE(-YTXSELFWIDTH, 0, 0)]
+                                    animationName:@"ytx_slideLeftAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_slideRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_slideAnimtionWithDurationTime:durationTime
+                                            isIn:NO
+                                 translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
+                                                   YTXTRANSLATEVALUE(YTXSELFWIDTH, 0, 0)]
+                                    animationName:@"ytx_slideRightAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_slideUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_slideAnimtionWithDurationTime:durationTime
+                                            isIn:NO
+                                 translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
+                                                   YTXTRANSLATEVALUE(0, -YTXSELFHEIGHT, 0)]
+                                    animationName:@"ytx_slideUpAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_slideDownRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_slideAnimtionWithDurationTime:durationTime
+                                              isIn:YES
+                                   translateValues:@[YTXTRANSLATEVALUE(0, YTXSELFHEIGHT, 0),
+                                                     YTXTRANSLATEVALUE(0, 0, 0)]
+                                     animationName:@"ytx_slideDownRetournAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_slideLeftRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_slideAnimtionWithDurationTime:durationTime
+                                              isIn:YES
+                                   translateValues:@[YTXTRANSLATEVALUE(-YTXSELFWIDTH, 0, 0),
+                                                     YTXTRANSLATEVALUE(0, 0, 0)]
+                                     animationName:@"ytx_slideLeftRetournAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_slideRightRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_slideAnimtionWithDurationTime:durationTime
+                                              isIn:YES
+                                   translateValues:@[YTXTRANSLATEVALUE(YTXSELFWIDTH, 0, 0),
+                                                     YTXTRANSLATEVALUE(0, 0, 0)]
+                                     animationName:@"ytx_slideRightRetournAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_slideUpRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_slideAnimtionWithDurationTime:durationTime
+                                              isIn:YES
+                                   translateValues:@[YTXTRANSLATEVALUE(0, -YTXSELFHEIGHT, 0),
+                                                     YTXTRANSLATEVALUE(0, 0, 0)]
+                                     animationName:@"ytx_slideUpRetournAnimtionWithDurationTime:"];
+}
 
 @end

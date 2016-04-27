@@ -51,6 +51,7 @@
 
 #pragma mark - Perspective
 - (nonnull CAAnimation *)ytx_perspectiveAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 rotateX:(CGFloat)rotateX rotateY:(CGFloat)rotateY animationName:(nonnull NSString *) name;
+
 - (nonnull CAAnimation *)ytx_perspectiveDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 - (nonnull CAAnimation *)ytx_perspectiveUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
@@ -75,5 +76,24 @@
 - (nonnull CAAnimation *)ytx_rotateLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 - (nonnull CAAnimation *)ytx_rotateRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+#pragma mark - Slide
+- (nonnull CAAnimation *)ytx_slideAnimtionWithDurationTime:(NSTimeInterval)durationTime isIn:(BOOL)isIn translateValues:(NSArray *)translateValues animationName:(nonnull NSString *) name;
+
+- (nonnull CAAnimation *)ytx_slideDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_slideLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_slideRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_slideUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_slideDownRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_slideLeftRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_slideRightRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_slideUpRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 @end

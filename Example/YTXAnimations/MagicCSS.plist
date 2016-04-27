@@ -205,5 +205,60 @@
 			</dict>
 		</array>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>Slide</string>
+		<key>sub</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>slideDown</string>
+				<key>function</key>
+				<string>ytx_slideDownAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>slideLeft</string>
+				<key>function</key>
+				<string>ytx_slideLeftAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>slideRight</string>
+				<key>function</key>
+				<string>ytx_slideRightAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>slideUp</string>
+				<key>function</key>
+				<string>ytx_slideUpAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>slideDownRetourn</string>
+				<key>function</key>
+				<string>ytx_slideDownRetournAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>slideLeftRetourn</string>
+				<key>function</key>
+				<string>ytx_slideLeftRetournAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>slideRightRetourn</string>
+				<key>function</key>
+				<string>ytx_slideRightRetournAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>slideUpRetourn</string>
+				<key>function</key>
+				<string>ytx_slideUpRetournAnimtionWithDurationTime:</string>
+			</dict>
+		</array>
+	</dict>
 </array>
 </plist>
