@@ -46,6 +46,72 @@
 
 - (nonnull CAAnimation *)ytx_twisterInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
+//    return [self normal_twisterInDownAnimtionWithDurationTime:durationTime];
+    return [self ssss_twisterInDownAnimtionWithDurationTime:durationTime];
+}
+- (nonnull CAAnimation *)normal_twisterInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime {
+        CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
+        [opacity setValues:@[@0, @1]];
+        [opacity setKeyTimes:@[@0, @1]];
+    
+        CGAffineTransform affineTransform00 = CGAffineTransformConcat(CGAffineTransformMakeRotation([YTXAnimationsUtil radianWithDegree:0]), CGAffineTransformMakeScale(0.0, 0.0));
+        CATransform3D frame00  =  CATransform3DMakeAffineTransform(affineTransform00);
+    
+        CGAffineTransform affineTransform03 = CGAffineTransformConcat(CGAffineTransformMakeRotation([YTXAnimationsUtil radianWithDegree:0]), CGAffineTransformMakeScale(0.0, 0.0));
+        CATransform3D frame03  =  CATransform3DMakeAffineTransform(affineTransform03);
+    
+        CGAffineTransform affineTransform065 = CGAffineTransformConcat(CGAffineTransformMakeRotation([YTXAnimationsUtil radianWithDegree:-180]), CGAffineTransformMakeScale(0.65, 0.65));
+        CATransform3D frame065  =  CATransform3DMakeAffineTransform(affineTransform065);
+    
+        CGAffineTransform affineTransform10 = CGAffineTransformConcat(CGAffineTransformMakeRotation([YTXAnimationsUtil radianWithDegree:-360]), CGAffineTransformMakeScale(1.0, 1.0));
+        CATransform3D frame10  =  CATransform3DMakeAffineTransform(affineTransform10);
+    
+        CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+        [transform setValues: @[
+                                [NSValue valueWithCATransform3D:frame00],
+                                [NSValue valueWithCATransform3D:frame03],
+                                [NSValue valueWithCATransform3D:frame065],
+                                [NSValue valueWithCATransform3D:frame10]]];
+        [transform setKeyTimes:@[@0, @0.3, @0.65, @1]];
+    
+        CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:YTXANCHORPOINT];
+        [anchor setValues:@[YTXPOINTVALUE(0.0, 1.0),
+                            YTXPOINTVALUE(0.0, 1.0),
+                            YTXPOINTVALUE(1.0, 1.0),
+                            YTXPOINTVALUE(0.5, 0.5)]];
+        [anchor setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
+    
+        CGPoint anchorePoint01 = [YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(0.0, 1.0) andView:self];
+        CGPoint anchorePoint11 = [YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(1.0, 1.0) andView:self];
+    
+        CGFloat y = self.center.y;
+        CAKeyframeAnimation *positionY = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONY];
+        [positionY setValues  :@[@(y + anchorePoint01.y),
+                                 @(y + anchorePoint01.y),
+                                 @(y + anchorePoint11.y),
+                                 @(y)]];
+        [positionY setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
+    
+        CGFloat x = self.center.x;
+        CAKeyframeAnimation *positionX = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONX];
+        [positionX setValues  :@[@(x + anchorePoint01.x),
+                                 @(x + anchorePoint01.x),
+                                 @(x + anchorePoint11.x),
+                                 @(x)]];
+        [positionX setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
+    
+        CAAnimationGroup *group = [CAAnimationGroup animation];
+        [group setAnimations:@[ anchor, transform, positionY, positionX, opacity ]];
+        [group setDuration:durationTime];
+    
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.layer addAnimation:group forKey:@"ytx_twisterInDownAnimtionWithDurationTime:"];
+        });
+        
+        return group;
+}
+
+- (nonnull CAAnimation *)ssss_twisterInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime {
     CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [opacity setValues:@[@0, @1]];
     [opacity setKeyTimes:@[@0, @1]];
@@ -69,6 +135,7 @@
                             [NSValue valueWithCATransform3D:frame065],
                             [NSValue valueWithCATransform3D:frame10]]];
     [transform setKeyTimes:@[@0, @0.3, @0.65, @1]];
+  
     
     CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:YTXANCHORPOINT];
     [anchor setValues:@[YTXPOINTVALUE(0.0, 1.0),
@@ -76,28 +143,24 @@
                         YTXPOINTVALUE(1.0, 1.0),
                         YTXPOINTVALUE(0.5, 0.5)]];
     [anchor setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
-    
-    CGPoint anchorePoint01 = [YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(0.0, 1.0) andView:self];
-    CGPoint anchorePoint11 = [YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(1.0, 1.0) andView:self];
-    
-    CGFloat y = self.center.y;
-    CAKeyframeAnimation *positionY = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONY];
-    [positionY setValues  :@[@(y + anchorePoint01.y),
-                             @(y + anchorePoint01.y),
-                             @(y + anchorePoint11.y),
-                             @(y)]];
+//
+    NSValue *value1 = [NSValue valueWithCGPoint:[YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(0.0, 1.0) andView:self]];
+    NSValue *value2 = [NSValue valueWithCGPoint:[YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(1.0, 1.0) andView:self]];
+    CAKeyframeAnimation *positionY = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITION];
+    [positionY setValues  :@[
+                             value1,
+                             value1,
+                             value2,
+                             [NSValue valueWithCGPoint:[YTXAnimationsUtil positionWithAnchorPoint:CGPointMake(0.5, 0.5)andView:self]]
+                             ]];
     [positionY setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
-    
-    CGFloat x = self.center.x;
-    CAKeyframeAnimation *positionX = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITIONX];
-    [positionX setValues  :@[@(x + anchorePoint01.x),
-                             @(x + anchorePoint01.x),
-                             @(x + anchorePoint11.x),
-                             @(x)]];
-    [positionX setKeyTimes:@[@0, @0.3, YTXANCHORLASTKEYTIME, @1]];
-    
+//
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    [group setAnimations:@[ anchor, transform, positionY, positionX, opacity ]];
+    [group setAnimations:@[
+                           anchor,
+                           transform,
+                            positionY,
+                           opacity ]];
     [group setDuration:durationTime];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -106,7 +169,6 @@
     
     return group;
 }
-
 - (nonnull CAAnimation *)ytx_twisterInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];

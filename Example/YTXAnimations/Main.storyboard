@@ -201,7 +201,6 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="AnimationLabel" destination="Cnf-76-Y4b" id="RpU-A9-d62"/>
-                        <outlet property="backBorderView" destination="pCr-jF-Z36" id="n65-LP-aro"/>
                         <outlet property="listTableView" destination="KFz-yh-bjN" id="0eV-IJ-yTT"/>
                     </connections>
                 </viewController>

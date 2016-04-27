@@ -12,15 +12,22 @@
 
 +(CGPoint)positionWithAnchorPoint:(CGPoint)anchorPoint andView:(nonnull UIView *)view
 {
-    CGPoint newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x,
-                                   view.bounds.size.height * anchorPoint.y);
-    CGPoint oldPoint = CGPointMake(view.bounds.size.width * view.layer.anchorPoint.x,
-                                   view.bounds.size.height * view.layer.anchorPoint.y);
+//    CGPoint newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x,
+//                                   view.bounds.size.height * anchorPoint.y);
+//    CGPoint oldPoint = CGPointMake(view.bounds.size.width * view.layer.anchorPoint.x,
+//                                   view.bounds.size.height * view.layer.anchorPoint.y);
+//    
+//
+//    newPoint = CGPointApplyAffineTransform(newPoint, view.transform);
+//    oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform);
+//    
+//    return CGPointMake(newPoint.x-oldPoint.x, newPoint.y-oldPoint.y);
+//    
     
-    newPoint = CGPointApplyAffineTransform(newPoint, view.transform);
-    oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform);
     
-    return CGPointMake(newPoint.x-oldPoint.x, newPoint.y-oldPoint.y);
+    return CGPointMake(view.bounds.size.width * anchorPoint.x + view.frame.origin.x,
+                                       view.bounds.size.height * anchorPoint.y+ view.frame.origin.y);
+  
 }
 
 +(CGFloat)radianWithDegree:(CGFloat) degree

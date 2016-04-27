@@ -13,7 +13,8 @@
 #define YTXROTATEVALUE(d,x,y,z)                 [NSValue valueWithCATransform3D:CATransform3DRotate(self.layer.transform, (d), (x), (y), (z))]
 #define YTXTRANSLATEVALUE(x,y,z)                [NSValue valueWithCATransform3D:CATransform3DTranslate(self.layer.transform, (x), (y), (z))]
 #define YTXPOINTVALUE(x,y)                      [NSValue valueWithCGPoint:CGPointMake((x), (y))]
-
+#define YTXCGPOINTVALUE(x)                      [NSValue valueWithCGPoint:x]
+#define YTXANCHORPOINTVALUE(x)                  [NSValue valueWithCGPoint:[YTXAnimationsUtil positionWithAnchorPoint:(x) andView:self]]
 //屏幕宽度
 #define YTXSELFWIDTH                            (self.frame.size.width)
 #define YTXSELFHEIGHT                           (self.frame.size.height)
