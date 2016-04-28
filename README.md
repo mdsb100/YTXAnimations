@@ -5,14 +5,15 @@
 [![License](https://img.shields.io/cocoapods/l/YTXAnimations.svg?style=flat)](http://cocoapods.org/pods/YTXAnimations)
 [![Platform](https://img.shields.io/cocoapods/p/YTXAnimations.svg?style=flat)](http://cocoapods.org/pods/YTXAnimations)
 
-Reference [Animate.CSS](https://daneden.github.io/animate.css/) [CSShake](http://elrumordelaluz.github.io/csshake/)
+Reference [Animate.CSS](https://daneden.github.io/animate.css/) [CSShake](http://elrumordelaluz.github.io/csshake/) [Magic.CSS](http://www.minimamente.com/example/magic_animations/)
 
-![YTXAnimateCSS](https://github.com/baidao/YTXAnimations/blob/master/YTXAnimateCSS.gif) ![YTXCSShake](https://github.com/baidao/YTXAnimations/blob/master/YTXCSShake.gif)
+![YTXAnimateCSS](https://github.com/baidao/YTXAnimations/blob/master/YTXAnimateCSS.gif) ![YTXCSShake](https://github.com/baidao/YTXAnimations/blob/master/YTXCSShake.gif) ![YTXMagicCSS](https://github.com/baidao/YTXAnimations/blob/master/YTXMagicCSS.gif)
 
 ## Usage
 ```objective-c
 #import <YTXAnimations/UIView+YTXAnimateCSS.h>
 #import <YTXAnimations/UIView+YTXCSShake.h>
+#import <YTXAnimations/UIView+YTXMagicCSS.h>
 
 CAAnimation * tada = [view ytx_tadaAnimtionWithDurationTime:1];
 tada.repeatCount = CGFLOAT_MAX;
@@ -34,7 +35,7 @@ tada.repeatCount = CGFLOAT_MAX;
 You shouldn't just use: pod "YTXAnimations". Since CocoaPods 0.36+ you should do something like:
 
 ```ruby
-pod 'YTXAnimations', :subspecs => ["AnimateCSS", "CSShake"]
+pod 'YTXAnimations', :subspecs => ["AnimateCSS", "CSShake", "MagicCSS"]
 ```
 
 ## License
@@ -158,3 +159,74 @@ YTXAnimations is available under the MIT license. See the LICENSE file for more 
 - ytx_rotateShakeAnimtion
 - ytx_opacityShakeAnimtion
 - ytx_crazyShakeAnimtion
+
+## List of Magic.CSS
+### Magic Effects
+- ytx_magicAnimtionWithDurationTime:
+- ytx_twisterInDownAnimtionWithDurationTime:
+- ytx_twisterInUpAnimtionWithDurationTime:
+- ytx_swapAnimtionWithDurationTime:
+### Static Effects
+- ytx_openDownLeftAnimtionWithDurationTime:
+- ytx_openDownRightAnimtionWithDurationTime:
+- ytx_openUpLeftAnimtionWithDurationTime:
+- ytx_openUpRightAnimtionWithDurationTime:
+- ytx_openDownLeftRetournAnimtionWithDurationTime:
+- ytx_openDownRightRetournAnimtionWithDurationTime:
+- ytx_openUpLeftRetournAnimtionWithDurationTime:
+- ytx_openUpRightRetournAnimtionWithDurationTime:
+### Static Effects Out
+- ytx_openDownLeftOutAnimtionWithDurationTime:
+- ytx_openDownRightOutAnimtionWithDurationTime:
+- ytx_openUpLeftOutAnimtionWithDurationTime:
+- ytx_openUpRightOutAnimtionWithDurationTime:
+### Perspective Effects
+- ytx_perspectiveDownAnimtionWithDurationTime:
+- ytx_perspectiveUpAnimtionWithDurationTime:
+- ytx_perspectiveLeftAnimtionWithDurationTime:
+- ytx_perspectiveRightAnimtionWithDurationTime:
+- ytx_perspectiveUpRetournAnimtionWithDurationTime:
+- ytx_perspectiveDownRetournAnimtionWithDurationTime:
+- ytx_perspectiveLeftRetournAnimtionWithDurationTime:
+- ytx_perspectiveRightRetournAnimtionWithDurationTime:
+### Rotate
+- ytx_rotateDownAnimtionWithDurationTime:
+- ytx_rotateUpAnimtionWithDurationTime:
+- ytx_rotateLeftAnimtionWithDurationTime:
+- ytx_rotateRightAnimtionWithDurationTime:
+### Slide
+- ytx_slideDownAnimtionWithDurationTime:
+- ytx_slideLeftAnimtionWithDurationTime:
+- ytx_slideRightAnimtionWithDurationTime:
+- ytx_slideUpAnimtionWithDurationTime:
+- ytx_slideDownRetournAnimtionWithDurationTime:
+- ytx_slideLeftRetournAnimtionWithDurationTime:
+- ytx_slideRightRetournAnimtionWithDurationTime:
+- ytx_slideUpRetournAnimtionWithDurationTime:
+### Math
+- ytx_swashOutAnimtionWithDurationTime:
+- ytx_swashInAnimtionWithDurationTime:
+- ytx_foolishOutAnimtionWithDurationTime:
+- ytx_foolishInAnimtionWithDurationTime:
+- ytx_holeOutAnimtionWithDurationTime:
+### Tin
+- ytx_tinDownInAnimtionWithDurationTime:
+- ytx_tinLeftInAnimtionWithDurationTime:
+- ytx_tinRightInAnimtionWithDurationTime:
+- ytx_tinUpInAnimtionWithDurationTime:
+- ytx_tinDownOutAnimtionWithDurationTime:
+- ytx_tinLeftOutAnimtionWithDurationTime:
+- ytx_tinRightOutAnimtionWithDurationTime:
+- ytx_tinUpOutAnimtionWithDurationTime:
+### Boing
+- ytx_boingInUpAnimtionWithDurationTime:
+- ytx_boingOutDownAnimtionWithDurationTime:
+### On The Space
+- ytx_spaceOutUpAnimtionWithDurationTime:
+- ytx_spaceOutRightAnimtionWithDurationTime:
+- ytx_spaceOutDownAnimtionWithDurationTime:
+- ytx_spaceOutLeftAnimtionWithDurationTime:
+- ytx_spaceInUpAnimtionWithDurationTime:
+- ytx_spaceInRightAnimtionWithDurationTime:
+- ytx_spaceInDownAnimtionWithDurationTime:
+- ytx_spaceInLeftAnimtionWithDurationTime:
