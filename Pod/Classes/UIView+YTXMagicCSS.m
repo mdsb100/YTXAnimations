@@ -981,4 +981,107 @@
     return group;
 }
 
+#pragma mark - On The Space
+- (nonnull CAAnimation *)ytx_spaceOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_spaceAnimtionWithDurationTime:durationTime translateX:0 translateY:-YTXSELFHEIGHT anchorPoint00:CGPointMake(0.5, 0.0) spaceKeyTime:0.2 isIn:NO animationName:@"ytx_spaceOutUpAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_spaceOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_spaceAnimtionWithDurationTime:durationTime translateX:YTXSELFWIDTH translateY:0  anchorPoint00:CGPointMake(1.0, 0.5) spaceKeyTime:0.2 isIn:NO animationName:@"ytx_spaceOutRightAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_spaceOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_spaceAnimtionWithDurationTime:durationTime translateX:0 translateY:YTXSELFHEIGHT anchorPoint00:CGPointMake(0.5, 1.0) spaceKeyTime:0.2 isIn:NO animationName:@"ytx_spaceOutDownAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_spaceOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_spaceAnimtionWithDurationTime:durationTime translateX:-YTXSELFWIDTH translateY:0 anchorPoint00:CGPointMake(0.0, 0.5) spaceKeyTime:0.2 isIn:NO animationName:@"ytx_spaceOutLeftAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_spaceInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_spaceAnimtionWithDurationTime:durationTime translateX:0 translateY:-YTXSELFHEIGHT anchorPoint00:CGPointMake(0.5, 0.0) spaceKeyTime:0.8 isIn:YES animationName:@"ytx_spaceInUpAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_spaceInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_spaceAnimtionWithDurationTime:durationTime translateX:YTXSELFWIDTH translateY:0  anchorPoint00:CGPointMake(1.0, 0.5) spaceKeyTime:0.8 isIn:YES animationName:@"ytx_spaceInRightAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_spaceInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_spaceAnimtionWithDurationTime:durationTime translateX:0 translateY:YTXSELFHEIGHT anchorPoint00:CGPointMake(0.5, 1.0) spaceKeyTime:0.8 isIn:YES animationName:@"ytx_spaceInDownAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_spaceInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_spaceAnimtionWithDurationTime:durationTime translateX:-YTXSELFWIDTH translateY:0 anchorPoint00:CGPointMake(0.0, 0.5) spaceKeyTime:0.8 isIn:YES animationName:@"ytx_spaceInLeftAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_spaceAnimtionWithDurationTime:(NSTimeInterval)durationTime translateX:(CGFloat) translateX translateY:(CGFloat) translateY anchorPoint00:(CGPoint)anchorPoint00 spaceKeyTime:(CGFloat) spaceKeyTime isIn:(BOOL) isIn  animationName:(nonnull NSString *) name
+{
+    CAKeyframeAnimation *animation  = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    
+    animation.keyTimes    = @[@0, @1];
+    
+    animation.values = isIn ? @[
+                                 YTXSCALEVALUE(0.2, 0.2, 1.0),
+                                 YTXSCALEVALUE(1.0, 1.0, 1.0)
+                                ] : @[
+                                 YTXSCALEVALUE(1.0, 1.0, 1.0),
+                                 YTXSCALEVALUE(0.2, 0.2, 1.0)
+                                ];
+    
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
+    [opacity setValues:isIn ? @[@0, @1] :@[@1, @0] ];
+    [opacity setKeyTimes:@[@0, @1]];
+    
+    CGPoint anchorPointSpace = anchorPoint00;
+    CGPoint anchorPoint10 =   CGPointMake(0.5, 0.5);
+    
+    CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:YTXANCHORPOINT];
+    [anchor setValues:@[YTXCGPOINTVALUE(anchorPoint00),
+                        YTXCGPOINTVALUE(anchorPointSpace),
+                        YTXCGPOINTVALUE(anchorPoint10)]];
+    [anchor setKeyTimes:@[@0, @(spaceKeyTime), @1]];
+    
+    CGPoint position00   = [YTXAnimationsUtil positionWithAnchorPoint:anchorPoint00   andView:self];
+    CGPoint positionSpace = [YTXAnimationsUtil positionWithAnchorPoint:anchorPointSpace andView:self];
+
+    CGPoint position10   = [YTXAnimationsUtil positionWithAnchorPoint:anchorPoint10   andView:self];
+    
+    if (isIn) {
+        position00.x += translateX;
+        position00.y += translateY;
+    }
+    else {
+        positionSpace.x += translateX;
+        positionSpace.y += translateY;
+        position10.x += translateX;
+        position10.y += translateY;
+    }
+    
+    
+    CAKeyframeAnimation *position = [CAKeyframeAnimation animationWithKeyPath:YTXPOSITION];
+    [position setValues  :@[
+                            YTXCGPOINTVALUE(position00),
+                            YTXCGPOINTVALUE(positionSpace),
+                            YTXCGPOINTVALUE(position10)
+                            ]];
+    [position setKeyTimes:@[@0, @(spaceKeyTime), YTXANCHORLASTKEYTIME, @1]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[opacity, position, anchor, animation]];
+    [group setDuration:durationTime];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:name];
+    });
+    return group;
+}
+
 @end

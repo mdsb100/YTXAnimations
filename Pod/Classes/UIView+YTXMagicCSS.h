@@ -128,4 +128,21 @@
 - (nonnull CAAnimation *)ytx_boingInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
 
 - (nonnull CAAnimation *)ytx_boingOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+#pragma mark - On The Space
+- (nonnull CAAnimation *)ytx_spaceOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_spaceOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_spaceOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_spaceOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_spaceInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_spaceInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_spaceInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
+- (nonnull CAAnimation *)ytx_spaceInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+
 @end

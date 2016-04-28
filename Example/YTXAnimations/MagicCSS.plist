@@ -353,7 +353,6 @@
 			</dict>
 		</array>
 	</dict>
-		 
 	<dict>
 		<key>name</key>
 		<string>Boing</string>
@@ -370,6 +369,61 @@
 				<string>boingOutDown</string>
 				<key>function</key>
 				<string>ytx_boingOutDownAnimtionWithDurationTime:</string>
+			</dict>
+		</array> 
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>On The Space</string>
+		<key>sub</key>
+		<array>   
+			<dict>
+				<key>name</key>
+				<string>spaceOutUp</string>
+				<key>function</key>
+				<string>ytx_spaceOutUpAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>spaceOutRight</string>
+				<key>function</key>
+				<string>ytx_spaceOutRightAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>spaceOutDown</string>
+				<key>function</key>
+				<string>ytx_spaceOutDownAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>spaceOutLeft</string>
+				<key>function</key>
+				<string>ytx_spaceOutLeftAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>spaceInUp</string>
+				<key>function</key>
+				<string>ytx_spaceInUpAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>spaceInRight</string>
+				<key>function</key>
+				<string>ytx_spaceInRightAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>spaceInDown</string>
+				<key>function</key>
+				<string>ytx_spaceInDownAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>spaceInLeft</string>
+				<key>function</key>
+				<string>ytx_spaceInLeftAnimtionWithDurationTime:</string>
 			</dict>
 		</array> 
 	</dict>
