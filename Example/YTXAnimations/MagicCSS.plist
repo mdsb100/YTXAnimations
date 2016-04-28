@@ -295,7 +295,83 @@
 				<key>function</key>
 				<string>ytx_holeOutAnimtionWithDurationTime:</string>
 			</dict>
+			</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Tin</string>
+		<key>sub</key>
+		<array>   
+			<dict>
+				<key>name</key>
+				<string>tinInDown</string>
+				<key>function</key>
+				<string>ytx_tinDownInAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>tinLeftIn</string>
+				<key>function</key>
+				<string>ytx_tinLeftInAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>tinRightIn</string>
+				<key>function</key>
+				<string>ytx_tinRightInAnimtionWithDurationTime:</string>
+			</dict>
+
+			<dict>
+				<key>name</key>
+				<string>tinUpIn</string>
+				<key>function</key>
+				<string>ytx_tinUpInAnimtionWithDurationTime:</string>
+			</dict> 
+			<dict>
+				<key>name</key>
+				<string>tinDownOut</string>
+				<key>function</key>
+				<string>ytx_tinDownOutAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>tinLeftOut</string>
+				<key>function</key>
+				<string>ytx_tinLeftOutAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>tinRightOut</string>
+				<key>function</key>
+				<string>ytx_tinRightOutAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>tinUpOut</string>
+				<key>function</key>
+				<string>ytx_tinUpOutAnimtionWithDurationTime:</string>
+			</dict>
 		</array>
+	</dict>
+		 
+	<dict>
+		<key>name</key>
+		<string>Boing</string>
+		<key>sub</key>
+		<array>   
+			<dict>
+				<key>name</key>
+				<string>boingInUp</string>
+				<key>function</key>
+				<string>ytx_boingInUpAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>boingOutDown</string>
+				<key>function</key>
+				<string>ytx_boingOutDownAnimtionWithDurationTime:</string>
+			</dict>
+		</array> 
 	</dict>
 </array>
 </plist>
