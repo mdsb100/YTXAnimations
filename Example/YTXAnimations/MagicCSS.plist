@@ -260,5 +260,42 @@
 			</dict>
 		</array>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>Math</string>
+		<key>sub</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>swashOut</string>
+				<key>function</key>
+				<string>ytx_swashOutAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>swashIn</string>
+				<key>function</key>
+				<string>ytx_swashInAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>foolishOut</string>
+				<key>function</key>
+				<string>ytx_foolishOutAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>foolishIn</string>
+				<key>function</key>
+				<string>ytx_foolishInAnimtionWithDurationTime:</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>holeOut</string>
+				<key>function</key>
+				<string>ytx_holeOutAnimtionWithDurationTime:</string>
+			</dict>
+		</array>
+	</dict>
 </array>
 </plist>

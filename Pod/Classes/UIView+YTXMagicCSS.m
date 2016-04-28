@@ -578,4 +578,158 @@
                                      animationName:@"ytx_slideUpRetournAnimtionWithDurationTime:"];
 }
 
+#pragma mark - Math
+- (nonnull CAAnimation *)ytx_swashOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    NSArray * keyTimes = @[@0, @0.8, @1];
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
+    [opacity setValues:@[@1, @1, @0]];
+    [opacity setKeyTimes:keyTimes];
+    
+    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    [transform setValues: @[
+                            YTXSCALEVALUE(1.0, 1.0, 0.0),
+                            YTXSCALEVALUE(0.9, 0.9, 0.0),
+                            YTXSCALEVALUE(0.0, 0.0, 0.0)
+                            ]];
+    [transform setKeyTimes:keyTimes];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[ transform, opacity ]];
+    [group setDuration:durationTime];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_swashOutAnimtionWithDurationTime:"];
+    });
+    
+    return group;
+}
+
+- (nonnull CAAnimation *)ytx_swashInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    NSArray * keyTimes = @[@0, @0.2, @1];
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
+    [opacity setValues:@[@0, @1, @1]];
+    [opacity setKeyTimes:keyTimes];
+    
+    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    [transform setValues: @[
+                            YTXSCALEVALUE(0.0, 0.0, 0.0),
+                            YTXSCALEVALUE(0.9, 0.9, 0.0),
+                            YTXSCALEVALUE(1.0, 1.0, 0.0)
+                            ]];
+    [transform setKeyTimes:keyTimes];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[ transform, opacity ]];
+    [group setDuration:durationTime];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_swashInAnimtionWithDurationTime:"];
+    });
+    
+    return group;
+}
+
+- (nonnull CAAnimation *)ytx_foolishAnimtionWithDurationTime:(NSTimeInterval)durationTime anchorPointArray:(nonnull NSArray *) anchorPointArray opacityArray:(nonnull NSArray *) opacityArray scaleArray:(nonnull NSArray *) scaleArray animationName:(nonnull NSString *) name
+{
+    NSArray * keyTimes  = @[@0, @0.1, @0.2, @0.4, @0.6, @0.8, @1];
+    
+    NSArray * rotateZArray = @[@0, @(180), @(-359.9999), @(0), @0, @0, @0];
+    
+    int count = rotateZArray.count;
+    
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
+    [opacity setValues:opacityArray];
+    
+    CAKeyframeAnimation *anchor = [CAKeyframeAnimation animationWithKeyPath:YTXANCHORPOINT];
+    [anchor setValues:anchorPointArray];
+    [anchor setKeyTimes:keyTimes];
+    
+    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    
+    NSMutableArray * frameArray = [NSMutableArray array];
+    
+    for (int index = 0; index < count; index++ ) {
+        CGFloat rotateValue = [YTXAnimationsUtil radianWithDegree:[rotateZArray[index] floatValue] ];
+        CGPoint scalePoint  = [scaleArray[index] CGPointValue];
+        CGPoint anchorPoint = [anchorPointArray[index] CGPointValue];
+        
+        CGAffineTransform rorateAndScaleAffineFrame = CGAffineTransformConcat(CGAffineTransformScale(CGAffineTransformIdentity, scalePoint.x, scalePoint.y), CGAffineTransformRotate(CGAffineTransformIdentity, rotateValue));
+        
+        CGPoint anchorePointOffset = [YTXAnimationsUtil offsetWithAnchorPoint:anchorPoint andView:self];
+        rorateAndScaleAffineFrame.tx = anchorePointOffset.x;
+        rorateAndScaleAffineFrame.ty = anchorePointOffset.y;
+        
+        NSValue * trasformValue = [NSValue valueWithCATransform3D:CATransform3DMakeAffineTransform(rorateAndScaleAffineFrame)];
+        [frameArray addObject:trasformValue];
+    }
+    [transform setValues:frameArray];
+    [transform setKeyTimes:keyTimes];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    [group setAnimations:@[ transform, anchor, opacity ]];
+    [group setDuration:durationTime];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:name];
+    });
+    
+    return group;
+}
+
+- (nonnull CAAnimation *)ytx_foolishOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_foolishAnimtionWithDurationTime:durationTime
+                                    anchorPointArray:@[YTXPOINTVALUE(0.5, 0.5), YTXPOINTVALUE(0.25, 0.25), YTXPOINTVALUE(0.0, 0.0), YTXPOINTVALUE(1.0, 0.0), YTXPOINTVALUE(0.0, 0.5), YTXPOINTVALUE(0.0, 1.0), YTXPOINTVALUE(0.5, 0.5)]
+                                        opacityArray:@[@1, @1, @1, @1, @1, @0]
+                                          scaleArray:@[YTXPOINTVALUE(1.0, 1.0), YTXPOINTVALUE(0.75, 0.75), YTXPOINTVALUE(0.5, 0.5), YTXPOINTVALUE(0.5, 0.5), YTXPOINTVALUE(0.5, 0.5), YTXPOINTVALUE(0.5, 0.5), YTXPOINTVALUE(0.0, 0.0)]
+                                       animationName:@"ytx_foolishOutAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_foolishInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    return [self ytx_foolishAnimtionWithDurationTime:durationTime
+                                    anchorPointArray:@[YTXPOINTVALUE(0.5, 0.5), YTXPOINTVALUE(0.25, 0.5), YTXPOINTVALUE(0.0, 1.0), YTXPOINTVALUE(1.0, 1.0), YTXPOINTVALUE(0.0, 0.5), YTXPOINTVALUE(0.0, 0.0), YTXPOINTVALUE(0.5, 0.5)]
+                                        opacityArray:@[@0, @1, @1, @1, @1, @1]
+                                          scaleArray:@[YTXPOINTVALUE(0.0, 0.0), YTXPOINTVALUE(0.25, 0.25), YTXPOINTVALUE(0.5, 0.5), YTXPOINTVALUE(0.5, 0.5), YTXPOINTVALUE(0.5, 0.5), YTXPOINTVALUE(0.5, 0.5), YTXPOINTVALUE(1.0, 1.0)]
+                                       animationName:@"ytx_foolishInAnimtionWithDurationTime:"];
+}
+
+- (nonnull CAAnimation *)ytx_holeOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+{
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
+    [opacity setValues:@[@1, @0.5, @0]];
+    [opacity setKeyTimes: @[@0, @0.5, @1]];
+
+    CATransform3D frame00  = CATransform3DIdentity;
+    
+    CATransform3D frame05 = CATransform3DConcat(CATransform3DMakeRotation([YTXAnimationsUtil radianWithDegree:-90], 0, 1, 0), CATransform3DMakeScale(0.5, 0.5, 0));
+
+    CATransform3D frame09 = CATransform3DConcat(CATransform3DMakeRotation([YTXAnimationsUtil radianWithDegree:-162], 0, 1, 0), CATransform3DMakeScale(0.1, 0.1, 0));
+    
+    CATransform3D frame9999 = CATransform3DConcat(CATransform3DMakeRotation([YTXAnimationsUtil radianWithDegree:-179.9999], 0, 1, 0), CATransform3DMakeScale(0.0001, 0.0001, 0));
+    
+    CATransform3D frame10 = CATransform3DConcat(CATransform3DMakeRotation([YTXAnimationsUtil radianWithDegree:-180], 0, 1, 0), CATransform3DMakeScale(0, 0, 0));
+    
+    CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
+    [transform setValues: @[[NSValue valueWithCATransform3D:frame00],
+                            [NSValue valueWithCATransform3D:frame05],
+                            [NSValue valueWithCATransform3D:frame09],
+                            [NSValue valueWithCATransform3D:frame9999],
+                            [NSValue valueWithCATransform3D:frame10]]];
+    [transform setKeyTimes:@[@0, @0.5, @0.9, YTXANCHORLASTKEYTIME, @1]];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    
+    [group setAnimations:@[transform]];
+    [group setDuration:durationTime];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.layer addAnimation:group forKey:@"ytx_holeOutAnimtionWithDurationTime:"];
+    });
+    
+    return group;
+}
+
 @end
