@@ -166,6 +166,7 @@ YTXAnimations is available under the MIT license. See the LICENSE file for more 
 - ytx_twisterInDownAnimtionWithDurationTime:
 - ytx_twisterInUpAnimtionWithDurationTime:
 - ytx_swapAnimtionWithDurationTime:
+
 ### Static Effects
 - ytx_openDownLeftAnimtionWithDurationTime:
 - ytx_openDownRightAnimtionWithDurationTime:
@@ -175,11 +176,13 @@ YTXAnimations is available under the MIT license. See the LICENSE file for more 
 - ytx_openDownRightRetournAnimtionWithDurationTime:
 - ytx_openUpLeftRetournAnimtionWithDurationTime:
 - ytx_openUpRightRetournAnimtionWithDurationTime:
+
 ### Static Effects Out
 - ytx_openDownLeftOutAnimtionWithDurationTime:
 - ytx_openDownRightOutAnimtionWithDurationTime:
 - ytx_openUpLeftOutAnimtionWithDurationTime:
 - ytx_openUpRightOutAnimtionWithDurationTime:
+
 ### Perspective Effects
 - ytx_perspectiveDownAnimtionWithDurationTime:
 - ytx_perspectiveUpAnimtionWithDurationTime:
@@ -189,11 +192,13 @@ YTXAnimations is available under the MIT license. See the LICENSE file for more 
 - ytx_perspectiveDownRetournAnimtionWithDurationTime:
 - ytx_perspectiveLeftRetournAnimtionWithDurationTime:
 - ytx_perspectiveRightRetournAnimtionWithDurationTime:
+
 ### Rotate
 - ytx_rotateDownAnimtionWithDurationTime:
 - ytx_rotateUpAnimtionWithDurationTime:
 - ytx_rotateLeftAnimtionWithDurationTime:
 - ytx_rotateRightAnimtionWithDurationTime:
+
 ### Slide
 - ytx_slideDownAnimtionWithDurationTime:
 - ytx_slideLeftAnimtionWithDurationTime:
@@ -203,12 +208,14 @@ YTXAnimations is available under the MIT license. See the LICENSE file for more 
 - ytx_slideLeftRetournAnimtionWithDurationTime:
 - ytx_slideRightRetournAnimtionWithDurationTime:
 - ytx_slideUpRetournAnimtionWithDurationTime:
+
 ### Math
 - ytx_swashOutAnimtionWithDurationTime:
 - ytx_swashInAnimtionWithDurationTime:
 - ytx_foolishOutAnimtionWithDurationTime:
 - ytx_foolishInAnimtionWithDurationTime:
 - ytx_holeOutAnimtionWithDurationTime:
+
 ### Tin
 - ytx_tinDownInAnimtionWithDurationTime:
 - ytx_tinLeftInAnimtionWithDurationTime:
@@ -218,9 +225,11 @@ YTXAnimations is available under the MIT license. See the LICENSE file for more 
 - ytx_tinLeftOutAnimtionWithDurationTime:
 - ytx_tinRightOutAnimtionWithDurationTime:
 - ytx_tinUpOutAnimtionWithDurationTime:
+
 ### Boing
 - ytx_boingInUpAnimtionWithDurationTime:
 - ytx_boingOutDownAnimtionWithDurationTime:
+
 ### On The Space
 - ytx_spaceOutUpAnimtionWithDurationTime:
 - ytx_spaceOutRightAnimtionWithDurationTime:
