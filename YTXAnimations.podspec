@@ -37,9 +37,9 @@ Pod::Spec.new do |s|
     YTXCSShake   = { :spec_name => "CSShake" }
     YTXMagicCSS   = { :spec_name => "MagicCSS" }
     
-    $all_sync = [YTXAnimateCSS, YTXCSShake, YTXMagicCSS]
+    $animations = [YTXAnimateCSS, YTXCSShake, YTXMagicCSS]
     
-    $all_sync.each do |sync_spec|
+    $animations.each do |sync_spec|
         s.subspec sync_spec[:spec_name] do |ss|
             
             specname = sync_spec[:spec_name]
@@ -57,5 +57,9 @@ Pod::Spec.new do |s|
             end
             
         end
+    end
+    
+    s.subspec "Transformer" do |ss|
+        ss.source_files = ["Pod/Classes/YTXGooeyCircleLayer.{h,m}"]
     end
 end

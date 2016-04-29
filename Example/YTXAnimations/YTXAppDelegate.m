@@ -71,7 +71,14 @@
     magicCSSViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Magic.CSS"
                                                                      image:[UIImage imageNamed:@"diamond"]
                                                              selectedImage:[UIImage imageNamed:@"diamond_filled"]];
-    self.tabController.viewControllers = @[animateCSSViewController, CSShakeViewController, magicCSSViewController];
+    
+    UIViewController *transformerViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YTXTransformerViewController"];
+    transformerViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Transformer"
+                                                                      image:[UIImage imageNamed:@"robot"]
+                                                              selectedImage:[UIImage imageNamed:@"robot_filled"]];
+    
+    
+    self.tabController.viewControllers = @[animateCSSViewController, CSShakeViewController, magicCSSViewController, transformerViewController];
     self.window.rootViewController = self.tabController;
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181AE3701CD32AFA00256D9F /* YTXTransformerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181AE36F1CD32AFA00256D9F /* YTXTransformerViewController.m */; };
+		181AE3721CD32C3100256D9F /* Transformer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 181AE3711CD32C3100256D9F /* Transformer.plist */; };
 		18D6BB381CC5D57E00746975 /* YTXTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6BB371CC5D57E00746975 /* YTXTabBarViewController.m */; };
 		18D6BB3B1CC5D59A00746975 /* YTXAnimateCSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6BB3A1CC5D59A00746975 /* YTXAnimateCSSViewController.m */; };
 		18D6BB3E1CC5D7F200746975 /* YTXCSShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6BB3D1CC5D7F200746975 /* YTXCSShakeViewController.m */; };
@@ -44,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181AE36E1CD32AFA00256D9F /* YTXTransformerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTXTransformerViewController.h; sourceTree = "<group>"; };
+		181AE36F1CD32AFA00256D9F /* YTXTransformerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTXTransformerViewController.m; sourceTree = "<group>"; };
+		181AE3711CD32C3100256D9F /* Transformer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Transformer.plist; sourceTree = "<group>"; };
 		18D6BB361CC5D57E00746975 /* YTXTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTXTabBarViewController.h; sourceTree = "<group>"; };
 		18D6BB371CC5D57E00746975 /* YTXTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTXTabBarViewController.m; sourceTree = "<group>"; };
 		18D6BB391CC5D59A00746975 /* YTXAnimateCSSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTXAnimateCSSViewController.h; sourceTree = "<group>"; };
@@ -123,6 +128,8 @@
 				18D6BB3D1CC5D7F200746975 /* YTXCSShakeViewController.m */,
 				18D6BB511CCB43BF00746975 /* YTXMagicCSSViewController.h */,
 				18D6BB521CCB43BF00746975 /* YTXMagicCSSViewController.m */,
+				181AE36E1CD32AFA00256D9F /* YTXTransformerViewController.h */,
+				181AE36F1CD32AFA00256D9F /* YTXTransformerViewController.m */,
 				18D6BB361CC5D57E00746975 /* YTXTabBarViewController.h */,
 				18D6BB371CC5D57E00746975 /* YTXTabBarViewController.m */,
 			);
@@ -188,6 +195,7 @@
 				82F6EEBC1CBB6ECE00DBFDE8 /* AnimateCSS.plist */,
 				18D6BB3F1CC5D82F00746975 /* CSShake.plist */,
 				18D6BB541CCB451300746975 /* MagicCSS.plist */,
+				181AE3711CD32C3100256D9F /* Transformer.plist */,
 				82F6EEC41CBB7FE100DBFDE8 /* LaunchScreen.storyboard */,
 			);
 			name = "Example for YTXAnimations";
@@ -323,6 +331,7 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				82F6EEC51CBB7FE100DBFDE8 /* LaunchScreen.storyboard in Resources */,
 				18D6BB551CCB451300746975 /* MagicCSS.plist in Resources */,
+				181AE3721CD32C3100256D9F /* Transformer.plist in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +450,7 @@
 				6003F59E195388D20070C39A /* YTXAppDelegate.m in Sources */,
 				18D6BB531CCB43BF00746975 /* YTXMagicCSSViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				181AE3701CD32AFA00256D9F /* YTXTransformerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
