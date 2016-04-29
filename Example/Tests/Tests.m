@@ -3,7 +3,7 @@
 //  YTXAnimationsTests
 //
 //  Created by lilonglong on 04/11/2016.
-//  Copyright (c) 2016 lilonglong. All rights reserved.
+//  Copyright (c) 2016年 YTX. All rights reserved.
 //
 
 // https://github.com/kiwi-bdd/Kiwi
