@@ -85,10 +85,10 @@
 
 - (void)springAnimationWithDurationTime:(CFTimeInterval)durationTime
 {
-    [self springAnimationWithDurationTime:durationTime usingSpringWithDamping:0.5 initialSpringVelocity:3 fromValue:@(2) toValue:@(0)];
+    [self springAnimationWithDurationTime:durationTime usingSpringWithDamping:0.5 initialSpringVelocity:3 fromValue:2 toValue:0];
 }
 
-- (void)springAnimationWithDurationTime:(CFTimeInterval)durationTime usingSpringWithDamping:(CGFloat)damping initialSpringVelocity:(CGFloat)velocity fromValue:(id)fromValue toValue:(id)toValue;
+- (void)springAnimationWithDurationTime:(CFTimeInterval)durationTime usingSpringWithDamping:(CGFloat)damping initialSpringVelocity:(CGFloat)velocity fromValue:(CGFloat)fromValue toValue:(CGFloat)toValue;
 {
     CGFloat dampingFactor = 10.0;
     CGFloat velocityFactor = 10.0;
@@ -108,8 +108,8 @@
     [self addAnimation:animation forKey:@"springAnimationWithDurationTime:"];
 }
 
-- (NSMutableArray *)springAnimationValues:(id)fromValue
-                                  toValue:(id)toValue
+- (NSMutableArray *)springAnimationValues:(CGFloat)fromValue
+                                  toValue:(CGFloat)toValue
                    usingSpringWithDamping:(CGFloat)damping
                     initialSpringVelocity:(CGFloat)velocity
                                  duration:(CGFloat)duration {
@@ -121,10 +121,10 @@
     }
     
     //差值
-    CGFloat diff = [toValue floatValue] - [fromValue floatValue];
+    CGFloat diff = toValue - fromValue;
     for (NSInteger frame = 0; frame < numOfFrames; frame++) {
         CGFloat x = (CGFloat)frame / (CGFloat)numOfFrames;
-        CGFloat value = [toValue floatValue] -
+        CGFloat value = toValue -
         diff * (pow(M_E, -damping * x) *
                 cos(velocity * x)); // y = 1-e^{-5x} * cos(30x)
         values[frame] = @(value);

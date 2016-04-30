@@ -15,6 +15,6 @@
 
 - (void)springAnimationWithDurationTime:(CFTimeInterval)durationTime;
 
-- (void)springAnimationWithDurationTime:(CFTimeInterval)durationTime usingSpringWithDamping:(CGFloat)damping initialSpringVelocity:(CGFloat)velocity fromValue:(id)fromValue toValue:(id)toValue;
+- (void)springAnimationWithDurationTime:(CFTimeInterval)durationTime usingSpringWithDamping:(CGFloat)damping initialSpringVelocity:(CGFloat)velocity fromValue:(CGFloat)fromValue toValue:(CGFloat)toValue;
 
 @end
