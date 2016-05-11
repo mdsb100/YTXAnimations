@@ -13,6 +13,12 @@
 				<key>function</key>
 				<string>springAnimationWithDurationTime:</string>
 			</dict>
+			<dict>
+				<key>name</key>
+				<string>YTXCountDownShowLayer</string>
+				<key>function</key>
+				<string>countDownAnimationWithDurationTime:</string>
+			</dict>
 		</array>
 	</dict>
 </array>
