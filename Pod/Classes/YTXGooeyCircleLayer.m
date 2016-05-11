@@ -35,7 +35,8 @@
     return  _gooeySize ? : @(self.bounds.size.width);
 }
 
-+ (BOOL)needsDisplayForKey:(NSString *)key {
++ (BOOL)needsDisplayForKey:(NSString *)key
+{
     if ([key isEqual:@"step"]) {
         return YES;
     }
@@ -112,7 +113,8 @@
                                   toValue:(CGFloat)toValue
                    usingSpringWithDamping:(CGFloat)damping
                     initialSpringVelocity:(CGFloat)velocity
-                                 duration:(CGFloat)duration {
+                                 duration:(CGFloat)duration
+{
     // 60个关键帧
     NSInteger numOfFrames = duration * 60;
     NSMutableArray *values = [NSMutableArray arrayWithCapacity:numOfFrames];
