@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = "YTXAnimations"
-    s.version          = "1.2.2"
+    s.version          = "1.2.3"
     s.summary          = "提供UIView的动画"
     
     # This description is used to generate tags and improve search results.
@@ -60,6 +60,6 @@ Pod::Spec.new do |s|
     end
     
     s.subspec "Transformer" do |ss|
-        ss.source_files = ["Pod/Classes/YTXGooeyCircleLayer.{h,m}"]
+        ss.source_files = ["Pod/Classes/YTXGooeyCircleLayer.{h,m}", "Pod/Classes/YTXCountDownShowLayer.{h,m}"]
     end
 end
