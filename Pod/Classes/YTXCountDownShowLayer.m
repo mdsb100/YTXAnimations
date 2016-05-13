@@ -46,7 +46,6 @@
 
 - (void)drawInContext:(CGContextRef)ctx
 {
-    
     CGRect bounds = self.bounds;
     CGFloat center = bounds.size.width/2;
     CGFloat radius = center;
@@ -69,20 +68,18 @@
 
 - (nonnull CAKeyframeAnimation * )countDownAnimationWithDurationTime:(CFTimeInterval)durationTime
 {
-    self.step = 0;
+    self.step = 1.0;
     CAKeyframeAnimation *animation =
     [CAKeyframeAnimation animationWithKeyPath:@"step"];
-    
     animation.values = @[@(0), @(1)];
     animation.duration = durationTime;
     animation.fillMode = kCAFillModeForwards;
     
-    animation.removedOnCompletion = NO;
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self removeAnimationForKey:@"countDownAnimationWithDurationTime:"];
-        [self addAnimation:animation forKey:@"countDownAnimationWithDurationTime:"];
+        
     });
+    [self removeAnimationForKey:@"countDownAnimationWithDurationTime:"];
+    [self addAnimation:animation forKey:@"countDownAnimationWithDurationTime:"];
     
     return animation;
 }

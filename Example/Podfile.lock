@@ -1,9 +1,9 @@
 PODS:
   - Kiwi (2.4.0)
-  - YTXAnimations/AnimateCSS (1.2.3)
-  - YTXAnimations/CSShake (1.2.3)
-  - YTXAnimations/MagicCSS (1.2.3)
-  - YTXAnimations/Transformer (1.2.3)
+  - YTXAnimations/AnimateCSS (1.2.4)
+  - YTXAnimations/CSShake (1.2.4)
+  - YTXAnimations/MagicCSS (1.2.4)
+  - YTXAnimations/Transformer (1.2.4)
 
 DEPENDENCIES:
   - Kiwi
@@ -18,6 +18,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
-  YTXAnimations: 4a8615e79230a33c3cc559d4661ecf10816d9083
+  YTXAnimations: 695ff6e62f93b28c2e50bce7329349354f8b6f08
 
 COCOAPODS: 0.39.0
