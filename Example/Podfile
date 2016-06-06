@@ -3,12 +3,12 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
 
-target 'YTXAnimations_Example', :exclusive => true do
-pod 'YTXAnimations', :path => '../', :subspecs => ["AnimateCSS", "CSShake", "MagicCSS", "Transformer"]
+target 'YTXAnimations_Example' do
+  pod 'YTXAnimations', :path => '../', :subspecs => ["AnimateCSS", "CSShake", "MagicCSS", "Transformer"]
 
 end
 
-target 'YTXAnimations_Tests', :exclusive => true do
+target 'YTXAnimations_Tests' do
   pod 'Kiwi'
 
 end
