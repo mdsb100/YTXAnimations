@@ -16,11 +16,15 @@
 
 @implementation YTXCountDownShowLayer
 
+@dynamic countDownColor;
+@dynamic clockwise;
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         self.cornerRadius = self.frame.size.width * 0.5;
+        self.countDownColor = [UIColor grayColor];
     }
     return self;
 }
@@ -29,11 +33,6 @@
 {
     [super setFrame:frame];
     self.cornerRadius = self.frame.size.width * 0.5;
-}
-
-- (UIColor *)countDownColor
-{
-    return _countDownColor ? : [UIColor grayColor];
 }
 
 + (BOOL)needsDisplayForKey:(NSString *)key
