@@ -13,7 +13,7 @@
 #pragma mark - Attention Seekers
 - (nonnull CAAnimation *)ytx_bounceAnimationWithDurationTime:(NSTimeInterval)durationTime;
 - (nonnull CAAnimation *)ytx_flashAnimationWithDurationTime:(NSTimeInterval)durationTime;
-- (nonnull CAAnimation *)ytx_pluseAnimationWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_pulseAnimationWithDurationTime:(NSTimeInterval)durationTime;
 - (nonnull CAAnimation *)ytx_rubberBandAnimationWithDurationTime:(NSTimeInterval)durationTime;
 - (nonnull CAAnimation *)ytx_shakeAnimationWithDurationTime:(NSTimeInterval)durationTime;
 - (nonnull CAAnimation *)ytx_swingAnimationWithDurationTime:(NSTimeInterval)durationTime;

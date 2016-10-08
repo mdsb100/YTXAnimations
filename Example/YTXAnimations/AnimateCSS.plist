@@ -35,7 +35,7 @@
 				<key>name</key>
 				<string>pluse</string>
 				<key>function</key>
-				<string>ytx_pluseAnimationWithDurationTime:</string>
+				<string>ytx_pulseAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>

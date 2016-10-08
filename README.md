@@ -50,7 +50,7 @@ YTXAnimations is available under the MIT license. See the LICENSE file for more 
 - ytx_wobbleAnimationWithDurationTime:
 - ytx_swingAnimationWithDurationTime:
 - ytx_rubberBandAnimationWithDurationTime:
-- ytx_pluseAnimationWithDurationTime:
+- ytx_pulseAnimationWithDurationTime:
 - ytx_flashAnimationWithDurationTime:
 - ytx_bounceAnimationWithDurationTime:
 - ytx_tadaAnimationWithDurationTime:
