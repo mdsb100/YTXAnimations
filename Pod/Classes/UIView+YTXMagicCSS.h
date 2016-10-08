@@ -11,138 +11,138 @@
 @interface UIView (YTXMagicCSS)
 
 #pragma mark - Magic Effects
-- (nonnull CAAnimation *)ytx_magicAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_magicAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_twisterInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_twisterInDownAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_twisterInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_twisterInUpAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_swapAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_swapAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Static Effects
-- (nonnull CAAnimation *)ytx_openAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 animationName:(nonnull NSString *) name;
+- (nonnull CAAnimation *)ytx_openAnimationWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 animationName:(nonnull NSString *) name;
 
-- (nonnull CAAnimation *)ytx_openAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 opacity00:(CGFloat)opacity00 opacity10:(CGFloat)opacity10 animationName:(nonnull NSString *) name;
+- (nonnull CAAnimation *)ytx_openAnimationWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 opacity00:(CGFloat)opacity00 opacity10:(CGFloat)opacity10 animationName:(nonnull NSString *) name;
 
-- (nonnull CAAnimation *)ytx_openDownLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openDownLeftAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_openDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openDownRightAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_openUpLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openUpLeftAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_openUpRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openUpRightAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_openDownLeftRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openDownLeftRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_openDownRightRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openDownRightRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_openUpLeftRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openUpLeftRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_openUpRightRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openUpRightRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Static Effects Out
-- (nonnull CAAnimation *)ytx_openDownLeftOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openDownLeftOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_openDownRightOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openDownRightOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_openUpLeftOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openUpLeftOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_openUpRightOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_openUpRightOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Perspective
-- (nonnull CAAnimation *)ytx_perspectiveAnimtionWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 rotateX:(CGFloat)rotateX rotateY:(CGFloat)rotateY animationName:(nonnull NSString *) name;
+- (nonnull CAAnimation *)ytx_perspectiveAnimationWithDurationTime:(NSTimeInterval)durationTime anchor00:(CGPoint) anchor00 ahchore10:(CGPoint) anchor10 degree00:(CGFloat) degree00 degree10:(CGFloat) degree10 rotateX:(CGFloat)rotateX rotateY:(CGFloat)rotateY animationName:(nonnull NSString *) name;
 
-- (nonnull CAAnimation *)ytx_perspectiveDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_perspectiveDownAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_perspectiveUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_perspectiveUpAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_perspectiveLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_perspectiveLeftAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_perspectiveRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_perspectiveRightAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_perspectiveDownRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_perspectiveDownRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_perspectiveUpRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_perspectiveUpRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_perspectiveLeftRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_perspectiveLeftRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_perspectiveRightRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_perspectiveRightRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Rotate
-- (nonnull CAAnimation *)ytx_rotateDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_rotateDownAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_rotateUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_rotateUpAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_rotateLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_rotateLeftAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_rotateRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_rotateRightAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Slide
-- (nonnull CAAnimation *)ytx_slideAnimtionWithDurationTime:(NSTimeInterval)durationTime isIn:(BOOL)isIn translateValues:(nonnull NSArray *)translateValues animationName:(nonnull NSString *) name;
+- (nonnull CAAnimation *)ytx_slideAnimationWithDurationTime:(NSTimeInterval)durationTime isIn:(BOOL)isIn translateValues:(nonnull NSArray *)translateValues animationName:(nonnull NSString *) name;
 
-- (nonnull CAAnimation *)ytx_slideDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_slideDownAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_slideLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_slideLeftAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_slideRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_slideRightAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_slideUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_slideUpAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_slideDownRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_slideDownRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_slideLeftRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_slideLeftRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_slideRightRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_slideRightRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_slideUpRetournAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_slideUpRetournAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Math
-- (nonnull CAAnimation *)ytx_swashOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_swashOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_swashInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_swashInAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_foolishOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_foolishOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_foolishInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_foolishInAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_holeOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_holeOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Tin
-- (nonnull CAAnimation *)ytx_tinDownInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_tinDownInAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_tinLeftInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_tinLeftInAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_tinRightInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_tinRightInAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_tinUpInAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_tinUpInAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_tinDownOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_tinDownOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_tinLeftOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_tinLeftOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_tinRightOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_tinRightOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_tinUpOutAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_tinUpOutAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
 #pragma mark - Boing
-- (nonnull CAAnimation *)ytx_boingInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_boingInUpAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_boingOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_boingOutDownAnimationWithDurationTime:(NSTimeInterval)durationTime;
 #pragma mark - On The Space
-- (nonnull CAAnimation *)ytx_spaceOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_spaceOutUpAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_spaceOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_spaceOutRightAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_spaceOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_spaceOutDownAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_spaceOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_spaceOutLeftAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_spaceInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_spaceInUpAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_spaceInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_spaceInRightAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_spaceInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_spaceInDownAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
-- (nonnull CAAnimation *)ytx_spaceInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime;
+- (nonnull CAAnimation *)ytx_spaceInLeftAnimationWithDurationTime:(NSTimeInterval)durationTime;
 
 @end

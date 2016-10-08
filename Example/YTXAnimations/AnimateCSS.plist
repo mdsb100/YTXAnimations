@@ -11,55 +11,55 @@
 				<key>name</key>
 				<string>jello</string>
 				<key>function</key>
-				<string>ytx_jelloAnimtionWithDurationTime:</string>
+				<string>ytx_jelloAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>wobble</string>
 				<key>function</key>
-				<string>ytx_wobbleAnimtionWithDurationTime:</string>
+				<string>ytx_wobbleAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>swing</string>
 				<key>function</key>
-				<string>ytx_swingAnimtionWithDurationTime:</string>
+				<string>ytx_swingAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>rubberBand</string>
 				<key>function</key>
-				<string>ytx_rubberBandAnimtionWithDurationTime:</string>
+				<string>ytx_rubberBandAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>pluse</string>
 				<key>function</key>
-				<string>ytx_pluseAnimtionWithDurationTime:</string>
+				<string>ytx_pulseAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>flash</string>
 				<key>function</key>
-				<string>ytx_flashAnimtionWithDurationTime:</string>
+				<string>ytx_flashAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>bounce</string>
 				<key>function</key>
-				<string>ytx_bounceAnimtionWithDurationTime:</string>
+				<string>ytx_bounceAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>tada</string>
 				<key>function</key>
-				<string>ytx_tadaAnimtionWithDurationTime:</string>
+				<string>ytx_tadaAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>shake</string>
 				<key>function</key>
-				<string>ytx_shakeAnimtionWithDurationTime:</string>
+				<string>ytx_shakeAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -72,31 +72,31 @@
 				<key>name</key>
 				<string>bounle</string>
 				<key>function</key>
-				<string>ytx_bounceInAnimtionWithDurationTime:</string>
+				<string>ytx_bounceInAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>bouncelnDown</string>
 				<key>function</key>
-				<string>ytx_bounceInDownAnimtionWithDurationTime:</string>
+				<string>ytx_bounceInDownAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>bouncelnLeft</string>
 				<key>function</key>
-				<string>ytx_bounceInLeftAnimtionWithDurationTime:</string>
+				<string>ytx_bounceInLeftAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>bouncelnRight</string>
 				<key>function</key>
-				<string>ytx_bounceInRightAnimtionWithDurationTime:</string>
+				<string>ytx_bounceInRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>bouncelnUp</string>
 				<key>function</key>
-				<string>ytx_bounceInUpAnimtionWithDurationTime:</string>
+				<string>ytx_bounceInUpAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -109,31 +109,31 @@
 				<key>name</key>
 				<string>bounOut</string>
 				<key>function</key>
-				<string>ytx_bounceOutAnimtionWithDurationTime:</string>
+				<string>ytx_bounceOutAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>bounceOutDown</string>
 				<key>function</key>
-				<string>ytx_bounceOutDownAnimtionWithDurationTime:</string>
+				<string>ytx_bounceOutDownAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>bounceOutLeft</string>
 				<key>function</key>
-				<string>ytx_bounceOutLeftAnimtionWithDurationTime:</string>
+				<string>ytx_bounceOutLeftAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>bounceOutRight</string>
 				<key>function</key>
-				<string>ytx_bounceOutRightAnimtionWithDurationTime:</string>
+				<string>ytx_bounceOutRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>bounceOutUp</string>
 				<key>function</key>
-				<string>ytx_bounceOutUpAnimtionWithDurationTime:</string>
+				<string>ytx_bounceOutUpAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -146,55 +146,55 @@
 				<key>name</key>
 				<string>fadeIn</string>
 				<key>function</key>
-				<string>ytx_fadeInAnimtionWithDurationTime:</string>
+				<string>ytx_fadeInAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeInDown</string>
 				<key>function</key>
-				<string>ytx_fadeInDownAnimtionWithDurationTime:</string>
+				<string>ytx_fadeInDownAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeInDownBig</string>
 				<key>function</key>
-				<string>ytx_fadeInDownBigAnimtionWithDurationTime:</string>
+				<string>ytx_fadeInDownBigAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeInLeft</string>
 				<key>function</key>
-				<string>ytx_fadeInLeftAnimtionWithDurationTime:</string>
+				<string>ytx_fadeInLeftAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeInLeftBig</string>
 				<key>function</key>
-				<string>ytx_fadeInLeftBigAnimtionWithDurationTime:</string>
+				<string>ytx_fadeInLeftBigAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeInRight</string>
 				<key>function</key>
-				<string>ytx_fadeInRightAnimtionWithDurationTime:</string>
+				<string>ytx_fadeInRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeInRightBig</string>
 				<key>function</key>
-				<string>ytx_fadeInRightBigAnimtionWithDurationTime:</string>
+				<string>ytx_fadeInRightBigAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeInUp</string>
 				<key>function</key>
-				<string>ytx_fadeInUpAnimtionWithDurationTime:</string>
+				<string>ytx_fadeInUpAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeInUpBig</string>
 				<key>function</key>
-				<string>ytx_fadeInUpBigAnimtionWithDurationTime:</string>
+				<string>ytx_fadeInUpBigAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -207,55 +207,55 @@
 				<key>name</key>
 				<string>fadeOut</string>
 				<key>function</key>
-				<string>ytx_fadeOutAnimtionWithDurationTime:</string>
+				<string>ytx_fadeOutAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeOutDown</string>
 				<key>function</key>
-				<string>ytx_fadeOutDownAnimtionWithDurationTime:</string>
+				<string>ytx_fadeOutDownAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeOutDownBig</string>
 				<key>function</key>
-				<string>ytx_fadeOutDownBigAnimtionWithDurationTime:</string>
+				<string>ytx_fadeOutDownBigAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeOutLeft</string>
 				<key>function</key>
-				<string>ytx_fadeOutLeftAnimtionWithDurationTime:</string>
+				<string>ytx_fadeOutLeftAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeOutLeftBig</string>
 				<key>function</key>
-				<string>ytx_fadeOutLeftBigAnimtionWithDurationTime:</string>
+				<string>ytx_fadeOutLeftBigAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeOutRight</string>
 				<key>function</key>
-				<string>ytx_fadeOutRightAnimtionWithDurationTime:</string>
+				<string>ytx_fadeOutRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeOutRightBig</string>
 				<key>function</key>
-				<string>ytx_fadeOutRightBigAnimtionWithDurationTime:</string>
+				<string>ytx_fadeOutRightBigAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeOutUp</string>
 				<key>function</key>
-				<string>ytx_fadeOutUpAnimtionWithDurationTime:</string>
+				<string>ytx_fadeOutUpAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>fadeOutUpBig</string>
 				<key>function</key>
-				<string>ytx_fadeOutUpBigAnimtionWithDurationTime:</string>
+				<string>ytx_fadeOutUpBigAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -268,31 +268,31 @@
 				<key>name</key>
 				<string>zoomOut</string>
 				<key>function</key>
-				<string>ytx_zoomOutAnimtionWithDurationTime:</string>
+				<string>ytx_zoomOutAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>zoomOutDown</string>
 				<key>function</key>
-				<string>ytx_zoomOutDownAnimtionWithDurationTime:</string>
+				<string>ytx_zoomOutDownAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>zoomOutLeft</string>
 				<key>function</key>
-				<string>ytx_zoomOutLeftAnimtionWithDurationTime:</string>
+				<string>ytx_zoomOutLeftAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>zoomOutRight</string>
 				<key>function</key>
-				<string>ytx_zoomOutRightAnimtionWithDurationTime:</string>
+				<string>ytx_zoomOutRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>zoomOutUp</string>
 				<key>function</key>
-				<string>ytx_zoomOutUpAnimtionWithDurationTime:</string>
+				<string>ytx_zoomOutUpAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -305,31 +305,31 @@
 				<key>name</key>
 				<string>flip</string>
 				<key>function</key>
-				<string>ytx_flipAnimtionWithDurationTime:</string>
+				<string>ytx_flipAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>flipInX</string>
 				<key>function</key>
-				<string>ytx_flipInXAnimtionWithDurationTime:</string>
+				<string>ytx_flipInXAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>flipInY</string>
 				<key>function</key>
-				<string>ytx_flipInYAnimtionWithDurationTime:</string>
+				<string>ytx_flipInYAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>flipOutX</string>
 				<key>function</key>
-				<string>ytx_flipOutXAnimtionWithDurationTime:</string>
+				<string>ytx_flipOutXAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>flipOutY</string>
 				<key>function</key>
-				<string>ytx_flipOutYAnimtionWithDurationTime:</string>
+				<string>ytx_flipOutYAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -342,13 +342,13 @@
 				<key>name</key>
 				<string>lightSpeedIn</string>
 				<key>function</key>
-				<string>ytx_lightSpeedInAnimtionWithDurationTime:</string>
+				<string>ytx_lightSpeedInAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>lightSpeedOut</string>
 				<key>function</key>
-				<string>ytx_lightSpeedOutAnimtionWithDurationTime:</string>
+				<string>ytx_lightSpeedOutAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -361,7 +361,7 @@
 				<key>name</key>
 				<string>hinge</string>
 				<key>function</key>
-				<string>ytx_hingeAnimtionWithDurationTime:</string>
+				<string>ytx_hingeAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -386,31 +386,31 @@
 				<key>name</key>
 				<string>zoomIn</string>
 				<key>function</key>
-				<string>ytx_zoomInAnimtionWithDurationTime:</string>
+				<string>ytx_zoomInAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>zoomInLeft</string>
 				<key>function</key>
-				<string>ytx_zoomInLeftAnimtionWithDurationTime:</string>
+				<string>ytx_zoomInLeftAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>zoomInRight</string>
 				<key>function</key>
-				<string>ytx_zoomInRightAnimtionWithDurationTime:</string>
+				<string>ytx_zoomInRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>zoomInDown</string>
 				<key>function</key>
-				<string>ytx_zoomInDownAnimtionWithDurationTime:</string>
+				<string>ytx_zoomInDownAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>zoomInUp</string>
 				<key>function</key>
-				<string>ytx_zoomInUpAnimtionWithDurationTime:</string>
+				<string>ytx_zoomInUpAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -423,25 +423,25 @@
 				<key>name</key>
 				<string>slideOutDown</string>
 				<key>function</key>
-				<string>ytx_slideOutDownAnimtionWithDurationTime:</string>
+				<string>ytx_slideOutDownAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>slideOutLeft</string>
 				<key>function</key>
-				<string>ytx_slideOutLeftAnimtionWithDurationTime:</string>
+				<string>ytx_slideOutLeftAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>slideOutRight</string>
 				<key>function</key>
-				<string>ytx_slideOutRightAnimtionWithDurationTime:</string>
+				<string>ytx_slideOutRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>slideOutUp</string>
 				<key>function</key>
-				<string>ytx_slideOutUpAnimtionWithDurationTime:</string>
+				<string>ytx_slideOutUpAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -454,25 +454,25 @@
 				<key>name</key>
 				<string>slideInDown</string>
 				<key>function</key>
-				<string>ytx_slideInDownAnimtionWithDurationTime:</string>
+				<string>ytx_slideInDownAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>slideInLeft</string>
 				<key>function</key>
-				<string>ytx_slideInLeftAnimtionWithDurationTime:</string>
+				<string>ytx_slideInLeftAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>slideInRight</string>
 				<key>function</key>
-				<string>ytx_slideInRightAnimtionWithDurationTime:</string>
+				<string>ytx_slideInRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>slideInUp</string>
 				<key>function</key>
-				<string>ytx_slideInUpAnimtionWithDurationTime:</string>
+				<string>ytx_slideInUpAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -485,31 +485,31 @@
 				<key>name</key>
 				<string>rotateIn</string>
 				<key>function</key>
-				<string>ytx_rotateInAnimtionWithDurationTime:</string>
+				<string>ytx_rotateInAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>rotateInDownLeft</string>
 				<key>function</key>
-				<string>ytx_rotateInDownLeftAnimtionWithDurationTime:</string>
+				<string>ytx_rotateInDownLeftAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>rotateInDownRight</string>
 				<key>function</key>
-				<string>ytx_rotateInDownRightAnimtionWithDurationTime:</string>
+				<string>ytx_rotateInDownRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>rotateInUpRight</string>
 				<key>function</key>
-				<string>ytx_rotateInUpRightAnimtionWithDurationTime:</string>
+				<string>ytx_rotateInUpRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>rotateInUpLeft</string>
 				<key>function</key>
-				<string>ytx_rotateInUpLeftAnimtionWithDurationTime:</string>
+				<string>ytx_rotateInUpLeftAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
@@ -522,31 +522,31 @@
 				<key>name</key>
 				<string>rotateOut</string>
 				<key>function</key>
-				<string>ytx_rotateOutAnimtionWithDurationTime:</string>
+				<string>ytx_rotateOutAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>rotateOutDownLeft</string>
 				<key>function</key>
-				<string>ytx_rotateOutDownLeftAnimtionWithDurationTime:</string>
+				<string>ytx_rotateOutDownLeftAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>rotateOutDownRight</string>
 				<key>function</key>
-				<string>ytx_rotateOutDownRightAnimtionWithDurationTime:</string>
+				<string>ytx_rotateOutDownRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>rotateOutUpRight</string>
 				<key>function</key>
-				<string>ytx_rotateOutUpRightAnimtionWithDurationTime:</string>
+				<string>ytx_rotateOutUpRightAnimationWithDurationTime:</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>rotateOutUpLeft</string>
 				<key>function</key>
-				<string>ytx_rotateOutUpLeftAnimtionWithDurationTime:</string>
+				<string>ytx_rotateOutUpLeftAnimationWithDurationTime:</string>
 			</dict>
 		</array>
 	</dict>
