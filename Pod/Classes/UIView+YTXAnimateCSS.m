@@ -13,7 +13,7 @@
 
 #pragma mark - Attention Seekers
 
-- (nonnull CAAnimation *)ytx_bounceAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CAMediaTimingFunction *time_1 = YTXCAMEDIATIMINGFUNCTION (0.215, 0.610, 0.355, 1);
     CAMediaTimingFunction *time_2 = YTXCAMEDIATIMINGFUNCTION (0.755, 0.050, 0.855, 0.060);
@@ -31,24 +31,24 @@
     
     bounce.duration = durationTime;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:bounce forKey:@"ytx_bounceAnimtionWithDurationTime:"];
+        [self.layer addAnimation:bounce forKey:@"ytx_bounceAnimationWithDurationTime:"];
     });
     return bounce;
 }
 
-- (nonnull CAAnimation *)ytx_flashAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_flashAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *flashAnimation = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [flashAnimation setValues  :@[@(0)   , @(1)  , @(0)  , @(1)]];
     [flashAnimation setKeyTimes:@[@(0.25), @(0.5), @(.75), @(1)]];
     [flashAnimation setDuration:durationTime];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:flashAnimation forKey:@"ytx_flashAnimtionWithDurationTime:"];
+        [self.layer addAnimation:flashAnimation forKey:@"ytx_flashAnimationWithDurationTime:"];
     });
     return flashAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_pluseAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_pulseAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     float smallScaleValue = 1.f;
     float lagerScaleValue = 1.05;
@@ -60,12 +60,12 @@
     [shackAnimation setValues:@[smallScale, lagerScale, smallScale]];
     [shackAnimation setKeyTimes:@[@(0), @(.5), @(1)]];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_pluseAnimtionWithDurationTime:"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_pulseAnimationWithDurationTime:"];
     });
     return shackAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_rubberBandAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rubberBandAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     float smallScaleValue        = 0.75;
     float smallMidScaleValue     = 0.85;
@@ -89,12 +89,12 @@
                             ]];
     [rubberBand setKeyTimes:@[@(0), @(.3), @(.4), @(.5), @(.65), @(.75), @(1)]];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:rubberBand forKey:@"ytx_rubberBandAnimtionWithDurationTime:"];
+        [self.layer addAnimation:rubberBand forKey:@"ytx_rubberBandAnimationWithDurationTime:"];
     });
     return rubberBand;
 }
 
-- (nonnull CAAnimation *)ytx_shakeAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_shakeAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CGPoint center   = self.center;
     float moveXLeft  = center.x - 5;
@@ -107,12 +107,12 @@
                                 @(moveXRight), @(moveXLeft) , @(moveXRight),
                                 @(moveXLeft) , @(moveXRight), @(center.x)]];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_shakeAnimtionWithDurationTime:"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_shakeAnimationWithDurationTime:"];
     });
     return shackAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_swingAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_swingAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotateF = [YTXAnimationsUtil radianWithDegree:15];
     float rotateS = [YTXAnimationsUtil radianWithDegree:10];
@@ -129,12 +129,12 @@
                                 YTXROTATEVALUE(0,        .0, .0, 1.0)]];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_swingAnimtionWithDurationTime:"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_swingAnimationWithDurationTime:"];
     });
     return shackAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_tadaAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_tadaAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotate = [YTXAnimationsUtil radianWithDegree:3];
     float smallScaleValue = 0.9;
@@ -155,13 +155,13 @@
                                leftValue  , rightValue]];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:tadaAnimation forKey:@"ytx_tadaAnimtionWithDurationTime:"];
+        [self.layer addAnimation:tadaAnimation forKey:@"ytx_tadaAnimationWithDurationTime:"];
     });
     
     return tadaAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_wobbleAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_wobbleAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotate_1 = [YTXAnimationsUtil radianWithDegree:5];
     float rotate_2 = [YTXAnimationsUtil radianWithDegree:3];
@@ -194,12 +194,12 @@
     [group setAnimations:@[rotateAnimation,shakeAnimation]];
     [group setDuration:durationTime*.5];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_wobbleAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_wobbleAnimationWithDurationTime:"];
     });
     return group;
 }
 
-- (nonnull CAAnimation *)ytx_jelloAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_jelloAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotate_1 = tan([YTXAnimationsUtil radianWithDegree:-12.5]);
     float rotate_2 = tan([YTXAnimationsUtil radianWithDegree: 6.25]);
@@ -260,13 +260,13 @@
                            [NSValue valueWithCATransform3D:CATransform3DMakeAffineTransform(transform_10)]]];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:animation forKey:@"ytx_jelloAnimtionWithDurationTime:"];
+        [self.layer addAnimation:animation forKey:@"ytx_jelloAnimationWithDurationTime:"];
     });
     return animation;
 }
 
 #pragma mark - Bouncing Entrances
-- (nonnull CAAnimation *)ytx_bounceInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceInAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *bounceln = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     [bounceln setValues:@[YTXSCALEVALUE(0.3 , 0.3 , 0.3),
@@ -280,45 +280,45 @@
     [bounceln setTimingFunction:time];
     bounceln.duration = durationTime;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:bounceln forKey:@"ytx_bounceInAnimtionWithDurationTime:"];
+        [self.layer addAnimation:bounceln forKey:@"ytx_bounceInAnimationWithDurationTime:"];
     });
     return bounceln;
 }
 
-- (nonnull CAAnimation *)ytx_bounceInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceInDownAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_bounceInAnimtionWithSelectName:@"ytx_bounceInDownAnimtionWithDurationTime:"
+    return [self ytx_bounceInAnimationWithSelectName:@"ytx_bounceInDownAnimationWithDurationTime:"
                                           isForward:NO
                                          isVertical:YES
                                        durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_bounceInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceInLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_bounceInAnimtionWithSelectName:@"ytx_bounceInLeftAnimtionWithDurationTime:"
+    return [self ytx_bounceInAnimationWithSelectName:@"ytx_bounceInLeftAnimationWithDurationTime:"
                                           isForward:NO
                                          isVertical:NO
                                        durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_bounceInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceInRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_bounceInAnimtionWithSelectName:@"ytx_bounceInRightAnimtionWithDurationTime:"
+    return [self ytx_bounceInAnimationWithSelectName:@"ytx_bounceInRightAnimationWithDurationTime:"
                                           isForward:YES
                                          isVertical:NO
                                        durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_bounceInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceInUpAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_bounceInAnimtionWithSelectName:@"ytx_bounceInUpAnimtionWithDurationTime:"
+    return [self ytx_bounceInAnimationWithSelectName:@"ytx_bounceInUpAnimationWithDurationTime:"
                                           isForward:YES
                                          isVertical:YES
                                        durationTime:durationTime];
 }
 
 
-- (nonnull CAAnimation *)ytx_bounceInAnimtionWithSelectName:(NSString *)selectName isForward:(BOOL)isForward isVertical:(BOOL)isVertical durationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceInAnimationWithSelectName:(NSString *)selectName isForward:(BOOL)isForward isVertical:(BOOL)isVertical durationTime:(NSTimeInterval)durationTime
 {
     // isForward 是否up或right
     CGFloat centerValue = isVertical ? self.center.y : self.center.x;
@@ -351,7 +351,7 @@
 }
 
 #pragma mark - Bouncing Exits
-- (nonnull CAAnimation *)ytx_bounceOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceOutAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     [bounce setValues:@[YTXSCALEVALUE(1.0, 1.0, 1.0),
@@ -369,44 +369,44 @@
     [group setAnimations:@[opacity, bounce]];
     [group setDuration:durationTime];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_bounceOutAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_bounceOutAnimationWithDurationTime:"];
     });
     return group;
 }
 
-- (nonnull CAAnimation *)ytx_bounceOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceOutDownAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_bounceOutAnimtionWithSelectName:@"ytx_bounceOutDownAnimtionWithDurationTime:"
+    return [self ytx_bounceOutAnimationWithSelectName:@"ytx_bounceOutDownAnimationWithDurationTime:"
                                            isForward:NO
                                           isVertical:YES
                                         durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_bounceOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceOutLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_bounceOutAnimtionWithSelectName:@"ytx_bounceOutLeftAnimtionWithDurationTime:"
+    return [self ytx_bounceOutAnimationWithSelectName:@"ytx_bounceOutLeftAnimationWithDurationTime:"
                                            isForward:NO
                                           isVertical:NO
                                         durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_bounceOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceOutRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_bounceOutAnimtionWithSelectName:@"ytx_bounceOutRightAnimtionWithDurationTime:"
+    return [self ytx_bounceOutAnimationWithSelectName:@"ytx_bounceOutRightAnimationWithDurationTime:"
                                            isForward:YES
                                           isVertical:NO
                                         durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_bounceOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceOutUpAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_bounceOutAnimtionWithSelectName:@"ytx_bounceOutUpAnimtionWithDurationTime:"
+    return [self ytx_bounceOutAnimationWithSelectName:@"ytx_bounceOutUpAnimationWithDurationTime:"
                                            isForward:YES
                                           isVertical:YES
                                         durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_bounceOutAnimtionWithSelectName:(NSString *)selectName isForward:(BOOL)isForward isVertical:(BOOL)isVertical durationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_bounceOutAnimationWithSelectName:(NSString *)selectName isForward:(BOOL)isForward isVertical:(BOOL)isVertical durationTime:(NSTimeInterval)durationTime
 {
     // isForward 是否up或right
     float    forwardNum  = isForward  ? 1 : -1;
@@ -437,9 +437,9 @@
 
 #pragma mark - Fading Entrances
 
-- (nonnull CAAnimation *)ytx_fadeInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeInAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeInAnimationWithDurationTime:"
                                            isIn:YES
                                     isTransform:NO
                                           isBig:NO
@@ -448,9 +448,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInDownAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeInDownAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeInDownAnimationWithDurationTime:"
                                            isIn:YES
                                     isTransform:YES
                                           isBig:NO
@@ -459,9 +459,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeInDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInDownBigAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeInDownBigAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeInDownBigAnimationWithDurationTime:"
                                            isIn:YES
                                     isTransform:YES
                                           isBig:YES
@@ -470,9 +470,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeInLeftAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeInLeftAnimationWithDurationTime:"
                                            isIn:YES
                                     isTransform:YES
                                           isBig:NO
@@ -481,9 +481,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeInLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInLeftBigAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeInLeftBigAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeInLeftBigAnimationWithDurationTime:"
                                            isIn:YES
                                     isTransform:YES
                                           isBig:YES
@@ -492,9 +492,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeInRightAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeInRightAnimationWithDurationTime:"
                                            isIn:YES
                                     isTransform:YES
                                           isBig:NO
@@ -503,9 +503,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeInRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInRightBigAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeInRightBigAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeInRightBigAnimationWithDurationTime:"
                                            isIn:YES
                                     isTransform:YES
                                           isBig:YES
@@ -514,9 +514,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInUpAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeInUpAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeInUpAnimationWithDurationTime:"
                                            isIn:YES
                                     isTransform:YES
                                           isBig:NO
@@ -525,9 +525,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeInUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeInUpBigAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeInUpBigAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeInUpBigAnimationWithDurationTime:"
                                            isIn:YES
                                     isTransform:YES
                                           isBig:YES
@@ -537,9 +537,9 @@
 }
 
 #pragma mark - Fading Exits
-- (nonnull CAAnimation *)ytx_fadeOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeOutAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeOutAnimationWithDurationTime:"
                                            isIn:NO
                                     isTransform:NO
                                           isBig:NO
@@ -548,9 +548,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutDownAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeOutDownAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeOutDownAnimationWithDurationTime:"
                                            isIn:NO
                                     isTransform:YES
                                           isBig:NO
@@ -559,9 +559,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeOutDownBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutDownBigAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeOutDownBigAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeOutDownBigAnimationWithDurationTime:"
                                            isIn:NO
                                     isTransform:YES
                                           isBig:YES
@@ -570,9 +570,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeOutLeftAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeOutLeftAnimationWithDurationTime:"
                                            isIn:NO
                                     isTransform:YES
                                           isBig:NO
@@ -581,9 +581,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeOutLeftBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutLeftBigAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeOutLeftBigAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeOutLeftBigAnimationWithDurationTime:"
                                            isIn:NO
                                     isTransform:YES
                                           isBig:YES
@@ -592,9 +592,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeOutRightAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeOutRightAnimationWithDurationTime:"
                                            isIn:NO
                                     isTransform:YES
                                           isBig:NO
@@ -603,9 +603,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeOutRightBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutRightBigAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeOutRightBigAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeOutRightBigAnimationWithDurationTime:"
                                            isIn:NO
                                     isTransform:YES
                                           isBig:YES
@@ -614,9 +614,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutUpAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeOutUpAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeOutUpAnimationWithDurationTime:"
                                            isIn:NO
                                     isTransform:YES
                                           isBig:NO
@@ -625,9 +625,9 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeOutUpBigAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeOutUpBigAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_fadeAnimtionWithSelectName:@"ytx_fadeOutUpBigAnimtionWithDurationTime:"
+    return [self ytx_fadeAnimationWithSelectName:@"ytx_fadeOutUpBigAnimationWithDurationTime:"
                                            isIn:NO
                                     isTransform:YES
                                           isBig:YES
@@ -636,7 +636,7 @@
                                    durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_fadeAnimtionWithSelectName:(NSString *)name isIn:(BOOL)isIn isTransform:(BOOL)isTransform isBig:(BOOL)isBig isForward:(BOOL)isForward isVertical:(BOOL)isVertical durationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_fadeAnimationWithSelectName:(NSString *)name isIn:(BOOL)isIn isTransform:(BOOL)isTransform isBig:(BOOL)isBig isForward:(BOOL)isForward isVertical:(BOOL)isVertical durationTime:(NSTimeInterval)durationTime
 {
     NSArray *opacityValues = isIn ? @[@0, @1] : @[@1, @0];
     CAKeyframeAnimation *fadeOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
@@ -672,7 +672,7 @@
 
 #pragma mark - Flippers
 
-- (nonnull CAAnimation *)ytx_flipAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_flipAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CATransform3D transform         = CATransform3DIdentity;
     transform.m34                   = - 1 / 200.0;
@@ -703,12 +703,12 @@
     
     animation.duration = durationTime;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:animation forKey:@"ytx_flipAnimtionWithDurationTime:"];
+        [self.layer addAnimation:animation forKey:@"ytx_flipAnimationWithDurationTime:"];
     });
     return animation;
 }
 
-- (nonnull CAAnimation *)ytx_flipInXAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_flipInXAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     
     CATransform3D transform         = CATransform3DIdentity;
@@ -742,12 +742,12 @@
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_flipInXAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_flipInXAnimationWithDurationTime:"];
     });
     return group;
 }
 
-- (nonnull CAAnimation *)ytx_flipInYAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_flipInYAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CATransform3D transform         = CATransform3DIdentity;
     transform.m34                   = - 1 / 200.0;
@@ -780,12 +780,12 @@
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_flipInYAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_flipInYAnimationWithDurationTime:"];
     });
     return group;
 }
 
-- (nonnull CAAnimation *)ytx_flipOutXAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_flipOutXAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CATransform3D transform         = CATransform3DIdentity;
     transform.m34                   = - 1 / 200.0;
@@ -812,12 +812,12 @@
     [group setDuration:durationTime];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_flipOutXAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_flipOutXAnimationWithDurationTime:"];
     });
     return group;
 }
 
-- (nonnull CAAnimation *)ytx_flipOutYAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_flipOutYAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CATransform3D transform         = CATransform3DIdentity;
     transform.m34                   = - 1 / 200.0;
@@ -843,14 +843,14 @@
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_flipOutYAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_flipOutYAnimationWithDurationTime:"];
     });
     return group;
 }
 
 #pragma mark - LightSpeed
 
-- (nonnull CAAnimation *)ytx_lightSpeedInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_lightSpeedInAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     
@@ -890,12 +890,12 @@
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_lightSpeedInAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_lightSpeedInAnimationWithDurationTime:"];
     });
     return group;
 }
 
-- (nonnull CAAnimation *)ytx_lightSpeedOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_lightSpeedOutAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     
@@ -924,14 +924,14 @@
     [group setAnimations:@[animation,animationOpacity]];
     [group setDuration:durationTime];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_lightSpeedOutAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_lightSpeedOutAnimationWithDurationTime:"];
     });
     return group;
 }
 
 #pragma mark - Zoom Exits
 
-- (nonnull CAAnimation *)ytx_zoomOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomOutAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *zoomOutOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [zoomOutOpacity setValues:@[@1, @0]];
@@ -944,14 +944,14 @@
     [group setAnimations:@[zoomOutOpacity, zoomOutTransform]];
     [group setDuration:durationTime];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_zoomOutAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_zoomOutAnimationWithDurationTime:"];
     });
     return group;
 }
 
-- (nonnull CAAnimation *)ytx_zoomOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomOutDownAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutDownAnimtionWithDurationTime:"
+    return [self ytx_zoomOutAnimationWithSelectName:@"ytx_zoomOutDownAnimationWithDurationTime:"
                                        hasFunction:YES
                                      anchorPoint04:CGPointMake(0.5, 1)
                                       positionPath:YTXPOSITIONY
@@ -960,9 +960,9 @@
                                       durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_zoomOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomOutLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutLeftAnimtionWithDurationTime:"
+    return [self ytx_zoomOutAnimationWithSelectName:@"ytx_zoomOutLeftAnimationWithDurationTime:"
                                        hasFunction:NO
                                        anchorPoint04:CGPointMake(0, .5)
                                       positionPath:YTXPOSITIONX
@@ -971,9 +971,9 @@
                                       durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_zoomOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomOutRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutRightAnimtionWithDurationTime:"
+    return [self ytx_zoomOutAnimationWithSelectName:@"ytx_zoomOutRightAnimationWithDurationTime:"
                                        hasFunction:NO
                                      anchorPoint04:CGPointMake(1, .5)
                                       positionPath:YTXPOSITIONX
@@ -982,9 +982,9 @@
                                       durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_zoomOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomOutUpAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_zoomOutAnimtionWithSelectName:@"ytx_zoomOutUpAnimtionWithDurationTime:"
+    return [self ytx_zoomOutAnimationWithSelectName:@"ytx_zoomOutUpAnimationWithDurationTime:"
                                        hasFunction:YES
                                      anchorPoint04:CGPointMake(0.5, 0)
                                       positionPath:YTXPOSITIONY
@@ -993,7 +993,7 @@
                                       durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_zoomOutAnimtionWithSelectName:(NSString *)selectName hasFunction:(BOOL)hasFunction anchorPoint04:(CGPoint)anchorPoint04 positionPath:(NSString *)positionPath positionValue04:(CGFloat)positionValue04 positionValue10:(CGFloat)positionValue10 durationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomOutAnimationWithSelectName:(NSString *)selectName hasFunction:(BOOL)hasFunction anchorPoint04:(CGPoint)anchorPoint04 positionPath:(NSString *)positionPath positionValue04:(CGFloat)positionValue04 positionValue10:(CGFloat)positionValue10 durationTime:(NSTimeInterval)durationTime
 {
     
     CAKeyframeAnimation *zoomOutOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
@@ -1053,7 +1053,7 @@
 
 #pragma mark - Zoom Entrances
 
-- (nonnull CAAnimation *)ytx_zoomInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomInAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *zoomInOpacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [zoomInOpacity setValues:@[@0, @1]];
@@ -1066,48 +1066,48 @@
     [group setAnimations:@[zoomInOpacity,zoomInTransform]];
     [group setDuration:durationTime];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_zoomInAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_zoomInAnimationWithDurationTime:"];
     });
     return group;
 }
 
-- (nonnull CAAnimation *)ytx_zoomInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomInDownAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CGFloat y = self.center.y;
-    return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInDownAnimtionWithDurationTime:"
+    return [self ytx_zoomInAnimationWithSelectName:@"ytx_zoomInDownAnimationWithDurationTime:"
                                      positionPath:YTXPOSITIONY
                                    positionValues:@[@(y - 500), @(y + 5), @(y)]
                                      durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_zoomInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomInLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CGFloat x = self.center.x;
-    return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInLeftAnimtionWithDurationTime:"
+    return [self ytx_zoomInAnimationWithSelectName:@"ytx_zoomInLeftAnimationWithDurationTime:"
                                      positionPath:YTXPOSITIONX
                                    positionValues:@[@(x - 500), @(x + 5),@(x)]
                                      durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_zoomInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomInRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CGFloat x = self.center.x;
-    return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInRightAnimtionWithDurationTime:"
+    return [self ytx_zoomInAnimationWithSelectName:@"ytx_zoomInRightAnimationWithDurationTime:"
                                      positionPath:YTXPOSITIONX
                                    positionValues:@[@(x + 500), @(x - 5),@(x)]
                                      durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_zoomInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomInUpAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     CGFloat y = self.center.y;
-    return [self ytx_zoomInAnimtionWithSelectName:@"ytx_zoomInUpAnimtionWithDurationTime:"
+    return [self ytx_zoomInAnimationWithSelectName:@"ytx_zoomInUpAnimationWithDurationTime:"
                                      positionPath:YTXPOSITIONY
                                    positionValues:@[@(y + 500), @(y - 30), @(y)]
                                      durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_zoomInAnimtionWithSelectName:(NSString *)selectName positionPath:(NSString *)positionPath positionValues:(NSArray *)positionValues durationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_zoomInAnimationWithSelectName:(NSString *)selectName positionPath:(NSString *)positionPath positionValues:(NSArray *)positionValues durationTime:(NSTimeInterval)durationTime
 {
     CAMediaTimingFunction *function   = YTXCAMEDIATIMINGFUNCTION(.550, .055, .675, .19);
     CAMediaTimingFunction *function_2 = YTXCAMEDIATIMINGFUNCTION(.175, .885, .320, 1);
@@ -1139,36 +1139,36 @@
 }
 
 #pragma mark - Slide Entrances
-- (nonnull CAAnimation *)ytx_slideInDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideInDownAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInDownAnimtionWithDurationTime:"
+    return [self ytx_slideAnimationWithSelectName:@"ytx_slideInDownAnimationWithDurationTime:"
                                             isIn:YES
                                  translateValues:@[YTXTRANSLATEVALUE(0, YTXSELFHEIGHT, 0),
                                                    YTXTRANSLATEVALUE(0, 0, 0)]
                                     durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_slideInLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideInLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInLeftAnimtionWithDurationTime:"
+    return [self ytx_slideAnimationWithSelectName:@"ytx_slideInLeftAnimationWithDurationTime:"
                                             isIn:YES
                                  translateValues:@[YTXTRANSLATEVALUE(-YTXSELFWIDTH, 0, 0),
                                                    YTXTRANSLATEVALUE(0, 0, 0)]
                                     durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_slideInRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideInRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInRightAnimtionWithDurationTime:"
+    return [self ytx_slideAnimationWithSelectName:@"ytx_slideInRightAnimationWithDurationTime:"
                                             isIn:YES
                                  translateValues:@[YTXTRANSLATEVALUE(YTXSELFWIDTH, 0, 0),
                                                    YTXTRANSLATEVALUE(0, 0, 0)]
                                     durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_slideInUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideInUpAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideInUpAnimtionWithDurationTime:"
+    return [self ytx_slideAnimationWithSelectName:@"ytx_slideInUpAnimationWithDurationTime:"
                                             isIn:YES
                                  translateValues:@[YTXTRANSLATEVALUE(0, -YTXSELFHEIGHT, 0),
                                                    YTXTRANSLATEVALUE(0, 0, 0)]
@@ -1177,43 +1177,43 @@
 
 #pragma mark - Slide Exits
 
-- (nonnull CAAnimation *)ytx_slideOutDownAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideOutDownAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutDownAnimtionWithDurationTime:"
+    return [self ytx_slideAnimationWithSelectName:@"ytx_slideOutDownAnimationWithDurationTime:"
                                             isIn:NO
                                  translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
                                                    YTXTRANSLATEVALUE(0, YTXSELFHEIGHT, 0)]
                                     durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_slideOutLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideOutLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutLeftAnimtionWithDurationTime:"
+    return [self ytx_slideAnimationWithSelectName:@"ytx_slideOutLeftAnimationWithDurationTime:"
                                             isIn:NO
                                  translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
                                                    YTXTRANSLATEVALUE(-YTXSELFWIDTH, 0, 0)]
                                     durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_slideOutRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideOutRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutRightAnimtionWithDurationTime:"
+    return [self ytx_slideAnimationWithSelectName:@"ytx_slideOutRightAnimationWithDurationTime:"
                                             isIn:NO
                                  translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
                                                    YTXTRANSLATEVALUE(YTXSELFWIDTH, 0, 0)]
                                     durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_slideOutUpAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideOutUpAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_slideAnimtionWithSelectName:@"ytx_slideOutUpAnimtionWithDurationTime:"
+    return [self ytx_slideAnimationWithSelectName:@"ytx_slideOutUpAnimationWithDurationTime:"
                                             isIn:NO
                                  translateValues:@[YTXTRANSLATEVALUE(0, 0, 0),
                                                    YTXTRANSLATEVALUE(0, -YTXSELFHEIGHT, 0)]
                                     durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_slideAnimtionWithSelectName:(NSString *)selectName isIn:(BOOL)isIn translateValues:(NSArray *)translateValues durationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_slideAnimationWithSelectName:(NSString *)selectName isIn:(BOOL)isIn translateValues:(NSArray *)translateValues durationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:YTXTRANSFORM];
     [transform setValues:translateValues];
@@ -1229,20 +1229,20 @@
 
 #pragma mark - Rotating Entrances
 
-- (nonnull CAAnimation *)ytx_rotateInAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateInAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInAnimtionWithDurationTime:"
+    return [self ytx_rotateAnimationWithSelectName:@"ytx_rotateInAnimationWithDurationTime:"
                                              isIn:YES
                                       rotateValue:[YTXAnimationsUtil radianWithDegree:200]
                                       anchorPoint:CGPointMake(0.5, 0.5)
                                      durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_rotateInDownLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateInDownLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     
     
-    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInDownLeftAnimtionWithDurationTime:"
+    return [self ytx_rotateAnimationWithSelectName:@"ytx_rotateInDownLeftAnimationWithDurationTime:"
                                              isIn:YES
                                       rotateValue:[YTXAnimationsUtil radianWithDegree:-45]
                                       anchorPoint:CGPointMake(0, 1)
@@ -1250,9 +1250,9 @@
     
 }
 
-- (nonnull CAAnimation *)ytx_rotateInDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateInDownRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInDownRightAnimtionWithDurationTime:"
+    return [self ytx_rotateAnimationWithSelectName:@"ytx_rotateInDownRightAnimationWithDurationTime:"
                                              isIn:YES
                                       rotateValue:[YTXAnimationsUtil radianWithDegree:45]
                                       anchorPoint:CGPointMake(1, 1)
@@ -1260,9 +1260,9 @@
     
 }
 
-- (nonnull CAAnimation *)ytx_rotateInUpLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateInUpLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInUpLeftAnimtionWithDurationTime:"
+    return [self ytx_rotateAnimationWithSelectName:@"ytx_rotateInUpLeftAnimationWithDurationTime:"
                                              isIn:YES
                                       rotateValue:[YTXAnimationsUtil radianWithDegree:45]
                                       anchorPoint:CGPointMake(0, 0)
@@ -1270,9 +1270,9 @@
     
 }
 
-- (nonnull CAAnimation *)ytx_rotateInUpRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateInUpRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateInUpRightAnimtionWithDurationTime:"
+    return [self ytx_rotateAnimationWithSelectName:@"ytx_rotateInUpRightAnimationWithDurationTime:"
                                              isIn:YES
                                       rotateValue:[YTXAnimationsUtil radianWithDegree:-45]
                                       anchorPoint:CGPointMake(1, 0)
@@ -1282,52 +1282,52 @@
 
 #pragma mark - Rotating Exits
 
-- (nonnull CAAnimation *)ytx_rotateOutAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateOutAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutAnimtionWithDurationTime:"
+    return [self ytx_rotateAnimationWithSelectName:@"ytx_rotateOutAnimationWithDurationTime:"
                                              isIn:NO
                                       rotateValue:[YTXAnimationsUtil radianWithDegree:200]
                                       anchorPoint:CGPointMake(.5,.5)
                                      durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_rotateOutDownLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateOutDownLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutDownLeftAnimtionWithDurationTime:"
+    return [self ytx_rotateAnimationWithSelectName:@"ytx_rotateOutDownLeftAnimationWithDurationTime:"
                                              isIn:NO
                                       rotateValue:[YTXAnimationsUtil radianWithDegree:45]
                                       anchorPoint:CGPointMake(0, 1)
                                      durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_rotateOutDownRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateOutDownRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutDownRightAnimtionWithDurationTime:"
+    return [self ytx_rotateAnimationWithSelectName:@"ytx_rotateOutDownRightAnimationWithDurationTime:"
                                              isIn:NO
                                       rotateValue:[YTXAnimationsUtil radianWithDegree:-45]
                                       anchorPoint:CGPointMake(1, 1)
                                      durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_rotateOutUpLeftAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateOutUpLeftAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutUpLeftAnimtionWithDurationTime:"
+    return [self ytx_rotateAnimationWithSelectName:@"ytx_rotateOutUpLeftAnimationWithDurationTime:"
                                              isIn:NO
                                       rotateValue:[YTXAnimationsUtil radianWithDegree:-90]
                                       anchorPoint:CGPointMake(0, 1)
                                      durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_rotateOutUpRightAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateOutUpRightAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
-    return  [self ytx_rotateAnimtionWithSelectName:@"ytx_rotateOutUpRightAnimtionWithDurationTime:"
+    return  [self ytx_rotateAnimationWithSelectName:@"ytx_rotateOutUpRightAnimationWithDurationTime:"
                                               isIn:NO
                                        rotateValue:[YTXAnimationsUtil radianWithDegree:90]
                                        anchorPoint:CGPointMake(1, 1)
                                       durationTime:durationTime];
 }
 
-- (nonnull CAAnimation *)ytx_rotateAnimtionWithSelectName:(NSString *)name isIn:(BOOL)isIn rotateValue:(float)rotate anchorPoint:(CGPoint)point durationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_rotateAnimationWithSelectName:(NSString *)name isIn:(BOOL)isIn rotateValue:(float)rotate anchorPoint:(CGPoint)point durationTime:(NSTimeInterval)durationTime
 {
     CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:YTXOPACITY];
     [opacity setValues:isIn ? @[@0, @1] : @[@1, @0]];
@@ -1361,7 +1361,7 @@
 
 #pragma mark - Special
 
-- (nonnull CAAnimation *)ytx_hingeAnimtionWithDurationTime:(NSTimeInterval)durationTime
+- (nonnull CAAnimation *)ytx_hingeAnimationWithDurationTime:(NSTimeInterval)durationTime
 {
     float rotate_1 = [YTXAnimationsUtil radianWithDegree:80];
     float rotate_2 = [YTXAnimationsUtil radianWithDegree:60];
@@ -1398,7 +1398,7 @@
     [group setAnimations:@[anchorAnimation, animation, opacity, position]];
     [group setDuration:durationTime];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_hingeAnimtionWithDurationTime:"];
+        [self.layer addAnimation:group forKey:@"ytx_hingeAnimationWithDurationTime:"];
     });
     return group;
 }

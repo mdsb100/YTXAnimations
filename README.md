@@ -15,19 +15,19 @@ Reference [Animate.CSS](https://daneden.github.io/animate.css/) [CSShake](http:/
 #import <YTXAnimations/UIView+YTXCSShake.h>
 #import <YTXAnimations/UIView+YTXMagicCSS.h>
 
-CAAnimation * tada = [view ytx_tadaAnimtionWithDurationTime:1];
+CAAnimation * tada = [view ytx_tadaAnimationWithDurationTime:1];
 tada.repeatCount = CGFLOAT_MAX;
 
-[view ytx_basicShakeAnimtion];
+[view ytx_basicShakeAnimation];
 
 ```
 
 ```objective-c
-//removeAnimationForKey the key is function name. Please pay attention to colon!!! "ytx_tadaAnimtionWithDurationTime:"
-[view.layer removeAnimationForKey:@"ytx_tadaAnimtionWithDurationTime:"];
+//removeAnimationForKey the key is function name. Please pay attention to colon!!! "ytx_tadaAnimationWithDurationTime:"
+[view.layer removeAnimationForKey:@"ytx_tadaAnimationWithDurationTime:"];
 
 // No colon
-[view.layer removeAnimationForKey:@"ytx_basicShakeAnimtion"];
+[view.layer removeAnimationForKey:@"ytx_basicShakeAnimation"];
 ```
 
 ## Integration
@@ -46,196 +46,196 @@ YTXAnimations is available under the MIT license. See the LICENSE file for more 
 
 ## List of Animate.CSS
 ### Attention Seekers
-- ytx_jelloAnimtionWithDurationTime:
-- ytx_wobbleAnimtionWithDurationTime:
-- ytx_swingAnimtionWithDurationTime:
-- ytx_rubberBandAnimtionWithDurationTime:
-- ytx_pluseAnimtionWithDurationTime:
-- ytx_flashAnimtionWithDurationTime:
-- ytx_bounceAnimtionWithDurationTime:
-- ytx_tadaAnimtionWithDurationTime:
-- ytx_shakeAnimtionWithDurationTime:
+- ytx_jelloAnimationWithDurationTime:
+- ytx_wobbleAnimationWithDurationTime:
+- ytx_swingAnimationWithDurationTime:
+- ytx_rubberBandAnimationWithDurationTime:
+- ytx_pluseAnimationWithDurationTime:
+- ytx_flashAnimationWithDurationTime:
+- ytx_bounceAnimationWithDurationTime:
+- ytx_tadaAnimationWithDurationTime:
+- ytx_shakeAnimationWithDurationTime:
 
 ### Bouncing Entrances
-- ytx_bounceInAnimtionWithDurationTime:
-- ytx_bounceInDownAnimtionWithDurationTime:
-- ytx_bounceInLeftAnimtionWithDurationTime:
-- ytx_bounceInRightAnimtionWithDurationTime:
-- ytx_bounceInUpAnimtionWithDurationTime:
+- ytx_bounceInAnimationWithDurationTime:
+- ytx_bounceInDownAnimationWithDurationTime:
+- ytx_bounceInLeftAnimationWithDurationTime:
+- ytx_bounceInRightAnimationWithDurationTime:
+- ytx_bounceInUpAnimationWithDurationTime:
 
 ### Bouncing Exits
-- ytx_bounceOutAnimtionWithDurationTime:
-- ytx_bounceOutDownAnimtionWithDurationTime:
-- ytx_bounceOutLeftAnimtionWithDurationTime:
-- ytx_bounceOutRightAnimtionWithDurationTime:
-- ytx_bounceOutUpAnimtionWithDurationTime:
+- ytx_bounceOutAnimationWithDurationTime:
+- ytx_bounceOutDownAnimationWithDurationTime:
+- ytx_bounceOutLeftAnimationWithDurationTime:
+- ytx_bounceOutRightAnimationWithDurationTime:
+- ytx_bounceOutUpAnimationWithDurationTime:
 
 ### Fading Entrances
-- ytx_fadeInAnimtionWithDurationTime:
-- ytx_fadeInDownAnimtionWithDurationTime:
-- ytx_fadeInDownBigAnimtionWithDurationTime:
-- ytx_fadeInLeftAnimtionWithDurationTime:
-- ytx_fadeInLeftBigAnimtionWithDurationTime:
-- ytx_fadeInRightAnimtionWithDurationTime:
-- ytx_fadeInRightBigAnimtionWithDurationTime:
-- ytx_fadeInUpAnimtionWithDurationTime:
-- ytx_fadeInUpBigAnimtionWithDurationTime:
+- ytx_fadeInAnimationWithDurationTime:
+- ytx_fadeInDownAnimationWithDurationTime:
+- ytx_fadeInDownBigAnimationWithDurationTime:
+- ytx_fadeInLeftAnimationWithDurationTime:
+- ytx_fadeInLeftBigAnimationWithDurationTime:
+- ytx_fadeInRightAnimationWithDurationTime:
+- ytx_fadeInRightBigAnimationWithDurationTime:
+- ytx_fadeInUpAnimationWithDurationTime:
+- ytx_fadeInUpBigAnimationWithDurationTime:
 
 ### Fading Exits
-- ytx_fadeOutAnimtionWithDurationTime:
-- ytx_fadeOutDownAnimtionWithDurationTime:
-- ytx_fadeOutDownBigAnimtionWithDurationTime:
-- ytx_fadeOutLeftAnimtionWithDurationTime:
-- ytx_fadeOutLeftBigAnimtionWithDurationTime:
-- ytx_fadeOutRightAnimtionWithDurationTime:
-- ytx_fadeOutRightBigAnimtionWithDurationTime:
-- ytx_fadeOutUpAnimtionWithDurationTime:
-- ytx_fadeOutUpBigAnimtionWithDurationTime:
+- ytx_fadeOutAnimationWithDurationTime:
+- ytx_fadeOutDownAnimationWithDurationTime:
+- ytx_fadeOutDownBigAnimationWithDurationTime:
+- ytx_fadeOutLeftAnimationWithDurationTime:
+- ytx_fadeOutLeftBigAnimationWithDurationTime:
+- ytx_fadeOutRightAnimationWithDurationTime:
+- ytx_fadeOutRightBigAnimationWithDurationTime:
+- ytx_fadeOutUpAnimationWithDurationTime:
+- ytx_fadeOutUpBigAnimationWithDurationTime:
 
 ### Zoom Exits
-- ytx_zoomOutAnimtionWithDurationTime:
-- ytx_zoomOutDownAnimtionWithDurationTime:
-- ytx_zoomOutLeftAnimtionWithDurationTime:
-- ytx_zoomOutRightAnimtionWithDurationTime:
-- ytx_zoomOutUpAnimtionWithDurationTime:
+- ytx_zoomOutAnimationWithDurationTime:
+- ytx_zoomOutDownAnimationWithDurationTime:
+- ytx_zoomOutLeftAnimationWithDurationTime:
+- ytx_zoomOutRightAnimationWithDurationTime:
+- ytx_zoomOutUpAnimationWithDurationTime:
 
 ### Flippers
-- ytx_flipAnimtionWithDurationTime:
-- ytx_flipInXAnimtionWithDurationTime:
-- ytx_flipInYAnimtionWithDurationTime:
-- ytx_flipOutXAnimtionWithDurationTime:
-- ytx_flipOutYAnimtionWithDurationTime:
+- ytx_flipAnimationWithDurationTime:
+- ytx_flipInXAnimationWithDurationTime:
+- ytx_flipInYAnimationWithDurationTime:
+- ytx_flipOutXAnimationWithDurationTime:
+- ytx_flipOutYAnimationWithDurationTime:
 
 ### LightSpeed
-- ytx_lightSpeedInAnimtionWithDurationTime:
-- ytx_lightSpeedOutAnimtionWithDurationTime:
+- ytx_lightSpeedInAnimationWithDurationTime:
+- ytx_lightSpeedOutAnimationWithDurationTime:
 
 ### Special
-- ytx_hingeAnimtionWithDurationTime:
+- ytx_hingeAnimationWithDurationTime:
 - ytx_rollInAnimationWithDurationTime:
 - ytx_rollOutAnimationWithDurationTime:
 
 ### Zoom Entrances
-- ytx_zoomInAnimtionWithDurationTime:
-- ytx_zoomInLeftAnimtionWithDurationTime:
-- ytx_zoomInRightAnimtionWithDurationTime:
-- ytx_zoomInDownAnimtionWithDurationTime:
-- ytx_zoomInUpAnimtionWithDurationTime:
+- ytx_zoomInAnimationWithDurationTime:
+- ytx_zoomInLeftAnimationWithDurationTime:
+- ytx_zoomInRightAnimationWithDurationTime:
+- ytx_zoomInDownAnimationWithDurationTime:
+- ytx_zoomInUpAnimationWithDurationTime:
 
 
 ### Slide Exits
-- ytx_slideOutDownAnimtionWithDurationTime:
-- ytx_slideOutLeftAnimtionWithDurationTime:
-- ytx_slideOutRightAnimtionWithDurationTime:
-- ytx_slideOutUpAnimtionWithDurationTime:
+- ytx_slideOutDownAnimationWithDurationTime:
+- ytx_slideOutLeftAnimationWithDurationTime:
+- ytx_slideOutRightAnimationWithDurationTime:
+- ytx_slideOutUpAnimationWithDurationTime:
 
 ### Slide Entrances
-- ytx_slideInDownAnimtionWithDurationTime:
-- ytx_slideInLeftAnimtionWithDurationTime:
-- ytx_slideInRightAnimtionWithDurationTime:
-- ytx_slideInUpAnimtionWithDurationTime:
+- ytx_slideInDownAnimationWithDurationTime:
+- ytx_slideInLeftAnimationWithDurationTime:
+- ytx_slideInRightAnimationWithDurationTime:
+- ytx_slideInUpAnimationWithDurationTime:
 
 ### Rotating Entrances
-- ytx_rotateInDownLeftAnimtionWithDurationTime:
-- ytx_rotateInAnimtionWithDurationTime:
-- ytx_rotateInDownRightAnimtionWithDurationTime:
-- ytx_rotateInUpRightAnimtionWithDurationTime:
-- ytx_rotateInUpLeftAnimtionWithDurationTime:
+- ytx_rotateInDownLeftAnimationWithDurationTime:
+- ytx_rotateInAnimationWithDurationTime:
+- ytx_rotateInDownRightAnimationWithDurationTime:
+- ytx_rotateInUpRightAnimationWithDurationTime:
+- ytx_rotateInUpLeftAnimationWithDurationTime:
 
 ### Rotating Exits
-- ytx_rotateOutDownLeftAnimtionWithDurationTime:
-- ytx_rotateOutAnimtionWithDurationTime:
-- ytx_rotateOutDownRightAnimtionWithDurationTime:
-- ytx_rotateOutUpRightAnimtionWithDurationTime:
-- ytx_rotateOutUpLeftAnimtionWithDurationTime:
+- ytx_rotateOutDownLeftAnimationWithDurationTime:
+- ytx_rotateOutAnimationWithDurationTime:
+- ytx_rotateOutDownRightAnimationWithDurationTime:
+- ytx_rotateOutUpRightAnimationWithDurationTime:
+- ytx_rotateOutUpLeftAnimationWithDurationTime:
 
 ## List of CSShake
-- ytx_basicShakeAnimtion
-- ytx_littleShakeAnimtion
-- ytx_slowShakeAnimtion
-- ytx_hardShakeAnimtion
-- ytx_horizontalShakeAnimtion
-- ytx_verticalShakeAnimtion
-- ytx_rotateShakeAnimtion
-- ytx_opacityShakeAnimtion
-- ytx_crazyShakeAnimtion
+- ytx_basicShakeAnimation
+- ytx_littleShakeAnimation
+- ytx_slowShakeAnimation
+- ytx_hardShakeAnimation
+- ytx_horizontalShakeAnimation
+- ytx_verticalShakeAnimation
+- ytx_rotateShakeAnimation
+- ytx_opacityShakeAnimation
+- ytx_crazyShakeAnimation
 
 ## List of Magic.CSS
 ### Magic Effects
-- ytx_magicAnimtionWithDurationTime:
-- ytx_twisterInDownAnimtionWithDurationTime:
-- ytx_twisterInUpAnimtionWithDurationTime:
-- ytx_swapAnimtionWithDurationTime:
+- ytx_magicAnimationWithDurationTime:
+- ytx_twisterInDownAnimationWithDurationTime:
+- ytx_twisterInUpAnimationWithDurationTime:
+- ytx_swapAnimationWithDurationTime:
 
 ### Static Effects
-- ytx_openDownLeftAnimtionWithDurationTime:
-- ytx_openDownRightAnimtionWithDurationTime:
-- ytx_openUpLeftAnimtionWithDurationTime:
-- ytx_openUpRightAnimtionWithDurationTime:
-- ytx_openDownLeftRetournAnimtionWithDurationTime:
-- ytx_openDownRightRetournAnimtionWithDurationTime:
-- ytx_openUpLeftRetournAnimtionWithDurationTime:
-- ytx_openUpRightRetournAnimtionWithDurationTime:
+- ytx_openDownLeftAnimationWithDurationTime:
+- ytx_openDownRightAnimationWithDurationTime:
+- ytx_openUpLeftAnimationWithDurationTime:
+- ytx_openUpRightAnimationWithDurationTime:
+- ytx_openDownLeftRetournAnimationWithDurationTime:
+- ytx_openDownRightRetournAnimationWithDurationTime:
+- ytx_openUpLeftRetournAnimationWithDurationTime:
+- ytx_openUpRightRetournAnimationWithDurationTime:
 
 ### Static Effects Out
-- ytx_openDownLeftOutAnimtionWithDurationTime:
-- ytx_openDownRightOutAnimtionWithDurationTime:
-- ytx_openUpLeftOutAnimtionWithDurationTime:
-- ytx_openUpRightOutAnimtionWithDurationTime:
+- ytx_openDownLeftOutAnimationWithDurationTime:
+- ytx_openDownRightOutAnimationWithDurationTime:
+- ytx_openUpLeftOutAnimationWithDurationTime:
+- ytx_openUpRightOutAnimationWithDurationTime:
 
 ### Perspective Effects
-- ytx_perspectiveDownAnimtionWithDurationTime:
-- ytx_perspectiveUpAnimtionWithDurationTime:
-- ytx_perspectiveLeftAnimtionWithDurationTime:
-- ytx_perspectiveRightAnimtionWithDurationTime:
-- ytx_perspectiveUpRetournAnimtionWithDurationTime:
-- ytx_perspectiveDownRetournAnimtionWithDurationTime:
-- ytx_perspectiveLeftRetournAnimtionWithDurationTime:
-- ytx_perspectiveRightRetournAnimtionWithDurationTime:
+- ytx_perspectiveDownAnimationWithDurationTime:
+- ytx_perspectiveUpAnimationWithDurationTime:
+- ytx_perspectiveLeftAnimationWithDurationTime:
+- ytx_perspectiveRightAnimationWithDurationTime:
+- ytx_perspectiveUpRetournAnimationWithDurationTime:
+- ytx_perspectiveDownRetournAnimationWithDurationTime:
+- ytx_perspectiveLeftRetournAnimationWithDurationTime:
+- ytx_perspectiveRightRetournAnimationWithDurationTime:
 
 ### Rotate
-- ytx_rotateDownAnimtionWithDurationTime:
-- ytx_rotateUpAnimtionWithDurationTime:
-- ytx_rotateLeftAnimtionWithDurationTime:
-- ytx_rotateRightAnimtionWithDurationTime:
+- ytx_rotateDownAnimationWithDurationTime:
+- ytx_rotateUpAnimationWithDurationTime:
+- ytx_rotateLeftAnimationWithDurationTime:
+- ytx_rotateRightAnimationWithDurationTime:
 
 ### Slide
-- ytx_slideDownAnimtionWithDurationTime:
-- ytx_slideLeftAnimtionWithDurationTime:
-- ytx_slideRightAnimtionWithDurationTime:
-- ytx_slideUpAnimtionWithDurationTime:
-- ytx_slideDownRetournAnimtionWithDurationTime:
-- ytx_slideLeftRetournAnimtionWithDurationTime:
-- ytx_slideRightRetournAnimtionWithDurationTime:
-- ytx_slideUpRetournAnimtionWithDurationTime:
+- ytx_slideDownAnimationWithDurationTime:
+- ytx_slideLeftAnimationWithDurationTime:
+- ytx_slideRightAnimationWithDurationTime:
+- ytx_slideUpAnimationWithDurationTime:
+- ytx_slideDownRetournAnimationWithDurationTime:
+- ytx_slideLeftRetournAnimationWithDurationTime:
+- ytx_slideRightRetournAnimationWithDurationTime:
+- ytx_slideUpRetournAnimationWithDurationTime:
 
 ### Math
-- ytx_swashOutAnimtionWithDurationTime:
-- ytx_swashInAnimtionWithDurationTime:
-- ytx_foolishOutAnimtionWithDurationTime:
-- ytx_foolishInAnimtionWithDurationTime:
-- ytx_holeOutAnimtionWithDurationTime:
+- ytx_swashOutAnimationWithDurationTime:
+- ytx_swashInAnimationWithDurationTime:
+- ytx_foolishOutAnimationWithDurationTime:
+- ytx_foolishInAnimationWithDurationTime:
+- ytx_holeOutAnimationWithDurationTime:
 
 ### Tin
-- ytx_tinDownInAnimtionWithDurationTime:
-- ytx_tinLeftInAnimtionWithDurationTime:
-- ytx_tinRightInAnimtionWithDurationTime:
-- ytx_tinUpInAnimtionWithDurationTime:
-- ytx_tinDownOutAnimtionWithDurationTime:
-- ytx_tinLeftOutAnimtionWithDurationTime:
-- ytx_tinRightOutAnimtionWithDurationTime:
-- ytx_tinUpOutAnimtionWithDurationTime:
+- ytx_tinDownInAnimationWithDurationTime:
+- ytx_tinLeftInAnimationWithDurationTime:
+- ytx_tinRightInAnimationWithDurationTime:
+- ytx_tinUpInAnimationWithDurationTime:
+- ytx_tinDownOutAnimationWithDurationTime:
+- ytx_tinLeftOutAnimationWithDurationTime:
+- ytx_tinRightOutAnimationWithDurationTime:
+- ytx_tinUpOutAnimationWithDurationTime:
 
 ### Boing
-- ytx_boingInUpAnimtionWithDurationTime:
-- ytx_boingOutDownAnimtionWithDurationTime:
+- ytx_boingInUpAnimationWithDurationTime:
+- ytx_boingOutDownAnimationWithDurationTime:
 
 ### On The Space
-- ytx_spaceOutUpAnimtionWithDurationTime:
-- ytx_spaceOutRightAnimtionWithDurationTime:
-- ytx_spaceOutDownAnimtionWithDurationTime:
-- ytx_spaceOutLeftAnimtionWithDurationTime:
-- ytx_spaceInUpAnimtionWithDurationTime:
-- ytx_spaceInRightAnimtionWithDurationTime:
-- ytx_spaceInDownAnimtionWithDurationTime:
-- ytx_spaceInLeftAnimtionWithDurationTime:
+- ytx_spaceOutUpAnimationWithDurationTime:
+- ytx_spaceOutRightAnimationWithDurationTime:
+- ytx_spaceOutDownAnimationWithDurationTime:
+- ytx_spaceOutLeftAnimationWithDurationTime:
+- ytx_spaceInUpAnimationWithDurationTime:
+- ytx_spaceInRightAnimationWithDurationTime:
+- ytx_spaceInDownAnimationWithDurationTime:
+- ytx_spaceInLeftAnimationWithDurationTime:

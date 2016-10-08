@@ -17,7 +17,7 @@
 
 @implementation UIView (YTXCSShake)
 
-- (nonnull CAAnimation *)ytx_basicShakeAnimtion
+- (nonnull CAAnimation *)ytx_basicShakeAnimation
 {
     NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
@@ -75,10 +75,10 @@
                                                         @[@(0)    , @(0)    , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimationWithKeyTimes:keyTimes transformArray:transformArray];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_basicShakeAnimtion"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_basicShakeAnimation"];
     });
     
     shackAnimation.duration = 0.1;
@@ -86,7 +86,7 @@
     return shackAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_littleShakeAnimtion
+- (nonnull CAAnimation *)ytx_littleShakeAnimation
 {
     NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
@@ -144,10 +144,10 @@
                                                         @[@(0), @(0) , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimationWithKeyTimes:keyTimes transformArray:transformArray];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_littleShakeAnimtion"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_littleShakeAnimation"];
     });
     
     shackAnimation.duration = 0.1;
@@ -155,7 +155,7 @@
     return shackAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_slowShakeAnimtion
+- (nonnull CAAnimation *)ytx_slowShakeAnimation
 {
     NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
@@ -213,10 +213,10 @@
                                                         @[@(0), @(0) , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimationWithKeyTimes:keyTimes transformArray:transformArray];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_slowShakeAnimtion"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_slowShakeAnimation"];
     });
     
     shackAnimation.duration = 5.0;
@@ -225,7 +225,7 @@
     return shackAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_hardShakeAnimtion
+- (nonnull CAAnimation *)ytx_hardShakeAnimation
 {
     NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
@@ -283,10 +283,10 @@
                                                         @[@(0), @(0) , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimationWithKeyTimes:keyTimes transformArray:transformArray];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_hardShakeAnimtion"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_hardShakeAnimation"];
     });
     
     shackAnimation.duration = 0.1;
@@ -294,7 +294,7 @@
     return shackAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_horizontalShakeAnimtion
+- (nonnull CAAnimation *)ytx_horizontalShakeAnimation
 {
     NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
@@ -352,10 +352,10 @@
                                                         @[@(0), @(0) , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimationWithKeyTimes:keyTimes transformArray:transformArray];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_horizontalShakeAnimtion"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_horizontalShakeAnimation"];
     });
     
     shackAnimation.duration = 0.1;
@@ -363,7 +363,7 @@
     return shackAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_verticalShakeAnimtion
+- (nonnull CAAnimation *)ytx_verticalShakeAnimation
 {
     NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
@@ -421,10 +421,10 @@
                                                         @[@(0), @(0) , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimationWithKeyTimes:keyTimes transformArray:transformArray];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_verticalShakeAnimtion"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_verticalShakeAnimation"];
     });
     
     shackAnimation.duration = 0.1;
@@ -432,7 +432,7 @@
     return shackAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_rotateShakeAnimtion
+- (nonnull CAAnimation *)ytx_rotateShakeAnimation
 {
     NSArray<NSNumber *> * keyTimes = YTXSHAREKEYTIMES1;
     //translate(x, y) rotate(deg)
@@ -490,10 +490,10 @@
                                                         @[@(0), @(0) , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimationWithKeyTimes:keyTimes transformArray:transformArray];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:shackAnimation forKey:@"ytx_rotateShakeAnimtion"];
+        [self.layer addAnimation:shackAnimation forKey:@"ytx_rotateShakeAnimation"];
     });
     
     shackAnimation.duration = 0.1;
@@ -501,7 +501,7 @@
     return shackAnimation;
 }
 
-- (nonnull CAAnimation *)ytx_opacityShakeAnimtion
+- (nonnull CAAnimation *)ytx_opacityShakeAnimation
 {
     CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
     opacityAnimation.values = @[
@@ -532,13 +532,13 @@
                                                         @[@(0), @(0) , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:YTXSHAREKEYTIMES2 transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimationWithKeyTimes:YTXSHAREKEYTIMES2 transformArray:transformArray];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[opacityAnimation, shackAnimation]];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_opacityShakeAnimtion"];
+        [self.layer addAnimation:group forKey:@"ytx_opacityShakeAnimation"];
     });
     
     group.duration = 0.5;
@@ -546,7 +546,7 @@
     return group;
 }
 
-- (nonnull CAAnimation *)ytx_crazyShakeAnimtion
+- (nonnull CAAnimation *)ytx_crazyShakeAnimation
 {
     CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
     opacityAnimation.values = @[
@@ -578,13 +578,13 @@
                                                         @[@(0), @(0) , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:YTXSHAREKEYTIMES2 transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimationWithKeyTimes:YTXSHAREKEYTIMES2 transformArray:transformArray];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     [group setAnimations:@[opacityAnimation, shackAnimation]];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.layer addAnimation:group forKey:@"ytx_crazyShakeAnimtion"];
+        [self.layer addAnimation:group forKey:@"ytx_crazyShakeAnimation"];
     });
     
     group.duration = 0.1;
@@ -621,7 +621,7 @@
                                                         @[@(0), @(0) , @(0)]
                                                         ];
     
-    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimtionWithKeyTimes:keyTimes transformArray:transformArray];
+    CAKeyframeAnimation *shackAnimation = [self ytx_CSShakeAnimationWithKeyTimes:keyTimes transformArray:transformArray];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.layer addAnimation:shackAnimation forKey:@"ytx_chunkShakeAnimation"];
@@ -633,7 +633,7 @@
 }
 
 
-- (nonnull CAKeyframeAnimation *)ytx_CSShakeAnimtionWithKeyTimes:(nonnull NSArray<NSNumber *> *) keyTimes transformArray:(nonnull NSArray<NSArray<NSNumber *> *> *) transformArray
+- (nonnull CAKeyframeAnimation *)ytx_CSShakeAnimationWithKeyTimes:(nonnull NSArray<NSNumber *> *) keyTimes transformArray:(nonnull NSArray<NSArray<NSNumber *> *> *) transformArray
 {
 
     CAKeyframeAnimation *shackAnimation = [CAKeyframeAnimation  animationWithKeyPath:YTXTRANSFORM];

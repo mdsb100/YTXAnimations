@@ -11,55 +11,55 @@
 				<key>name</key>
 				<string>Basic Shake</string>
 				<key>function</key>
-				<string>ytx_basicShakeAnimtion</string>
+				<string>ytx_basicShakeAnimation</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Little Shake</string>
 				<key>function</key>
-				<string>ytx_littleShakeAnimtion</string>
+				<string>ytx_littleShakeAnimation</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Slow Shake</string>
 				<key>function</key>
-				<string>ytx_slowShakeAnimtion</string>
+				<string>ytx_slowShakeAnimation</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Hard Shake</string>
 				<key>function</key>
-				<string>ytx_hardShakeAnimtion</string>
+				<string>ytx_hardShakeAnimation</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Horizontal Shake</string>
 				<key>function</key>
-				<string>ytx_horizontalShakeAnimtion</string>
+				<string>ytx_horizontalShakeAnimation</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Vertical Shake</string>
 				<key>function</key>
-				<string>ytx_verticalShakeAnimtion</string>
+				<string>ytx_verticalShakeAnimation</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Rotate Shake</string>
 				<key>function</key>
-				<string>ytx_rotateShakeAnimtion</string>
+				<string>ytx_rotateShakeAnimation</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Opacity Shake</string>
 				<key>function</key>
-				<string>ytx_opacityShakeAnimtion</string>
+				<string>ytx_opacityShakeAnimation</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Crazy Shake</string>
 				<key>function</key>
-				<string>ytx_crazyShakeAnimtion</string>
+				<string>ytx_crazyShakeAnimation</string>
 			</dict>
 		</array>
 	</dict>
