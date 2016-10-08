@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <UIKit/UIKit.h>
 
 // 转化为NSValue
 #define YTXSCALEVALUE(x,y,z)                    [NSValue valueWithCATransform3D:CATransform3DScale(CATransform3DIdentity, (x), (y), (z))]
