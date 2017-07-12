@@ -13,6 +13,8 @@
 
 @property (nonnull, nonatomic, strong) UIColor * countDownColor;
 @property (assign, nonatomic) BOOL clockwise;
+@property (copy, nonnull, nonatomic) NSNumber * innerRadius; /**<default is width/2.f*/
+@property (copy, nonnull, nonatomic) NSNumber * outerRadius; /**<default is width/2.f*/
 
 - (nonnull CAKeyframeAnimation *)countDownAnimationWithDurationTime:(CFTimeInterval)durationTime;
 
